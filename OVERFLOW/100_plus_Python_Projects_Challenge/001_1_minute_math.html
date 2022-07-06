@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>001_1_minute_math</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="minute-math">1 minute math</h1>
+<h2 id="requirements">Requirements</h2>
+<ol type="1">
+<li>Run the code in console using command line.</li>
+<li>It’ll run for 1 minute.</li>
+<li>For every time it’ll show 2 random numbers and random arithmetic operations such as add, subtract, multiply and divide. If the operation is divide then the divisor can not be 0.</li>
+<li>It’ll judge if your answer is correct or not, then show next question.</li>
+<li>When time is up it’ll show how many questions you answered and show the correct rate for total questions.</li>
+</ol>
+<h2 id="what-will-we-practice-in-this-project">What will we practice in this project?</h2>
+<ul>
+<li>format print</li>
+<li>while loop</li>
+<li>if condition</li>
+<li>list</li>
+<li>exception handle</li>
+<li>function</li>
+<li>time package</li>
+<li>random package</li>
+</ul>
+<h2 id="a-reference-code">A reference code</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="im">import</span> time</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="im">import</span> random</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">def</span> get_divisor(n):</a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="co">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">    Get a random divisor of n.</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">    :param n: The number</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">    :return: a divisor of n</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">    &#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    l <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb1-12" title="12">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb1-13" title="13">        <span class="cf">if</span> n <span class="op">%</span> i <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-14" title="14">            l.append(i)</a>
+<a class="sourceLine" id="cb1-15" title="15">    <span class="cf">return</span> random.choice(l)</a>
+<a class="sourceLine" id="cb1-16" title="16"></a>
+<a class="sourceLine" id="cb1-17" title="17"></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span><span class="st">&#39;__main__&#39;</span>:</a>
+<a class="sourceLine" id="cb1-19" title="19">    ops <span class="op">=</span> [<span class="st">&#39;+&#39;</span>, <span class="st">&#39;-&#39;</span>, <span class="st">&#39;*&#39;</span>, <span class="st">&#39;/&#39;</span>]</a>
+<a class="sourceLine" id="cb1-20" title="20">    start_time <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb1-21" title="21">    total <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-22" title="22">    correct <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-23" title="23">    questions <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb1-24" title="24">    <span class="co"># while seconds is less than 60</span></a>
+<a class="sourceLine" id="cb1-25" title="25">    <span class="cf">while</span> time.time() <span class="op">-</span> start_time <span class="op">&lt;=</span> <span class="dv">60</span>:</a>
+<a class="sourceLine" id="cb1-26" title="26">        a <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">99</span>)</a>
+<a class="sourceLine" id="cb1-27" title="27">        op <span class="op">=</span> random.choice(ops)</a>
+<a class="sourceLine" id="cb1-28" title="28">        <span class="cf">if</span> op <span class="op">==</span> <span class="st">&#39;/&#39;</span>:</a>
+<a class="sourceLine" id="cb1-29" title="29">            <span class="co"># if op is &#39;/&#39; then b is a divisor of a</span></a>
+<a class="sourceLine" id="cb1-30" title="30">            b <span class="op">=</span> get_divisor(a)</a>
+<a class="sourceLine" id="cb1-31" title="31">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-32" title="32">            b <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">99</span>)</a>
+<a class="sourceLine" id="cb1-33" title="33">        <span class="co"># Get the correct answer</span></a>
+<a class="sourceLine" id="cb1-34" title="34">        a_op_b <span class="op">=</span> <span class="st">&#39;</span><span class="sc">{}{}{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(a, op, b)</a>
+<a class="sourceLine" id="cb1-35" title="35">        c <span class="op">=</span> <span class="bu">int</span>(<span class="bu">eval</span>(a_op_b))</a>
+<a class="sourceLine" id="cb1-36" title="36"></a>
+<a class="sourceLine" id="cb1-37" title="37">        <span class="co"># Let user input answer</span></a>
+<a class="sourceLine" id="cb1-38" title="38">        <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb1-39" title="39">            ans <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&#39;</span><span class="sc">{}</span><span class="st"> = &#39;</span>.<span class="bu">format</span>(a_op_b)))</a>
+<a class="sourceLine" id="cb1-40" title="40">        <span class="cf">except</span>:</a>
+<a class="sourceLine" id="cb1-41" title="41">            ans <span class="op">=</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb1-42" title="42"></a>
+<a class="sourceLine" id="cb1-43" title="43">        <span class="co"># To check if correct or not</span></a>
+<a class="sourceLine" id="cb1-44" title="44">        <span class="cf">if</span> time.time() <span class="op">-</span> start_time <span class="op">&lt;=</span> <span class="dv">60</span>:</a>
+<a class="sourceLine" id="cb1-45" title="45">            <span class="cf">if</span> c <span class="op">==</span> ans:</a>
+<a class="sourceLine" id="cb1-46" title="46">                <span class="bu">print</span>(<span class="st">&#39;Correct! Time remain </span><span class="sc">{}</span><span class="st"> seconds.&#39;</span>.<span class="bu">format</span>(<span class="bu">int</span>(<span class="dv">60</span> <span class="op">-</span> (time.time() <span class="op">-</span> start_time))))</a>
+<a class="sourceLine" id="cb1-47" title="47">                correct <span class="op">=</span> correct <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-48" title="48">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-49" title="49">                <span class="bu">print</span>(<span class="st">&#39;Wrong answer! Time remain </span><span class="sc">{}</span><span class="st"> seconds.&#39;</span>.<span class="bu">format</span>(<span class="bu">int</span>(<span class="dv">60</span> <span class="op">-</span> (time.time() <span class="op">-</span> start_time))))</a>
+<a class="sourceLine" id="cb1-50" title="50">            total <span class="op">=</span> total <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-51" title="51">            questions.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">=</span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(a_op_b, ans))</a>
+<a class="sourceLine" id="cb1-52" title="52"></a>
+<a class="sourceLine" id="cb1-53" title="53">    <span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{}</span><span class="st"> questions and your correct rate is </span><span class="sc">{:.2f}</span><span class="st">%&#39;</span>.<span class="bu">format</span>(total, correct <span class="op">/</span> total <span class="op">*</span> <span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb1-54" title="54">    <span class="cf">for</span> q <span class="kw">in</span> questions:</a>
+<a class="sourceLine" id="cb1-55" title="55">        <span class="bu">print</span>(q)</a></code></pre></div>
+<h2 id="run-the-demo">Run the demo</h2>
+<p>Please save the Python as 1.py and run it in console：</p>
+<pre><code>python 1.py</code></pre>
+<figure>
+<img src="images/challenge1_1.png" alt="Chanllenge 1" /><figcaption>Chanllenge 1</figcaption>
+</figure>
+<hr />
+<h1 id="分钟数学运算">1 分钟数学运算</h1>
+<h2 id="项目需求">项目需求</h2>
+<ul>
+<li>直接在控制台使用命令行运行</li>
+<li>程序运行之后倒计时 1 分钟之后结束</li>
+<li>随机出 100 以内的 2 个整数加减乘除运算题目（除法确保能够除尽，但除数不能为 0）</li>
+<li>每出一道题目，由玩家给出答案，然后程序判断对错，接着出下一题，并且显示剩余时间</li>
+<li>1 分钟时间结束，显示总题数和正确率（正确率精确到小数点后 2 位），并将之前的题目和答案显示出来</li>
+</ul>
+<h2 id="项目练习">项目练习</h2>
+<ul>
+<li>格式化字符串输出</li>
+<li>循环</li>
+<li>条件判断</li>
+<li>列表</li>
+<li>异常处理</li>
+<li>自定义函数</li>
+<li>时间工具包</li>
+<li>随机工具包</li>
+</ul>
+<h2 id="项目参考代码">项目参考代码</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="im">import</span> time</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="im">import</span> random</a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">def</span> get_divisor(n):</a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="co">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co">    随机获得一个数n的整数除数。</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">    :param n: 一个整数</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co">    :return: 一个数n的整数除数</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co">    &#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb3-11" title="11">    l <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb3-12" title="12">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb3-13" title="13">        <span class="cf">if</span> n <span class="op">%</span> i <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb3-14" title="14">            l.append(i)</a>
+<a class="sourceLine" id="cb3-15" title="15">    <span class="cf">return</span> random.choice(l)</a>
+<a class="sourceLine" id="cb3-16" title="16"></a>
+<a class="sourceLine" id="cb3-17" title="17"></a>
+<a class="sourceLine" id="cb3-18" title="18"><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span><span class="st">&#39;__main__&#39;</span>:</a>
+<a class="sourceLine" id="cb3-19" title="19">    ops <span class="op">=</span> [<span class="st">&#39;+&#39;</span>, <span class="st">&#39;-&#39;</span>, <span class="st">&#39;*&#39;</span>, <span class="st">&#39;/&#39;</span>]</a>
+<a class="sourceLine" id="cb3-20" title="20">    start_time <span class="op">=</span> time.time()</a>
+<a class="sourceLine" id="cb3-21" title="21">    total <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-22" title="22">    correct <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-23" title="23">    questions <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb3-24" title="24">    <span class="cf">while</span> time.time() <span class="op">-</span> start_time <span class="op">&lt;=</span> <span class="dv">60</span>:</a>
+<a class="sourceLine" id="cb3-25" title="25">        a <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">99</span>)</a>
+<a class="sourceLine" id="cb3-26" title="26">        op <span class="op">=</span> random.choice(ops)</a>
+<a class="sourceLine" id="cb3-27" title="27">        <span class="cf">if</span> op <span class="op">==</span> <span class="st">&#39;/&#39;</span>:</a>
+<a class="sourceLine" id="cb3-28" title="28">            <span class="co"># 如果是除法，b为a的一个随机整数除数</span></a>
+<a class="sourceLine" id="cb3-29" title="29">            b <span class="op">=</span> get_divisor(a)</a>
+<a class="sourceLine" id="cb3-30" title="30">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb3-31" title="31">            b <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">99</span>)</a>
+<a class="sourceLine" id="cb3-32" title="32">        <span class="co"># 正确答案</span></a>
+<a class="sourceLine" id="cb3-33" title="33">        a_op_b <span class="op">=</span> <span class="st">&#39;</span><span class="sc">{}{}{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(a, op, b)</a>
+<a class="sourceLine" id="cb3-34" title="34">        c <span class="op">=</span> <span class="bu">int</span>(<span class="bu">eval</span>(a_op_b))</a>
+<a class="sourceLine" id="cb3-35" title="35"></a>
+<a class="sourceLine" id="cb3-36" title="36">        <span class="co"># 让用户输入答案</span></a>
+<a class="sourceLine" id="cb3-37" title="37">        <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb3-38" title="38">            ans <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&#39;</span><span class="sc">{}</span><span class="st"> = &#39;</span>.<span class="bu">format</span>(a_op_b)))</a>
+<a class="sourceLine" id="cb3-39" title="39">        <span class="cf">except</span>:</a>
+<a class="sourceLine" id="cb3-40" title="40">            ans <span class="op">=</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb3-41" title="41"></a>
+<a class="sourceLine" id="cb3-42" title="42">        <span class="co"># 检查是否正确</span></a>
+<a class="sourceLine" id="cb3-43" title="43">        <span class="cf">if</span> time.time() <span class="op">-</span> start_time <span class="op">&lt;=</span> <span class="dv">60</span>:</a>
+<a class="sourceLine" id="cb3-44" title="44">            <span class="cf">if</span> c <span class="op">==</span> ans:</a>
+<a class="sourceLine" id="cb3-45" title="45">                <span class="bu">print</span>(<span class="st">&#39;正确！剩余时间</span><span class="sc">{}</span><span class="st">秒。&#39;</span>.<span class="bu">format</span>(<span class="bu">int</span>(<span class="dv">60</span> <span class="op">-</span> (time.time() <span class="op">-</span> start_time))))</a>
+<a class="sourceLine" id="cb3-46" title="46">                correct <span class="op">=</span> correct <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-47" title="47">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb3-48" title="48">                <span class="bu">print</span>(<span class="st">&#39;错误！剩余时间</span><span class="sc">{}</span><span class="st">秒。&#39;</span>.<span class="bu">format</span>(<span class="bu">int</span>(<span class="dv">60</span> <span class="op">-</span> (time.time() <span class="op">-</span> start_time))))</a>
+<a class="sourceLine" id="cb3-49" title="49">            total <span class="op">=</span> total <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-50" title="50">            questions.append(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">=</span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(a_op_b, ans))</a>
+<a class="sourceLine" id="cb3-51" title="51"></a>
+<a class="sourceLine" id="cb3-52" title="52">    <span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">道题目，正确率 </span><span class="sc">{:.2f}</span><span class="st">%。&#39;</span>.<span class="bu">format</span>(total, correct <span class="op">/</span> total <span class="op">*</span> <span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb3-53" title="53">    <span class="cf">for</span> q <span class="kw">in</span> questions:</a>
+<a class="sourceLine" id="cb3-54" title="54">        <span class="bu">print</span>(q)</a></code></pre></div>
+<h2 id="测试运行">测试运行</h2>
+<p>将代码保存为 1.py，然后在控制台运行：</p>
+<pre><code>python 1.py</code></pre>
+<figure>
+<img src="images/challenge1_1.png" alt="挑战1" /><figcaption>挑战1</figcaption>
+</figure>
+</body>
+</html>

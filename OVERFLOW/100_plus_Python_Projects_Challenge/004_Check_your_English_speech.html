@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>004_Check_your_English_speech</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="check-your-english-speech">Check your English speech</h1>
+<h2 id="requirements">Requirements</h2>
+<ol type="1">
+<li>Run the code in console using command line.</li>
+<li>It’ll let you input a English word or sentence, then it’ll let you speak it.</li>
+<li>It’ll record your voice using mic and check if you speak correctly. If not it’ll ask you speak it again until you speak it correctly.</li>
+</ol>
+<h2 id="what-will-we-practice-in-this-project">What will we practice in this project?</h2>
+<ul>
+<li>for loop</li>
+<li>input text</li>
+<li>Text lower case</li>
+<li>if conditions</li>
+<li>functions</li>
+<li>exception handle</li>
+<li>SpeechRecognition package (need to install by <code>pip install SpeechRecognition</code>) it support these speech recognitions:
+<ul>
+<li><code>recognize_bing()</code>: <a href="https://azure.microsoft.com/en-us/services/cognitive-services/speech/">Microsoft Bing Speech</a></li>
+<li><code>recognize_google()</code>: <a href="https://w3c.github.io/speech-api/speechapi.html">Google Web Speech API</a></li>
+<li><code>recognize_google_cloud()</code>: <a href="https://cloud.google.com/speech/">Google Cloud Speech</a> - requires installation of the google-cloud-speech package</li>
+<li><code>recognize_houndify()</code>: <a href="https://www.houndify.com/">Houndify</a> by SoundHound</li>
+<li><code>recognize_ibm()</code>: <a href="https://www.ibm.com/watson/services/speech-to-text/">IBM Speech to Text</a></li>
+<li><code>recognize_sphinx()</code>: <a href="https://cmusphinx.github.io/">CMU Sphinx</a> - requires installing PocketSphinx</li>
+<li><code>recognize_wit()</code>: <a href="https://wit.ai/">Wit.ai</a></li>
+</ul></li>
+<li>pyaudio package (need to install by <code>pip install pyaudio</code>)</li>
+</ul>
+<h2 id="a-reference-code">A reference code</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="im">import</span> speech_recognition <span class="im">as</span> sr</a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">def</span> recognize_speech_from_mic(recognizer, microphone):</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="co">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">    Transcribe speech from recorded from `microphone`.</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">    :param recognizer:</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">    :param microphone:</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">    :return: `None` if speech could not be transcribed, otherwise a string containing the transcribed text</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">    &#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="bu">print</span>(<span class="st">&#39;Please read the English sentence&#39;</span>)</a>
+<a class="sourceLine" id="cb1-12" title="12">    <span class="co"># adjust the recognizer sensitivity to ambient noise and record audio</span></a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="co"># from the microphone</span></a>
+<a class="sourceLine" id="cb1-14" title="14">    <span class="cf">with</span> microphone <span class="im">as</span> source:</a>
+<a class="sourceLine" id="cb1-15" title="15">        recognizer.adjust_for_ambient_noise(source)</a>
+<a class="sourceLine" id="cb1-16" title="16">        audio <span class="op">=</span> recognizer.listen(source)</a>
+<a class="sourceLine" id="cb1-17" title="17"></a>
+<a class="sourceLine" id="cb1-18" title="18">    <span class="co"># try recognizing the speech in the recording</span></a>
+<a class="sourceLine" id="cb1-19" title="19">    <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb1-20" title="20">        text <span class="op">=</span> recognizer.recognize_google(audio)</a>
+<a class="sourceLine" id="cb1-21" title="21">    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</a>
+<a class="sourceLine" id="cb1-22" title="22">        <span class="bu">print</span>(e)</a>
+<a class="sourceLine" id="cb1-23" title="23">        text <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-24" title="24"></a>
+<a class="sourceLine" id="cb1-25" title="25">    <span class="cf">return</span> text</a>
+<a class="sourceLine" id="cb1-26" title="26"></a>
+<a class="sourceLine" id="cb1-27" title="27"></a>
+<a class="sourceLine" id="cb1-28" title="28"><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</a>
+<a class="sourceLine" id="cb1-29" title="29">    <span class="co"># input a English word or sentence</span></a>
+<a class="sourceLine" id="cb1-30" title="30">    text <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Please input a English word or sentence: &#39;</span>).strip()</a>
+<a class="sourceLine" id="cb1-31" title="31"></a>
+<a class="sourceLine" id="cb1-32" title="32">    <span class="co"># create recognizer and mic instances</span></a>
+<a class="sourceLine" id="cb1-33" title="33">    recognizer <span class="op">=</span> sr.Recognizer()</a>
+<a class="sourceLine" id="cb1-34" title="34">    microphone <span class="op">=</span> sr.Microphone()</a>
+<a class="sourceLine" id="cb1-35" title="35"></a>
+<a class="sourceLine" id="cb1-36" title="36">    <span class="co"># get your speech text</span></a>
+<a class="sourceLine" id="cb1-37" title="37">    speech_text <span class="op">=</span> recognize_speech_from_mic(recognizer, microphone)</a>
+<a class="sourceLine" id="cb1-38" title="38"></a>
+<a class="sourceLine" id="cb1-39" title="39">    <span class="cf">while</span> speech_text <span class="op">!=</span> <span class="va">None</span> <span class="kw">and</span> text.lower() <span class="op">!=</span> speech_text.lower():</a>
+<a class="sourceLine" id="cb1-40" title="40">        <span class="bu">print</span>(speech_text)</a>
+<a class="sourceLine" id="cb1-41" title="41">        <span class="co"># get your speech text</span></a>
+<a class="sourceLine" id="cb1-42" title="42">        speech_text <span class="op">=</span> recognize_speech_from_mic(recognizer, microphone)</a>
+<a class="sourceLine" id="cb1-43" title="43"></a>
+<a class="sourceLine" id="cb1-44" title="44">    <span class="cf">if</span> speech_text:</a>
+<a class="sourceLine" id="cb1-45" title="45">        <span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{}</span><span class="st"> </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(speech_text, <span class="st">&#39;✓&#39;</span>))</a>
+<a class="sourceLine" id="cb1-46" title="46">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-47" title="47">        <span class="bu">print</span>(<span class="st">&#39;Please try the speech recognization service later or change another one.&#39;</span>)</a></code></pre></div>
+<h2 id="run-the-demo">Run the demo</h2>
+<ul>
+<li>use <code>pip install requirements.txt</code> to install packages: <code>pyaudio</code> and <code>SpeechRecognition</code></li>
+<li>run it in console</li>
+</ul>
+<pre class="shell"><code>python 4.py</code></pre>
+<p><img src="images/challenge_4_en.png" /></p>
+<hr />
+<h1 id="检测英语口语">检测英语口语</h1>
+<h2 id="项目需求">项目需求</h2>
+<ol type="1">
+<li>在命令行窗口运行；</li>
+<li>程序运行时，会让你输入一句英语，然后你需要对着麦克风读出这句英语；</li>
+<li>程序会判断你读的对不对，如果不对会让你重读，直到读对为止。</li>
+</ol>
+<h2 id="python-编程知识点">Python 编程知识点</h2>
+<ul>
+<li>while 循环</li>
+<li>用户输入字符串</li>
+<li>字符串小写</li>
+<li>条件判断</li>
+<li>自定义函数</li>
+<li>异常处理</li>
+<li>SpeechRecognition 模块 (安装： <code>pip install SpeechRecognition</code>) it support these speech recognitions:
+<ul>
+<li><code>recognize_bing()</code>: <a href="https://azure.microsoft.com/en-us/services/cognitive-services/speech/">Microsoft Bing Speech</a></li>
+<li><code>recognize_google()</code>: <a href="https://w3c.github.io/speech-api/speechapi.html">Google Web Speech API</a></li>
+<li><code>recognize_google_cloud()</code>: <a href="https://cloud.google.com/speech/">Google Cloud Speech</a> - 需要安装<code>google-cloud-speech</code>模块</li>
+<li><code>recognize_houndify()</code>: <a href="https://www.houndify.com/">Houndify</a> by SoundHound</li>
+<li><code>recognize_ibm()</code>: <a href="https://www.ibm.com/watson/services/speech-to-text/">IBM Speech to Text</a></li>
+<li><code>recognize_sphinx()</code>: <a href="https://cmusphinx.github.io/">CMU Sphinx</a> - 需要安装<code>PocketSphinx</code>模块</li>
+<li><code>recognize_wit()</code>: <a href="https://wit.ai/">Wit.ai</a></li>
+</ul></li>
+<li>pyaudio 模块 (安装： <code>pip install pyaudio</code>)</li>
+</ul>
+<h2 id="参考代码">参考代码</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="im">import</span> speech_recognition <span class="im">as</span> sr</a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw">def</span> recognize_speech_from_mic(recognizer, microphone):</a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="co">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co">    麦克风录音并转文字 `microphone`.</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co">    :param recognizer: 语音识别器</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">    :param microphone: 麦克风</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co">    :return: `None` 如果识别失败返回None，否则返回语音文字</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co">    &#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb3-11" title="11">    <span class="bu">print</span>(<span class="st">&#39;开始朗读&#39;</span>)</a>
+<a class="sourceLine" id="cb3-12" title="12">    <span class="co"># 录音并去除噪音</span></a>
+<a class="sourceLine" id="cb3-13" title="13">    <span class="cf">with</span> microphone <span class="im">as</span> source:</a>
+<a class="sourceLine" id="cb3-14" title="14">        recognizer.adjust_for_ambient_noise(source)</a>
+<a class="sourceLine" id="cb3-15" title="15">        audio <span class="op">=</span> recognizer.listen(source)</a>
+<a class="sourceLine" id="cb3-16" title="16"></a>
+<a class="sourceLine" id="cb3-17" title="17">    <span class="co"># 调用语音识别，亲测微软bing国内可用，国外建议使用google</span></a>
+<a class="sourceLine" id="cb3-18" title="18">    <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb3-19" title="19">        text <span class="op">=</span> recognizer.recognize_google(audio)</a>
+<a class="sourceLine" id="cb3-20" title="20">    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</a>
+<a class="sourceLine" id="cb3-21" title="21">        <span class="bu">print</span>(e)</a>
+<a class="sourceLine" id="cb3-22" title="22">        text <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb3-23" title="23"></a>
+<a class="sourceLine" id="cb3-24" title="24">    <span class="cf">return</span> text</a>
+<a class="sourceLine" id="cb3-25" title="25"></a>
+<a class="sourceLine" id="cb3-26" title="26"></a>
+<a class="sourceLine" id="cb3-27" title="27"><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</a>
+<a class="sourceLine" id="cb3-28" title="28">    <span class="co"># 输入</span></a>
+<a class="sourceLine" id="cb3-29" title="29">    text <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;请输入一句英语: &#39;</span>).strip()</a>
+<a class="sourceLine" id="cb3-30" title="30"></a>
+<a class="sourceLine" id="cb3-31" title="31">    <span class="co"># 创建语音识别器和麦克风</span></a>
+<a class="sourceLine" id="cb3-32" title="32">    recognizer <span class="op">=</span> sr.Recognizer()</a>
+<a class="sourceLine" id="cb3-33" title="33">    microphone <span class="op">=</span> sr.Microphone()</a>
+<a class="sourceLine" id="cb3-34" title="34"></a>
+<a class="sourceLine" id="cb3-35" title="35">    <span class="co"># 录音并获取文字</span></a>
+<a class="sourceLine" id="cb3-36" title="36">    speech_text <span class="op">=</span> recognize_speech_from_mic(recognizer, microphone)</a>
+<a class="sourceLine" id="cb3-37" title="37"></a>
+<a class="sourceLine" id="cb3-38" title="38">    <span class="cf">while</span> speech_text <span class="op">!=</span> <span class="va">None</span> <span class="kw">and</span> text.lower() <span class="op">!=</span> speech_text.lower():</a>
+<a class="sourceLine" id="cb3-39" title="39">        <span class="bu">print</span>(speech_text)</a>
+<a class="sourceLine" id="cb3-40" title="40">        speech_text <span class="op">=</span> recognize_speech_from_mic(recognizer, microphone)</a>
+<a class="sourceLine" id="cb3-41" title="41"></a>
+<a class="sourceLine" id="cb3-42" title="42">    <span class="cf">if</span> speech_text:</a>
+<a class="sourceLine" id="cb3-43" title="43">        <span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{}</span><span class="st"> </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(speech_text, <span class="st">&#39;✓&#39;</span>))</a>
+<a class="sourceLine" id="cb3-44" title="44">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb3-45" title="45">        <span class="bu">print</span>(<span class="st">&#39;语音识别服务暂不可用，请稍后再试。&#39;</span>)</a></code></pre></div>
+<blockquote>
+<p>注意：本代码使用的是 google 语音识别，有些地区可能无法正常使用，请注册并使用其他的如微软 Bing 等语音识别服务等。</p>
+</blockquote>
+<h2 id="运行测试">运行测试</h2>
+<ul>
+<li>使用 <code>pip install requirements.txt</code> 安装模块: <code>pyaudio</code> and <code>SpeechRecognition</code></li>
+<li>运行</li>
+</ul>
+<pre class="shell"><code>python 4.py</code></pre>
+<figure>
+<img src="images/challenge_4_cn.png" alt="image-20210508095608400" /><figcaption>image-20210508095608400</figcaption>
+</figure>
+</body>
+</html>
