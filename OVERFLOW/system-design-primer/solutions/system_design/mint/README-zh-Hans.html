@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README-zh-Hans</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="设计-mint.com">设计 Mint.com</h1>
+<p><strong>注意：这个文档中的链接会直接指向<a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#系统设计主题索引">系统设计主题索引</a>中的有关部分，以避免重复的内容。您可以参考链接的相关内容，来了解其总的要点、方案的权衡取舍以及可选的替代方案。</strong></p>
+<h2 id="第一步简述用例与约束条件">第一步：简述用例与约束条件</h2>
+<blockquote>
+<p>搜集需求与问题的范围。 提出问题来明确用例与约束条件。 讨论假设。</p>
+</blockquote>
+<p>我们将在没有面试官明确说明问题的情况下，自己定义一些用例以及限制条件。</p>
+<h3 id="用例">用例</h3>
+<h4 id="我们将把问题限定在仅处理以下用例的范围中">我们将把问题限定在仅处理以下用例的范围中</h4>
+<ul>
+<li><strong>用户</strong> 连接到一个财务账户</li>
+<li><strong>服务</strong> 从账户中提取交易
+<ul>
+<li>每日更新</li>
+<li>分类交易
+<ul>
+<li>允许用户手动分类</li>
+<li>不自动重新分类</li>
+</ul></li>
+<li>按类别分析每月支出</li>
+</ul></li>
+<li><strong>服务</strong> 推荐预算
+<ul>
+<li>允许用户手动设置预算</li>
+<li>当接近或者超出预算时，发送通知</li>
+</ul></li>
+<li><strong>服务</strong> 具有高可用性</li>
+</ul>
+<h4 id="非用例范围">非用例范围</h4>
+<ul>
+<li><strong>服务</strong> 执行附加的日志记录和分析</li>
+</ul>
+<h3 id="限制条件与假设">限制条件与假设</h3>
+<h4 id="提出假设">提出假设</h4>
+<ul>
+<li>网络流量非均匀分布</li>
+<li>自动账户日更新只适用于 30 天内活跃的用户</li>
+<li>添加或者移除财务账户相对较少</li>
+<li>预算通知不需要及时</li>
+<li>1000 万用户
+<ul>
+<li>每个用户10个预算类别= 1亿个预算项</li>
+<li>示例类别:
+<ul>
+<li>Housing = $1,000</li>
+<li>Food = $200</li>
+<li>Gas = $100</li>
+</ul></li>
+<li>卖方确定交易类别
+<ul>
+<li>50000 个卖方</li>
+</ul></li>
+</ul></li>
+<li>3000 万财务账户</li>
+<li>每月 50 亿交易</li>
+<li>每月 5 亿读请求</li>
+<li>10:1 读写比
+<ul>
+<li>Write-heavy，用户每天都进行交易，但是每天很少访问该网站</li>
+</ul></li>
+</ul>
+<h4 id="计算用量">计算用量</h4>
+<p><strong>如果你需要进行粗略的用量计算，请向你的面试官说明。</strong></p>
+<ul>
+<li>每次交易的用量:
+<ul>
+<li><code>user_id</code> - 8 字节</li>
+<li><code>created_at</code> - 5 字节</li>
+<li><code>seller</code> - 32 字节</li>
+<li><code>amount</code> - 5 字节</li>
+<li>Total: ~50 字节</li>
+</ul></li>
+<li>每月产生 250 GB 新的交易内容
+<ul>
+<li>每次交易 50 比特 * 50 亿交易每月</li>
+<li>3年内新的交易内容 9 TB</li>
+<li>Assume most are new transactions instead of updates to existing ones</li>
+</ul></li>
+<li>平均每秒产生 2000 次交易</li>
+<li>平均每秒产生 200 读请求</li>
+</ul>
+<p>便利换算指南：</p>
+<ul>
+<li>每个月有 250 万秒</li>
+<li>每秒一个请求 = 每个月 250 万次请求</li>
+<li>每秒 40 个请求 = 每个月 1 亿次请求</li>
+<li>每秒 400 个请求 = 每个月 10 亿次请求</li>
+</ul>
+<h2 id="第二步概要设计">第二步：概要设计</h2>
+<blockquote>
+<p>列出所有重要组件以规划概要设计。</p>
+</blockquote>
+<figure>
+<img src="http://i.imgur.com/E8klrBh.png" alt="Imgur" /><figcaption>Imgur</figcaption>
+</figure>
+<h2 id="第三步设计核心组件">第三步：设计核心组件</h2>
+<blockquote>
+<p>深入每个核心组件的细节。</p>
+</blockquote>
+<h3 id="用例用户连接到一个财务账户">用例：用户连接到一个财务账户</h3>
+<p>我们可以将 1000 万用户的信息存储在一个<a href="https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms">关系数据库</a>中。我们应该讨论一下<a href="https://github.com/donnemartin/system-design-primer#sql-or-nosql">选择SQL或NoSQL之间的用例和权衡</a>了。</p>
+<ul>
+<li><strong>客户端</strong> 作为一个<a href="https://github.com/donnemartin/system-design-primer#reverse-proxy-web-server">反向代理</a>，发送请求到 <strong>Web 服务器</strong></li>
+<li><strong>Web 服务器</strong> 转发请求到 <strong>账户API</strong> 服务器</li>
+<li><strong>账户API</strong> 服务器将新输入的账户信息更新到 <strong>SQL数据库</strong> 的<code>accounts</code>表</li>
+</ul>
+<p><strong>告知你的面试官你准备写多少代码</strong>。</p>
+<p><code>accounts</code>表应该具有如下结构：</p>
+<pre><code>id int NOT NULL AUTO_INCREMENT
+created_at datetime NOT NULL
+last_update datetime NOT NULL
+account_url varchar(255) NOT NULL
+account_login varchar(32) NOT NULL
+account_password_hash char(64) NOT NULL
+user_id int NOT NULL
+PRIMARY KEY(id)
+FOREIGN KEY(user_id) REFERENCES users(id)</code></pre>
+<p>我们将在<code>id</code>，<code>user_id</code>和<code>created_at</code>等字段上创建一个<a href="https://github.com/donnemartin/system-design-primer#use-good-indices">索引</a>以加速查找（对数时间而不是扫描整个表）并保持数据在内存中。从内存中顺序读取 1 MB数据花费大约250毫秒，而从SSD读取是其4倍，从磁盘读取是其80倍。<sup><a href=https://github.com/donnemartin/system-design-primer#latency-numbers-every-programmer-should-know>1</a></sup></p>
+<p>我们将使用公开的<a href="https://github.com/donnemartin/system-design-primer#representational-state-transfer-rest"><strong>REST API</strong></a>:</p>
+<pre><code>$ curl -X POST --data &#39;{ &quot;user_id&quot;: &quot;foo&quot;, &quot;account_url&quot;: &quot;bar&quot;, \
+    &quot;account_login&quot;: &quot;baz&quot;, &quot;account_password&quot;: &quot;qux&quot; }&#39; \
+    https://mint.com/api/v1/account</code></pre>
+<p>对于内部通信，我们可以使用<a href="https://github.com/donnemartin/system-design-primer#remote-procedure-call-rpc">远程过程调用</a>。</p>
+<p>接下来，服务从账户中提取交易。</p>
+<h3 id="用例服务从账户中提取交易">用例：服务从账户中提取交易</h3>
+<p>如下几种情况下，我们会想要从账户中提取信息：</p>
+<ul>
+<li>用户首次链接账户</li>
+<li>用户手动更新账户</li>
+<li>为过去 30 天内活跃的用户自动日更新</li>
+</ul>
+<p>数据流:</p>
+<ul>
+<li><strong>客户端</strong>向 <strong>Web服务器</strong> 发送请求</li>
+<li><strong>Web服务器</strong> 将请求转发到 <strong>帐户API</strong> 服务器</li>
+<li><strong>帐户API</strong> 服务器将job放在 <strong>队列</strong> 中，如 <a href="https://aws.amazon.com/sqs/">Amazon SQS</a> 或者 <a href="https://www.rabbitmq.com/">RabbitMQ</a>
+<ul>
+<li>提取交易可能需要一段时间，我们可能希望<a href="https://github.com/donnemartin/system-design-primer#asynchronism">与队列异步</a>地来做，虽然这会引入额外的复杂度。</li>
+</ul></li>
+<li><strong>交易提取服务</strong> 执行如下操作：
+<ul>
+<li>从 <strong>Queue</strong> 中拉取并从金融机构中提取给定用户的交易，将结果作为原始日志文件存储在 <strong>对象存储区</strong>。</li>
+<li>使用 <strong>分类服务</strong> 来分类每个交易</li>
+<li>使用 <strong>预算服务</strong> 来按类别计算每月总支出
+<ul>
+<li><strong>预算服务</strong> 使用 <strong>通知服务</strong> 让用户知道他们是否接近或者已经超出预算</li>
+</ul></li>
+<li>更新具有分类交易的 <strong>SQL数据库</strong> 的<code>transactions</code>表</li>
+<li>按类别更新 <strong>SQL数据库</strong> <code>monthly_spending</code>表的每月总支出</li>
+<li>通过 <strong>通知服务</strong> 提醒用户交易完成
+<ul>
+<li>使用一个 <strong>队列</strong> (没有画出来) 来异步发送通知</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><code>transactions</code>表应该具有如下结构：</p>
+<pre><code>id int NOT NULL AUTO_INCREMENT
+created_at datetime NOT NULL
+seller varchar(32) NOT NULL
+amount decimal NOT NULL
+user_id int NOT NULL
+PRIMARY KEY(id)
+FOREIGN KEY(user_id) REFERENCES users(id)</code></pre>
+<p>我们将在 <code>id</code>，<code>user_id</code>，和 <code>created_at</code>字段上创建<a href="https://github.com/donnemartin/system-design-primer#use-good-indices">索引</a>。</p>
+<p><code>monthly_spending</code>表应该具有如下结构：</p>
+<pre><code>id int NOT NULL AUTO_INCREMENT
+month_year date NOT NULL
+category varchar(32)
+amount decimal NOT NULL
+user_id int NOT NULL
+PRIMARY KEY(id)
+FOREIGN KEY(user_id) REFERENCES users(id)</code></pre>
+<p>我们将在<code>id</code>，<code>user_id</code>字段上创建<a href="https://github.com/donnemartin/system-design-primer#use-good-indices">索引</a>。</p>
+<h4 id="分类服务">分类服务</h4>
+<p>对于 <strong>分类服务</strong>，我们可以生成一个带有最受欢迎卖家的卖家-类别字典。如果我们估计 50000 个卖家，并估计每个条目占用不少于 255 个字节，该字典只需要大约 12 MB内存。</p>
+<p><strong>告知你的面试官你准备写多少代码</strong>。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">class</span> DefaultCategories(Enum):</a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3">    HOUSING <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    FOOD <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb5-5" title="5">    GAS <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-6" title="6">    SHOPPING <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb5-7" title="7">    ...</a>
+<a class="sourceLine" id="cb5-8" title="8"></a>
+<a class="sourceLine" id="cb5-9" title="9">seller_category_map <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb5-10" title="10">seller_category_map[<span class="st">&#39;Exxon&#39;</span>] <span class="op">=</span> DefaultCategories.GAS</a>
+<a class="sourceLine" id="cb5-11" title="11">seller_category_map[<span class="st">&#39;Target&#39;</span>] <span class="op">=</span> DefaultCategories.SHOPPING</a>
+<a class="sourceLine" id="cb5-12" title="12">...</a></code></pre></div>
+<p>对于一开始没有在映射中的卖家，我们可以通过评估用户提供的手动类别来进行众包。在 O(1) 时间内，我们可以用堆来快速查找每个卖家的顶端的手动覆盖。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">class</span> Categorizer(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, seller_category_map, <span class="va">self</span>.seller_category_crowd_overrides_map):</a>
+<a class="sourceLine" id="cb6-4" title="4">        <span class="va">self</span>.seller_category_map <span class="op">=</span> seller_category_map</a>
+<a class="sourceLine" id="cb6-5" title="5">        <span class="va">self</span>.seller_category_crowd_overrides_map <span class="op">=</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb6-6" title="6">            seller_category_crowd_overrides_map</a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="kw">def</span> categorize(<span class="va">self</span>, transaction):</a>
+<a class="sourceLine" id="cb6-9" title="9">        <span class="cf">if</span> transaction.seller <span class="kw">in</span> <span class="va">self</span>.seller_category_map:</a>
+<a class="sourceLine" id="cb6-10" title="10">            <span class="cf">return</span> <span class="va">self</span>.seller_category_map[transaction.seller]</a>
+<a class="sourceLine" id="cb6-11" title="11">        <span class="cf">elif</span> transaction.seller <span class="kw">in</span> <span class="va">self</span>.seller_category_crowd_overrides_map:</a>
+<a class="sourceLine" id="cb6-12" title="12">            <span class="va">self</span>.seller_category_map[transaction.seller] <span class="op">=</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb6-13" title="13">                <span class="va">self</span>.seller_category_crowd_overrides_map[transaction.seller].peek_min()</a>
+<a class="sourceLine" id="cb6-14" title="14">            <span class="cf">return</span> <span class="va">self</span>.seller_category_map[transaction.seller]</a>
+<a class="sourceLine" id="cb6-15" title="15">        <span class="cf">return</span> <span class="va">None</span></a></code></pre></div>
+<p>交易实现：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">class</span> Transaction(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, created_at, seller, amount):</a>
+<a class="sourceLine" id="cb7-4" title="4">        <span class="va">self</span>.timestamp <span class="op">=</span> timestamp</a>
+<a class="sourceLine" id="cb7-5" title="5">        <span class="va">self</span>.seller <span class="op">=</span> seller</a>
+<a class="sourceLine" id="cb7-6" title="6">        <span class="va">self</span>.amount <span class="op">=</span> amount</a></code></pre></div>
+<h3 id="用例服务推荐预算">用例：服务推荐预算</h3>
+<p>首先，我们可以使用根据收入等级分配每类别金额的通用预算模板。使用这种方法，我们不必存储在约束中标识的 1 亿个预算项目，只需存储用户覆盖的预算项目。如果用户覆盖预算类别，我们可以在 <code>TABLE budget_overrides</code>中存储此覆盖。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">class</span> Budget(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, income):</a>
+<a class="sourceLine" id="cb8-4" title="4">        <span class="va">self</span>.income <span class="op">=</span> income</a>
+<a class="sourceLine" id="cb8-5" title="5">        <span class="va">self</span>.categories_to_budget_map <span class="op">=</span> <span class="va">self</span>.create_budget_template()</a>
+<a class="sourceLine" id="cb8-6" title="6"></a>
+<a class="sourceLine" id="cb8-7" title="7">    <span class="kw">def</span> create_budget_template(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb8-8" title="8">        <span class="cf">return</span> {</a>
+<a class="sourceLine" id="cb8-9" title="9">            <span class="st">&#39;DefaultCategories.HOUSING&#39;</span>: income <span class="op">*</span> <span class="fl">.4</span>,</a>
+<a class="sourceLine" id="cb8-10" title="10">            <span class="st">&#39;DefaultCategories.FOOD&#39;</span>: income <span class="op">*</span> <span class="fl">.2</span></a>
+<a class="sourceLine" id="cb8-11" title="11">            <span class="st">&#39;DefaultCategories.GAS&#39;</span>: income <span class="op">*</span> <span class="fl">.1</span>,</a>
+<a class="sourceLine" id="cb8-12" title="12">            <span class="st">&#39;DefaultCategories.SHOPPING&#39;</span>: income <span class="op">*</span> <span class="fl">.2</span></a>
+<a class="sourceLine" id="cb8-13" title="13">            ...</a>
+<a class="sourceLine" id="cb8-14" title="14">        }</a>
+<a class="sourceLine" id="cb8-15" title="15"></a>
+<a class="sourceLine" id="cb8-16" title="16">    <span class="kw">def</span> override_category_budget(<span class="va">self</span>, category, amount):</a>
+<a class="sourceLine" id="cb8-17" title="17">        <span class="va">self</span>.categories_to_budget_map[category] <span class="op">=</span> amount</a></code></pre></div>
+<p>对于 <strong>预算服务</strong> 而言，我们可以在<code>transactions</code>表上运行SQL查询以生成<code>monthly_spending</code>聚合表。由于用户通常每个月有很多交易，所以<code>monthly_spending</code>表的行数可能会少于总共50亿次交易的行数。</p>
+<p>作为替代，我们可以在原始交易文件上运行 <strong>MapReduce</strong> 作业来：</p>
+<ul>
+<li>分类每个交易</li>
+<li>按类别生成每月总支出</li>
+</ul>
+<p>对交易文件的运行分析可以显著减少数据库的负载。</p>
+<p>如果用户更新类别，我们可以调用 <strong>预算服务</strong> 重新运行分析。</p>
+<p><strong>告知你的面试官你准备写多少代码</strong>.</p>
+<p>日志文件格式样例，以tab分割：</p>
+<pre><code>user_id   timestamp   seller  amount</code></pre>
+<p><strong>MapReduce</strong> 实现:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">class</span> SpendingByCategory(MRJob):</a>
+<a class="sourceLine" id="cb10-2" title="2"></a>
+<a class="sourceLine" id="cb10-3" title="3">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, categorizer):</a>
+<a class="sourceLine" id="cb10-4" title="4">        <span class="va">self</span>.categorizer <span class="op">=</span> categorizer</a>
+<a class="sourceLine" id="cb10-5" title="5">        <span class="va">self</span>.current_year_month <span class="op">=</span> calc_current_year_month()</a>
+<a class="sourceLine" id="cb10-6" title="6">        ...</a>
+<a class="sourceLine" id="cb10-7" title="7"></a>
+<a class="sourceLine" id="cb10-8" title="8">    <span class="kw">def</span> calc_current_year_month(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb10-9" title="9">        <span class="co">&quot;&quot;&quot;返回当前年月&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb10-10" title="10">        ...</a>
+<a class="sourceLine" id="cb10-11" title="11"></a>
+<a class="sourceLine" id="cb10-12" title="12">    <span class="kw">def</span> extract_year_month(<span class="va">self</span>, timestamp):</a>
+<a class="sourceLine" id="cb10-13" title="13">        <span class="co">&quot;&quot;&quot;返回时间戳的年，月部分&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb10-14" title="14">        ...</a>
+<a class="sourceLine" id="cb10-15" title="15"></a>
+<a class="sourceLine" id="cb10-16" title="16">    <span class="kw">def</span> handle_budget_notifications(<span class="va">self</span>, key, total):</a>
+<a class="sourceLine" id="cb10-17" title="17">        <span class="co">&quot;&quot;&quot;如果接近或超出预算，调用通知API&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb10-18" title="18">        ...</a>
+<a class="sourceLine" id="cb10-19" title="19"></a>
+<a class="sourceLine" id="cb10-20" title="20">    <span class="kw">def</span> mapper(<span class="va">self</span>, _, line):</a>
+<a class="sourceLine" id="cb10-21" title="21">        <span class="co">&quot;&quot;&quot;解析每个日志行，提取和转换相关行。</span></a>
+<a class="sourceLine" id="cb10-22" title="22"></a>
+<a class="sourceLine" id="cb10-23" title="23"><span class="co">        参数行应为如下形式：</span></a>
+<a class="sourceLine" id="cb10-24" title="24"></a>
+<a class="sourceLine" id="cb10-25" title="25"><span class="co">        user_id   timestamp   seller  amount</span></a>
+<a class="sourceLine" id="cb10-26" title="26"></a>
+<a class="sourceLine" id="cb10-27" title="27"><span class="co">        使用分类器来将卖家转换成类别，生成如下形式的key-value对：</span></a>
+<a class="sourceLine" id="cb10-28" title="28"></a>
+<a class="sourceLine" id="cb10-29" title="29"><span class="co">        (user_id, 2016-01, shopping), 25</span></a>
+<a class="sourceLine" id="cb10-30" title="30"><span class="co">        (user_id, 2016-01, shopping), 100</span></a>
+<a class="sourceLine" id="cb10-31" title="31"><span class="co">        (user_id, 2016-01, gas), 50</span></a>
+<a class="sourceLine" id="cb10-32" title="32"><span class="co">        &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb10-33" title="33">        user_id, timestamp, seller, amount <span class="op">=</span> line.split(<span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb10-34" title="34">        category <span class="op">=</span> <span class="va">self</span>.categorizer.categorize(seller)</a>
+<a class="sourceLine" id="cb10-35" title="35">        period <span class="op">=</span> <span class="va">self</span>.extract_year_month(timestamp)</a>
+<a class="sourceLine" id="cb10-36" title="36">        <span class="cf">if</span> period <span class="op">==</span> <span class="va">self</span>.current_year_month:</a>
+<a class="sourceLine" id="cb10-37" title="37">            <span class="cf">yield</span> (user_id, period, category), amount</a>
+<a class="sourceLine" id="cb10-38" title="38"></a>
+<a class="sourceLine" id="cb10-39" title="39">    <span class="kw">def</span> reducer(<span class="va">self</span>, key, value):</a>
+<a class="sourceLine" id="cb10-40" title="40">        <span class="co">&quot;&quot;&quot;将每个key对应的值求和。</span></a>
+<a class="sourceLine" id="cb10-41" title="41"></a>
+<a class="sourceLine" id="cb10-42" title="42"><span class="co">        (user_id, 2016-01, shopping), 125</span></a>
+<a class="sourceLine" id="cb10-43" title="43"><span class="co">        (user_id, 2016-01, gas), 50</span></a>
+<a class="sourceLine" id="cb10-44" title="44"><span class="co">        &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb10-45" title="45">        total <span class="op">=</span> <span class="bu">sum</span>(values)</a>
+<a class="sourceLine" id="cb10-46" title="46">        <span class="cf">yield</span> key, <span class="bu">sum</span>(values)</a></code></pre></div>
+<h2 id="第四步设计扩展">第四步：设计扩展</h2>
+<blockquote>
+<p>根据限制条件，找到并解决瓶颈。</p>
+</blockquote>
+<figure>
+<img src="http://i.imgur.com/V5q57vU.png" alt="Imgur" /><figcaption>Imgur</figcaption>
+</figure>
+<p><strong>重要提示：不要从最初设计直接跳到最终设计中！</strong></p>
+<p>现在你要 1) <strong>基准测试、负载测试</strong>。2) <strong>分析、描述</strong>性能瓶颈。3) 在解决瓶颈问题的同时，评估替代方案、权衡利弊。4) 重复以上步骤。请阅读<a href="../scaling_aws/README.md">「设计一个系统，并将其扩大到为数以百万计的 AWS 用户服务」</a> 来了解如何逐步扩大初始设计。</p>
+<p>讨论初始设计可能遇到的瓶颈及相关解决方案是很重要的。例如加上一个配置多台 <strong>Web 服务器</strong>的<strong>负载均衡器</strong>是否能够解决问题？<strong>CDN</strong>呢？<strong>主从复制</strong>呢？它们各自的替代方案和需要<strong>权衡</strong>的利弊又有什么呢？</p>
+<p>我们将会介绍一些组件来完成设计，并解决架构扩张问题。内置的负载均衡器将不做讨论以节省篇幅。</p>
+<p><strong>为了避免重复讨论</strong>，请参考<a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#系统设计主题的索引">系统设计主题索引</a>相关部分来了解其要点、方案的权衡取舍以及可选的替代方案。</p>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#域名系统">DNS</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#负载均衡器">负载均衡器</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#水平扩展">水平拓展</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#反向代理web-服务器">反向代理（web 服务器）</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#应用层">API 服务（应用层）</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#缓存">缓存</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#关系型数据库管理系统rdbms">关系型数据库管理系统 (RDBMS)</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#故障切换">SQL 故障主从切换</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#主从复制">主从复制</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#异步">异步</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#一致性模式">一致性模式</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#可用性模式">可用性模式</a></li>
+</ul>
+<p>我们将增加一个额外的用例：<strong>用户</strong> 访问摘要和交易数据。</p>
+<p>用户会话，按类别统计的统计信息，以及最近的事务可以放在 <strong>内存缓存</strong>（如 Redis 或 Memcached ）中。</p>
+<ul>
+<li><strong>客户端</strong> 发送读请求给 <strong>Web 服务器</strong></li>
+<li><strong>Web 服务器</strong> 转发请求到 <strong>读 API</strong> 服务器
+<ul>
+<li>静态内容可通过 <strong>对象存储</strong> 比如缓存在 <strong>CDN</strong> 上的 S3 来服务</li>
+</ul></li>
+<li><strong>读 API</strong> 服务器做如下动作:
+<ul>
+<li>检查 <strong>内存缓存</strong> 的内容
+<ul>
+<li>如果URL在 <strong>内存缓存</strong>中，返回缓存的内容</li>
+<li>否则
+<ul>
+<li>如果URL在 <strong>SQL 数据库</strong>中，获取该内容
+<ul>
+<li>以其内容更新 <strong>内存缓存</strong></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>参考 <a href="https://github.com/donnemartin/system-design-primer#when-to-update-the-cache">何时更新缓存</a> 中权衡和替代的内容。以上方法描述了 <a href="https://github.com/donnemartin/system-design-primer#cache-aside">cache-aside缓存模式</a>.</p>
+<p>我们可以使用诸如 Amazon Redshift 或者 Google BigQuery 等数据仓库解决方案，而不是将<code>monthly_spending</code>聚合表保留在 <strong>SQL 数据库</strong> 中。</p>
+<p>我们可能只想在数据库中存储一个月的<code>交易</code>数据，而将其余数据存储在数据仓库或者 <strong>对象存储区</strong> 中。<strong>对象存储区</strong> （如Amazon S3) 能够舒服地解决每月 250 GB新内容的限制。</p>
+<p>为了解决每秒 <em>平均</em> 2000 次读请求数（峰值时更高），受欢迎的内容的流量应由 <strong>内存缓存</strong> 而不是数据库来处理。 <strong>内存缓存</strong> 也可用于处理不均匀分布的流量和流量尖峰。 只要副本不陷入重复写入的困境，<strong>SQL 读副本</strong> 应该能够处理高速缓存未命中。</p>
+<p><em>平均</em> 200 次交易写入每秒（峰值时更高）对于单个 <strong>SQL 写入主-从服务</strong> 来说可能是棘手的。我们可能需要考虑其它的 SQL 性能拓展技术：</p>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#联合">联合</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#分片">分片</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#非规范化">非规范化</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#sql-调优">SQL 调优</a></li>
+</ul>
+<p>我们也可以考虑将一些数据移至 <strong>NoSQL 数据库</strong>。</p>
+<h2 id="其它要点">其它要点</h2>
+<blockquote>
+<p>是否深入这些额外的主题，取决于你的问题范围和剩下的时间。</p>
+</blockquote>
+<h4 id="nosql">NoSQL</h4>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#键-值存储">键-值存储</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#文档类型存储">文档类型存储</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#列型存储">列型存储</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#图数据库">图数据库</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#sql-还是-nosql">SQL vs NoSQL</a></li>
+</ul>
+<h3 id="缓存">缓存</h3>
+<ul>
+<li>在哪缓存
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#客户端缓存">客户端缓存</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#cdn-缓存">CDN 缓存</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#web-服务器缓存">Web 服务器缓存</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#数据库缓存">数据库缓存</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#应用缓存">应用缓存</a></li>
+</ul></li>
+<li>什么需要缓存
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#数据库查询级别的缓存">数据库查询级别的缓存</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#对象级别的缓存">对象级别的缓存</a></li>
+</ul></li>
+<li>何时更新缓存
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#缓存模式">缓存模式</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#直写模式">直写模式</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#回写模式">回写模式</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#刷新">刷新</a></li>
+</ul></li>
+</ul>
+<h3 id="异步与微服务">异步与微服务</h3>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#消息队列">消息队列</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#任务队列">任务队列</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#背压">背压</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#微服务">微服务</a></li>
+</ul>
+<h3 id="通信">通信</h3>
+<ul>
+<li>可权衡选择的方案：
+<ul>
+<li>与客户端的外部通信 - <a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#表述性状态转移rest">使用 REST 作为 HTTP API</a></li>
+<li>服务器内部通信 - <a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#远程过程调用协议rpc">RPC</a></li>
+</ul></li>
+<li><a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#服务发现">服务发现</a></li>
+</ul>
+<h3 id="安全性">安全性</h3>
+<p>请参阅<a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#安全">「安全」</a>一章。</p>
+<h3 id="延迟数值">延迟数值</h3>
+<p>请参阅<a href="https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md#每个程序员都应该知道的延迟数">「每个程序员都应该知道的延迟数」</a>。</p>
+<h3 id="持续探讨">持续探讨</h3>
+<ul>
+<li>持续进行基准测试并监控你的系统，以解决他们提出的瓶颈问题。</li>
+<li>架构拓展是一个迭代的过程。</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="til-shared">til-shared</h1>
+<p>This is installed into the <code>client</code> and <code>server</code> directories as an actual dependency. This is accomplished by symlinking this directory into their respective <code>other</code> directories, and then they each install it as a file located in their <code>./other/shared</code> directories. This happens in the <code>install</code> step of the <code>setup</code> script.</p>
+<p>This is done mostly for the server to be able to be deployed on its own.</p>
+<p>There’s not a lot of code shared here (and mostly it’s just for tests), but I thought it would be fun to show one way to accomplish this kind of code reuse.</p>
+<p>One important note is that these files are not transpiled at any point. So it’s a good idea to avoid using features not available in Node8 :)</p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+</body>
+</html>

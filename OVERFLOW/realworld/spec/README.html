@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="ready-to-implement-conduit-in-a-new-framework">Ready to implement Conduit in a new framework?</h1>
+<ol type="1">
+<li><p><strong>Check and see if there any <a href="https://github.com/gothinkster/realworld/discussions/categories/wip-implementations">work in progress</a> for the framework</strong> you want to implement.</p></li>
+<li><p>If someone else has started working on an implementation, <strong>consider jumping in and helping them!</strong></p></li>
+<li><p>Otherwise, feel free to <strong><a href="https://github.com/gothinkster/realworld-starter-kit">fork our starter kit</a> and get started</strong></p></li>
+<li><p>Submit the implementation <a href="https://codebase.show/projects/realworld">here</a></p></li>
+</ol>
+<h3 id="fork-our-starter-kit"><a href="https://github.com/gothinkster/realworld-starter-kit">Fork our starter kit &gt;&gt;&gt;</a></h3>
+<h1 id="creating-new-framework-implementations">Creating New Framework Implementations</h1>
+<h2 id="remember-keep-your-codebases-simple-yet-robust.">Remember: Keep your codebases <em>simple</em>, yet <em>robust</em>.</h2>
+<p>If a newbie dev to your framework comes along and can’t grok the high level architecture within 10 minutes, it probably means that you went a little overboard in the engineering department.</p>
+<p>Alternatively, you should <em>never</em> forgo following fundamental best practices for the sake of simplicity, lest we teach that same newbie dev the <em>wrong</em> way of doing things.</p>
+<p>The quality &amp; architecture of Conduit implementations should reflect something similar to an early stage startup’s MVP: functionally complete &amp; stable, but not unnecessarily over-engineered.</p>
+<h2 id="to-write-tests-or-to-not-write-tests">To write tests, or to not write tests?</h2>
+<p><strong>TL;DR</strong> — we require a minimum of <strong>one</strong> unit test with every repo, but we’d definitely prefer all of them to include excellent testing coverage if the maintainers are willing to add it (or if someone in the community is kind enough to make a pull request :)</p>
+<p>We think tests are a good idea, and we’re huge fans of TDD in general. However, building Conduit implementations without full testing coverage is a meaningful time investment as is, so we originally didn’t include full testing coverage in the spec because we figured that if people wanted it, then it would be a great “extra credit” objective for the repo. For example, our Angular 2 repo had a request for unit tests and some awesome community members are now working on a PR for it.</p>
+<p>Another reason we didn’t include them in the spec is from the “Golden Rule” above:</p>
+<blockquote>
+<p>The quality &amp; architecture of Conduit implementations should reflect something similar to an early stage startup’s MVP: functionally complete &amp; stable, but not unnecessarily over-engineered.</p>
+</blockquote>
+<p>Most startups we know that work in consumer facing apps (like Conduit) don’t apply TDD/testing until they have solid product-market fit, which is smart because they then spend most of their time iterating on product &amp; UI and thus are far more likely to find PMF.</p>
+<p>This doesn’t mean that TDD/testing === over-engineering, but in certain circumstances that statement does evaluate true (ex: consumer product finding PMF, sideprojects, robust prototypes, etc).</p>
+<p>That said, we do <em>prefer</em> that every repo includes excellent tests that are exemplary of TDD/testing with that framework 👍</p>
+<h2 id="project-overview">Project Overview</h2>
+<p>“Conduit” is a social blogging site (i.e. a Medium.com clone). It uses a custom API for all requests, including authentication. You can view a live demo over at https://demo.realworld.io</p>
+<p><strong>General functionality:</strong></p>
+<ul>
+<li>Authenticate users via JWT (login/signup pages + logout button on settings page)</li>
+<li>CRU* users (sign up &amp; settings page - no deleting required)</li>
+<li>CRUD Articles</li>
+<li>CR*D Comments on articles (no updating required)</li>
+<li>GET and display paginated lists of articles</li>
+<li>Favorite articles</li>
+<li>Follow other users</li>
+</ul>
+<h1 id="frontend-specs">Frontend Specs</h1>
+<h3 id="using-the-hosted-api">Using the hosted API</h3>
+<blockquote>
+<p>To fix performance issues and the presence of NSFW content on the current API, we encourage you to use the new temporary API : <code>https://realworld-temp-api.herokuapp.com/api</code> Please keep in mind we’ll soon move back to <code>https://conduit.productionready.io/api</code></p>
+</blockquote>
+<p>API URL : https://realworld-temp-api.herokuapp.com/api<br />
+SWAGGER : https://realworld-temp-api.herokuapp.com/api-docs</p>
+<h3 id="unit-tests">Unit test(s)</h3>
+<p>Include <em>at least</em> <strong>one</strong> unit test in your repo to demonstrate how testing works (full testing coverage is <em>not</em> required!)</p>
+<h3 id="stylestemplates">Styles/Templates</h3>
+<p>We created a custom Bootstrap 4 style &amp; templates to ensure all frontends had consistent UI functionality. Our <a href="https://github.com/gothinkster/realworld-starter-kit">starter kit</a> includes all the <a href="https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md">templates &amp; info required to get up and running</a>.</p>
+<h3 id="routing-guidelines">Routing Guidelines</h3>
+<ul>
+<li>Home page (URL: /#/ )
+<ul>
+<li>List of tags</li>
+<li>List of articles pulled from either Feed, Global, or by Tag</li>
+<li>Pagination for list of articles</li>
+</ul></li>
+<li>Sign in/Sign up pages (URL: /#/login, /#/register )
+<ul>
+<li>Uses JWT (store the token in localStorage)</li>
+<li>Authentication can be easily switched to session/cookie based</li>
+</ul></li>
+<li>Settings page (URL: /#/settings )</li>
+<li>Editor page to create/edit articles (URL: /#/editor, /#/editor/article-slug-here )</li>
+<li>Article page (URL: /#/article/article-slug-here )
+<ul>
+<li>Delete article button (only shown to article’s author)</li>
+<li>Render markdown from server client side</li>
+<li>Comments section at bottom of page</li>
+<li>Delete comment button (only shown to comment’s author)</li>
+</ul></li>
+<li>Profile page (URL: /#/profile/:username, /#/profile/:username/favorites )
+<ul>
+<li>Show basic user info</li>
+<li>List of articles populated from author’s created articles or author’s favorited articles</li>
+</ul></li>
+</ul>
+<h1 id="backend-specs">Backend Specs</h1>
+<p>All backend implementations need to adhere to our <a href="https://github.com/gothinkster/realworld/tree/master/api">API spec</a>.</p>
+<p>For your convenience, we have a <a href="https://github.com/gothinkster/realworld/blob/master/api/Conduit.postman_collection.json">Postman collection</a> that you can use to test your API endpoints as you build your app.</p>
+<p>Our <a href="https://github.com/gothinkster/realworld-starter-kit">starter kit</a> includes <a href="https://github.com/gothinkster/realworld-starter-kit/blob/master/BACKEND_INSTRUCTIONS.md">references to the API specs &amp; testing</a> required for creating a new backend.</p>
+<h3 id="unit-tests-1">Unit test(s)</h3>
+<p>Include <em>at least</em> <strong>one</strong> unit test in your repo to demonstrate how testing works (full testing coverage is <em>not</em> required!)</p>
+<h1 id="mobile-specs">Mobile Specs</h1>
+<h3 id="icons-for-iosandroid"><a href="https://github.com/gothinkster/realworld/tree/master/spec/mobile_icons">Icons for (iOS/Android)</a></h3>
+<h3 id="using-the-hosted-api-1">Using the hosted API</h3>
+<blockquote>
+<p>To fix performance issues and the presence of NSFW content on the current API, we encourage you to use the new temporary API : https://realworld-temp-api.herokuapp.com/api<code>Please keep in mind we'll soon move back to</code>https://conduit.productionready.io/api`</p>
+</blockquote>
+<p>API URL : https://realworld-temp-api.herokuapp.com/api<br />
+SWAGGER : https://realworld-temp-api.herokuapp.com/api-docs</p>
+<h3 id="stylestemplates-1">Styles/Templates</h3>
+<p>Unfortunately, there isn’t a common way for us to reuse &amp; share styles/templates for cross-platform mobile apps.</p>
+<p>Instead, we recommend using the Medium.com <a href="https://itunes.apple.com/us/app/medium/id828256236?mt=8">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.medium.reader&amp;hl=en">Android</a> apps as a “north star” regarding general UI functionality/layout, but try not to go too overboard otherwise it will unnecessarily complicate your codebase (in other words, <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS</a> :)</p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>How to Push to GitHub</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">How to Push to GitHub</h1>
+</header>
+<h1 id="push-your-app-to-github">Push Your App to GitHub</h1>
+<p><em>Created by Alyson La, <span class="citation" data-cites="realalysonla">[@realalysonla]</span>(https://www.twitter.com/realalysonla)</em></p>
+<h2 id="things-you-need-before-you-get-started">Things you need before you get started</h2>
+<h3 id="git-github">Git &amp; GitHub</h3>
+<ul>
+<li>Check if Git is installed
+<ul>
+<li>In the terminal type <code>git --version</code> (1.8 or higher preferred)</li>
+</ul></li>
+<li>If not, download Git <a href="http://git-scm.com/downloads">here</a>. Then, setup your local Git profile - In the terminal:
+<ul>
+<li>Type <code>git config --global user.name "your-name"</code></li>
+<li><p>Type <code>git config --global user.email "your-email"</code></p></li>
+<li><p><em>To check if Git is already config-ed you can type</em> <code>git config --list</code></p></li>
+</ul></li>
+<li>Create a free <a href="https://github.com">GitHub</a> account or login if you already have one</li>
+</ul>
+<p><strong>COACH:</strong> Talk a little about git, version control, and open source</p>
+<h2 id="push-your-app-to-github-using-the-command-line">Push your app to GitHub using the command line</h2>
+<p>On your GitHub profile click “new repo” <img src="https://f.cloud.github.com/assets/2623954/595307/eb70c6cc-caf2-11e2-9d2d-60deb31ac049.png" alt="screen shot 2013-06-01 at 12 38 50 pm" /> give it a name (example: rails-girls), brief description, choose the “public” repo option, and click “create repository”.</p>
+<p>In the command line–make sure you <code>cd</code> into your railgirls folder–and type:</p>
+<p>{% highlight sh %} git init {% endhighlight %}</p>
+<p>This initializes a git repository in your project</p>
+<p><em>Note:</em> If you’ve already done the <a href="/heroku">Heroku guide</a>, then you’ve already initialized a git repository &amp; you can move on to the next steps.</p>
+<p>Next check if a file called <code>README.rdoc</code> exists in your railsgirls directory:</p>
+<div class="os-specific">
+<div class="nix">
+{% highlight sh %} ls README.rdoc {% endhighlight %}
+</div>
+<div class="win">
+{% highlight sh %} dir README.rdoc {% endhighlight %}
+</div>
+</div>
+<p>If the file doesn’t exist, create it by typing:</p>
+<div class="os-specific">
+<div class="nix">
+{% highlight sh %} touch README.rdoc {% endhighlight %}
+</div>
+<div class="win">
+{% highlight sh %} type nul &gt; README.rdoc {% endhighlight %}
+</div>
+</div>
+<p><strong>COACH:</strong> Talk a little about README.rdoc</p>
+<p>Then type:</p>
+<p>{% highlight sh %} git status {% endhighlight %}</p>
+<p>This will list out all the files in your working directory.</p>
+<p><strong>COACH:</strong> Talk about some of your favorite git commands</p>
+<p>Then type:</p>
+<p>{% highlight sh %} git add . {% endhighlight %}</p>
+<p>This adds in all of your files &amp; changes so far to a staging area.</p>
+<p>Then type:</p>
+<p>{% highlight sh %} git commit -m “first commit” {% endhighlight %}</p>
+<p>This commits all of your files, adding the message “first commit”</p>
+<p>Next type:</p>
+<p>{% highlight sh %} git remote add origin https://github.com/username/rails-girls.git {% endhighlight %}</p>
+<p><em>Your GitHub Repository page will list the repository URL, so feel free to copy and paste from there, rather than typing it in manually. You can copy and paste the link from your GitHub repository page by clicking the clipboard icon next to the URL.</em></p>
+<p>This creates a remote, or <em>connection</em>, named “origin” pointing at the GitHub repository you just created.</p>
+<p>Then type:</p>
+<p>{% highlight sh %} git push -u origin master {% endhighlight %}</p>
+<p>This sends your commits in your “master” branch to GitHub</p>
+<p>Congratulations your app is on GitHub! Go check it out by going to the same url you used above: https://github.com/username/rails-girls (without the .git part)</p>
+<p>If you want to continue making changes and pushing them to GitHub you’ll just need to use the following three commands:</p>
+<p>{% highlight sh %} git add . git commit -m “type your commit message here” git push origin master {% endhighlight %}</p>
+<p><strong>COACH:</strong> Talk about what makes a good commit message (active, descriptive and short).</p>
+<h2 id="whats-next">What’s next?</h2>
+<h3 id="be-a-part-of-the-open-source-community">Be a Part of the Open Source Community</h3>
+<ul>
+<li>Follow your fellow Rails Girls &amp; coaches on GitHub</li>
+<li>Star or watch their projects</li>
+<li><a href="https://help.github.com/articles/fork-a-repo">Fork</a> a repo, then clone and push changes to your fork. Share the changes with the originator by sending them a <a href="https://help.github.com/articles/using-pull-requests">pull request</a>!</li>
+<li>Create an issue on a project when you find a bug</li>
+<li>Explore other open source projects - search by programming language or key word</li>
+</ul>
+<h3 id="learn-more-git">Learn more Git</h3>
+<ul>
+<li>Check out <a href="http://try.github.io/">trygit.org</a></li>
+<li>Use a <a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet/">Git Cheatsheet</a> (<a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf">PDF</a>)</li>
+<li>Look up Git Commands at <a href="http://git-scm.com/">git-scm.org</a></li>
+</ul>
+<p>{% include other-guides.md page=“github” %}</p>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="design-pastebin.com-or-bit.ly">Design Pastebin.com (or Bit.ly)</h1>
+<p><em>Note: This document links directly to relevant areas found in the <a href="https://github.com/donnemartin/system-design-primer#index-of-system-design-topics">system design topics</a> to avoid duplication. Refer to the linked content for general talking points, tradeoffs, and alternatives.</em></p>
+<p><strong>Design Bit.ly</strong> - is a similar question, except pastebin requires storing the paste contents instead of the original unshortened url.</p>
+<h2 id="step-1-outline-use-cases-and-constraints">Step 1: Outline use cases and constraints</h2>
+<blockquote>
+<p>Gather requirements and scope the problem. Ask questions to clarify use cases and constraints. Discuss assumptions.</p>
+</blockquote>
+<p>Without an interviewer to address clarifying questions, we’ll define some use cases and constraints.</p>
+<h3 id="use-cases">Use cases</h3>
+<h4 id="well-scope-the-problem-to-handle-only-the-following-use-cases">We’ll scope the problem to handle only the following use cases</h4>
+<ul>
+<li><strong>User</strong> enters a block of text and gets a randomly generated link
+<ul>
+<li>Expiration
+<ul>
+<li>Default setting does not expire</li>
+<li>Can optionally set a timed expiration</li>
+</ul></li>
+</ul></li>
+<li><strong>User</strong> enters a paste’s url and views the contents</li>
+<li><strong>User</strong> is anonymous</li>
+<li><strong>Service</strong> tracks analytics of pages
+<ul>
+<li>Monthly visit stats</li>
+</ul></li>
+<li><strong>Service</strong> deletes expired pastes</li>
+<li><strong>Service</strong> has high availability</li>
+</ul>
+<h4 id="out-of-scope">Out of scope</h4>
+<ul>
+<li><strong>User</strong> registers for an account
+<ul>
+<li><strong>User</strong> verifies email</li>
+</ul></li>
+<li><strong>User</strong> logs into a registered account
+<ul>
+<li><strong>User</strong> edits the document</li>
+</ul></li>
+<li><strong>User</strong> can set visibility</li>
+<li><strong>User</strong> can set the shortlink</li>
+</ul>
+<h3 id="constraints-and-assumptions">Constraints and assumptions</h3>
+<h4 id="state-assumptions">State assumptions</h4>
+<ul>
+<li>Traffic is not evenly distributed</li>
+<li>Following a short link should be fast</li>
+<li>Pastes are text only</li>
+<li>Page view analytics do not need to be realtime</li>
+<li>10 million users</li>
+<li>10 million paste writes per month</li>
+<li>100 million paste reads per month</li>
+<li>10:1 read to write ratio</li>
+</ul>
+<h4 id="calculate-usage">Calculate usage</h4>
+<p><strong>Clarify with your interviewer if you should run back-of-the-envelope usage calculations.</strong></p>
+<ul>
+<li>Size per paste
+<ul>
+<li>1 KB content per paste</li>
+<li><code>shortlink</code> - 7 bytes</li>
+<li><code>expiration_length_in_minutes</code> - 4 bytes</li>
+<li><code>created_at</code> - 5 bytes</li>
+<li><code>paste_path</code> - 255 bytes</li>
+<li>total = ~1.27 KB</li>
+</ul></li>
+<li>12.7 GB of new paste content per month
+<ul>
+<li>1.27 KB per paste * 10 million pastes per month</li>
+<li>~450 GB of new paste content in 3 years</li>
+<li>360 million shortlinks in 3 years</li>
+<li>Assume most are new pastes instead of updates to existing ones</li>
+</ul></li>
+<li>4 paste writes per second on average</li>
+<li>40 read requests per second on average</li>
+</ul>
+<p>Handy conversion guide:</p>
+<ul>
+<li>2.5 million seconds per month</li>
+<li>1 request per second = 2.5 million requests per month</li>
+<li>40 requests per second = 100 million requests per month</li>
+<li>400 requests per second = 1 billion requests per month</li>
+</ul>
+<h2 id="step-2-create-a-high-level-design">Step 2: Create a high level design</h2>
+<blockquote>
+<p>Outline a high level design with all important components.</p>
+</blockquote>
+<figure>
+<img src="http://i.imgur.com/BKsBnmG.png" alt="Imgur" /><figcaption>Imgur</figcaption>
+</figure>
+<h2 id="step-3-design-core-components">Step 3: Design core components</h2>
+<blockquote>
+<p>Dive into details for each core component.</p>
+</blockquote>
+<h3 id="use-case-user-enters-a-block-of-text-and-gets-a-randomly-generated-link">Use case: User enters a block of text and gets a randomly generated link</h3>
+<p>We could use a <a href="https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms">relational database</a> as a large hash table, mapping the generated url to a file server and path containing the paste file.</p>
+<p>Instead of managing a file server, we could use a managed <strong>Object Store</strong> such as Amazon S3 or a <a href="https://github.com/donnemartin/system-design-primer#document-store">NoSQL document store</a>.</p>
+<p>An alternative to a relational database acting as a large hash table, we could use a <a href="https://github.com/donnemartin/system-design-primer#key-value-store">NoSQL key-value store</a>. We should discuss the <a href="https://github.com/donnemartin/system-design-primer#sql-or-nosql">tradeoffs between choosing SQL or NoSQL</a>. The following discussion uses the relational database approach.</p>
+<ul>
+<li>The <strong>Client</strong> sends a create paste request to the <strong>Web Server</strong>, running as a <a href="https://github.com/donnemartin/system-design-primer#reverse-proxy-web-server">reverse proxy</a></li>
+<li>The <strong>Web Server</strong> forwards the request to the <strong>Write API</strong> server</li>
+<li>The <strong>Write API</strong> server does the following:
+<ul>
+<li>Generates a unique url
+<ul>
+<li>Checks if the url is unique by looking at the <strong>SQL Database</strong> for a duplicate</li>
+<li>If the url is not unique, it generates another url</li>
+<li>If we supported a custom url, we could use the user-supplied (also check for a duplicate)</li>
+</ul></li>
+<li>Saves to the <strong>SQL Database</strong> <code>pastes</code> table</li>
+<li>Saves the paste data to the <strong>Object Store</strong></li>
+<li>Returns the url</li>
+</ul></li>
+</ul>
+<p><strong>Clarify with your interviewer how much code you are expected to write</strong>.</p>
+<p>The <code>pastes</code> table could have the following structure:</p>
+<pre><code>shortlink char(7) NOT NULL
+expiration_length_in_minutes int NOT NULL
+created_at datetime NOT NULL
+paste_path varchar(255) NOT NULL
+PRIMARY KEY(shortlink)</code></pre>
+<p>Setting the primary key to be based on the <code>shortlink</code> column creates an <a href="https://github.com/donnemartin/system-design-primer#use-good-indices">index</a> that the database uses to enforce uniqueness. We’ll create an additional index on <code>created_at</code> to speed up lookups (log-time instead of scanning the entire table) and to keep the data in memory. Reading 1 MB sequentially from memory takes about 250 microseconds, while reading from SSD takes 4x and from disk takes 80x longer.<sup><a href=https://github.com/donnemartin/system-design-primer#latency-numbers-every-programmer-should-know>1</a></sup></p>
+<p>To generate the unique url, we could:</p>
+<ul>
+<li>Take the <a href="https://en.wikipedia.org/wiki/MD5"><strong>MD5</strong></a> hash of the user’s ip_address + timestamp
+<ul>
+<li>MD5 is a widely used hashing function that produces a 128-bit hash value</li>
+<li>MD5 is uniformly distributed</li>
+<li>Alternatively, we could also take the MD5 hash of randomly-generated data</li>
+</ul></li>
+<li><a href="https://www.kerstner.at/2012/07/shortening-strings-using-base-62-encoding/"><strong>Base 62</strong></a> encode the MD5 hash
+<ul>
+<li>Base 62 encodes to <code>[a-zA-Z0-9]</code> which works well for urls, eliminating the need for escaping special characters</li>
+<li>There is only one hash result for the original input and Base 62 is deterministic (no randomness involved)</li>
+<li>Base 64 is another popular encoding but provides issues for urls because of the additional <code>+</code> and <code>/</code> characters</li>
+<li>The following <a href="http://stackoverflow.com/questions/742013/how-to-code-a-url-shortener">Base 62 pseudocode</a> runs in O(k) time where k is the number of digits = 7:</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">def</span> base_encode(num, base<span class="op">=</span><span class="dv">62</span>):</a>
+<a class="sourceLine" id="cb2-2" title="2">    digits <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="cf">while</span> num <span class="op">&gt;</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-4" title="4">      remainder <span class="op">=</span> modulo(num, base)</a>
+<a class="sourceLine" id="cb2-5" title="5">      digits.push(remainder)</a>
+<a class="sourceLine" id="cb2-6" title="6">      num <span class="op">=</span> divide(num, base)</a>
+<a class="sourceLine" id="cb2-7" title="7">    digits <span class="op">=</span> digits.reverse</a></code></pre></div>
+<ul>
+<li>Take the first 7 characters of the output, which results in 62^7 possible values and should be sufficient to handle our constraint of 360 million shortlinks in 3 years:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">url <span class="op">=</span> base_encode(md5(ip_address<span class="op">+</span>timestamp))[:URL_LENGTH]</a></code></pre></div>
+<p>We’ll use a public <a href="https://github.com/donnemartin/system-design-primer#representational-state-transfer-rest"><strong>REST API</strong></a>:</p>
+<pre><code>$ curl -X POST --data &#39;{ &quot;expiration_length_in_minutes&quot;: &quot;60&quot;, \
+    &quot;paste_contents&quot;: &quot;Hello World!&quot; }&#39; https://pastebin.com/api/v1/paste</code></pre>
+<p>Response:</p>
+<pre><code>{
+    &quot;shortlink&quot;: &quot;foobar&quot;
+}</code></pre>
+<p>For internal communications, we could use <a href="https://github.com/donnemartin/system-design-primer#remote-procedure-call-rpc">Remote Procedure Calls</a>.</p>
+<h3 id="use-case-user-enters-a-pastes-url-and-views-the-contents">Use case: User enters a paste’s url and views the contents</h3>
+<ul>
+<li>The <strong>Client</strong> sends a get paste request to the <strong>Web Server</strong></li>
+<li>The <strong>Web Server</strong> forwards the request to the <strong>Read API</strong> server</li>
+<li>The <strong>Read API</strong> server does the following:
+<ul>
+<li>Checks the <strong>SQL Database</strong> for the generated url
+<ul>
+<li>If the url is in the <strong>SQL Database</strong>, fetch the paste contents from the <strong>Object Store</strong></li>
+<li>Else, return an error message for the user</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>REST API:</p>
+<pre><code>$ curl https://pastebin.com/api/v1/paste?shortlink=foobar</code></pre>
+<p>Response:</p>
+<pre><code>{
+    &quot;paste_contents&quot;: &quot;Hello World&quot;
+    &quot;created_at&quot;: &quot;YYYY-MM-DD HH:MM:SS&quot;
+    &quot;expiration_length_in_minutes&quot;: &quot;60&quot;
+}</code></pre>
+<h3 id="use-case-service-tracks-analytics-of-pages">Use case: Service tracks analytics of pages</h3>
+<p>Since realtime analytics are not a requirement, we could simply <strong>MapReduce</strong> the <strong>Web Server</strong> logs to generate hit counts.</p>
+<p><strong>Clarify with your interviewer how much code you are expected to write</strong>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">class</span> HitCounts(MRJob):</a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="kw">def</span> extract_url(<span class="va">self</span>, line):</a>
+<a class="sourceLine" id="cb8-4" title="4">        <span class="co">&quot;&quot;&quot;Extract the generated url from the log line.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-5" title="5">        ...</a>
+<a class="sourceLine" id="cb8-6" title="6"></a>
+<a class="sourceLine" id="cb8-7" title="7">    <span class="kw">def</span> extract_year_month(<span class="va">self</span>, line):</a>
+<a class="sourceLine" id="cb8-8" title="8">        <span class="co">&quot;&quot;&quot;Return the year and month portions of the timestamp.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-9" title="9">        ...</a>
+<a class="sourceLine" id="cb8-10" title="10"></a>
+<a class="sourceLine" id="cb8-11" title="11">    <span class="kw">def</span> mapper(<span class="va">self</span>, _, line):</a>
+<a class="sourceLine" id="cb8-12" title="12">        <span class="co">&quot;&quot;&quot;Parse each log line, extract and transform relevant lines.</span></a>
+<a class="sourceLine" id="cb8-13" title="13"></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="co">        Emit key value pairs of the form:</span></a>
+<a class="sourceLine" id="cb8-15" title="15"></a>
+<a class="sourceLine" id="cb8-16" title="16"><span class="co">        (2016-01, url0), 1</span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="co">        (2016-01, url0), 1</span></a>
+<a class="sourceLine" id="cb8-18" title="18"><span class="co">        (2016-01, url1), 1</span></a>
+<a class="sourceLine" id="cb8-19" title="19"><span class="co">        &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-20" title="20">        url <span class="op">=</span> <span class="va">self</span>.extract_url(line)</a>
+<a class="sourceLine" id="cb8-21" title="21">        period <span class="op">=</span> <span class="va">self</span>.extract_year_month(line)</a>
+<a class="sourceLine" id="cb8-22" title="22">        <span class="cf">yield</span> (period, url), <span class="dv">1</span></a>
+<a class="sourceLine" id="cb8-23" title="23"></a>
+<a class="sourceLine" id="cb8-24" title="24">    <span class="kw">def</span> reducer(<span class="va">self</span>, key, values):</a>
+<a class="sourceLine" id="cb8-25" title="25">        <span class="co">&quot;&quot;&quot;Sum values for each key.</span></a>
+<a class="sourceLine" id="cb8-26" title="26"></a>
+<a class="sourceLine" id="cb8-27" title="27"><span class="co">        (2016-01, url0), 2</span></a>
+<a class="sourceLine" id="cb8-28" title="28"><span class="co">        (2016-01, url1), 1</span></a>
+<a class="sourceLine" id="cb8-29" title="29"><span class="co">        &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-30" title="30">        <span class="cf">yield</span> key, <span class="bu">sum</span>(values)</a></code></pre></div>
+<h3 id="use-case-service-deletes-expired-pastes">Use case: Service deletes expired pastes</h3>
+<p>To delete expired pastes, we could just scan the <strong>SQL Database</strong> for all entries whose expiration timestamp are older than the current timestamp. All expired entries would then be deleted (or marked as expired) from the table.</p>
+<h2 id="step-4-scale-the-design">Step 4: Scale the design</h2>
+<blockquote>
+<p>Identify and address bottlenecks, given the constraints.</p>
+</blockquote>
+<figure>
+<img src="http://i.imgur.com/4edXG0T.png" alt="Imgur" /><figcaption>Imgur</figcaption>
+</figure>
+<p><strong>Important: Do not simply jump right into the final design from the initial design!</strong></p>
+<p>State you would do this iteratively: 1) <strong>Benchmark/Load Test</strong>, 2) <strong>Profile</strong> for bottlenecks 3) address bottlenecks while evaluating alternatives and trade-offs, and 4) repeat. See <a href="../scaling_aws/README.md">Design a system that scales to millions of users on AWS</a> as a sample on how to iteratively scale the initial design.</p>
+<p>It’s important to discuss what bottlenecks you might encounter with the initial design and how you might address each of them. For example, what issues are addressed by adding a <strong>Load Balancer</strong> with multiple <strong>Web Servers</strong>? <strong>CDN</strong>? <strong>Master-Slave Replicas</strong>? What are the alternatives and <strong>Trade-Offs</strong> for each?</p>
+<p>We’ll introduce some components to complete the design and to address scalability issues. Internal load balancers are not shown to reduce clutter.</p>
+<p><em>To avoid repeating discussions</em>, refer to the following <a href="https://github.com/donnemartin/system-design-primer#index-of-system-design-topics">system design topics</a> for main talking points, tradeoffs, and alternatives:</p>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer#domain-name-system">DNS</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#content-delivery-network">CDN</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#load-balancer">Load balancer</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#horizontal-scaling">Horizontal scaling</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#reverse-proxy-web-server">Web server (reverse proxy)</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#application-layer">API server (application layer)</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#cache">Cache</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#relational-database-management-system-rdbms">Relational database management system (RDBMS)</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#fail-over">SQL write master-slave failover</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#master-slave-replication">Master-slave replication</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#consistency-patterns">Consistency patterns</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#availability-patterns">Availability patterns</a></li>
+</ul>
+<p>The <strong>Analytics Database</strong> could use a data warehousing solution such as Amazon Redshift or Google BigQuery.</p>
+<p>An <strong>Object Store</strong> such as Amazon S3 can comfortably handle the constraint of 12.7 GB of new content per month.</p>
+<p>To address the 40 <em>average</em> read requests per second (higher at peak), traffic for popular content should be handled by the <strong>Memory Cache</strong> instead of the database. The <strong>Memory Cache</strong> is also useful for handling the unevenly distributed traffic and traffic spikes. The <strong>SQL Read Replicas</strong> should be able to handle the cache misses, as long as the replicas are not bogged down with replicating writes.</p>
+<p>4 <em>average</em> paste writes per second (with higher at peak) should be do-able for a single <strong>SQL Write Master-Slave</strong>. Otherwise, we’ll need to employ additional SQL scaling patterns:</p>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer#federation">Federation</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#sharding">Sharding</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#denormalization">Denormalization</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#sql-tuning">SQL Tuning</a></li>
+</ul>
+<p>We should also consider moving some data to a <strong>NoSQL Database</strong>.</p>
+<h2 id="additional-talking-points">Additional talking points</h2>
+<blockquote>
+<p>Additional topics to dive into, depending on the problem scope and time remaining.</p>
+</blockquote>
+<h4 id="nosql">NoSQL</h4>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer#key-value-store">Key-value store</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#document-store">Document store</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#wide-column-store">Wide column store</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#graph-database">Graph database</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#sql-or-nosql">SQL vs NoSQL</a></li>
+</ul>
+<h3 id="caching">Caching</h3>
+<ul>
+<li>Where to cache
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer#client-caching">Client caching</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#cdn-caching">CDN caching</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#web-server-caching">Web server caching</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#database-caching">Database caching</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#application-caching">Application caching</a></li>
+</ul></li>
+<li>What to cache
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer#caching-at-the-database-query-level">Caching at the database query level</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#caching-at-the-object-level">Caching at the object level</a></li>
+</ul></li>
+<li>When to update the cache
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer#cache-aside">Cache-aside</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#write-through">Write-through</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#write-behind-write-back">Write-behind (write-back)</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#refresh-ahead">Refresh ahead</a></li>
+</ul></li>
+</ul>
+<h3 id="asynchronism-and-microservices">Asynchronism and microservices</h3>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer#message-queues">Message queues</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#task-queues">Task queues</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#back-pressure">Back pressure</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#microservices">Microservices</a></li>
+</ul>
+<h3 id="communications">Communications</h3>
+<ul>
+<li>Discuss tradeoffs:
+<ul>
+<li>External communication with clients - <a href="https://github.com/donnemartin/system-design-primer#representational-state-transfer-rest">HTTP APIs following REST</a></li>
+<li>Internal communications - <a href="https://github.com/donnemartin/system-design-primer#remote-procedure-call-rpc">RPC</a></li>
+</ul></li>
+<li><a href="https://github.com/donnemartin/system-design-primer#service-discovery">Service discovery</a></li>
+</ul>
+<h3 id="security">Security</h3>
+<p>Refer to the <a href="https://github.com/donnemartin/system-design-primer#security">security section</a>.</p>
+<h3 id="latency-numbers">Latency numbers</h3>
+<p>See <a href="https://github.com/donnemartin/system-design-primer#latency-numbers-every-programmer-should-know">Latency numbers every programmer should know</a>.</p>
+<h3 id="ongoing">Ongoing</h3>
+<ul>
+<li>Continue benchmarking and monitoring your system to address bottlenecks as they come up</li>
+<li>Scaling is an iterative process</li>
+</ul>
+</body>
+</html>

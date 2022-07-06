@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>INSTRUCTIONS</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="instructions">Instructions</h1>
+<p>This workshop is intended to be delivered in a workshop setting by an instructor either in person or via video recording. However, I’ll try to document the steps/outline as best I can in this instructions document so you can try to work through it on your own if you like.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#setup">Setup</a>
+<ul>
+<li><a href="#learning-the-codebase">Learning the codebase</a></li>
+</ul></li>
+<li><a href="#-testing-practices-and-principles">🕴 Testing Practices and Principles:</a>
+<ul>
+<li><a href="#whats-a-test">What’s a test</a></li>
+<li><a href="#what-types-of-testing-are-there">What types of testing are there?</a></li>
+<li><a href="#brief-intro-to-jest">Brief intro to Jest</a></li>
+<li><a href="#unit-tests">Unit tests</a></li>
+<li><a href="#mocking-dependencies">Mocking dependencies</a></li>
+<li><a href="#test-object-factories">Test Object Factories</a></li>
+<li><a href="#new-features-with-test-driven-development">New features with Test-Driven Development</a></li>
+<li><a href="#integration-tests">Integration tests</a></li>
+<li><a href="#fixing-bugs-with-test-driven-development">Fixing bugs with Test-Driven Development</a></li>
+<li><a href="#write-tests-not-too-many-mostly-integration">Write tests. Not too many. Mostly integration.</a></li>
+</ul></li>
+<li><a href="#-testing-react-and-web-applications">⚛️ Testing React and Web Applications:</a>
+<ul>
+<li><a href="#course-topics">Course Topics</a></li>
+<li><a href="#what-types-of-testing-are-there-1">What types of testing are there?</a></li>
+<li><a href="#whats-a-test-1">What’s a test</a></li>
+<li><a href="#intro-to-jest">Intro to Jest</a></li>
+<li><a href="#testing-a-react-component">Testing a React Component</a></li>
+<li><a href="#configuring-jest">Configuring Jest</a></li>
+<li><a href="#unit-testing-components">Unit testing components</a></li>
+<li><a href="#effective-snapshot-testing">Effective Snapshot Testing</a></li>
+<li><a href="#integration-testing-pages">Integration testing pages</a></li>
+<li><a href="#configuring-cypress">Configuring Cypress</a></li>
+<li><a href="#end-to-end-testing">End-to-end testing</a></li>
+<li><a href="#write-tests-not-too-many-mostly-integration-1">Write tests. Not too many. Mostly integration.</a></li>
+</ul></li>
+<li><a href="#shared-content">Shared Content</a>
+<ul>
+<li><a href="#whats-a-test-2">What’s a test</a></li>
+<li><a href="#what-types-of-testing-are-there-2">What types of testing are there?</a></li>
+<li><a href="#jest">Jest</a>
+<ul>
+<li><a href="#code-coverage">Code Coverage</a></li>
+</ul></li>
+<li><a href="#write-tests-not-too-many-mostly-integration-2">Write tests. Not too many. Mostly integration.</a></li>
+</ul></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<h2 id="setup">Setup</h2>
+<p>Follow the instructions in the <code>README.md</code> file to set up the project.</p>
+<h3 id="learning-the-codebase">Learning the codebase</h3>
+<p>There are 3 places where you’ll find code that runs in production:</p>
+<ol type="1">
+<li>client - runs in the browser. Entry at: <code>client/src/index.js</code></li>
+<li>server - runs on the server. Entry at: <code>server/index.js</code></li>
+<li>shared - runs in both. Entry at: <code>shared/index.js</code></li>
+</ol>
+<p>To get things running, you’ll use <a href="https://docs.npmjs.com/misc/scripts"><code>npm scripts</code></a> You can run <code>npm run</code> to get a list of the available scripts. There are several scripts in there that wont be entirely relevant to you during the workshop. The main ones you should care about are:</p>
+<ol type="1">
+<li><code>npm run dev</code> - runs the dev server so you can work on and use the app in development</li>
+<li><code>npm run test</code> - runs the unit and integration tests with jest in watch mode.</li>
+<li><code>npm run test:e2e</code> - runs the e2e tests with cypress in dev mode.</li>
+</ol>
+<h2 id="testing-practices-and-principles">🕴 Testing Practices and Principles:</h2>
+<p><strong>Course Topics</strong></p>
+<ul>
+<li>Fundamentals behind tests and testing frameworks</li>
+<li>Distinctions of different forms of testing</li>
+<li>How to write Unit tests</li>
+<li>How to write Integration tests</li>
+<li>When and how to mock dependencies</li>
+<li>How to use test driven development to write new features</li>
+<li>How to use test driven development to find and fix bugs</li>
+<li>Core principles of testing to ensure your tests give you the confidence you need</li>
+</ul>
+<h3 id="whats-a-test">What’s a test</h3>
+<p>See below in the shared content</p>
+<h3 id="what-types-of-testing-are-there">What types of testing are there?</h3>
+<p>See below in the shared content</p>
+<h3 id="brief-intro-to-jest">Brief intro to Jest</h3>
+<p>See section called <a href="#jest">“Jest”</a> below in the shared content. Keep it brief.</p>
+<h3 id="unit-tests">Unit tests</h3>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/utils/__tests__/auth.todo.js</code> and <code>server/src/utils/auth.js</code></li>
+<li>Implement tests for <code>isPasswordAllowed</code></li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Stay in <code>server/src/utils/__tests__/auth.todo.js</code> and <code>server/src/utils/auth.js</code></li>
+<li>Implement a single test for <code>userToJSON</code></li>
+</ol>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Interact with the unit in the same way you would in the actual code. Then assert on the resulting value or changes in state.</li>
+<li>Pure functions are the easiest to unit test</li>
+<li>Test for use cases rather than for code coverage</li>
+<li>Using variables to be explicit about relationships is useful (when kept simple).</li>
+</ul>
+<h3 id="mocking-dependencies">Mocking dependencies</h3>
+<p>Mocking can be a little tricky, so we’re going to approach it the same way we approached learning what a testing framework is. In your terminal, change directories to <code>other/whats-a-mock</code> and run <code>./jest</code>. This will start jest in watch mode for the files here. Review the <code>thumb-war.js</code> and <code>utils.js</code> files then open <code>__tests__/thumb-war.0.js</code> and follow the instructions there. Continue through each of them. You’ll find the solutions in the associated <code>.solution</code> files.</p>
+<p><strong>New Things</strong>:</p>
+<ul>
+<li><code>jest.mock</code> allows you to mock a dependency</li>
+<li><code>jest.fn</code> allows you to create a function which keeps track of how it’s called</li>
+<li><code>jest.spyOn</code> allows you to wrap an object’s function with a mock function.</li>
+</ul>
+<p>Learn more about this from: <a href="https://tinyletter.com/kentcdodds/letters/but-really-what-is-a-javascript-mock">“But really, what is a JavaScript mock?”</a></p>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Mocks are simply fake versions of code that allow us to get coverage on code that may otherwise be very difficult or impossible to test reliably.</li>
+<li>Mocking dependencies reduces confidence that our application works</li>
+<li>Jest has an amazing mocking library</li>
+</ul>
+<p>Extra Credit (old exercise):</p>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/utils/gist.js</code> and <code>server/src/utils/__tests__/gist.todo.js</code></li>
+<li>Implement an axios mock (inline with <code>jest.mock</code>)</li>
+<li>Write the test and make assertions on the mock</li>
+<li>Remove the inline mock and show the existing <code>__mocks__/axios.js</code> file</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/utils/myjson.js</code> and <code>server/src/utils/__tests__/myjson.todo.js</code></li>
+<li>(Optionally) Implement an axios mock (inline with <code>jest.mock</code>)</li>
+<li>Write the test and make assertions on the mock</li>
+<li>Remove the inline mock use the existing <code>__mocks__/axios.js</code> file</li>
+</ol>
+<h3 id="test-object-factories">Test Object Factories</h3>
+<p><strong>New Things</strong>:</p>
+<ul>
+<li><code>beforeEach</code> allows you to run code before every test. There’s also <code>afterEach</code>, but using that can be less optimal in some situations. It’s generally better to use <code>beforeEach</code> to clean up and prepare the environment for your test so if it fails the environment remains as it is at the time of the failure which can help debugging why the failure occurred.</li>
+</ul>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/controllers/__tests__/users.todo.js</code> and <code>server/src/controllers/users.todo.js</code></li>
+<li>Implement a test for <code>getUsers</code> and <code>getUser</code></li>
+<li>Demonstrate the test object factory pattern by extracting the common <code>req</code>, and <code>res</code> setup to a <code>setup</code> function</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<blockquote>
+<p>This one’s optional based on how much time is available…</p>
+</blockquote>
+<ol type="1">
+<li>Open <code>server/src/controllers/__tests__/posts.todo.js</code> and <code>server/src/controllers/posts.todo.js</code></li>
+<li>Implement a test for <code>getPosts</code> and <code>getPost</code> using test object factories</li>
+</ol>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Multiple tests that look basically the same can be hard to maintain/understand</li>
+<li>Using a test object factory allows you to abstract some common code and leave only the code that’s relevant for the test itself.</li>
+</ul>
+<h3 id="new-features-with-test-driven-development">New features with Test-Driven Development</h3>
+<!-- TODO: maybe make a simpler example -->
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/controllers/__tests__/users.todo.js</code> and <code>server/src/controllers/users.todo.js</code></li>
+<li>Implement a <code>deleteUser</code> async function using TDD.</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/controllers/__tests__/posts.todo.js</code> and <code>server/src/controllers/posts.todo.js</code></li>
+<li>Implement a <code>deletePost</code> async function using TDD.</li>
+</ol>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Implement one part at a time to keep focused.</li>
+<li>Red, Green, Refactor (Don’t forget the refactor!)</li>
+<li>Tests often have the basic shape of: Arrange, Act, Assert</li>
+</ul>
+<h3 id="integration-tests">Integration tests</h3>
+<p><strong>New Things</strong>:</p>
+<ul>
+<li>Because integration tests are higher level, they require a bit more setup. The <code>startServer</code> function accepts an options object. One option is the <code>port</code> that should be used to start the server. It’s important to specify that because when running the tests in parallel, it’s impossible to know exactly which port other tests are using.</li>
+</ul>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/routes/__tests__/users.todo.js</code> and <code>server/src/controllers/users.js</code></li>
+<li>Implement requests to verify each of the users endpoints.</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/routes/__tests__/posts.todo.js</code> and <code>server/src/controllers/posts.js</code></li>
+<li>Implement requests to verify each of the posts endpoints.</li>
+</ol>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Multiple assertions within a single test is often more pragmatic/practical than splitting things up into multiple tests.</li>
+<li>Integration often takes a fair amount more effort/setup, and has more points of failure, but the payoff is much greater.</li>
+</ul>
+<h3 id="fixing-bugs-with-test-driven-development">Fixing bugs with Test-Driven Development</h3>
+<!-- TODO: maybe make a simpler example -->
+<p><strong>New Things</strong>:</p>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/routes/users.js</code> and replace <code>../controllers/users</code> with <code>../controllers/users.bug.todo</code> (without anyone noticing?)</li>
+<li>Run <code>npm run dev</code> and open the app. Note that the users endpoint is returning all of the user information (including the <code>salt</code> and <code>hash</code>).</li>
+<li>Open <code>server/src/routes/__tests__/users.todo.js</code> and add a test that reproduces the bug (note: this is the same test the attendees need to implement in their exercise).</li>
+<li>Open the <code>server/src/routes/users.js</code> file again and note that the users endpoint codepath goes through <code>server/src/controllers/users.bug.todo.js</code>.</li>
+<li>Notice the bug in the users method.</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Open <code>server/src/routes/__tests__/users.bug.todo.js</code> and <code>server/src/controllers/users.bug.todo.js</code></li>
+<li>Implement the test for the bug fix first, then fix the bug</li>
+</ol>
+<p><strong>Takaways</strong>:</p>
+<ul>
+<li>Notice that we can be more certain that our code changes fixed the bug because we reproduced the failure in our tests and our code changes fixed the tests.</li>
+<li>Notice also that after we’ve manually verified things work as well, we should hopefully never have to do so again because the test is in place to ensure it wont break without failing the test.</li>
+<li>By implementing this as a higher level test, it was easier to write a test to find the bug without knowing exactly where the bug was or what was causing it.</li>
+</ul>
+<h3 id="write-tests.-not-too-many.-mostly-integration.">Write tests. Not too many. Mostly integration.</h3>
+<p>See below in the shared content</p>
+<hr />
+<h2 id="testing-react-and-web-applications">⚛️ Testing React and Web Applications:</h2>
+<h3 id="course-topics">Course Topics</h3>
+<ul>
+<li>Fundamentals of what a test is and what role testing frameworks play</li>
+<li>Configure Jest for a client-side React project</li>
+<li>What Code Coverage is and how to properly use that metric</li>
+<li>Write unit tests for JavaScript utilities and React components</li>
+<li>What snapshot testing is and how to use it effectively</li>
+<li>Write integration tests for a React application</li>
+<li>Configure Cypress for a web application</li>
+<li>Write E2E (end-to-end) tests with Cypress</li>
+</ul>
+<h3 id="what-types-of-testing-are-there-1">What types of testing are there?</h3>
+<p>See below in the shared content</p>
+<h3 id="whats-a-test-1">What’s a test</h3>
+<p>See below in the shared content</p>
+<blockquote>
+<p>NOTE: This is duplicate content from the practices and principles workshop In this one however, folks should just watch the instructor go through things to make time for the rest of the content and not bore those who have already gone through this material.</p>
+</blockquote>
+<h3 id="intro-to-jest">Intro to Jest</h3>
+<p>See below in the shared content</p>
+<h3 id="testing-a-react-component">Testing a React Component</h3>
+<p><strong>Instruction</strong>:</p>
+<ul>
+<li>Nothing much here, direct people to the exercise and inform them they can use the solution for reference</li>
+</ul>
+<p><strong>Exercise</strong>:</p>
+<ul>
+<li>Start the simple react tests in watch mode with <code>npm run test:react</code></li>
+<li>Open <code>other/simple-react/item-list.js</code> and <code>other/simple-react/__tests__/item-list.todo.js</code></li>
+<li>Follow the instructions to test the component</li>
+</ul>
+<p><strong>Takeaways</strong></p>
+<ul>
+<li>The key here is to render the component and assert on the output.</li>
+<li>Assuming this were the only component for your entire application, attempt to use it the way the user would and let that inform your decisions of how you test it.</li>
+</ul>
+<h3 id="configuring-jest">Configuring Jest</h3>
+<p><strong>New Things</strong>:</p>
+<ul>
+<li>Code Coverage: A mechanism for us to understand how much of our code is run during the unit tests. 100% for libs, 70%ish for applications.</li>
+</ul>
+<p><strong>Instruction</strong>:</p>
+<ul>
+<li>Navigate to <code>./other/configuration/calculator</code></li>
+<li>Go ahead and run <code>npm run dev</code> and open up <code>localhost:8080</code> to see the app</li>
+<li><code>npm install --save-dev jest</code></li>
+<li>Create a <code>test</code> script in <code>package.json</code> to <code>jest</code></li>
+<li>Run <code>npm test</code> – No files found matching the default <code>testMatch</code></li>
+<li>Copy over <code>src/__tests__/utils.js</code> from <code>calculator.solution</code></li>
+<li>Run <code>npm test</code> – Fails due to syntax error with ES Modules which we have disabled for webpack</li>
+<li>Update <code>.babelrc.js</code> to have <code>modules: 'commonjs'</code> in test mode.</li>
+<li>Run <code>npm test</code> – It works!</li>
+<li>Add <code>console.log(window)</code></li>
+<li>Run <code>npm test</code> – notice the huge window object is printed</li>
+<li>Create a <code>jest</code> object property in <code>package.json</code> and add <code>testEnvironment: 'node'</code>.</li>
+<li>Run <code>npm test</code> – notice it fails with <code>window is not defined</code> which is what we want for node.</li>
+<li>Remove <code>console.log(window)</code></li>
+</ul>
+<p>Now let’s deal with CSS imports:</p>
+<ul>
+<li>Copy <code>src/__tests__/auto-scaling-text.js</code> from <code>calculator.solution</code></li>
+<li>Run <code>npm test</code> – Fails because of the import of css</li>
+<li>Create <code>jest.config.js</code> and move config from <code>package.json</code> to that file.</li>
+<li>Add <code>moduleNameMapper</code> to match <code>.css</code>. Map it to <code>require.resolve('./test/style-mock')</code></li>
+<li>Create <code>style-mock.js</code> in <code>test</code> directory. It needs no contents.</li>
+<li>Run <code>npm test</code> – The old error is gone! CSS importing is working, but now we’re getting <code>document is not defined</code>.</li>
+<li>Update <code>jest.config.js</code> to <code>testEnvironment: 'jsdom'</code>.</li>
+<li>Run <code>npm test</code> – Passes!</li>
+</ul>
+<p>Let’s improve the CSS imports a bit:</p>
+<ul>
+<li>Add <code>console.log(div.outerHTML)</code> and notice there is no className because our style mock just returns an empty object for our css modules (I’m actually not sure why the style prop doesn’t appear there… I guess React’s not using the style attribute to apply those style properties?)</li>
+<li><code>npm install --save-dev identity-obj-proxy</code></li>
+<li>Add <code>moduleNameMapper</code> to <code>jest.config.js</code> that matches <code>.module.css</code> and maps to <code>identity-obj-proxy</code> (must come BEFORE the other one).</li>
+<li>Run <code>npm test</code> – Shows the <code>class</code>!</li>
+<li>Remove the <code>console.log</code> because it’s annoying.</li>
+</ul>
+<p>Let’s handle dynamic imports:</p>
+<ul>
+<li>Copy <code>src/__tests__/calculator.js</code> from <code>calculator.solution</code></li>
+<li>Run <code>npm test</code> – Fails due to syntax error on dynamic import</li>
+<li><code>npm install --save-dev babel-plugin-dynamic-import-node</code></li>
+<li>Update <code>.babelrc.js</code> to use <code>dynamic-import-node</code> when in tests</li>
+<li>Run <code>npm test</code> – Fails because <code>window.localStorage</code> is not supported by JSDOM!</li>
+<li>Copy <code>test/setup-test-framework.js</code> from <code>calculator.solution</code></li>
+<li>Update <code>jest.config.js</code> to have a <code>setupTestFrameworkScriptFile</code> that points to <code>require.resolve('./test/setup-test-framework')</code></li>
+<li>Run <code>npm test</code> – Passes!</li>
+</ul>
+<p>Ok! Now time for coverage!</p>
+<ul>
+<li>Update the <code>test</code> script in <code>package.json</code> to be <code>jest --coverage</code></li>
+<li>Run <code>npm test</code> – Passes and includes coverage!</li>
+<li>Open <code>./coverage/lcov-report/index.html</code> in a browser. Neat right!? It includes non-source files though</li>
+<li>Update <code>jest.config.js</code> with a <code>collectCoverageFrom</code> that is: <code>['**/src/**/*.js']</code></li>
+<li>Run <code>npm test</code> – Passes and includes coverage for only the files we care about.</li>
+</ul>
+<p>Let’s lock in our coverage!</p>
+<ul>
+<li>Update <code>jest.config.js</code> to have a <code>coverageThreshold</code> of 70% for statements, branches, functions, and lines.</li>
+<li>Run <code>npm test</code> – Fails due to coverage threshold requirements</li>
+<li>Update <code>jest.config.js</code> to have a more reasonable <code>coverageThreshold</code></li>
+<li>Run <code>npm test</code> – Passes!</li>
+</ul>
+<p>Let’s turn on watch mode!</p>
+<ul>
+<li>Add a <code>test:watch</code> script to <code>package.json</code> and set it to <code>jest --watch</code></li>
+<li>Run <code>npm run test:watch</code></li>
+<li>Explore Jest’s amazing watch mode</li>
+</ul>
+<p><strong>Exercise</strong>:</p>
+<blockquote>
+<p>No exercise here. It would be really boring I think…</p>
+</blockquote>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Dependencies installed: <code>jest</code>, <code>identity-obj-proxy</code>, and <code>babel-plugin-dynamic-import-node</code></li>
+<li>Get code coverage with: <code>jest --coverage</code></li>
+<li>Watch mode with: <code>jest --watch</code></li>
+<li>Configure jest with <code>jest.config.js</code>, <code>--config</code>, or <code>package.json</code> <code>jest</code> property:
+<ul>
+<li><code>"testEnvironment": "jest-environment-node"</code> if you don’t need <code>jsdom</code></li>
+<li><code>collectCoverageFrom</code> to collect coverage numbers on your whole codebase (<code>coveragePathIgnorePatterns</code> can ignore some)</li>
+<li><code>coverageThresholds</code> to keep your coverage from falling</li>
+</ul></li>
+</ul>
+<h3 id="unit-testing-components">Unit testing components</h3>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>client/src/screens/editor.todo.js</code> and <code>client/src/screens/__tests__/editor.todo.js</code></li>
+<li>Run the tests with <code>npm test editor.todo</code></li>
+<li>Implement the test (not the snapshot yet)</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Open <code>client/src/components/login.js</code> and <code>client/src/components/__tests__/login.step-1.todo.js</code></li>
+<li>Run the tests with <code>npm test login.step-1.todo</code></li>
+<li>Implement the login test</li>
+</ol>
+<p><em>optional</em></p>
+<ol start="4" type="1">
+<li>Open <code>client/src/components/__tests__/login.step-2.todo.js</code></li>
+<li>Run the tests with <code>npm test login.step-2.todo</code></li>
+<li>Use the utilities provided</li>
+</ol>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>TODO</li>
+</ul>
+<h3 id="effective-snapshot-testing">Effective Snapshot Testing</h3>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Start by explaining what snapshot tests even are (open <code>other/jest-expect/__tests__/expect-assertions.js</code> and go through the snapshots examples)</li>
+<li>Open <code>client/src/screens/editor.todo.js</code> and <code>client/src/screens/__tests__/editor.todo.js</code></li>
+<li>Run the tests with <code>npm test editor.todo</code></li>
+<li>Implement the snapshot test</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Open <code>client/src/components/login.js</code> and <code>client/src/components/__tests__/login.step-1.todo.js</code></li>
+<li>Run the tests with <code>npm test login.step-3.todo</code></li>
+<li>Implement the snapshot test</li>
+</ol>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>TODO</li>
+</ul>
+<h3 id="integration-testing-pages">Integration testing pages</h3>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Explore the app code a little bit. Start at <code>client/src/app.js</code></li>
+<li>Open <code>client/src/__tests__/app.register.todo.js</code></li>
+<li>Run the tests with <code>npm test app.register.todo</code></li>
+<li>Implement the integration test</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Open <code>client/src/__tests__/app.login.todo.js</code></li>
+<li>Run the tests with <code>npm test app.login.todo</code></li>
+<li>Implement the integration test</li>
+</ol>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>TODO</li>
+</ul>
+<h3 id="configuring-cypress">Configuring Cypress</h3>
+<p><strong>Instructions</strong>:</p>
+<ol type="1">
+<li>Change directories to <code>other/configuration/calculator</code> (further directories relative to this)</li>
+<li>Run <code>npm install --save-dev cypress</code></li>
+<li>Run <code>npx cypress open</code>. Play around with it, then stop the process.</li>
+<li>Explore <code>./cypress</code></li>
+</ol>
+<p>Now let’s have it run on our codebase</p>
+<ol type="1">
+<li>In one terminal tab/window start the dev server <code>npm run dev</code>. Note this is running on port <code>8080</code></li>
+<li>Open <code>./cypress.json</code> and add <code>"baseUrl": "http://localhost:8080"</code> and <code>"integrationFolder": "cypress/e2e"</code></li>
+<li><code>npm install --save-dev cypress-testing-library</code></li>
+<li>Update <code>cypress/support/index.js</code> to import <code>cypress-testing-library/add-commands</code></li>
+<li>Delete <code>./cypress/integration</code> and copy <code>../calculator.solution/e2e/calculator.js</code> to <code>./cypress/e2e/calculator.js</code></li>
+<li>Start cypress over again: <code>npx cypress open</code> and run the test. It passes!</li>
+</ol>
+<p>Now let’s make this a script</p>
+<ol type="1">
+<li><code>npm install --save-dev npm-run-all</code></li>
+<li>Add a <code>test:e2e:dev</code> script: <code>npm-run-all --parallel --race dev cy:open</code></li>
+<li>Add a <code>cy:open</code> script: <code>cypress open</code></li>
+<li>Run <code>npm run test:e2e:dev</code>. It works!</li>
+</ol>
+<p>Now let’s make this work for CI</p>
+<ol type="1">
+<li>Add a <code>test:e2e</code> script: <code>npm-run-all --parallel --race start cy:run</code></li>
+<li>Add a <code>cy:run</code> script: <code>cypress run</code></li>
+<li>Add a <code>pretest:e2e</code> script: <code>npm run build</code></li>
+<li>Run <code>npm run test:e2e</code>. It works!</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<blockquote>
+<p>No exercise here. It would be really boring I think…</p>
+</blockquote>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>TODO</li>
+</ul>
+<h3 id="end-to-end-testing">End-to-end testing</h3>
+<p><strong>New Things</strong>:</p>
+<ul>
+<li>The new script is <code>npm run test:e2e</code></li>
+<li>Cypress uses a mocha-like framework for tests (<code>describe</code>, and <code>it</code>)</li>
+<li>Cypress uses a chai-like assertion library.</li>
+<li>Cypress has an internal queueing system for it’s commands. Each command can yield a subject which allows you to execute commands on that subject. Think of the <code>cy</code> global as <code>user</code> and you’re giving the user instructions of what to do. You pretty much chain everything from one command to the other unless you want to context switch to a new task. <a href="https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Subject-Management">learn more</a></li>
+</ul>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>cypress/e2e/auth.register.todo.js</code> and run <code>npm run test:e2e</code></li>
+<li>Run the tests <code>auth.register.todo.js</code></li>
+<li>Implement the register test</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<ol type="1">
+<li>Open <code>cypress/e2e/auth.login.todo.js</code> and run <code>npm run test:e2e</code></li>
+<li>Run the tests <code>auth.login.todo.js</code></li>
+<li>Implement the login test</li>
+</ol>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Once you’ve verified registration works in the UI, you should avoid needless test bottlenecks by using a utility to register a new user rather than registering a new user with the UI.</li>
+<li>E2E tests allow you to use your app like a user which gives you a LOT more confidence that things will work as expected when a user does use your app.</li>
+<li>Cypress has an AMAZING UX for writing E2E tests for web apps!</li>
+</ul>
+<h3 id="write-tests.-not-too-many.-mostly-integration.-1">Write tests. Not too many. Mostly integration.</h3>
+<p>See below in the shared content</p>
+<hr />
+<h2 id="shared-content">Shared Content</h2>
+<h3 id="whats-a-test-2">What’s a test</h3>
+<p>Before we get into all the testing frameworks, let’s learn about what a test even is. In your terminal, change directories to <code>other/whats-a-test</code> and open the <code>0.js</code> file in your editor. Follow the instructions there and continue through to <code>5.js</code>. You’ll find the solutions in the associated <code>.solution</code> files.</p>
+<p>Learn more about this from: <a href="https://blog.kentcdodds.com/46fe5f3fad77">“But really, what is a JavaScript test?”</a></p>
+<p><strong>New Things</strong>:</p>
+<ul>
+<li>Assertion: A way for you to specify how things should be. Will throw an error if they are not that way, this is what fails the test.</li>
+</ul>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Tests are simply code that runs other code and performs “assertions”</li>
+<li>Testing frameworks abstract this away for us to be more productive in writing tests.</li>
+</ul>
+<h3 id="what-types-of-testing-are-there-2">What types of testing are there?</h3>
+<p>Watch this 5 minute lightning talk: <a href="https://youtu.be/Da9wfQ0frGA?list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf">“What we can learn about testing from the wheel”</a></p>
+<h3 id="jest">Jest</h3>
+<p><strong>Instruction</strong>:</p>
+<ol type="1">
+<li>Open <code>other/jest-expect/__tests__/expect-assertions.js</code></li>
+<li>Run <code>npm run test:expect</code></li>
+<li>Walk through the different assertions (should be pretty quick)</li>
+</ol>
+<p><strong>Exercise</strong>:</p>
+<blockquote>
+<p>I don’t think there’s time/need for exercises here</p>
+</blockquote>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Reference all the assertions here: https://facebook.github.io/jest/docs/en/expect.html</li>
+</ul>
+<h4 id="code-coverage">Code Coverage</h4>
+<p>Take a look at <code>other/coverage-example</code>. Look at the <code>example.js</code> file and compare it to the <code>example.coverage.js</code> file. The one with coverage has been instrumented with coverage meaning there’s a variable set up for the file and the code has been changed to include tracking of everywhere the code path could go. Open up <code>coverage/lcov-report/index.html</code> in a browser to see the report that this is intended to create.</p>
+<p><strong>New Things</strong>:</p>
+<ul>
+<li>Branch: A branch in the code path. For example: <code>if</code>, <code>else</code>, <code>ternary</code>, <code>switch</code>.</li>
+<li>Statement: A syntax expression intended to be executed: Function call and/or assignment</li>
+<li>Lines: <a href="https://github.com/gotwarlost/istanbul/issues/639">Basically irrelevant now</a></li>
+<li>Functions: Whether or not a function was ever invoked</li>
+</ul>
+<p><strong>Takeaways</strong>:</p>
+<ul>
+<li>Coverage is a useful metric as it shows you where code has not verifiably been run during tests.</li>
+<li>This metric is just an indicator and should not be misinterpreted as whether the logic is correct or the code will never break.</li>
+<li>You can get distracted by trying to achieve 100% code coverage when your time could be better spent elsewhere. Often trying to achieve 100% code coverage can result in doing weird things that make your tests brittle.</li>
+</ul>
+<h3 id="write-tests.-not-too-many.-mostly-integration.-2">Write tests. Not too many. Mostly integration.</h3>
+<p>Basically <a href="https://slides.com/kentcdodds/write-tests">this talk</a>.</p>
+</body>
+</html>

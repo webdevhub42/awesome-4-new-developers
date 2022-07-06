@@ -1217,7 +1217,7 @@ Google не возьмёт тебя на работу.
     - [ ] [4. Бойер-Мур](https://www.youtube.com/watch?v=fI7Ch6pZXfM&list=PLe-ggMe31CTdAdjXB3lIuf2maubzo9t66&index=2)
     - [ ] [5. Rabin-Karp](https://www.youtube.com/watch?v=QzI0p6zDjK4&index=1&list=PLe-ggMe31CTdAdjXB3lIuf2maubzo9t66)
   - [ ] [Шаблон поиска в тексте (текст)](https://www.coursera.org/learn/data-structures/lecture/tAfHI/search-pattern-in-text)
-  Если вам нужно больше подробностей по этому вопросу, см. Раздел «Соответствие строк» в [Дополнительная информация по некоторым предметам](#additional-detail-on-some-subjects)
+        Если вам нужно больше подробностей по этому вопросу, см. Раздел «Соответствие строк» в [Дополнительная информация по некоторым предметам](#additional-detail-on-some-subjects)
 
 ---
 

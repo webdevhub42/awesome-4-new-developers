@@ -593,8 +593,7 @@
     - dequeue() - 刪除當時 queue 中最早進入的元素(意即 queue 中第一個元素)，並且回傳該元素的值。
     - empty()
     - full()
-  - [ ] 複雜度:
-    -
+  - [ ] ## 複雜度:
     - enqueue: O(1) (平均情況，無論對於用 linked list 或陣列實作的方法)
     - dequeue: O(1) (linked list 與陣列)
     - empty: O(1) (linked list 與陣列)

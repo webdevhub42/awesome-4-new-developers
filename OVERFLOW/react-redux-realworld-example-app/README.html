@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="react-redux-example-app"><img src="project-logo.png" alt="React + Redux Example App" /></h1>
+<p><a href="http://realworld.io"><img src="https://img.shields.io/badge/realworld-frontend-%23783578.svg" alt="RealWorld Frontend" /></a></p>
+<blockquote>
+<h3 id="react-redux-codebase-containing-real-world-examples-crud-auth-advanced-patterns-etc-that-adheres-to-the-realworld-spec-and-api.">React + Redux codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the <a href="https://github.com/gothinkster/realworld-example-apps">RealWorld</a> spec and API.</h3>
+</blockquote>
+<p><a href="https://stackblitz.com/edit/react-redux-realworld" target="_blank"><img width="187" src="https://github.com/gothinkster/realworld/blob/master/media/edit_on_blitz.png?raw=true" /></a>  <a href="https://thinkster.io/tutorials/build-a-real-world-react-redux-application" target="_blank"><img width="384" src="https://raw.githubusercontent.com/gothinkster/realworld/master/media/learn-btn-hr.png" /></a></p>
+<h3 id="demo-realworld"><a href="https://react-redux.realworld.io">Demo</a>    <a href="https://github.com/gothinkster/realworld">RealWorld</a></h3>
+<p>Originally created for this <a href="https://github.com/reactjs/redux/issues/1353">GH issue</a>. The codebase is now feature complete; please submit bug fixes via pull requests &amp; feedback via issues.</p>
+<p>We also have notes in <a href="https://github.com/gothinkster/react-redux-realworld-example-app/wiki"><strong>our wiki</strong></a> about how the various patterns used in this codebase and how they work (thanks <span class="citation" data-cites="thejmazz">[@thejmazz]</span>(https://github.com/thejmazz)!)</p>
+<h2 id="getting-started">Getting started</h2>
+<p>You can view a live demo over at https://react-redux.realworld.io/</p>
+<p>To get the frontend running locally:</p>
+<ul>
+<li>Clone this repo</li>
+<li><code>npm install</code> to install all req’d dependencies</li>
+<li><code>npm start</code> to start the local server (this project uses create-react-app)</li>
+</ul>
+<p>Local web server will use port 4100 instead of standard React’s port 3000 to prevent conflicts with some backends like Node or Rails. You can configure port in scripts section of <code>package.json</code>: we use <a href="https://github.com/kentcdodds/cross-env">cross-env</a> to set environment variable PORT for React scripts, this is Windows-compatible way of setting environment variables.</p>
+<p>Alternatively, you can add <code>.env</code> file in the root folder of project to set environment variables (use PORT to change webserver’s port). This file will be ignored by git, so it is suitable for API keys and other sensitive stuff. Refer to <a href="https://github.com/motdotla/dotenv">dotenv</a> and <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-development-environment-variables-in-env">React</a> documentation for more details. Also, please remove setting variable via script section of <code>package.json</code> - <code>dotenv</code> never override variables if they are already set.</p>
+<h3 id="making-requests-to-the-backend-api">Making requests to the backend API</h3>
+<p>For convenience, we have a live API server running at https://conduit.productionready.io/api for the application to make requests against. You can view <a href="https://github.com/GoThinkster/productionready/blob/master/api">the API spec here</a> which contains all routes &amp; responses for the server.</p>
+<p>The source code for the backend server (available for Node, Rails and Django) can be found in the <a href="https://github.com/gothinkster/realworld">main RealWorld repo</a>.</p>
+<p>If you want to change the API URL to a local server, simply edit <code>src/agent.js</code> and change <code>API_ROOT</code> to the local server’s URL (i.e. <code>http://localhost:3000/api</code>)</p>
+<h2 id="functionality-overview">Functionality overview</h2>
+<p>The example application is a social blogging site (i.e. a Medium.com clone) called “Conduit”. It uses a custom API for all requests, including authentication. You can view a live demo over at https://redux.productionready.io/</p>
+<p><strong>General functionality:</strong></p>
+<ul>
+<li>Authenticate users via JWT (login/signup pages + logout button on settings page)</li>
+<li>CRU* users (sign up &amp; settings page - no deleting required)</li>
+<li>CRUD Articles</li>
+<li>CR*D Comments on articles (no updating required)</li>
+<li>GET and display paginated lists of articles</li>
+<li>Favorite articles</li>
+<li>Follow other users</li>
+</ul>
+<p><strong>The general page breakdown looks like this:</strong></p>
+<ul>
+<li>Home page (URL: /#/ )
+<ul>
+<li>List of tags</li>
+<li>List of articles pulled from either Feed, Global, or by Tag</li>
+<li>Pagination for list of articles</li>
+</ul></li>
+<li>Sign in/Sign up pages (URL: /#/login, /#/register )
+<ul>
+<li>Use JWT (store the token in localStorage)</li>
+</ul></li>
+<li>Settings page (URL: /#/settings )</li>
+<li>Editor page to create/edit articles (URL: /#/editor, /#/editor/article-slug-here )</li>
+<li>Article page (URL: /#/article/article-slug-here )
+<ul>
+<li>Delete article button (only shown to article’s author)</li>
+<li>Render markdown from server client side</li>
+<li>Comments section at bottom of page</li>
+<li>Delete comment button (only shown to comment’s author)</li>
+</ul></li>
+<li>Profile page (URL: /#/<span class="citation" data-cites="username">@username</span>, /#/<span class="citation" data-cites="username/favorites">@username/favorites</span> )
+<ul>
+<li>Show basic user info</li>
+<li>List of articles populated from author’s created articles or author’s favorited articles</li>
+</ul></li>
+</ul>
+<p><br /></p>
+<p><a href="https://thinkster.io"><img src="https://raw.githubusercontent.com/gothinkster/realworld/master/media/end.png" alt="Brought to you by Thinkster" /></a></p>
+</body>
+</html>

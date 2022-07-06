@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<div data-align="center">
+<br /><br /><br /> <img src='https://raw.githubusercontent.com/kyoz/vim-galore-vi/main/static/images/logo-vim-galore.png' alt='vim-galore logo' /> <br /><br /><br /><br />
+<div>
+<pre><code>&lt;a href=&#39;https://github.com/mhinz/vim-galore&#39;&gt;English&lt;/a&gt; |
+&lt;a href=&#39;https://github.com/wsdjeg/vim-galore-zh_cn&#39;&gt;Chinese&lt;/a&gt; |
+&lt;a href=&#39;http://postd.cc/?s=vim-galore&#39;&gt;Japanese&lt;/a&gt; |
+&lt;a href=&#39;https://github.com/lsrdg/vim-galore&#39;&gt;Portuguese&lt;/a&gt; |
+&lt;a href=&#39;http://givi.olnd.ru/vim-galore/vim-galore-ru.html&#39;&gt;Russian&lt;/a&gt;
+&lt;div&gt;
+  &lt;br /&gt;
+  &lt;sub&gt;Được cấp phép theo &lt;a href=&#39;https://creativecommons.org/licenses/by-sa/4.0&#39;&gt;CC BY-SA 4.0&lt;a/&gt;.&lt;/sub&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<p><br /><br /></p>
+</div>
+<h3 id="giới-thiệu"><a href="#giới-thiệu-1">Giới thiệu</a></h3>
+<ul>
+<li><a href="#vim-là-gì">Vim là gì?</a></li>
+<li><a href="#triết-lý-của-vim">Triết lý của Vim</a></li>
+<li><a href="#những-bước-đầu-tiên">Những bước đầu tiên</a></li>
+<li><a href="#file-cấu-hình-vimrc-đơn-giản">File cấu hình vimrc đơn giản</a></li>
+<li><a href="#bạn-đang-sử-dụng-phiên-bản-vim-nào">Bạn đang sử dụng phiên bản Vim nào?</a></li>
+<li><a href="#cheatsheets">Cheatsheets</a></li>
+</ul>
+<h3 id="cơ-bản"><a href="#cơ-bản-1">Cơ bản</a></h3>
+<ul>
+<li><a href="#buffer-window-và-tab">Buffer, window và tab</a></li>
+<li><a href="#hiểu-rõ-hơn-về-buffer">Hiểu rõ hơn về buffer</a></li>
+<li><a href="#danh-sách-tham-số">Danh sách tham số</a></li>
+<li><a href="#mapping-lệnh">Mapping lệnh</a></li>
+<li><a href="#phím-leader">Phím leader</a></li>
+<li><a href="#bộ-ghi-nhớ">Bộ ghi nhớ</a></li>
+<li><a href="#phạm-vi">Phạm vi</a></li>
+<li><a href="#đánh-dấu">Đánh dấu</a></li>
+<li><a href="#gợi-ý-code">Gợi ý code</a></li>
+<li><a href="#chuyển-động-các-toán-tử-các-đối-tượng-văn-bản">Chuyển động, các toán tử, các đối tượng văn bản</a></li>
+<li><a href="#lệnh-tự-động">Lệnh tự động</a></li>
+<li><a href="#danh-sách-thay-đổi-danh-sách-nhảy">Danh sách thay đổi, danh sách nhảy</a></li>
+<li><a href="#cây-hoàn-tác">Cây hoàn tác</a></li>
+<li><a href="##danh-sách-sửa-lỗi-nhanh-và-danh-sách-vị-trí">Danh sách sửa lỗi nhanh và danh sách vị trí</a></li>
+<li><a href="#macros">Macros</a></li>
+<li><a href="#bảng-màu">Bảng màu</a></li>
+<li><a href="#thu-gọn-code">Thu gọn code</a></li>
+<li><a href="#phiên-làm-việc">Phiên làm việc</a></li>
+<li><a href="#tính-cục-bộ">Tính cục bộ</a></li>
+</ul>
+<h3 id="cách-sử-dụng"><a href="#cách-sử-dụng-1">Cách sử dụng</a></h3>
+<ul>
+<li><a href="#nhận-trợ-giúp-ngoại-tuyến">Nhận trợ giúp ngoại tuyến</a></li>
+<li><a href="#nhận-trợ-giúp-ngoại-tuyến-cách-khác">Nhận trợ giúp ngoại tuyến (cách khác)</a></li>
+<li><a href="#nhận-trợ-giúp-trực-tuyến">Nhận trợ giúp trực tuyến</a></li>
+<li><a href="#sử-dụng-lệnh-tự-động-trong-thực-tế">Sử dụng lệnh tự động trong thực tế</a>
+<ul>
+<li><a href="#các-sự-kiện-người-dùng">Các sự kiện người dùng</a></li>
+<li><a href="#các-lệnh-tự-động-lồng-vào-nhau">Các lệnh tự động lồng vào nhau</a></li>
+</ul></li>
+<li><a href="#clipboard">Clipboard</a>
+<ul>
+<li><a href="#sử-dụng-clipboard-windows-macos">Sử dụng Clipboard (Windows, macOS)</a></li>
+<li><a href="#sử-dụng-clipboard-linux-bsd-">Sử dụng Clipboard (Linux, BSD, …)</a></li>
+</ul></li>
+<li><a href="#khôi-phục-vị-trí-của-con-trỏ-khi-mở-file">Khôi phục vị trí của con trỏ khi mở file</a></li>
+<li><a href="#các-file-tạm">Các file tạm</a>
+<ul>
+<li><a href="#các-file-sao-lưu">Các file sao lưu</a></li>
+<li><a href="#các-file-swap">Các file swap</a></li>
+<li><a href="#các-file-hoàn-tác">Các file hoàn tác</a></li>
+<li><a href="#file-viminfo">File Viminfo</a></li>
+<li><a href="#example-configuration-for-temporary-files">Cấu hình ví dụ cho các file tạm</a></li>
+</ul></li>
+<li><a href="#chỉnh-sửa-file-từ-xa">Chỉnh sửa file từ xa</a></li>
+<li><a href="#quản-lý-plugins">Quản lý plugin</a></li>
+<li><a href="#chèn-khối">Chèn khối</a></li>
+<li><a href="#chạy-các-chương-trình-bên-ngoài-vim-và-sử-dụng-các-bộ-lọc">Chạy các chương trình bên ngoài Vim và sử dụng các bộ lọc</a></li>
+<li><a href="#cscope">Cscope</a></li>
+<li><a href="#matchit">MatchIt</a></li>
+<li><a href="#true-colors">True colors</a></li>
+</ul>
+<h3 id="các-mẹo-sử-dụng"><a href="#các-mẹo-sử-dụng-1">Các mẹo sử dụng</a></h3>
+<ul>
+<li><a href="#chuyển-đến-đầu-hoặc-cuối-của-văn-bản-đang-được-chọn">Chuyển đến đầu hoặc cuối của văn bản đang được chọn</a></li>
+<li><a href="#hành-vi-tốt-hơn-của-n-và-n">Hành vi tốt hơn của n và N</a></li>
+<li><a href="#lịch-sử-các-lệnh-sử-dụng-tốt-hơn">Lịch sử các lệnh sử dụng tốt hơn</a></li>
+<li><a href="#ctrl-l-tốt-hơn">CTRL-L tốt hơn</a></li>
+<li><a href="#tắt-hình-ảnh-và-âm-thanh-của-chuông">Tắt hình ảnh và âm thanh của chuông</a></li>
+<li><a href="#di-chuyển-nhanh-dòng-hiện-tại">Di chuyển nhanh dòng hiện tại</a></li>
+<li><a href="#thêm-nhanh-các-dòng-trống">Thêm nhanh các dòng trống</a></li>
+<li><a href="#chỉnh-sửa-nhanh-macros-của-bạn">Chỉnh sửa nhanh macros của bạn</a></li>
+<li><a href="#nhảy-nhanh-đến-file-header-hoặc-file-mã-nguồn">Nhảy nhanh đến header file hoặc file mã nguồn</a></li>
+<li><a href="#thay-đổi-kích-thước-font-trong-giao-diện">Thay đổi kích thước font trong giao diện</a></li>
+<li><a href="#thay-đổi-kiểu-con-trỏ-tùy-thuộc-vào-chế-độ">Thay đổi kiểu con trỏ tùy thuộc vào chế độ</a></li>
+<li><a href="#không-bị-mất-những-lựa-chọn-selection-khi-di-chuyển-sang-một-bên">Không bị mất những lựa chọn (selection) khi di chuyển sang một bên</a></li>
+<li><a href="#tải-lại-file-khi-lưu">Tải lại file khi lưu</a></li>
+<li><a href="#con-trỏ-thông-minh-hơn">Con trỏ thông minh hơn</a></li>
+<li><a href="#hoàn-thành-từ-khóa-nhanh-hơn">Hoàn thành từ khóa nhanh hơn</a></li>
+<li><a href="#thay-đổi-màu-sắc">Thay đổi màu sắc</a></li>
+</ul>
+<h3 id="các-lệnh"><a href="#các-lệnh-1">Các lệnh</a></h3>
+<ul>
+<li><a href="#global-và-vglobal">:global và :vglobal</a> - Thực thi một lệnh trên tất cả các dòng phù hợp.</li>
+<li><a href="#normal-and-execute">:normal và :execute</a> - Viết kịch bản trong mơ của bạn.</li>
+<li><a href="#redir-and-execute">:redir và execute()</a> - Bắt lấy đầu ra (output) khi thực thi lệnh.</li>
+</ul>
+<h3 id="gỡ-lỗi"><a href="#gỡ-lỗi-1">Gỡ lỗi</a></h3>
+<ul>
+<li><a href="#các-mẹo-chung">Các mẹo chung</a></li>
+<li><a href="#độ-chi-tiết">Độ chi tiết</a></li>
+<li><a href="#lập-hồ-sơ-thời-gian-khởi-động">Lập hồ sơ thời gian khởi động</a></li>
+<li><a href="#lập-hồ-sơ-thời-gian-trong-quá-trình-sử-dụng-vim">Lập hồ sơ thời gian trong quá trình sử dụng Vim</a></li>
+<li><a href="#gỡ-lỗi-các-lệnh-vim">Gỡ lỗi các lệnh Vim</a></li>
+<li><a href="#gỡ-lỗi-các-file-syntax">Gỡ lỗi các file syntax</a></li>
+</ul>
+<h3 id="linh-tinh"><a href="#linh-tinh-1">Linh tinh</a></h3>
+<ul>
+<li><a href="#tài-liệu-bổ-sung">Tài liệu bổ sung</a></li>
+<li><a href="#các-bản-phân-phối-vim">Các bản phân phối Vim</a></li>
+<li><a href="#các-plugin-tiêu-chuẩn">Các plugin tiêu chuẩn</a></li>
+<li><a href="#map-capslock-sang-control">Map CapsLock sang Control</a></li>
+<li><a href="#tạo-file-html-từ-buffer">Tạo file HTML từ buffer</a></li>
+<li><a href="#những-điều-thú-vị">Những điều thú vị</a></li>
+<li><a href="#tại-sao-lại-dùng-hjkl-để-điều-hướng">Tại sao lại dùng hjkl để điều hướng?</a></li>
+</ul>
+<h3 id="các-vấn-đề-thường-gặp"><a href="#các-vấn-đề-thường-gặp-1">Các vấn đề thường gặp</a></h3>
+<ul>
+<li><a href="#chỉnh-sửa-file-nhỏ-bị-chậm">Chỉnh sửa file nhỏ bị chậm</a></li>
+<li><a href="#chỉnh-sửa-file-lớn-bị-chậm">Chỉnh sửa file lớn bị chậm</a></li>
+<li><a href="#dán-nội-dung-trong-ngoặc-hoặc-tại-sao-tôi-phải-đặt-lệnh-dán-mọi-lúc">Dán nội dung trong ngoặc (hoặc tại sao tôi phải đặt lệnh ‘dán’ mọi lúc?)</a></li>
+<li><a href="#độ-trễ-khi-sử-dụng-phím-esc-trong-terminal">Độ trễ khi sử dụng phím esc trong terminal</a></li>
+<li><a href="#hoàn-tác-các-hàm-tìm-kiếm">Hoàn tác các hàm tìm kiếm</a></li>
+</ul>
+<h3 id="các-vấn-đề-kĩ-thuật-kì-quặc"><a href="#các-vấn-đề-kĩ-thuật-kì-quặc-1">Các vấn đề kĩ thuật kì quặc</a></h3>
+<ul>
+<li><a href="#dòng-mới-được-sử-dụng-cho-nul">Dòng mới được sử dụng cho NUL</a></li>
+</ul>
+<h3 id="thuật-ngữ"><a href="#thuật-ngữ-1">Thuật ngữ</a></h3>
+<ul>
+<li><a href="#vim-script-vimscript-viml">Vim script? Vimscript? VimL?</a></li>
+</ul>
+<h3 id="danh-sách-bảng-màu"><a href="PLUGINS.md#các-bảng-màu">Danh sách bảng màu</a></h3>
+<h3 id="danh-sách-plugin"><a href="PLUGINS.md">Danh sách plugin</a></h3>
+<p><br></p>
+<h1 id="giới-thiệu-1">Giới thiệu</h1>
+<h2 id="vim-là-gì">Vim là gì?</h2>
+<p><a href="http://www.vim.org">Vim</a> là một trình soạn thảo văn bản có nguồn gốc lâu đời <a href="https://en.wikipedia.org/wiki/QED_(text_editor)">qed</a>. Được <a href="https://en.wikipedia.org/wiki/Bram_Moolenaar">Bram Moolenaar</a> phát hành vào năm 1991.</p>
+<p>Dự án của Vim được công khai trực tuyến tại <a href="http://www.vim.org/index.php">vim.org</a>.</p>
+<p>Để tải Vim: Sử dụng trình quản lý package yêu thích của bạn hoặc tải trực tiếp tại <a href="http://www.vim.org/download.php">vim.org</a>.</p>
+<p>Bạn nên thảo luận và đặt các câu hỏi tại <a href="https://groups.google.com/forum/#!forum/vim_use">vim_use</a> hoặc sử dụng IRC (<a href="https://freenode.net">Freenode</a>) trong kênh của <code>#vim</code>.</p>
+<p>Xem quá trình phát triển của Vim tại <a href="https://github.com/vim/vim">GitHub</a>, và cùng nhau thảo luận trên <a href="https://groups.google.com/forum/#!forum/vim_dev">vim_dev</a>.</p>
+<p>Bạn cũng có thể đọc bài viết <a href="http://www.viemu.com/a-why-vi-vim.html">Why, oh WHY, do those #?@! nutheads use vi?</a> để được giải thích thêm về những quan niệm sai lầm phổ biến về Vim.</p>
+<p><strong>Chú ý:</strong> mình sẽ giữ nguyện một số tên gọi và khái niệm ở nguyên bản tiếng anh, bời vì có rất nhiều từ được sử dụng rộng rãi và phổ biến trong giới lập trình rồi, nếu dịch hết sang Tiếng Việt, dù bạn có hiểu nhưng sau này khi muốn cài thêm plugin, viết plugin, hoặc hoặc VimScript, các bạn sẽ dễ nhầm lẫn với các khái niệm và tên gọi đó. Hơn hết nhiều từ dịch sang Tiếng Việt đọc rất chuối :3.</p>
+<h2 id="triết-lý-của-vim">Triết lý của Vim</h2>
+<p>Vim tuân thủ triết lý chỉnh sửa theo phương thức. Điều này có nghĩa là Vim sẽ cung cấp nhiều chế độ và nhiều phím tắt khác nhau, ý nghĩa của các phím tắt sẽ được thay đổi theo từng chế độ. Bạn có thể sử dụng chế độ <em>normal</em> để điều hướng các tệp tin và con trỏ chuột, sử dụng chế độ <em>insert</em> để chèn văn bản, sử dụng chế độ <em>visual</em> để chọn nhiều dòng cùng một lúc, hoặc bạn có thể sử dụng chế độ <em>command-line</em> để truy cập các lệnh trong Vim, v.v. Điều này thoạt nghe thì có vẻ phức tạp, nhưng nó lại mạng đến một lợi thế rất lớn: đó là bạn không phải làm khổ các ngón tay của mình khi giữ nhiều nút trên bàn phím cùng một lúc, hầu hết thời gian khi bạn sử dụng Vim, bạn chỉ cần nhấn lần lượt từ phím này đến phím khác. Công việc càng thông dụng, thì càng ít phím phải nhấn.</p>
+<p>Các khái niệm hoạt động cùng với việc chỉnh sửa theo phương thức là các toán tử (operators) và chuyển động (motions). <em>Operators</em> sẽ bắt đầu một hành động nhất định, ví dụ như: thay đổi, xóa hoặc chọn văn bản. Sau đó, bạn sẽ chỉ định vùng văn bản bạn muốn thực hiện thay đổi bằng cách sử dụng <em>motion</em>. Để thay đổi mọi thứ giữa các dấu ngoặc đơn, bạn có thể dùng <code>ci(</code>. Để xóa toàn bộ nội dung của một đoạn văn bản, chỉ cần nhấn <code>dap</code>. (Bạn không cần quá lo lắng nếu bạn không hiểu các ví dụ này, nội dung chi tiết sẽ được diễn giải cặn kẽ trong các phần sau)</p>
+<p>Nếu bạn nhìn những người sử dụng Vim thành thạo làm việc, bạn sẽ nhận thấy rằng họ nói <em>ngôn ngữ của Vim</em>, cũng giống như các nghệ sĩ piano xử lý các nhạc cụ của họ vậy. Các thao tác phức tạp được xử lý chỉ bằng một vài phím bấm. Họ thậm chí còn không thèm nghĩ về nó nữa, bởi vì <a href="https://en.wikipedia.org/wiki/Muscle_memory">bộ nhớ cơ bắp (muscle memory)</a> đã tiếp quản công việc thay họ. Điều này làm giảm <a href="https://en.wikipedia.org/wiki/Cognitive_load">gánh nặng nhận thức (cognitive load)</a> và giúp họ tập trung vào công việc thực sự của họ.</p>
+<h2 id="những-bước-đầu-tiên">Những bước đầu tiên</h2>
+<p>Vim đi kèm với một hướng dẫn tương tác (sử dụng), giúp bạn hiểu và dạy bạn những điều cơ bản nhất mà bạn cần biết. Bạn có thể bắt đầu nó với lệnh:</p>
+<pre><code>$ vimtutor</code></pre>
+<p>Đừng bỏ cuộc bởi vì trông nó thật nhàm chán mà hãy cố gắng vượt qua hết tất cả các bài tập. Các trình soạn thảo văn bản hoặc IDE mà bạn sử dụng trước đây có lẽ hầu hết đều không theo triết lý chỉnh sửa theo phương thức, vì vậy việc phải chuyển qua, chuyển lại giữa các chế độ ban đầu sẽ có đôi chút khó khăn với bạn, nhưng bạn càng tập luyện, càng sử dụng Vim nhiều, nó sẽ trở thành <a href="https://en.wikipedia.org/wiki/Muscle_memory">bộ nhớ cơ bắp (muscle memory)</a> của bạn.</p>
+<p>Vim đã được tích hợp vào <a href="https://en.wikipedia.org/wiki/Stevie_(text_editor)">Stevie</a>, một bản sao của <a href="https://en.wikipedia.org/wiki/Vi">vi</a>, và hỗ trợ hai chế độ hoạt động khác nhau: “tương thích (compatible)” và “không tương thích (nocompatible)”. Sử dụng vim ở chế độ compatible nghĩa là bạn sẽ sử dụng vi cho tất cả các thao tác, thay vì Vim (theo mặc định). Miễn là bạn chưa tạo file cấu hình (vimrc) hoặc khởi động Vim bằng cú pháp <code>vim -N</code>, chế độ tương thích chỉ là giả định, bạn không nên sử dụng Vim ở chế độ tương thích. Đừng nhé.</p>
+<p>Các bước tiếp theo:</p>
+<ol type="1">
+<li>Tạo file cấu hình <a href="#file-cấu-hình-vimrc-đơn-giản">vimrc</a> cho riêng bạn.</li>
+<li>Chọn một vài <a href="#cheatsheets">cheatsheets</a> để chuẩn bị sử dụng cho những tuần đầu tiên sử dụng Vim.</li>
+<li>Đọc qua phần <a href="#cơ-bản">cơ bản</a> để biết được những điều khó tin mà Vim có thể làm.</li>
+<li>Học theo nhu cầu sử dụng! Bạn sẽ không bao giờ hết được Vim. Nếu bạn gặp bất kì vấn đề nào, chỉ cần tìm kiếm nó trên mạng. Vấn đề mà bạn mắc phải đã được giải quyết sẵn trên mạng. Vim đi kèm với một bộ tài liệu tuyệt vời, và việc bạn phải biết cách sử dụng, tra khảo nó là một điều bắt buộc: <a href="#nhận-hỗ-trợ-mà-không-cần-kết-nối-mạng">Nhận hỗ trợ mà không cần kết nối mạng</a>.</li>
+<li>Đọc qua <a href="#tài-liệu-bổ-sung">tài liệu bổ sung</a>.</li>
+</ol>
+<p>Lời khuyên cuối cùng: Vui lòng học cách sử dụng Vim đúng cách trước khi bạn bắt đầu thêm thắt các loại <a href="#quản-lý-plugin">plugin</a> mà bạn không hề biết rằng những tính năng của các plugin đó đã sẵn có trong Vim.</p>
+<h2 id="file-cấu-hình-vimrc-đơn-giản">File cấu hình vimrc đơn giản</h2>
+<p>Bạn có thể đặt file cấu hình vimrc của bạn ở <code>~/.vimrc</code> hoặc để quản lý tốt hơn, bạn có thể phân chia nó ra và đặt nó vào <code>~/.vim/vimrc</code>. Việc tách các file cấu hình ra sẽ giúp bạn dễ dàng quản lý các phiên bản cho từng bộ cấu hình của mình, và tải nó lên mạng, giả sử như Github chẳng hạn.</p>
+<p>Bạn có thể tìm thấy nhiều file cấu hình <code>vimrc đơn giản</code> trên mạng, ví dụ như những file cấu hình của tôi, mặc dù trông chúng không được đơn giản cho lắm, nhưng nó sẽ cung cấp cho bạn một bộ cài đặt, cấu hình ổn định mà tôi cho là rất hữu ích để bạn bắt đầu.</p>
+<p>Cuối cùng, bạn vẫn phải đọc qua hết tất cả các cài đặt có trong file cấu hình và tự quyết định sẽ cấu hình như thế nào cho chính bản thân mình. :-)</p>
+<p>Xem file cấu hình ở đây nhé: <a href="static/minimal-vimrc.vim">vimrc</a></p>
+<p>Trong trường hợp bạn quan tâm, đây là <a href="https://github.com/kyoz/neovim">file cấu hình của tôi</a>.</p>
+<p><strong>MẸO NHỎ</strong>: Hầu hết những người làm ra plugin đều chia sẻ file cấu hình vimrc của họ trên Github (thường thì họ sẽ đặt trong repo có tên “dotfiles” hoặc “vim-config”), vì vậy bất cứ khi nào bạn tìm thấy một plugin bạn thích, bạn hãy xem qua GitHub của tác giả làm ra plugin đó và xem qua các repo để tham khảo các file cấu hình của họ.</p>
+<h2 id="bạn-đang-sử-dụng-phiên-bản-vim-nào">Bạn đang sử dụng phiên bản Vim nào?</h2>
+<p>Dùng lệnh <code>:version</code> trong vim sẽ cung cấp cho bạn tất cả các thông tin bạn cần biết về phiên bản Vim mà bạn đang sử dụng.</p>
+<p>Dòng đầu tiên cho bạn biết phiên bản Vim bạn đang sử dụng được biên dịch khi nào, cũng như phiên bản của nó, ví dụ: 7.4. Dòng tiếp theo có cấu trúc <code>Included patches: 1-1051</code>, là bản patch của Vim. Do đó, phiên bản Vim chính xác của bạn là 7.4.1051.</p>
+<p>Dòng tiếp theo có thể là <code>Tiny version without GUI (Phiên bản tối giản với giao diện)</code> hoặc <code>Huge version with GUI (Phiên bản đầy đủ với giao diện)</code> . Thông tin chúng muốn đề cập là liệu Vim của bạn có hỗ trợ giao diện (GUI) hay không, ví dụ: để khởi động <code>gvim</code> từ shell hoặc chạy <code>:gui</code> từ Vim trong terminal. Một thông tin quan trọng khác là <code>Tiny</code> và <code>Huge</code>. Vim phân biệt giữa các tập tính năng bằng các tên gọi như <code>tiny</code>, <code>small</code>, <code>normal</code>, <code>big</code>, và <code>huge</code>, mỗi tập sẽ cũng cấp những tính năng khác nhau cho Vim của bạn.</p>
+<p>Hầu hết các phiên bản của vim khi bạn xem <code>:version</code> sẽ đều hiển thị các tính năng đang được hay không được tích hợp sẵn. Ví dụ <code>+clipboard</code> nghĩa là tính năng clipboard được tính hợp sẵn, <code>-clipboard</code> nghĩa là tính năng clipboard không được tính hợp sẵn trong phiên bản Vim hiện tại của bạn.</p>
+<p>Một số tính năng của Vim cần được biên dịch để có thể hoạt động. Ví dụ để chạy được lệnh <code>:prof</code>, bạn sẽ cần phiên bản Vim với tập tính năng <code>Huge</code>, bởi vì tập đó có sẵn tính năng <code>+profile</code>.</p>
+<p>Nếu không rành, hoặc giả sử bạn cài đặt Vim từ trình quản lý package, hãy đảm bảo bạn đã cài đặt các gói có tên <code>vim-x</code>, <code>vim-x11</code>, <code>vim gtk</code>, <code>vim-gnome</code> hoặc tương tự, vì các gói này thường đi kèm với bộ tính năng khổng lồ.</p>
+<p>Bạn cũng có thể kiểm tra phiên bản hoặc các tính năng của Vim bằng các lập trình với lệnh như sau:</p>
+<pre class="vim"><code>&quot; Chạy lệnh gì nó nếu phiên bản của Vim mới hơn hoặc bằng 7.4.42
+&quot; Và phải có +profile
+if (v:version &gt; 704 || v:version == 704 &amp;&amp; has(&#39;patch42&#39;)) &amp;&amp; has(&#39;profile&#39;)
+  &quot; do stuff
+endif</code></pre>
+<p>Để hiểu rõ hơn bạn có thể dùng các lệnh sau để tra cứu thêm thông tin:</p>
+<pre><code>:h :version
+:h feature-list
+:h +feature-list
+:h has-patch</code></pre>
+<h2 id="cheatsheets">Cheatsheets</h2>
+<ul>
+<li>http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png</li>
+<li>https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png</li>
+<li>http://michael.peopleofhonoronly.com/vim/vim_cheat_sheet_for_programmers_screen.png</li>
+<li>http://www.rosipov.com/images/posts/vim-movement-commands-cheatsheet.png</li>
+</ul>
+<p>Hoặc bạn cũng có thể mở nhanh một bảng cheatsheet ngay bên trong vim: <a href="https://github.com/lifepillar/vim-cheat40">vim-cheat40</a>.</p>
+<h1 id="cơ-bản-1">Cơ bản</h1>
+<h2 id="buffer-window-và-tab">Buffer, window và tab</h2>
+<p>Vim là một trình soạn thảo văn bản. Mỗi khi văn bản được hiển thị, văn bản sẽ là một phần của <strong>buffer (bộ nhớ đệm)</strong>. Mỗi file sẽ được mở trong buffer của riêng nó. Các plugin sẽ hiển thị nội dung của chúng trong buffer của riêng từng plugin, vv.</p>
+<p>Các buffer có rất nhiều thuộc tính, ví dụ: văn bản có bạn có thể chỉnh sửa (modifiable) được hay không, hoặc liệu nó có được liên kết với một file nào đó hay không, và do đó nó cần được đồng bộ với ổ đĩa khi bạn lưu văn bản.</p>
+<p><strong>Các window</strong> là các cửa sổ (khung hiển thị) <em>để hiển thị</em> các buffer. Nếu bạn muốn xem nhiều file cùng một lúc hoặc nhiều vị trí các nhau trên một file, bạn sẽ phải sử dụng window.</p>
+<p>Và làm ơn, đừng gọi chúng là <em>splits (chia cửa sổ)</em> . Bạn có thể chia một window làm 2, nhưng điều đó không khiến chúng trở thành <em>splits</em>.</p>
+<p>Window có thể được chia theo chiều ngang hoặc chiều dọc, chiều dài và rộng của chúng cũng có thể được thay đổi. Do đó, bạn có thể sử dụng bất kì cách phân chia cửa sổ nào mà bạn thích nhất.</p>
+<p>Tab (hay còn được gọi là Tab page), là tập hợp của các cửa sổ. Vì vậy, nếu bạn muốn sử dụng nhiều bố cục cửa sổ khác nhau, hãy sử dụng các tab.</p>
+<p>Tóm lại, nếu bạn khởi động Vim mà không có bất kì arguments (tham số) nào, bạn sẽ chỉ có một tab, bên trong tab là một window đang hiển thị một buffer.</p>
+<p>Ngoài ra, tất cả các buffer đều khả dụng trong toàn bộ trình soạn thảo Vim, và bạn có thể truy cập mọi buffer từ bất kì tab nào.</p>
+<h2 id="hiểu-rõ-hơn-về-buffer">Hiểu rõ hơn về buffer</h2>
+<p>Bạn có thể khởi động Vim bằng các chạy lệnh <code>vim file-1</code>. Nội dung của file sẽ được load vào buffer. Nội dung của buffer chỉ được đồng bộ hóa vào ổ đĩa (ghi vào file) khi bạn lưu nó bằng lệnh bên trong Vim.</p>
+<p>Bởi vì buffer cũng được hiển thị bên trong window, nó cũng là một <strong>active buffer (buffer đang hoạt động)</strong>. Bây giờ nếu bạn load một file khác với lệnh <code>e file-2</code>, <code>file-1</code> sẽ trở thành <strong>hidden buffer (buffer ẩn)</strong> và <code>file-2</code> sẽ trở thành <code>active buffer</code>.</p>
+<p>Cả hai buffer đều được <strong>liệt kê</strong> trong danh sách buffer, do đó, khi bạn dùng lệnh <code>:ls</code> để hiển thị danh sách buffer, chúng đều sẽ được hiển thị trong danh sách. Buffer của các plugin hoặc các buffer trợ giúp (help buffer) thông thường sẽ không được hiển thị trong danh sách buffer, bởi vì chúng không đại diện cho các file thông thường mà bạn hay chỉnh sửa bằng các trình soạn thảo văn bản. Để hiển thị tất cả buffer (kể các các buffer ẩn) bạn có thể sử dụng lệnh <code>:ls!</code>.</p>
+<p><strong>Unnamed buffers (các buffer không tên)</strong>, cũng thường được sử dụng bởi các plugin, chúng là các buffer không có liên kết và cũng không đại diện cho một file cụ thể nào cả. Ví dụ: dùng lệnh <code>:enew</code> sẽ tạo ra một buffer tạm không có tên (unnamed buffer). Bạn có thể gõ vài dòng chữ vào đó và ghi nó vào đĩa bằng cách chỉ định một file để liên kết, ví dụ: <code>:w /tmp/foo</code>, nội dung bạn vừa gõ sẽ được lưu vào file <code>/tmp/foo</code> và buffer vô danh vừa tạo sẽ trở thành một buffer bình thường.</p>
+<h2 id="danh-sách-tham-số">Danh sách tham số</h2>
+<p><a href="#buffer,-window-và-tab">Danh sách buffer toàn cục (global buffer list)</a> là một đặc trưng của Vim. Trước đây, bên trong vi, những thứ này chỉ được sử dụng như là các tham số, trong khi đó chúng lại có sẵn bên trong Vim.</p>
+<p>Mỗi file (tên file) được cung cấp cho Vim bằng lệnh, đều được ghi nhớ trong danh sách tham số (argument list). Trong Vim, có thể có nhiều danh sách tham số khác nhau: theo mặc định, tất cả các tham số được đưa vào danh sách tham số toàn cục (global argument list), nhưng bạn có thể sử dụng lệnh <code>:arglocal</code> để tạo một danh sách tham số cục bộ (local) cho window.</p>
+<p>Bạn có thể liệt kê danh sách tham số với lệnh <code>:args</code>. Chuyển đổi qua lại giữa các file từ danh sách tham số với lệnh <code>:next</code>, <code>:before</code>, <code>:previous</code>, <code>:first</code>, <code>:last</code> và các lệnh khác. Hoặc bạn cũng có thể thay thế file đó với file khác với lệnh <code>:argadd</code>, <code>:argdelete</code> hoặc <code>:args</code> với một danh sách các file.</p>
+<p>Việc sử dụng buffer hoặc danh sách tham số để làm việc với các file là tùy thuộc vào sở thích của bạn. Thông thường tôi thấy mọi người chỉ sử dụng danh sách buffer.</p>
+<p>Tuy nhiên, có một trường hợp bạn cần phải sử dụng danh sách đối số để xử lý. Ví dụ: xử lý hàng loạt với lệnh <code>:argdo</code>!. Đây làm một ví dụ đơn giản:</p>
+<pre class="vim"><code>:args **/*.[ch]
+:argdo %s/foo/bar/ge | update</code></pre>
+<p>Các lệnh trên sẽ thay thế tất cả các chữ “foo” thành “bar” trong tất cả các file C và header file của chúng trong thư mục hiện tại.</p>
+<p>Xem thêm: <code>:h argument-list</code></p>
+<h2 id="mapping-lệnh">Mapping lệnh</h2>
+<p>Bạn có thể định nghĩa các mapping của mình với danh sách các lệnh <code>:map</code>. Mỗi lệnh trong danh sách các lệnh đó sẽ định nghĩa một mapping cho một chế độ (mode) nhất định. Về mặt kĩ thuật, Vim đi kèm với 12 chế độ, 6 trong số đó chúng ta có thể sử dụng được mapping. Ngoài ra, một số lệnh hoạt động trên nhiều chế độ cùng một lúc.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Đệ quy</th>
+<th>Không đệ quy</th>
+<th>Bỏ mapping</th>
+<th>Chế độ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:map</code></td>
+<td><code>:noremap</code></td>
+<td><code>:unmap</code></td>
+<td>normal, visual, operator-pending</td>
+</tr>
+<tr class="even">
+<td><code>:nmap</code></td>
+<td><code>:nnoremap</code></td>
+<td><code>:nunmap</code></td>
+<td>normal</td>
+</tr>
+<tr class="odd">
+<td><code>:xmap</code></td>
+<td><code>:xnoremap</code></td>
+<td><code>:xunmap</code></td>
+<td>visual</td>
+</tr>
+<tr class="even">
+<td><code>:cmap</code></td>
+<td><code>:cnoremap</code></td>
+<td><code>:cunmap</code></td>
+<td>command-line</td>
+</tr>
+<tr class="odd">
+<td><code>:omap</code></td>
+<td><code>:onoremap</code></td>
+<td><code>:ounmap</code></td>
+<td>operator-pending</td>
+</tr>
+<tr class="even">
+<td><code>:imap</code></td>
+<td><code>:inoremap</code></td>
+<td><code>:iunmap</code></td>
+<td>insert</td>
+</tr>
+</tbody>
+</table>
+<p>Ví dụ: lệnh sau đây sẽ map phím <code>space</code> cho chế độ normal</p>
+<pre class="vim"><code>:nmap &lt;space&gt; :echo &quot;foo&quot;&lt;cr&gt;</code></pre>
+<p>Bỏ mapping của phím vừa map bằng lệnh <code>:nunmap &lt;space&gt;</code>.</p>
+<p>Để biết thêm một số chế độ phổ biến khác (hoặc sự kết hợp của chúng), bạn có thể xem <code>:h map-modes</code>.</p>
+<p>Càng học bạn sẽ càng thấy Vim tuyệt vời. Chỉ có một vấn đề khá khó hiểu với những người mới bắt đầu, <code>:nmap</code> có tính <em>đệ quy</em> !. Đúng vậy, vế phải của lệnh sẽ nhận các lệnh mà bạn muốn map.</p>
+<p>Vì vậy, nếu bạn muốn map một lệnh đơn giản ghi ra màn hình chữ “Foo”, dùng lệnh: So you defined a mapping that simply echoes “Foo”:</p>
+<pre class="vim"><code>:nmap b :echo &quot;Foo&quot;&lt;cr&gt;</code></pre>
+<p>Nhưng nếu bạn muốn map hành vi mặc định của phím <code>b</code> vừa map cho một phím khác ( di chuyển con trỏ về 1 từ đứng trước từ hiện tại) thì sao?. Hãy dùng lệnh:</p>
+<pre class="vim"><code>:nmap a b</code></pre>
+<p>Nếu bạn nhấn nút <kbd>a</kbd>, chúng ta nghĩ là con trỏ sẽ nhảy đến từ đứng trước từ hiện tại, nhưng thay vào đó, “Foo” sẽ được in ra trong dòng lệnh! Bởi vì chúng ta đã map phím <code>b</code> cho một hành động khác rồi, đó là <code>:echo "Foo"&lt;cr&gt;</code>.</p>
+<p>Cách thích hợp để giải quyết vấn đề này là sử dụng mapping <em>không đệ quy</em> (<em>non-recursive</em> mapping):</p>
+<pre class="vim"><code>:nnoremap a b</code></pre>
+<p>Quy tắc: Luôn sử dụng mapping không đệ quy (non-recursive mapping) trừ khi bạn biết bạn đang làm gì.</p>
+<p>Tra cứu các mapping mà bạn đã map bằng cách dùng lệnh <code>:nmap</code>. Lệnh <code>:nmap</code> sẽ liệt kê tất cả các mapping normal và <code>:nmap &lt;leader&gt;</code> sẽ liệt kê tất cả các mapping bắt đầu mới mapleader (Phím leader mặc định, bạn có thể thay đổi phím này, chi tiết sẽ được trình bày trong phần sau).</p>
+<p>Nếu bạn muốn vô hiệu hóa một mapping, hãy map chúng thành kí tự đặc biệt <code>&lt;nop&gt;</code> , ví dụ: <code>:noremap &lt;left&gt; &lt;nop&gt;</code>.</p>
+<p>Xem thêm:</p>
+<pre><code>:h key-notation
+:h mapping
+:h 05.3</code></pre>
+<h2 id="phím-leader">Phím leader</h2>
+<p>Phím leader có thể sử dụng chung với các mapping của bạn, giúp bạn thao tác đơn giản và nhanh chóng hơn. Mặc định, phím leader sẽ là <code>\</code>;</p>
+<pre class="vim"><code>nnoremap &lt;leader&gt;h :helpgrep&lt;space&gt;</code></pre>
+<p>Sau khi map với lệnh trên, bạn có thể nhấn trên bàn phím lần lượt 2 phím <kbd>/</kbd><kbd>h</kbd> để chạy lệnh <code>:helpgrep&lt;space&gt;</code>. Ngoài phím leader, bạn cũng có thể map với phím cách (space) bằng cách thay <code>&lt;leader&gt;</code> bằng <code>&lt;space&gt;</code>.</p>
+<pre class="vim"><code>let mapleader = &#39; &#39;
+nnoremap &lt;leader&gt;h :helpgrep&lt;space&gt;</code></pre>
+<p>Ngoài <code>&lt;leader&gt;`` và</code><space><code>, bạn còn có thể sử dụng</code><localleader><code>.</code><localleader><code>là một bản sao cục bộ của</code><leader><code>được sử dụng để map các  phím cho một buffer. Ví dụ: plugin filetype-specific cũng sử dụng</code>` làm phím leader mặc định.</p>
+<p>Lưu ý: Bạn cần phải cấu hình các leader trước khi tiến hành định nghĩa các mapping của mình. Tất cả các mapping đã được định nghĩa trước khi bạn định nghĩa các mapleader đều đã có hiệu lực, chúng sẽ không thay đổi vì bạn định nghĩa mapleader sau chúng. <code>:nmap &lt;leader&gt;</code> sẽ liệt kê tất cả các mapping với mapleader đã được áp dụng, bạn nên dùng lệnh này để kiểm tra lại các mapping của mình.</p>
+<p>Xem thêm <code>:h mapleader</code> và <code>:h maplocalleader</code> để biết thêm chi tiết.</p>
+<h2 id="bộ-ghi-nhớ">Bộ ghi nhớ</h2>
+<p>Bộ ghi nhớ (register) là nơi lưu trữ các thao tác trên văn bản của bạn. Việc bạn sao chép một đoạn văn bản vào bộ ghi nhớ được gọi là <strong>yanking</strong> và việc bạn trích xuất dữ liệu từ bộ ghi nhớ được gọi là <strong>pasting</strong>.</p>
+<p>Vim cung cấp cho bạn các bộ ghi nhớ sau:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 22%" />
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Loại</th>
+<th>Kí tự</th>
+<th>Được nhập bởi?</th>
+<th>Không được chỉnh sửa?</th>
+<th>Contains text from?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Unnamed</td>
+<td><code>"</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Thông tin sao chép hoặc xóa gần nhất. (<code>d</code>, <code>c</code>, <code>s</code>, <code>x</code>, <code>y</code>)</td>
+</tr>
+<tr class="even">
+<td>Numbered</td>
+<td><code>0</code> to <code>9</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>bộ ghi nhớ <code>0</code>: Lần sao chép gần nhất. bộ ghi nhớ <code>1</code>: Lần xóa gần nhất. bộ ghi nhớ <code>2</code>: Lần xóa gần thứ nhì. Và cứ như vậy. Các bộ ghi nhớ từ <code>1</code>-<code>9</code> không được phép chỉnh sửa <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">queue</a>.</td>
+</tr>
+<tr class="odd">
+<td>Small delete</td>
+<td><code>-</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Lần xóa gần nhất mà có ít hơn 1 dòng.</td>
+</tr>
+<tr class="even">
+<td>Named</td>
+<td><code>a</code> to <code>z</code>, <code>A</code> to <code>Z</code></td>
+<td>user</td>
+<td>[ ]</td>
+<td>Nếu bạn muốn sao chép vào bộ ghi nhớ <code>a</code>, bạn có thể thay thế nội dung của nó. Nếu bạn muốn sao chép vào bộ ghi nhớ <code>A</code>, bạn thêm nó vào sau nội dung của bộ ghi nhớ <code>a</code>.</td>
+</tr>
+<tr class="odd">
+<td>Read-only</td>
+<td><code>:</code>, <code>.</code>, <code>%</code></td>
+<td>vim</td>
+<td>[x]</td>
+<td><code>:</code>: Lệnh bạn dùng cuối cùng, <code>.</code>: Những từ gần nhất bạn thêm vào, <code>%</code>: Tên file của buffer hiện tại.</td>
+</tr>
+<tr class="even">
+<td>Alternate buffer</td>
+<td><code>#</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Những buffer được truy cập gần nhất của window hiện tại. Xem <code>:h alternate-file</code></td>
+</tr>
+<tr class="odd">
+<td>Expression</td>
+<td><code>=</code></td>
+<td>user</td>
+<td>[ ]</td>
+<td>Đánh giá biểu thức VimL đã được sao chép. Ví dụ, nhập lệnh sao đây trong chế độ insert: <code>&lt;c-r&gt;=5+5&lt;cr&gt;</code> và “10” sẽ được chèn vào buffer.</td>
+</tr>
+<tr class="even">
+<td>Selection</td>
+<td><code>+</code>, <code>*</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td><code>*</code> và <code>+</code> là bộ ghi nhớ <a href="#clipboard">clipboard</a>.</td>
+</tr>
+<tr class="odd">
+<td>Drop</td>
+<td><code>~</code></td>
+<td>vim</td>
+<td>[x]</td>
+<td>Lần kéo thả gần nhất.</td>
+</tr>
+<tr class="even">
+<td>Black hole</td>
+<td><code>_</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Nếu bạn không muốn bất kì bộ ghi nhớ nào khác bị ảnh hưởng. Ví dụ, lệnh <code>"_dd</code> sẽ xóa dòng hiện tại mà không thay đổi (ảnh hưởng) đến các bộ ghi nhớ <code>"</code>, <code>1</code>, <code>+</code>, <code>*</code>.</td>
+</tr>
+<tr class="odd">
+<td>Last search pattern</td>
+<td><code>/</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Pattern gần nhất được sử dụng vơi <code>/</code>, <code>?</code>, <code>:global</code>, etc.</td>
+</tr>
+</tbody>
+</table>
+<p>Mỗi bộ ghi nhớ không bị giới hạn ghi chép (readonly), có thể được thiết lập bởi người dùng:</p>
+<pre class="vim"><code>:let @/ = &#39;register&#39;</code></pre>
+<p>Sau đó, phím <kbd>n</kbd> sẽ di chuyển con trỏ đến lần xuất hiện tiếp theo của “bộ ghi nhớ”.</p>
+<p>Có rất nhiều trường hợp ngoại lệ khi các thanh ghi được lấp đầy một cách âm thầm, do đó, để chắc ăn, bạn nên đọc thêm <code>:h registers</code>.</p>
+<p>Sao chép với <code>y</code> và dán với <code>p</code>/<code>P</code>, nhưng hãy nhớ rằng Vim phân biệt giữa các lựa chọn trực quan theo chiều của ký tự, và theo dòng. Xem thêm <code>:h linewise</code>.</p>
+<p><strong>Ví dụ: sao chép dòng</strong></p>
+<p><code>yy</code> (hoặc <code>Y</code>) sẽ sao chép dòng hiện tại. Sau đó, bạn di chuyển con trỏ đến 1 nơi nào khác tùy ý, dùng <code>p</code> để dán nội dung đã sao chép bên dưới dòng hiện tại, <code>P</code> để dán bên trên dòng hiện tại.</p>
+<p><strong>Ví dụ: sao chép chữ</strong></p>
+<p>Sao chép từ đầu tiên với <code>0yw</code>, sau đó bạn di chuyển con trỏ đến một nơi nào khác, dán từ vừa sao chép phía sau con trỏ của dòng hiện tại với phím <code>p</code> và phía trước con trỏ với phím <code>P</code>;</p>
+<p><strong>Ví dụ: đặt tên cho bộ ghi nhớ</strong></p>
+<p>Lệnh <code>"aY</code> sẽ sao chép dòng hiện tại vào bộ ghi nhớ <code>a</code>. Di chuyển sang một dòng khác. Lệnh <code>"AY</code> sẽ chèn dòng hiện tại vào phía cuối của bộ ghi nhớ <code>a</code>.</p>
+<p>Tôi khuyên bạn nên thử với tất cả các thanh ghi này một chút và liên tục dùng lệnh <code>:reg</code> để kiểm tra những gì đang thực sự diễn ra.</p>
+<p><strong>Sự thật thú vị</strong>: Trong Emacs “yanking” (sao chép) lại có nghĩa là pasting (dán) (hoặc chèn lại vào văn bản đã bị xóa trước đó), chứ không phải mang nghĩa copying (sao chép).</p>
+<h2 id="phạm-vi">Phạm vi</h2>
+<p>Ranges (phạm vi) khá là dễ hiểu, những hầu hết các Vimmers đều không biết về chức năng đầy đủ của chúng.</p>
+<ul>
+<li>Rất nhiều lệnh đều có phạm vi.</li>
+<li>Một địa chỉ sẽ chỉ định một dòng nhất định.</li>
+<li>Một phạm vi có thể là một địa chỉ duy nhất hoặc một cặp địa chỉ được phân cách bởi <code>,</code> hoặc là <code>;</code>.</li>
+<li>Ranges cho biết cách lệnh nên thực thi trên dòng nào.</li>
+<li>Hầu hết các lệnh chỉ hoạt động trông dòng hiện tại theo mặc định. Các trường hợp đáng chú ý có thể kể đến là <code>:write</code> và <code>:global</code>, chúng sẽ hoạt động trên tất cả các dòng.</li>
+</ul>
+<p>Việc sử dụng các phạm vi khá là trực quan, đây là một số ví dụ (lệnh <code>:d</code> là viết tắt của <code>:delete</code>):</p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lệnh</th>
+<th>Các dòng sẽ thực thi lệnh</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:d</code></td>
+<td>Dòng hiện tại.</td>
+</tr>
+<tr class="even">
+<td><code>:.d</code></td>
+<td>Dòng hiện tại.</td>
+</tr>
+<tr class="odd">
+<td><code>:1d</code></td>
+<td>Dòng đầu tiên.</td>
+</tr>
+<tr class="even">
+<td><code>:$d</code></td>
+<td>Dòng cuối.</td>
+</tr>
+<tr class="odd">
+<td><code>:1,$d</code></td>
+<td>Tất cả các dòng.</td>
+</tr>
+<tr class="even">
+<td><code>:%d</code></td>
+<td>Tất cả các dòng (cú pháp ngắn gọn cho lệnh <code>1,$</code>).</td>
+</tr>
+<tr class="odd">
+<td><code>:.,5d</code></td>
+<td>Dòng hiện tại tới dòng thứ 5.</td>
+</tr>
+<tr class="even">
+<td><code>:,5d</code></td>
+<td>Cũng là dòng hiện tại tới dòng thứ 5.</td>
+</tr>
+<tr class="odd">
+<td><code>:,+3d</code></td>
+<td>Dòng hiện tại và 3 dòng tiếp theo.</td>
+</tr>
+<tr class="even">
+<td><code>:1,+3d</code></td>
+<td>Dòng đầu tiên tới dòng hiện tại, và thêm 3 dòng sau đó.</td>
+</tr>
+<tr class="odd">
+<td><code>:,-3d</code></td>
+<td>Dòng hiện tại và 3 dòng cuối. (Vim sẽ cảnh báo bạn, vì đây là phạm vi đảo ngược.)</td>
+</tr>
+<tr class="even">
+<td><code>:3,'xdelete</code></td>
+<td>Dòng thứ 3 cho tới dòng được <a href="#đánh-dấu">đánh dấu</a> x.</td>
+</tr>
+<tr class="odd">
+<td><code>:/^foo/,$delete</code></td>
+<td>Từ dòng tiếp theo, bắt đầu với từ “foo” cho tới hết file.</td>
+</tr>
+<tr class="even">
+<td><code>:/^foo/+1,$delete</code></td>
+<td>Từ dòng kế tiếp của dòng bắt đầu với “foo” cho tới hết file.</td>
+</tr>
+</tbody>
+</table>
+<p>Lưu ý là thay vì dùng <code>,</code>, <code>;</code> có thể được dùng như là dấu phân cách. Sự khác biệt là trong trường hợp của công thức <code>from,to</code>, thì <em>to</em> là chỉ cho dòng hiện tại, nhưng khi dùng công thức <code>from;to</code>, <em>to</em> ở đây có liên quan đến địa chỉ của <em>from</em>!. Giả sử bạn đang ở dòng 5, <code>:1;+1d</code> sẽ chỉ xóa dòng 1 và 2.</p>
+<p>Địa chỉ <code>/</code> có thể được đặt trước bằng một địa chỉ khác. Điều này cho phép bạn <em>gộp các pattern</em> lại với nhau. Ví dụ:</p>
+<pre class="vim"><code>:/foo//bar//quux/d</code></pre>
+<p>Lệnh trên sẽ xóa dòng đầu tiên có chứa “quux” sau dòng đầu tiên chứa “bar” sau dòng đầu tiên có chứa “foo” kể từ sau dòng hiện tại.</p>
+<p>Đôi khi Vim tự động thêm một phạm vi vào trước dòng lệnh của bạn. Ví dụ: bắt đầu lựa chọn nhiều dòng với chế độ visual bằng lệnh <code>V</code>, chọn một số dòng bạn thích và nhập <code>:</code>. Dòng lệnh sẽ được điền với phạm vi <code>'&lt;,'&gt;</code>, có nghĩa là lệnh bạn chuẩn bị thực thi sẽ được áp dụng cho các dòng đã chọn trước đó. (Đây cũng là lý do tại sao đôi khi bạn thấy các mapping như là <code>:vnoremap foo :&lt;c-u&gt;command</code>. Ở đây <code>&lt;c-u&gt;</code> được sử dụng để loại bỏ phạm vi, bởi vì Vim sẽ quăng lỗi khi bạn cho phạm vi vào một lệnh không hỗ trợ phạm vi.</p>
+<p>Một ví dụ khác nữa là sử dụng <code>!!</code> ở chế độ normal. Thao tác này sẽ tự động điền <code>:.!</code> vào dòng lệnh của bạn. Nếu bạn điền tiếp theo sau bởi một dòng lệnh, hay ứng dụng bên ngoài, đầu ra của dòng lệnh, ứng dụng đó sẽ thay thế cho dòng hiện tại. Vì vậy, bạn có thể thay thế đoạn văn hiện tại bằng đầu ra của lệnh <code>ls</code> bằng cách sử dụng: <code>:?^$?+1,/^$/-1!ls</code>. Thật tuyệt.</p>
+<p>Xem thêm:</p>
+<pre><code>:h cmdline-ranges
+:h 10.3</code></pre>
+<h2 id="đánh-dấu">Đánh dấu</h2>
+<p>Bạn có thể đánh dấu (marks) để ghi nhớ một vị trí, đó là vị trí dòng và cột bên trong một file.</p>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 41%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marks</th>
+<th>Được đặt bởi..</th>
+<th>Công dụng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>a</code> - <code>z</code></td>
+<td>Người dùng</td>
+<td>Chỉ khả dụng cục bộ trong một file. Chuyển đến một dấu được đánh dấu bằng chữ viết thường nghĩa là chuyển con trỏ qua lại trong một file.</td>
+</tr>
+<tr class="even">
+<td><code>A</code> - <code>Z</code></td>
+<td>Người dùng</td>
+<td>Khả dụng toàn cục, cho tất cả các file. Còn được gọi là các _file mark. Chuyển cho trỏ đến một marker được đánh dấu bằng chữ viết hoa có thể nhảy sang một buffer khác buffer hiện tại.</td>
+</tr>
+<tr class="odd">
+<td><code>0</code> - <code>9</code></td>
+<td>viminfo</td>
+<td><code>0</code> là vị trí khi file viminfo được ghi lần cuối. Trong thực tế, điều này có nghĩa là khi Vim được đóng lần cuối. <code>1</code> là vị trí khi Vim kết thúc lần gần thứ 2, và cứ thế cho các số tiếp theo.</td>
+</tr>
+</tbody>
+</table>
+<p>Đặt <code>'</code>/<code>g'</code> hoặc <code>`</code>/<code>g`</code> trước một đánh dấu để tạo một cử chỉ (motion).</p>
+<p>Sử dụng <code>mm</code> để ghi nhớ vị trí hiện tại với marker “m”. Di chuyển xung quanh file và sau đó quay lại với <code>'m</code> (ký tự đầu tiên không phải khoảng trống trên 1 dòng) hoặc <code>`m</code> (vị trí cột chính xác đã đánh dấu). Các marker được đánh dấu bằng chữ thường sẽ được ghi nhớ khi bạn thoát Vim, nếu bạn yêu cầu file viminfo của mình làm như vậy, xem thêm <code>:h viminfo-'</code>.</p>
+<p>Sử dụng <code>mM</code> để ghi nhớ vị trí hiện tại với marker “M”. Chuyển sang buffer khác và quay lại vị trí vừa đánh dấu với <code>'M</code> hoặc <code>`M</code>.</p>
+<p>Các cử chỉ khác:</p>
+<table>
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cử chỉ</th>
+<th>Nhảy đến..</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>'[</code>, <code>`[</code></td>
+<td>Dòng hoặc ký tự đầu tiên của văn bản đã thay đổi hay được sao chép trước đó.</td>
+</tr>
+<tr class="even">
+<td><code>']</code>, <code>`]</code></td>
+<td>Dòng hoặc ký tự cuối cùng của văn bản đã thay đổi hay được sao chép trước đó.</td>
+</tr>
+<tr class="odd">
+<td><code>'&lt;</code>, <code>`&lt;</code></td>
+<td>Dòng bắt đầu hoặc ký tự của các lựa chọn được chọn trong chế độ visual lần gần nhất.</td>
+</tr>
+<tr class="even">
+<td><code>'&gt;</code>, <code>`&gt;</code></td>
+<td>Dòng kết thúc hoặc ký tự của các lựa chọn được chọn trong chế độ visual lần gần nhất.</td>
+</tr>
+<tr class="odd">
+<td><code>''</code>, <code>``</code></td>
+<td>Vị trí mà bạn vừa từ đó nhảy đến.</td>
+</tr>
+<tr class="even">
+<td><code>'"</code>, <code>`"</code></td>
+<td>Ví trí khi bạn thoát buffer lần gần nhất.</td>
+</tr>
+<tr class="odd">
+<td><code>'^</code>, <code>`^</code></td>
+<td>Vị trí bạn thực hiện chèn kí tự lần gần nhất.</td>
+</tr>
+<tr class="even">
+<td><code>'.</code>, <code>`.</code></td>
+<td>Vị trí bạn thực hiện thay đổi lần gần nhất.</td>
+</tr>
+<tr class="odd">
+<td><code>'(</code>, <code>`(</code></td>
+<td>Bắt đầu câu hiện tại.</td>
+</tr>
+<tr class="even">
+<td><code>')</code>, <code>`)</code></td>
+<td>Kết thúc của câu hiện tại.</td>
+</tr>
+<tr class="odd">
+<td><code>'{</code>, <code>`{</code></td>
+<td>Bắt đầu của đoạn văn bản hiện tại.</td>
+</tr>
+<tr class="even">
+<td><code>'}</code>, <code>`}</code></td>
+<td>Kết thúc của đoạn văn bản hiện tại.</td>
+</tr>
+</tbody>
+</table>
+<p>Các marker cũng có thể được sử dụng trong một <a href="#phạm-vi">phạm vi</a>. Bạn hẳn là đã thấy điều này trước đây và tự hỏi ý nghĩa của nó là gì: Chọn một số đoạn văn bản bạn thích ở chế độ visual và nhấn <code>:</code>, dòng lệnh sẽ hiển thị, và được thêm sẵn vào phía trước như thế này <code>:'&lt;,'&gt;</code>, có nghĩa là lệnh sau sẽ nhận được một phạm vi mà bạn đã chọn với chế độ visual.</p>
+<p>Sử dụng <code>:marks</code> để liệt kê tất cả marker mà bạn đã đánh dấu. Đọc thêm tất cả mọi thứ về đánh dấu trong <code>:h mark-motions</code>.</p>
+<h2 id="gợi-ý-code">Gợi ý code</h2>
+<p>Vim cung cấp nhiều loại gợi ý code tự động (completion) trong chế độ insert. Nếu có nhiều kết quả gợi ý phù hợp, vim sẽ hiện một popup để bạn có thể lựa chọn kết quả phù hợp với ý của mình.</p>
+<p>Các loại gợi ý code điển thì là các thẻ (tag), các hàm (function) được import từ các module hoặc các thư viện (library), tên file, từ điển (dictionary) hoặc các từ đơn giản xuất hiện trong buffer hiện tại.</p>
+<p>Vim cung cấp các mapping cho các loại gợi ý code và chúng đều bắt đầu với <code>&lt;c-x&gt;</code> (Hãy nhớ là bạn cần sử dụng chúng trong chế độ insert):</p>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 20%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mapping</th>
+<th>Phân loại</th>
+<th>Xem thêm chi tiết</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-l&gt;</code></td>
+<td>toàn bộ dòng</td>
+<td><code>:h i^x^l</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-n&gt;</code></td>
+<td>các từ khóa trong file hiện tại</td>
+<td><code>:h i^x^n</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-k&gt;</code></td>
+<td>các từ khóa trong tùy chọn <code>'dictionary'</code></td>
+<td><code>:h i^x^k</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-t&gt;</code></td>
+<td>các từ khóa trong tùy chọn <code>'thesaurus'</code></td>
+<td><code>:h i^x^t</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-i&gt;</code></td>
+<td>các từ khóa trong các files hiện tại được mở</td>
+<td><code>:h i^x^i</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-]&gt;</code></td>
+<td>các thẻ (tags)</td>
+<td><code>:h i^x^]</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-f&gt;</code></td>
+<td>tên file</td>
+<td><code>:h i^x^f</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-d&gt;</code></td>
+<td>các định nghĩa (definitions) hoặc macros</td>
+<td><code>:h i^x^d</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-v&gt;</code></td>
+<td>các lệnh của Vim</td>
+<td><code>:h i^x^v</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-u&gt;</code></td>
+<td>người dùng tự định nghĩa (như đã được chỉ định trong <code>'completefunc'</code>)</td>
+<td><code>:h i^x^u</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-o&gt;</code></td>
+<td>omni completion (như đã được chỉ định trong <code>'omnifunc'</code>)</td>
+<td><code>:h i^x^o</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;s</code></td>
+<td>gợi ý chính tả</td>
+<td><code>:h i^Xs</code></td>
+</tr>
+</tbody>
+</table>
+<p>Mọi người có lẽ sẽ nhầm lẫn về sự khác biệt giữa các gợi ý code do người dùng tự định nghĩa và omni completion, nhưng về mặt kĩ thuật, chúng đều làm những việc tương tự nhau. Chúng nhận một hàm kiểm tra vị trí hiện tại và trả về một danh sách gợi ý. Các gợi ý code do người dùng tự định nghĩa sẽ được định nghĩa theo mục đích cá nhân của người dùng đó. (Ngạc nhiên chưa!) Chúng có thể là bất cứ thứ gì. Omni gợi ý code thì có mục đích sử dụng cụ thể cho từng loại file, ví dụ như gợi ý các thành phần của struct, các phương thức (method) của class, và thường được cấu hình bởi các loại plugin cho từng loại file cụ thể.</p>
+<p>Vim cũng cho phép thực hiện gợi ý code (completing) cho nhiều loại gợi ý code cùng một lúc bằng cách cấu hình cho cài đặt <code>'complete'</code>. Theo mặc định, cấu hình đó bao gồm khá nhiều thứ, vì vậy hãy nhớ loại bỏ bớt chúng để tối ưu theo sở thích của bạn. Bạn có thể kích hoạt gợi ý code bằng cách sử dụng <code>&lt;c-n&gt;</code> (chọn gợi ý tiếp theo) and <code>&lt;c-p&gt;</code> (chọn gợi ý trước), đây cũng là các phím được sử dụng để chọn các lựa chọn trong popup menu. Xem <code>:h i^n</code> và <code>:h 'complete'</code> để có thêm nhiều thông tin bổ ích.</p>
+<p>Bạn cũng phải xem qua <code>:h 'completeopt'</code> để biết cách cấu hình cách hoặt động của các popup menu. Cấu hình mặc định là khá tốt, nhưng tôi cũng thích thêm cài đặt “noselect” vào.</p>
+<p>Xem thêm:</p>
+<pre><code>:h ins-completion
+:h popupmenu-keys
+:h new-omni-completion</code></pre>
+<h2 id="chuyển-động-các-toán-tử-các-đối-tượng-văn-bản">Chuyển động, các toán tử, các đối tượng văn bản</h2>
+<p><strong>Sự di chuyển (Motions)</strong> giúp bạn di chuyển con trỏ của mình. Sau khi tập luyện qua vimtutor , các bạn đều biết các phím <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code>. Hoặc <code>w</code> và <code>b</code>. Thậm chí cả phím <code>/</code> cũng là chuyển động. Chúng cũng có nhận cho mình số lần thực hiện. Ví dụ <code>2?the&lt;cr&gt;</code> sẽ di chuyển con trỏ đến lần xuất hiện gần thứ nhì của từ “the”.</p>
+<p>Xem qua <code>:h navigation</code> và tất cả những thứ bên dưới để biết tất cả các loại chuyển động khả dụng.</p>
+<p><strong>Operators</strong> hoạt động trên một vùng văn bản, một vài ví dụ như <code>d</code>, <code>~</code>, <code>gU</code>, <code>&gt;</code>. Chúng được sử dụng trong cả hai chế độ normal và visual. Ở chế độ normal, toán tử sẽ đi trước, kèm theo sau là một chuyển động, ví dụ <code>&gt;j</code>. Trong chế độ visual, các toán tử chỉ đơn giản là để thực hiện các lựa chọn, ví như <code>Vjd</code>.</p>
+<p>Giống như các chuyển động, các toán tử cũng nhận cho mình số lần thực hiện, ví dụ <code>2gUw</code> sẽ viết hoa phần còn lại của từ hiện tại và từ tiếp theo. Vì các toán tử có số lần thực hiện, <code>2gU2w</code> cũng hoạt động giống như <code>gU2w</code> nhưng được thực hiện 2 lần.</p>
+<p>Xem <code>:h toán tử</code> để biết tất cả các toán tử khả dụng. Sử dụng <code>:set tildeop</code> để cho phím <code>~</code> hoạt động như một toán tử.</p>
+<p><strong>Các đối tượng văn bản</strong> hoạt động trên khu vực xung quanh chúng, trái ngược với các chuyển động chỉ hoạt động trên một hướng. Trên thực tế, chúng hoạt động trên các đối tượng (object), ví dụ: cả một từ, toàn bộ một câu, mọi thứ nằm trong dấu ngoặc đơn, v.v.</p>
+<p>Các đối tượng văn bản không thể được sử dụng để di chuyển con trỏ trong chế độ normal, bởi vì ngay cả những con trỏ đỉnh cao nhất cũng không thể nhảy về 2 hướng cùng một lúc. Mặc dù vậy, chúng hoạt động trong chế độ visual, vì khi đó một bên của đối tượng đã được chọn, và con trỏ chỉ đơn giản là nhảy sang bên còn lại.</p>
+<p>Các đối tượng văn bản bắt đầu bằng <code>i</code> (<em>inner</em>) hoặc <code>a</code> (<em>around</em>) theo sau là một ký tự biểu thị đối tượng. Với <code>i</code>, chúng chỉ hoạt động trên chính đối tượng đó, còn với <code>a</code> chúng hoạt động trên đối tượng đó cộng với khoảng trắng đi theo sau đó. Ví dụ, <code>diw</code> sẽ xóa từ hiện tại và <code>ci(</code> thay đổi mọi thứ nằm bên trong dấu ngoặc đơn.</p>
+<p>Các đối tượng văn bản cũng nhận vào số lượng. Hãy tưởng tượng <code>((( )))</code> và con trỏ trên hoặc giữa đấu ngoặc đơn trong cùng, thì <code>d2a(</code> sẽ xóa 2 cặp dấu ngoặc đơn bên trong và mọi thứ ở giữa chúng.</p>
+<p>Xem thêm <code>:h text-objects</code> để biết tất cả các đối tượng văn bản khả dụng.</p>
+<h2 id="lệnh-tự-động">Lệnh tự động</h2>
+<p>Bạn có thể kích hoạt một hành động sau các sự kiện (events) của Vim, chẳng hạn như khi buffer được lưu hoặc khi Vim đã khởi động, bằng thứ gọi là các lệnh tự động (<em>autocmds</em>).</p>
+<p>Vim phụ thuộc rất nhiều vào các lệnh tự động. Không tin tôi ư? Thử chạy lệnh <code>:au</code> xem, nhưng bạn cũng đừng lo lắng với danh sách khổng lồ đó. Đó là tất cả các lệnh tự động đang có hiệu lực trong Vim của bạn.</p>
+<p>Xem <code>:h {event}</code> để biết một cách tổng quan về các sự kiện có sẵn trong Vim và <code>:h autocmd-events-abc</code> để biết thêm chi tiết.</p>
+<p>Một ví dụ điển hình sẽ là áp dụng các cài đặt riêng cho từng loại file khác nhau.</p>
+<pre class="vim"><code>autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 comments-=:#</code></pre>
+<p>Nhưng làm sao một buffer có thể biết rằng nó đang chứa code Ruby? Bởi vì một lệnh tự động khác đã xác định nó và đặt loại file (filetype) phù hợp cho buffer đó rồi, điều này một lần nữa lại kích hoạt một sự kiện <code>FileType</code>;</p>
+<p>Một trong những cài đặt đầu tiên mà mọi người thường thêm vào file cấu hình Vim của họ đó là <code>filetype on</code>. Điều này hiểu nôm na là <code>filetype.vim</code> được thực thi khi Vim khởi động, đặt các lệnh tự động để xác định loại file cho hều hết các loại file trên thế giới này :).</p>
+<p>Nếu bạn đủ dũng cảm, hãy xem thử: <code>:e $VIMRUNTIME/filetype.vim</code>. Tìm “Ruby” và bạn sẽ thấy là Vim chỉ đơn giản sử dụng phần mở rộng của file (file extension) để xác định đó có phải một file Ruby hay không.</p>
+<p>Lưu ý: Autocmds của cùng một sự kiện được thực thi theo thứ tự chúng được tạo. Nếu bạn chạy lệnh <code>:au</code> chúng sẽ được liệt kê theo đúng thứ tự (từ trên xuống).</p>
+<pre class="vim"><code>au BufNewFile,BufRead *.rb,*.rbw  setf ruby</code></pre>
+<p>Các sự kiện <code>BufNewFile</code> và <code>BufRead</code> trong trường hợp này được code cứng trong mã nguồn (ngôn ngữ C) và sẽ thực thi mỗi khi bạn mở một file với lệnh <code>:e</code> và các lệnh tương tự. Sau đó, hàng trăm loại file đều được <code>filetype.vim</code> kiểm tra.</p>
+<p>Tóm lại, Vim sử dụng nhiều sự kiện và các lệnh tự động nhưng cũng chìa ra các interface gọn gàng để kết nối với hệ thống hướng sự kiện (event-driven system) của nó để chúng ta dễ dàng tùy biến.</p>
+<p>Xem thêm: <code>:h autocommand</code></p>
+<h2 id="danh-sách-thay-đổi-danh-sách-nhảy">Danh sách thay đổi, danh sách nhảy</h2>
+<p>Vị trí của 100 sự thay đổi gần nhất được Vim lưu trữ trong danh sách thay đổi ( changelist). Một vài thay đổi nhỏ trên cùng một dòng sẽ được gộp lại với nhau, tuy nhiên, ví trí thay đổi sẽ được lấy vị trí của thay đổi cuối cùng (trong trường hợp bạn đã thêm gì đó vào giữa một dòng).</p>
+<p>Mỗi khi bạn nhảy con trỏ của mình đến một vị trí khác, vị trí trước đó sẽ được lưu vào danh sách nhảy (jumplist). Một danh sách nhảy có thể có tới 100 mục. Mỗi window sẽ có danh sách nhảy riêng của nó. Khi bạn tách một window, danh sách nhảy sẽ được sao chép theo.</p>
+<p>Lệnh nhảy (nhảy) con trỏ là một trong các lệnh sau: <code>'</code>, <code>`</code>, <code>G</code>, <code>/</code>, <code>?</code>, <code>n</code>, <code>N</code>, <code>%</code>, <code>(</code>, <code>)</code>, <code>[[</code>, <code>]]</code>, <code>{</code>, <code>}</code>, <code>:s</code>, <code>:tag</code>, <code>L</code>, <code>M</code>, <code>H</code> và các lệnh để bạn bắt đầu chỉnh sửa một file mới.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Danh sách</th>
+<th>Lệnh để liệt kê</th>
+<th>Về vị trí trước đó</th>
+<th>Tới vị trí sau vị trí hiện tại</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>jumplist</td>
+<td><code>:jumps</code></td>
+<td><code>[count]&lt;c-o&gt;</code></td>
+<td><code>[count]&lt;c-i&gt;</code></td>
+</tr>
+<tr class="even">
+<td>changelist</td>
+<td><code>:changes</code></td>
+<td><code>[count]g;</code></td>
+<td><code>[count]g,</code></td>
+</tr>
+</tbody>
+</table>
+<p>Khi bạn liệt kê tất cả các mục, một marker <code>&gt;</code> sẽ được dùng để hiển thị vị trí hiện tại của bạn. Thông thường đó sẽ là bên dưới vị trí 1, vị trí gần nhất.</p>
+<p>Nếu bạn muốn cả hai danh sách vẫn còn tồn tại sau khi bạn khởi động lại Vim, bạn cần sửa dụng file viminfo và <code>:h viminfo-</code>.</p>
+<p><strong>Chú ý</strong>: Vị trí lần nhảy mới nhất cũng được lưu trữ dưới dạng một <a href="#đánh-dấu">marker</a> và có thể được nhảy đến với lệnh <code>``</code> hoặc <code>''</code>.</p>
+<p>Xem thêm:</p>
+<pre><code>:h changelist
+:h jumplist</code></pre>
+<h2 id="cây-hoàn-tác">Cây hoàn tác</h2>
+<p>Những thay đổi mới nhất của một văn bản đều được Vim ghi nhớ vào cây hoàn tác (Undo tree). Bạn có thể dử dụng <em>undo</em> để hoàn tác một thay đổi và <em>redo</em> để áp dụng lại thay đổi vừa hoàn tác.</p>
+<p>Điều quan trọng mà bạn cần hiểu là cấu trúc dữ liệu để lưu trữ các thay đổi trong Vim không phải là <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">hàng đợi (queue)</a> mà là <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)">cấu trúc cây (tree)</a>!. Các thay đổi của bạn sẽ là các nút (node) trong cây, và mỗi nút (trừ nút trên cùng), sẽ có một nút cha. Mỗi nút giữ thông tin về văn bản của bạn, và thời gian bạn đã thay đổi chúng. Một nhánh (branch) là một danh sách các nút bắt đầu từ nút bất kì nào đó và đi lên đến nút trên cùng (nút gốc). Các nhánh sẽ được tạo khi bạn hoàn tác một thay đổi và sau đó chèn một đoạn khác vào văn bản bạn vừa hoàn tác.</p>
+<pre><code>ifoo&lt;esc&gt;
+obar&lt;esc&gt;
+obaz&lt;esc&gt;
+u
+oquux&lt;esc&gt;</code></pre>
+<p>Bây giờ bạn có 3 dòng và cây hoàn tác của bạn sẽ trông như thế này:</p>
+<pre><code>     foo(1)
+       /
+    bar(2)
+   /      \
+baz(3)   quux(4)</code></pre>
+<p>Cây hoàn tác có 4 thay đổi. Các con số đại diện cho <em>thời gian</em> các nút được tạo.</p>
+<p>Bạn có hai cách để đi qua cây hoàn tác này, hãy gọi chúng là <em>branch-wise</em> and <em>time-wise</em> (Duyệt cây theo nhánh hoặc theo thời gian).</p>
+<p>Hoàn tác (<code>u</code>) và áp dụng lại (<code>&lt;c-r&gt;</code>) hoạt động theo nhánh. Chúng sẽ đi lên và xuống trong nhánh hiện tại. <code>u</code> sẽ hoàn tác lại nguyên trạng văn bản của nút “bar”. Nhấn <code>u</code> một lần nữa sẽ hoàn tác lại nguyên trạng văn bản của nút xa hơn nữa đó là nút “foo”. Tiếp theo, nếu bạn nhấn <code>&lt;c-r&gt;</code>, văn bản của bạn sẽ quay trở lại trạng thái của nút “bar”, nhấn tiếp một lần nữa bạn sẽ có văn bản ở trạng thái của nút “baz”. (Bạn không thể dùng lệnh để đi đến node “baz” bằng cách duyệt cây theo nhánh (branch-wise)).</p>
+<p>Khác với việc duyệt theo nhánh, <code>g-</code> và <code>g+</code> duyệt cây theo thời gian. Do đó, <code>g-</code> không hoàn tác trạng thái của văn bản về nút “bar”, giống như khi bạn dùng <code>u</code>, mà nó sẽ hoàn tác về trạng thái trước đó theo thời gian, nghĩa là nút “baz”. Nhấn <code>g-</code> một lần nữa sẽ hoàn tác văn bản về trạng thái của nút “bar”, và cứ thế tiếp tục. Vì vậy <code>g-</code> và <code>g+</code> chỉ đơn giản là hoàn tác về trạng thái trước tuần tự theo thời gian.</p>
+<table>
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lệnh / Mapping</th>
+<th>Hành động</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>[count]u</code>, <code>:undo [count]</code></td>
+<td>Hoàn tác thay đổi [số] lần.</td>
+</tr>
+<tr class="even">
+<td><code>[count]&lt;c-r&gt;</code>, <code>:redo</code></td>
+<td>Áp dụng lại thay đổi [số] lần.</td>
+</tr>
+<tr class="odd">
+<td><code>U</code></td>
+<td>Hoàn tác tất cả các thay đổi đối với dòng được thay đổi gần nhất.</td>
+</tr>
+<tr class="even">
+<td><code>[count]g-</code>, <code>:earlier [count]?</code></td>
+<td>Chuyển đến trạng thái của văn bản trước đó [số] lần. Trong đó “?” có thể là “s”, “m”, “h”, “d”, hoặc “f”. Ví dụ: <code>:earlier 2d</code> sẽ hoàn tác văn bản về trạng thái của 2 ngày trước. <code>:earlier 1f</code> sẽ hoàn tác văn bản về trạng thái của lần lưu gần nhất.</td>
+</tr>
+<tr class="odd">
+<td><code>[count]g+</code>, <code>:later [count]?</code></td>
+<td>Giống như trên, nhưng theo hướng ngược lại.</td>
+</tr>
+</tbody>
+</table>
+<p>Cây hoàn tác được Vim lưu trữ trong bộ nhớ và sẽ bị xóa khi bạn thoát Vim. Xem thêm <a href="#hoàn-tác-file">Hoàn tác file</a> để biết thêm chi tiết.</p>
+<p>Nếu bạn cảm thấy khó khăn với cây hoàn tác, <a href="https://github.com/mbbill/undotree">undotree</a> sẽ giúp bạn hiểu cây hoàn tác với cái nhìn trực quan hơn.</p>
+<p>Xem thêm:</p>
+<pre><code>:h undo.txt
+:h usr_32</code></pre>
+<h2 id="danh-sách-sửa-lỗi-nhanh-và-danh-sách-vị-trí">Danh sách sửa lỗi nhanh và danh sách vị trí</h2>
+<p>Danh sách Sửa lỗi nhanh (Quickfix) là một cấu trúc dữ liệu chứa vị trí của các file. Về cơ bản, mỗi mục trong danh sách sửa lỗi nhanh sẽ liệt kê đường dẫn của một file, số thứ tự của một dòng, cột và một mô tả.</p>
+<p>Các trường hợp sử dụng điển hình là để tập hợp các lỗi biên dịch hoặc kết quả của một công cụ grep (Tìm nội dung trong file).</p>
+<p>Vim có một loại buffer đặc biệt để hiển thị danh sách sửa lỗi nhanh: bộ đệm sửa lỗi nhanh (quickfix bufer). Mỗi dòng trong buffer sửa lỗi nhanh hiển thị một mục từ danh sách sửa lỗi nhanh.</p>
+<p>Thông thường, bạn sẽ mở một window mới để hiển thị danh sách sửa lỗi nhanh. Khi bạn làm điều đó, window được sử dụng lần gần nhất sẽ được liên kết với cửa sổ sửa lỗi nhanh (quickfix window).</p>
+<p>Trong buffer sửa lỗi nhanh, dùng <code>&lt;cr&gt;</code> để mở một mục đang được chọn trong window đang được liên kết và <code>&lt;c-w&gt;&lt;cr&gt;</code> để mở mục đó trong một window mới.</p>
+<p>Danh sách sửa lỗi nhanh được đặt tên theo tính năng “quick fix” của <a href="https://en.wikipedia.org/wiki/Aztec_C">Aztec C compiler</a>.</p>
+<p>Trên thực tế, có hai loại danh sách: danh sách sửa lỗi nhanh (quickfix) và danh sách vị trí (location list). Chúng hoạt động gần như giống nhau, nhưng có các điểm khác biệt sau:</p>
+<ul>
+<li>Chỉ có thể có một danh sách sửa lỗi nhanh duy nhất. Nhưng có thể có nhiều danh sách vị trí; mỗi danh sách tương ứng với một window.</li>
+<li>Chúng sử dụng các lệnh hơi khác nhau để điều hướng.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Hành động</th>
+<th>Sửa lỗi nhanh</th>
+<th>Vị trí</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mở window</td>
+<td><code>:copen</code></td>
+<td><code>:lopen</code></td>
+</tr>
+<tr class="even">
+<td>đóng window</td>
+<td><code>:cclose</code></td>
+<td><code>:lclose</code></td>
+</tr>
+<tr class="odd">
+<td>mục tiếp theo</td>
+<td><code>:cnext</code></td>
+<td><code>:lnext</code></td>
+</tr>
+<tr class="even">
+<td>mục trước đó</td>
+<td><code>:cprevious</code></td>
+<td><code>:lprevious</code></td>
+</tr>
+<tr class="odd">
+<td>mục đầu tiên</td>
+<td><code>:cfirst</code></td>
+<td><code>:lfirst</code></td>
+</tr>
+<tr class="even">
+<td>mục cuối cùng</td>
+<td><code>:clast</code></td>
+<td><code>:llast</code></td>
+</tr>
+</tbody>
+</table>
+<p>Lưu ý rằng các cửa sổ định vị và sửa lỗi nhanh không cần phải mở để các lệnh này có thể hoạt động.</p>
+<p>Xem thêm <code>:h quickfix</code> để có thêm nhiều thông tin chi tiết và danh sách các lệnh đầy đủ.</p>
+<p>Để ngắn gọn, <em>quickfix</em> và <em>location</em> thường được viết tắt là <em>qf</em> và <em>loc</em>.</p>
+<p>Ví dụ**:</p>
+<p>Hãy dùng <code>grep</code> để tìm kiếm các file trong thư mục hiện tại cho một truy vấn nhất định nào đó và đưa kết quả tìm được vào danh sách sửa lỗi nhanh.</p>
+<pre class="vim"><code>:let &amp;grepprg = &#39;grep -Rn $* .&#39;
+:grep! foo
+&lt;grep output - hit enter&gt;
+:copen</code></pre>
+<p>Giả sử tất cả các file đều chứa chuỗi “foo”, cửa sổ sửa lỗi nhanh sẽ được hiển thị với các kết quả từ grep.</p>
+<h2 id="macros">Macros</h2>
+<p>Vim cho phép bạn <em>ghi lại</em> các ký tự đã nhập vào <a href="#bộ-ghi-nhớ">bộ ghi nhớ</a>. Vim cho phép _ ghi âm_ các ký tự đã nhập vào [sổ đăng ký] (# đăng ký). Đó là một cách tuyệt vời để tự động hóa một số tác vụ mà bạn phải làm đi làm lại. (Đối với các tác vụ phức tạp hơn, bạn nên sử dụng VimScript để thay thế.)</p>
+<ul>
+<li>Bắt đầu ghi lại hành động của bạn bằng cách nhấn phím <code>q</code> theo sau là tên bộ ghi, ví dụ : <code>q</code>. (Thanh trạng thái lúc này sẽ hiển thị “recording <span class="citation" data-cites="q">@q</span>”.)</li>
+<li>Kết thúc quá trì ghi bằng cách nhấn phím <code>q</code> một lần nữa.</li>
+<li>Chạy macro vừa ghi với <code>[số lượng]@q</code>. Ví dụ <code>2@q</code> sẽ chạy cách lệnh bạn vừa ghi lại 2 lần.</li>
+<li>Lặp lại macro được sử dụng lần gần nhất với <code>[số lần]@@</code>.</li>
+</ul>
+<p><strong>Ví dụ 1:</strong></p>
+<p>Chèn một dòng và lặp lại nó 10 lần:</p>
+<pre><code>qq
+iabc&lt;cr&gt;&lt;esc&gt;
+q
+10@q</code></pre>
+<p>(Ví dụ trên cũng có thể được thực hiện mà không cần macro: `oabc <esc> 10. ’)</p>
+<p><strong>Ví dụ 2:</strong></p>
+<p>Để thêm số thứ tự vào trước tất cả các dòng, bạn hãy tự thêm “1.” vào dòng đầu tiên. Tăng số đang hiển thị tại con trỏ bằng cách sử dụng <code>&lt;c-a&gt;</code>, lệnh này có thể được viết dưới dạng <code>^A</code>.</p>
+<pre><code>qq
+0yf jP0^A
+q
+1000@q</code></pre>
+<p>Ở đây, chúng ta giả định rằng file không chứa nhiều hơn 1000 dòng khi sử dụng <code>1000 @ q</code>, nhưng chúng ta cũng có thể sử dụng macro_ đệ quy, nó sẽ thực thi cho đến khi không thể áp dụng macro cho một dòng nữa:</p>
+<pre><code>qq
+0yf jP0^A@q
+q
+@q</code></pre>
+<p>(Ví dụ trên cũng có thể được thực hiện mà không cần macro: <code>:%s/^/\=line('.') . '. '</code>)</p>
+<p>Lưu ý rằng tôi cũng chỉ bạn cách làm tương tự với những ví dụ trên mà không cần phải sử dụng macros, nhưng chúng chỉ thích hợp với những công việc đơn giản. Đối với những công việc cần thực hiện tự động nhưng phức tạp hơn, macros mới chính là thứ bạn cần.</p>
+<p>Bạn cũng nên xem: <a href="#chỉnh-sửa-nhanh-macros-của-bạn">Chỉnh sửa nhanh macros của bạn</a></p>
+<p>Xem thêm:</p>
+<pre><code>:h recording
+:h &#39;lazyredraw&#39;</code></pre>
+<h2 id="bảng-màu">Bảng màu</h2>
+<p>Bảng màu (Colorschemes) là cách bạn áp dụng màu sắc cho Vim của bạn. Vim được cấu thành từ nhiều thành phần (component) và mỗi thành phần có thể được tùy chỉnh với các màu sắc khác nhau cho màu chữ, màu nền của chữ và một số thuộc tính khác như in đậm chữ, v.v. Chúng có thể được thiết lập như sau:</p>
+<pre class="vim"><code>:highlight Normal ctermbg=1 guibg=red</code></pre>
+<p>Lệnh trên sẽ tô màu nền thành màu đỏ cho trình soạn thảo của bạn. Xem <code>:h :highlight</code> để biết thêm chi tiết.</p>
+<p>Vì vậy, các bảng màu hầu như đều là tập hợp các lệnh cho <code>:highlight</code>.</p>
+<p>Trên thực tế, hầu hết các bảng màu thực sự đều là 2 bảng màu! Ví dụ trên cài đặt màu thông qua <code>ctermbg</code> và <code>guibg</code>. Theo định nghĩa của thì (<code>cterm*</code>) sẽ chỉ được áp dụng nếu bạn khởi động Vim từ terminal, ví dụ: xterm. Còn (<code>gui*</code>) sẽ được sử dụng khi bạn sử dụng Vim với giao diện đồ họa, như là gvim hoặc MacVim.</p>
+<p>Nếu bạn từng sử dụng một bảng màu trong khi mở Vim trong terminal, và các màu sắc không trông giống như màu được cung cấp trong screenshot demo, thì rất có thể bảng màu đó chỉ định nghĩa các màu cho Vim với giao diện đồ họa. Ngược lại, nếu bạn sử dụng Vim với giao diện đồ họa (ví dụ gvim hoặc MacVim) và các màu sắc trông không giống như màu mẫu, thì rất có thể bảng màu chỉ định nghĩa màu sắc cho Vim chạy trên terminal.</p>
+<p>Trường hợp thứ hai có thể được “giải quyết” bằng cách bắt chế độ màu sắc trung thực (true colors) trên Neovim hoặc Vim có phiên bản 7.4.1830 hoặc mới hơn. Điều này làm cho Vim chạy dưới terminal sẽ sử dụng các định nghĩa của Vim với giao diện thay cho các định nghĩa mặc định, nhưng đồng thời việc này cũng yêu cầu bản thân terminal cũng như các phần mềm trung gian (ví dụ: tmux) phải có khả năng xử lý màu sắc thực (true color). (<a href="https://gist.github.com/XVilka/8346728">Hãy xem gist này</a> để có thêm nhiều thông tin về vấn đề này.)</p>
+<p>Xem thêm:</p>
+<ul>
+<li><code>:h 'termguicolors'</code></li>
+<li><a href="PLUGINS.md#các-bảng-màu">Danh sách bảng màu</a></li>
+<li><a href="#thay-đổi-màu-sắc">Thay đổi màu sắc</a></li>
+</ul>
+<h2 id="thu-gọn-code">Thu gọn Code</h2>
+<p>Mọi văn bản (hoặc mã nguồn) đều có một cấu trúc (structure) nhất định. Nếu văn bản, mã nguồn code của bạn có một cấu trúc, điều đó có nghĩa là bạn có các vùng văn bản được phân tách một cách hợp lý. Thu gọn code, hay còn gọi là gấp code (folding) cho phép bạn “thu gọn” một vùng như vậy thành một dòng duy nhất và chỉ hiển thị một mô tả ngắn. Có nhiều lệnh trong Vim có thể hoạt động trên các vùng này, mỗi vùng thường được gọi là các <em>fold</em>. Các fold có thể được lồng vào nhau.</p>
+<p>Vim phân biệt giữa một số loại phương pháp thu gọn code:</p>
+<table>
+<thead>
+<tr class="header">
+<th>‘phương thức thu gọn (fold method)’</th>
+<th>Cách sử dụng</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>diff</td>
+<td>Used in diff windows to fold unchanged text.</td>
+</tr>
+<tr class="even">
+<td>expr</td>
+<td>Uses <code>'foldexpr'</code> to basically create a new fold method.</td>
+</tr>
+<tr class="odd">
+<td>indent</td>
+<td>Folds based on indentation.</td>
+</tr>
+<tr class="even">
+<td>manual</td>
+<td>Create folds yourself via <code>zf</code>, <code>zF</code>, and <code>:fold</code>.</td>
+</tr>
+<tr class="odd">
+<td>marker</td>
+<td>Folds based on markers in the text (often in comments).</td>
+</tr>
+<tr class="even">
+<td>syntax</td>
+<td>Folds based on syntax, e.g. folding <code>if</code> blocks.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LƯU Ý</strong>: Việc thu gọn code có thể cần rất nhiều xử lý! Nếu bạn gặp bất kỳ hạn chế nào về hiệu suất (độ trễ khi nhập liệu), hãy xem plugin <a href="https://github.com/Konfekt/FastFold">FastFold</a>, plugin này ngăn Vim cập nhật các fold khi không cần thiết.</p>
+<p>Xem thêm:</p>
+<pre><code>:h usr_28
+:h folds</code></pre>
+<h2 id="phiên-làm-việc">Phiên làm việc</h2>
+<p>Nếu bạn lưu một <strong>view</strong> (Xem <code>:h :mkview</code>), trạng thái hiện tại của window (cũng như các cài đặt và mapping của nó) cũng sẽ được lưu để sử dụng sau này (<code>:h :loadview</code>).</p>
+<p>Một phiên làm việc sẽ lưu các view của tất cả các window và cả các cài đặt chung. Về cơ bản, nó sẽ tạo một snapshot của phiên làm việc hiện tại của bạn và lưu trong trong một file. Để tôi nhấn mạnh điều này: Vim sẽ lưu trạng thái hiện tại; mọi thứ được thực hiện sau khi bạn lưu một phiên làm việc sẽ không nằm trong file lưu trữ phiên làm việc, tức chúng sẽ không được lưu lại. Để “cập nhật” một phiên làm việc, chỉ cần lưu lại.</p>
+<p>Điều này giúp bạn dễ dàng lưu lại, cũng như chuyển đổi qua lại giữa các <em>dự án</em> của mình.</p>
+<p>Thử ngay đi! Mở một vài window, tab, và dùng lệnh <code>:mksession Foo.vim</code>. Nếu bạn không điền tên file, <code>Session.vim</code> sẽ mặc định được dùng. File này sẽ được lưu vào thư mục làm việc hiện tại của bạn, xem <code>:pwd</code>. Khởi động lại Vim là nhập <code>source Foo.vim</code> và bất ngờ chưa, danh sách buffer, bố trí của các window, các mapping, thư mục làm việc hiện tại, v.v. sẽ giống y chang lúc bạn lưu phiên làm việc. Làm một vài thứ, và chập nhật phiên làm việc bằng cách ghi đè lên file lưu trữ phiên làm việc đã tồn tại với lệnh <code>:mksession! Foo.vim</code>.</p>
+<p>Lưu ý rằng một file lưu trữ phiên làm việc thực sự chỉ là một tập hợp của các lệnh trong vim để khôi phục lại trạng thái của Vim khi bạn thực hiện lưu phiên làm việc. Vì vậy hãy xem: <code>:vs Foo.vim</code>.</p>
+<p>Bạn có thể cho Vim biết những gì cần lưu trong một phiên bản với cài đặt <code>'sessionoptions'</code>.</p>
+<p>Đối với việc viết code, Vim sẽ giữ tên của phiên làm việc được áp dụng hoặc lưu lại lần cuối vào biến cục bộ (internal variable) <code>v:this_session</code>.</p>
+<p>Xem thêm:</p>
+<pre><code>:h Session
+:h &#39;sessionoptions&#39;
+:h v:this_session</code></pre>
+<h2 id="tính-cục-bộ">Tính cục bộ</h2>
+<p>Nhiều khái niệm được đề cập ở trên cũng có các phiên bản chạy <em>cục bộ</em>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Toàn cục</th>
+<th>Cục bộ</th>
+<th>Phạm vi</th>
+<th>Xem thêm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:set</code></td>
+<td><code>:setlocal</code></td>
+<td>buffer or window</td>
+<td><code>:h local-options</code></td>
+</tr>
+<tr class="even">
+<td><code>:map</code></td>
+<td><code>:map &lt;buffer&gt;</code></td>
+<td>buffer</td>
+<td><code>:h :map-local</code></td>
+</tr>
+<tr class="odd">
+<td><code>:autocmd</code></td>
+<td><code>:autocmd * &lt;buffer&gt;</code></td>
+<td>buffer</td>
+<td><code>:h autocmd-buflocal</code></td>
+</tr>
+<tr class="even">
+<td><code>:cd</code></td>
+<td><code>:lcd</code></td>
+<td>window</td>
+<td><code>:h :lcd</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;leader&gt;</code></td>
+<td><code>&lt;localleader&gt;</code></td>
+<td>buffer</td>
+<td><code>:h maplocalleader</code></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://vimhelp.appspot.com/usr_41.txt.html#41.2">Các biến (variables) cũng có các phạm vi khác nhau</a>.</p>
+<h1 id="cách-sử-dụng-1">Cách sử dụng</h1>
+<h2 id="nhận-trợ-giúp-ngoại-tuyến">Nhận trợ giúp ngoại tuyến</h2>
+<p>Vim đi kèm với một bộ tài liệu tuyệt vời dưới dạng các file văn bản đơn lẻ và có bố cục đặc biệt. Vim sử dụng một hệ thống dựa trên các thẻ (tag) để truy cập các phần nhất định của một file tài liệu.</p>
+<p>Trước hết, bạn hãy đọc: <code>:help :help</code>. Chạy lệnh trên sẽ mở file <code>$VIMRUNTIME/doc/helphelp.txt</code> trong một window mới và nhảy tới thẻ <code>:help</code> trong file đó.</p>
+<p>Một vài quy tắc đơn giản:</p>
+<ul>
+<li>Các cài đặt được đặt trong dấu ngoặc kép, ví dụ: <code>:h 'textwidth'</code></li>
+<li>Các hàm trong ngôn ngữ Vim kết thúc bằng <code>()</code>. Ví dụ: <code>:h reverse()</code></li>
+<li>Các lệnh bắt đầu với <code>:</code>, ví dụ <code>:h :echo</code></li>
+</ul>
+<p>Bạn có thể dùng <code>&lt;c-d&gt;</code> (tức <kbd>ctrl</kbd>+<kbd>d</kbd>) để liệt kê tất cả các thẻ phù hợp với lệnh đang được nhập. Ví dụ: <code>:h tag &lt;c-d&gt;</code> sẽ cung cấp cho bạn danh sách tất cả các thẻ từ <code>tab</code>, <code>'softtabstop'</code> cho tới <code>setting-guitablabel</code>.</p>
+<p>Nếu bạn muốn liệt kê tất cả các hàm trong Vim? Đơn giản thôi, chỉ cần dùng <code>:h ()&lt;c-d&gt;</code>. Bạn muốn liệt kê tất cả các hàm trong vim có liên quan đến window? Hãy dùng <code>:h win*()&lt;c-d&gt;</code>.</p>
+<p>Những điều này sẽ dần trở nên tự nhiên với bạn hơn, nhưng đặc biệt là khi mới bắt đầu, đôi khi bạn sẽ không biết bất kì thứ gì về các thẻ mà bạn cần tìm. Bạn chỉ cần tưởng tượng ra một từ khóa có liên quan là được. <code>:helpgrep</code> sẽ giúp ích cho bạn.</p>
+<pre><code>:helpgrep backwards</code></pre>
+<p>Lệnh trên sẽ tìm từ “backwards” trong tất cả các file tài liệu và nhảy tới file đầu tiên có chứ từ “backwards”. Các kết quả tìm được sẽ được tập hợp trong danh sách sửa lỗi nhanh (quickfix). Sử dụng <code>:cn</code>/<code>:cp</code> để nhảy qua lại giữa các kết quả tìm được. Hoặc dùng <code>:copen</code> để mở một window sửa lỗi nhanh (quicfix window), điều hướng đến một kết quả và nhấn <code>&lt;cr&gt;</code> để nhảy đến file tài liệu ứng với kết quả đó. Xem thêm <code>:h quickfix</code> để biết thêm chi tiết.</p>
+<h2 id="nhận-trợ-giúp-ngoại-tuyến-cách-khác">Nhận trợ giúp ngoại tuyến (cách khác)</h2>
+<p>Danh sách sày được tổng hợp bởi <span class="citation" data-cites="chrisbra">@chrisbra</span>, một trong những là phát triển Vim tích cực nhất và nó được đăng trên <a href="https://groups.google.com/forum/#!forum/vim_dev">vim_dev</a>.</p>
+<p>Đây là phiên bản của vim-galore với một vài thay đổi nhỏ.</p>
+<hr />
+<p>Thông thường, nếu bạn biết bạn đang tìm gì, thì bạn sẽ dễ dàng tìm kiếm chúng bằng cách sử dụng hệ thống trợ giúp của Vim.Vì các chủ đề được sắp xếp tuân theo một phong cách trình bày nhất định.</p>
+<p>Ngoài ra, hệ thống trợ giúp của Vim sẽ có lợi thế nhất định phụ thuộc vào phiên bản Vim mà bạn đang sử dụng, vì vậy, các chủ đề chủ đề lỗi thời hoặc được thêm vào mà không phù hợp với phiên bản Vim mà bạn đang sử dụng sẽ không xuất hiện.</p>
+<p>Do đó, điều cần thiết ở đây là bạn phải tìm hiểu hệ thống trợ giúp của Vim và ngôn ngữ mà nó sử dụng. Đây là một số ví dụ (không đảm bảo là sẽ đầy đủ vì có thể tôi đã quên một vài thứ).</p>
+<ol type="1">
+<li><p>Các cài đặt được đặt trong dấu nháy đơn. Vì vậy, bạn hãy sử dụng <code>:h 'list'</code> để chuyển đến danh sách các cài đặt của file trợ giúp đó. Nếu bạn biết chính xác cài đặt nào mà bạn muốn xem, bạn có thể dùng <code>:h options.txt</code> để mở trang trợ giúp mô tả tất cả các cài đặt và lúc đó bạn có thể sử dụng việc tìm kiếm bằng biểu thức chính quy (regular expressions), ví dụ <code>/width</code>. Một số tùy chọn có namespace riêng, ví dụ: <code>:h cpo-a</code>, <code>:h cpo-A</code>, <code>:h cpo-b</code>. v.v</p></li>
+<li><p>Các lệnh ở chế độ bình thường thì cũng chỉ có vậy. Hãy dùng lệnh <code>:h gt</code> để xem trang trợ giúp của lệnh “gt”.</p></li>
+<li><p>Các biểu thức chính quy (regex) luôn bắt đầu bằng “/”, vì vậy <code>:h / \ +</code> sẽ đưa bạn đến mục trợ giúp cho bộ định lượng “ +” của các biểu thức chính quy trong Vim. Nếu bạn cần biết bất kỳ điều gì về biểu thức chính quy (regex), hãy đọc tại <code>:h pattern.txt</code>.</p></li>
+<li><p>Về các tổ hợp phím. Chúng thường bắt đầu bằng một chữ cái cho biết chế độ mà chúng có thể được sử dụng. Ví dụ. <code>:h i_CTRL-X</code> đưa bạn đến tập các lệnh CTRL-X cho chế độ insert, các lệnh này có thể được sử dụng để tự động hoàn thành các công việc khác nhau. Lưu ý rằng một số từ khóa nhất định sẽ luôn được viết giống nhau, ví dụ: Control sẽ luôn là CTRL. Lưu ý, đối với các lệnh ở chế độ normal, chữ “n” sẽ được lược bỏ đi, ví dụ <code>:h CTRL-A</code>. Ngược lại, <code>:h c_CTRL-R</code> sẽ mô tả CTRL-R làm gì khi nhập lệnh trong dòng lệnh (command line) và <code>:h v_Ctrl-A</code> mang ý nghĩa tăng dần một số trong chế độ visual và <code>:h g_CTRL-A</code> đại diện cho lệnh g<C-A> (Do đó bạn phải nhấn “g” rồi nhấn <Ctrl-A>). Ở đây, “g” đại diện cho lệnh “g” thông thường, lệnh “g” luôn chờ cho một phím thứ hai được nhấn sau nó để thực hiện một hành động nào đó, tương tự như các lệnh bắt đầu bằng “z”.</p></li>
+<li><p>Các bộ ghi nhớ (registers) luôn bắt đầu với “quote”, vì vậy hãy sử dụng <code>:h quote</code> để tìm hiểu thêm về bộ ghi nhớ đặc biệt “:”.</p></li>
+<li><p>Ngôn ngữ lập trình Vim (Vim Script, VimL) có sẵn tại <code>:h eval.txt</code>. Một số khía cạnh của ngôn ngữ này có sẵn tại <code>:h expr-X</code>, trong đó ‘X’ là một chữ cái đơn lẻ. Ví dụ <code>:h expr-!</code> sẽ đưa bạn để chủ đề mô tả về toán tử ‘!’ (not) trong VimL. Một phần cũng quan trọng khác đó là function-list, hãy xem <code>:h function-list</code> để tìm các mô tả ngắn ngọn về tất cả các hàm có sẵn trong VimL.</p></li>
+<li><p>Các mapping được đề cập trong trang trợ giúp <code>:h map.txt</code>. Sử dụng <code>:h mapmode-i</code> để tìm hiểu về lệnh <code>:imap</code>. Bạn cũng nên dùng lệnh <code>:map-topic</code> để tìm hiểu thêm về một số chủ đề phụ cụ thể cho mapping (ví dụ: <code>:h :map-local</code> để tìm hiểu về mapping cho buffer cục bộ (buffer-local mappings) hoặc <code>:h mapbar</code> để biết cách xử lý của ‘|’ trong mapping)</p></li>
+<li><p>Định nghĩa của các lệnh được đề cập tại <code>:h command-*</code>, vì vậy hãy dùng lệnh <code>:h command-bar</code> để tìm hiểu thêm về đối số ‘!’ cho các lệnh được tùy chỉnh.</p></li>
+<li><p>Các lệnh để quản lý window (cửa sổ, khung nhìn) luôn bắt đầu với CTRL-W, vì vậy bạn có thể tìm những tài liệu tương ứng tại <code>:h CTRL-W_*</code> (Ví dụ <code>:h CTRL-W_p</code> để nhảy đến cửa sổ được truy cập lần gần nhất). Bạn cũng có truy cập <code>:h windows.txt</code> và đọc thêm về các lệnh xử lý window mà bạn cần sử dụng.</p></li>
+<li><p>Các lệnh Ex luôn bắt đầu bằng “:”, vì vậy hãy dùng lệnh <code>:h :s</code> để đọc thêm về lệnh “:s”.</p></li>
+<li><p>Sử dụng CTRL-D sau khi truy cập một chủ đề (tài liệu) và để vim cố gắng hoàn thành tất cả các chủ đề có sẵn.</p></li>
+<li><p>Sử dụng <code>:helpgrep</code> để tìm kiếm trong tất cả các trang trợ giúp (thông thường sẽ kèm cả các trang trợ giúp của các plugin mà bạn đã cài.). Xem <code>:h :helpgrep</code> để biết cách sử dụng. Khi bạn đã tìm kiếm một chủ đề nào đó, tất cả các kết quả trùng khớp sẽ được hiển thị trong một window hiển thị danh sách sửa lỗi nhanh (quickfix) hoặc danh sách vị trí (location) mà bạn có thể mở lên bằng cách dùng lệnh <code>:copen</code> hoặc <code>:lopen</code>. Sau đó bạn có thể dùng <code>/</code> để tìm kiếm cụ thể hơn trong danh sách kết quả đang hiển thị.</p></li>
+<li><p><code>:h helphelp</code> có chứa các nội dung để bạn sử dụng trợ giúp trong vim tốt hơn.</p></li>
+<li><p>Phần hướng dẫn sử dụng trong vim mô tả các chủ đề trợ giúp cho những người mới bắt đầu bằng một cách khá thân thiện.. Bắt đầu với lệnh <code>:h usr_toc.txt</code> để xem mục lục. Lướt qua mục lục để tìm chủ đề cụ thể nào đó bạn cần. Ví dụ bạn sẽ tìm thấy một mục “Digraphs” và ‘Entering special characters’ trong chường 24 (Do đó, hãy dùng <code>:h usr_24.txt</code> để đi đến trang trợ giúp cụ thể đó)</p></li>
+<li><p>Các nhóm để nhận diện highlight (highlighting groups) luôn bắt đầu với <code>hl-*</code>. Ví dụ: <code>:h hl-WarningMsg</code> nói về nhóm nhận diện màu sắc “WarningMsg”.</p></li>
+<li><p>Nhận diện syntax (Syntax highlighting) được đặt tên theo cú pháp “:syn-topic”. Ví dụ <code>:h :syn-conceal</code> nói về đối số conceal cho lệnh :syn.</p></li>
+<li><p>Các lệnh thuộc nhóm lệnh sửa lỗi nhanh (quickfix) thường bắt đầu với “:c”, còn đối với danh sách vị trí (location list) thì là “:l”.</p></li>
+<li><p>Lệnh <code>:h BufWinLeave</code> nói về lệnh tự động BufWinLeave. Ngoài ra, <code>:h autocommands-events</code> nói về tất cả các sự kiện có thể xảy ra.</p></li>
+<li><p>Các đối số (arguments) để khởi động Vim luôn bắt đầu với “-”, vì vậy <code>:h -f</code> sẽ dẫn bạn đến trang trợ giúp của lệnh “-f” trong Vim.</p></li>
+<li><p>Các tính năng bổ sung được biên dịch sẵn vào Vim luôn bắt đầu bằng “+”, vì vậy lệnh <code>:h +conceal</code> sẽ dẫn bạn đến trang trợ giúp nói về tính năng conceal trong Vim.</p></li>
+<li><p>Các mã lỗi cũng có thể được tìm kiếm trực tiếp trong các trang hướng dẫn. Lệnh <code>:h E297</code> sẽ trực tiếp dẫn bạn đến phần mô tả của các lỗi. Tuy nhiên, đôi khi các mã lỗi không được mô rả, mà được liệt kê trong lệnh Vim sẽ thường gây ra lỗi đó. Ví dụ: <code>:h hE128</code> sẽ trực tiếp dẫn bạn đến trang trợ giúp của lệnh <code>:function</code>;</p></li>
+<li><p>Tài liệu cho các cú pháp có sẵn của các file thường có sẵn tại <code>:h ft-*-syntax</code>. Ví dụ: <code>:h ft-c-syntax</code> nói về cú pháp của file C và các các đặt mà nó cung cấp. Đôi khi, các phần bổ sung thêm cho tính năng gợi ý code omni completion (Xem <code>:h ft-php-omni</code>) hoặc các plugin dành cho loại file (<code>:h ft-tex-plugin</code>) có sẵn.</p></li>
+</ol>
+<p>Also, a link to the user documentation (which describes certain commands more from a user perspective and less detailed) will be mentioned at the top of help pages if they are available. So <code>:h pattern.txt</code> mentions the user guide topics <code>:h 03.9</code> and <code>:h usr_27</code>.</p>
+<p>Ngoài ra, liên kết đến tài liệu sử dụng (thường sẽ mô tả một số lệnh nhất định từ góc đội người dùng và ít được chi tiết hơn) sẽ được đề cập ở đầu trang trợ giúp nếu như chúng có sẵn. Vì vậy tài liệu <code>:h pattern.txt</code> sẽ đề cập đến các chủ đề hướng đẫn sử dụng <code>:h 03.9</code> và <code>:h usr_27</code>.</p>
+<h2 id="nhận-trợ-giúp-trực-tuyến">Nhận trợ giúp trực tuyến</h2>
+<p>Nếu bạn có một vấn đề không thể giải quyết hoặc bạn cần sự hướng dẫn cụ thể, vui lòng xem danh sách mailing <a href="https://groups.google.com/forum/#!forum/vim_use">vim_use</a></p>
+<p>Bạn có thể truy cập một nguồn tài liệu tuyệt vời khác bằng cách sử dụng <a href="https://de.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a>. Kênh chat <code>#vim</code> trên <a href="https://freenode.net">Freenode</a> luôn có những người sẵn sàng giúp đỡ bạn.</p>
+<p>Nếu bạn muốn báo cáo một lỗi của Vim, sử dụng mailing list <a href="https://groups.google.com/forum/#!forum/vim_dev">vim_dev</a>.</p>
+<h2 id="sử-dụng-lệnh-tự-động-trong-thực-tế">Sử dụng lệnh tự động trong thực tế</h2>
+<p>Bạn có thể kích hoạt bất kì sự kiện nào ngay bây giờ với lệnh <code>:doautocmd BufRead</code>.</p>
+<h3 id="các-sự-kiện-người-dùng">Các sự kiện người dùng</h3>
+<p>Đặc biệt là đối với các plugin, sẽ hữu dụng hơn nếu bạn tạo các sự kiện “Người dùng” cho riêng bạn.</p>
+<pre class="vim"><code>function! Chibby()
+  &quot; A lot of stuff is happening here.
+  &quot; And at last..
+  doautocmd User ChibbyExit
+endfunction</code></pre>
+<p>Bây giờ những người sử dụng plugin của bạn có thể thực thi bất cứ thứ gì sau khi hàm Chibby được thực thi bằng cách dùng lệnh:</p>
+<pre class="vim"><code>autocmd User ChibbyExit call ChibbyCleanup()</code></pre>
+<p>Nhân tiện, nếu không “tìm thấy” lệnh tự động nào, :doautocmd sẽ xuất ra thông báo “No matching autocommands” (Không có lệnh tự động nào phù hợp). Đó là lý do tại sao nhiều plugin sử dụng <code>silent doautocmd ...</code>. Nhưng điều này lại có nhược điểm đó là bạn không thể sử dụng <code>echo "foo"</code> trong lênh tự động :autocmd, mà bạn cần phải sử dụng <code>unsilent echo "foo"</code> để xuất một thông báo cho những người sử dụng plugin của mình.</p>
+<p>Đó là lý do tại sao bạn nên kiểm tra liệu sự kiện đó có nhận các lệnh tự động hay không, và không nên làm ảnh hưởng sự kiện này, ví dụ:</p>
+<pre class="vim"><code>if exists(&#39;#User#ChibbyExit&#39;)
+  doautocmd User ChibbyExit
+endif</code></pre>
+<p>Xem thêm: <code>:h User</code></p>
+<h3 id="các-lệnh-tự-động-lồng-vào-nhau">Các lệnh tự động lồng vào nhau</h3>
+<p>Theo mặc định, các lệnh tự động (autocmd) không lồng vào nhau! Nếu lệnh tự động thực thi một lệnh, nó thường sẽ kích hoạt một sự kiện khác, điều đó trên thực tế lại không xảy ra.</p>
+<p>Giả sử, mỗi khi bạn khởi động Vim, bạn muốn Vim tự động mở file cấu hình vimrc của mình:</p>
+<pre class="vim"><code>autocmd VimEnter * edit $MYVIMRC</code></pre>
+<p>Bây giờ nếu bạn khởi động Vim, Vim sẽ mở file vimrc của bạn, nhưng điều đầu tiên mà bạn nhận ra là bây giờ nội dung của bạn không được tô màu (highlighting) như mọi khi bạn mở file vimrc của mình.</p>
+<p>Vấn đề ở đây là: lệnh <code>:edit</code> trong ví dụ trên sẽ không kích hoạt sự kiện “BufRead”, do đó Vim sẽ không thể xác nhận bạn đang mở loại file nào. Vì vậy file <code>$VIMRUNTIME/syntax/vim.vim</code> sẽ không bao giờ được thực thi.</p>
+<p>Xem thêm <code>:au BufRead *.vim</code>. Và thay vì sử dụng ví dụ trên, hãy sử dụng:</p>
+<pre class="vim"><code>autocmd VimEnter * nested edit $MYVIMRC</code></pre>
+<p>Xem thêm: <code>:h autocmd-nested</code></p>
+<h2 id="clipboard">Clipboard</h2>
+<p>Clipboard (Bộ nhớ sao chép tạm thời) cần <a href="#bạn-đang-sử-dụng-phiên-bản-vim-nào">tính năng</a>: <code>+clipboard</code> và tùy chọn<br />
+<code>+xterm_clipboard</code> nếu bạn muốn sử dụng <code>'clipboard'</code> trên một hệ thống Unix với Vim không hỗ trợ giao diện (không hỗ trợ GUI).</p>
+<p>Xem thêm:</p>
+<pre><code>:h &#39;clipboard&#39;
+:h gui-clipboard
+:h gui-selections</code></pre>
+<p>Xem thêm: <a href="#dán-nội-dung-trong-ngoặc-hoặc-tại-sao-tôi-phải-đặt-lệnh-dán-mọi-lúc">Dán nội dung trong ngoặc (hoặc tại sao tôi phải đặt lệnh ‘dán’ mọi lúc?)</a></p>
+<h3 id="sử-dụng-clipboard-windows-macos">Sử dụng Clipboard (Windows, macOS)</h3>
+<p>Windows hỗ trợ sẵn <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms649012(v=vs.85).aspx">clipboard</a> và macOS hỗ trợ <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/PasteboardGuide106/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008100-SW1">pasteboard</a>.</p>
+<p>Cả hai đều hoạt đồng bình thường như chúng ta mong đợi. Bạn sao chép văn bản đã chọn với <code>ctrl+c</code>/<code>cmd+c</code> và dán chúng vào một ứng dụng khác với lệnh <code>ctrl+v</code>/<code>cmd+v</code>.</p>
+<p>Lưu ý rằng văn bản đã sao chép thực sự được chuyển vào clipboard, vì vậy bạn có thể đóng ứng dụng mà bạn vừa sao chép văn bản đó trước khi dán nội dung vừa sao chép vào một ứng dụng khác mà không có vấn đề gì.</p>
+<p>Bất cứ khi nào bạn thực hiện sao chép với clipboard trong Vim, bộ ghi nhớ (register) <code>*</code> sẽ được lấp đầy với đoạn văn bản mà bạn đang chọn. Sử dụng <code>"*y</code> và <code>"*p</code> để sao chép và dán từ clipboard.</p>
+<p>Nếu bạn không muốn Vim lúc nào cũng lưu nội dung bạn sao chép vào bộ ghi nhớ <code>*</code>, thêm đoạn sau vào file cấu hình vimrc của bạn:</p>
+<pre class="vim"><code>set clipboard=unnamed</code></pre>
+<p>Thông thường thì tất cả các hành động sao chép/xóa/dán sẽ được lưu vào bộ ghi nhớ <code>"</code>, lúc này thì bộ ghi nhớ <code>*</code> được sử dụng cho hành động tương tự, do đó chỉ cần nhấn <code>y</code> và <code>p</code> là đủ để thực hiện hành động sao chép và dán văn bản.</p>
+<p>Để tôi nhắc lại: Khi bạn thiết lập cài đặt phía trên, mỗi khi bạn sao chép/dán, thận chí khi bạn sử dụng trong cùng một window của Vim, các hành động sao chép/ dán đó sẽ thay đổi clipboard. Hãy tự mình quyết định xem cài đặt này có hữu ích hay không.</p>
+<p>Nếu bạn quá lười để nhấn <code>y</code>, bạn có thể lưu tất cả những lần bạn lựa chọn văn bản trong chế độ visual vào clipboard bằng cách sử dụng các cài đặt:</p>
+<pre class="vim"><code>set clipboard=unnamed,autoselect
+set guioptions+=a</code></pre>
+<p>Xem thêm:</p>
+<pre><code>:h clipboard-unnamed
+:h autoselect
+:h &#39;go_a&#39;</code></pre>
+<h3 id="sử-dụng-clipboard-linux-bsd">Sử dụng Clipboard (Linux, BSD, …)</h3>
+<p>Nếu hệ điều hành của bạn sử dụng <a href="http://www.x.org/wiki">X</a>, thì có một chút khác biệt . X sử dụng <a href="http://www.x.org/releases/X11R7.7/doc/xproto/x11protocol.html">X Window System Protocol</a> từ phiên bản 11 từ năm 1987, do đó, thường thường người ta hay gọi X là X11.</p>
+<p>Trước đó, ở phiên bản X10, <a href="http://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html#Peer_to_Peer_Communication_by_Means_of_Cut_Buffers">cut buffers</a> được giới thiệu là sẽ hoạt động giống như một <em>clipboard</em>, như khi bạn sao chép văn bản, thông tin sao chép sẽ được X quản lý và bạn có thể truy cập chúng ở bất kì ứng dụng nào. Cơ chế này vẫn tồn tại trong X, nhưng việc sử dụng nó hiện không còn khả thi nữa, và hầu hết các ứng dụng đều không sử dụng nó nữa.</p>
+<p>Ngày nay, dữ liệu được chuyển qua lại giữa các ứng dụng bằng <a href="http://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html#Peer_to_Peer_Communication_by_Means_of_Selections">các lựa chọn (selections)</a>. Trong 3 <em>các lựa chọn</em> được tình soạn thảo văn bản atoms định nghĩa, chỉ có 2 cái thường được sử dụng trong thực tế, đó là: PRIMARY và CLIPBOARD.</p>
+<p>Các lựa chọn hoạt động giống như này:</p>
+<pre><code>Ứng dụng A: &lt;ctrl+c&gt;
+Ứng dụng A: xác nhận quyền chiếm dụng CLIPBOARD
+Ứng dụng B: &lt;ctrl+v&gt;
+Ứng dụng B: lưu ý là quyền chiếm dụng CLIPBOARD đang được giữ bởi ứng dụng A
+Ứng dụng B: uêu cầu dữ liệu từ ứng dụng A
+Ứng dụng A: phản hồi yêu cầu và gửi dữ liệu đến ứng dụng B
+Ứng dụng B: nhận dữ liệu từ ứng dụng A và chèn nó vào window</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>Lựa chọn</th>
+<th>Trường hợp sử dụng?</th>
+<th>Làm sao để dán?</th>
+<th>Làm sao để truy cập trong Vim?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PRIMARY</td>
+<td>Chọn văn bản</td>
+<td><code>middle-click</code>, <code>shift+insert</code></td>
+<td><code>*</code> register</td>
+</tr>
+<tr class="even">
+<td>CLIPBOARD</td>
+<td>Chọn văn bản và thực hiện <code>ctrl+c</code></td>
+<td><code>ctrl+v</code></td>
+<td><code>+</code> register</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lưu ý</strong>: Các lựa chọn (selections), thậm chí cả lựa chọn CLIPBOARD, không bao giờ được lưu trong X server! Do đó, bạn sẽ mất dữ liệu được sao chép với lệnh <code>ctrl-c</code> khi bạn đóng ứng dụng.</p>
+<p>Sử dụng <code>"*p</code> để dán lựa chọn PRIMARY hoặc <code>"+y1G</code> để sao chép toàn bộ nội dung của file vào lựa chọn CLIPBOARD.</p>
+<p>Nếu bạn tình cờ truy cập một trong hai bộ ghi nhớ (register) cùng một lúc, hãy cân nhắc sử dụng:</p>
+<pre class="vim"><code>set clipboard^=unnamed      &quot; * register
+&quot; or
+set clipboard^=unnamedplus  &quot; + register</code></pre>
+<p>(Dấu <code>^=</code> được dùng như giá trị mặc định, xem <code>:h :set^=</code>.)</p>
+<p>Điều này sẽ làm cho tất cả các hoạt động sao chép/xóa/dán sử dụng <code>*</code> hoặc <code>+</code> thay vì bộ ghi nhớ không tên <code>"</code>. Sau đó, bạn chỉ cần sử dụng <code>y</code> hoặc <code>p</code> để thao tác với các lựa chọn của bạn.</p>
+<p>Xem thêm:</p>
+<pre class="vim"><code>:h clipboard-unnamed
+:h clipboard-unnamedplus</code></pre>
+<h2 id="khôi-phục-vị-trí-của-con-trỏ-khi-mở-file">Khôi phục vị trí của con trỏ khi mở file</h2>
+<p>Khi bạn mở một file, con trỏ sẽ được đặt ở dòng 1, cột 1. Nhưng may mắn thay, file viminfo đã ghi nhớ các <a href="#đánh-dấu">đánh dấu (marks)</a> cho bạn. Marker <code>"</code> chứa vị trí con trỏ trong buffer mà bạn đã thoát.</p>
+<pre class="vim"><code>autocmd BufReadPost *
+    \ if line(&quot;&#39;\&quot;&quot;) &gt; 1 &amp;&amp; line(&quot;&#39;\&quot;&quot;) &lt;= line(&quot;$&quot;) |
+    \   execute &quot;normal! g`\&quot;&quot; |
+    \ endif</code></pre>
+<p>Giải thích: Nếu marker <code>"</code> có số dòng lớn hơn 1 nhưng không lớn hơn số dòng cuối cùng trong file, hãy chuyển con trỏ đến đó.</p>
+<p>Xem thêm: :h viminfo-’ :h <code>quote     :h g</code></p>
+<h2 id="các-file-tạm">Các file tạm</h2>
+<h3 id="các-file-sao-lưu">Các file sao lưu</h3>
+<p>Trước khi sử dụng một file, Vim sẽ tạo một file sao lưu (backup file). Nếu ghi vào đĩa thành công, file sao lưu sẽ bị xóa.</p>
+<p>Với lệnh <code>:set backup</code>, sao lưu của bạn sẽ vẫn tồn tại. Nghĩa là , file sao lưu sẽ luôn có cùng nội dung với file gốc <em>trước khi</em> bạn lưu file của bạn lần gần nhất. Bạn hãy tự quyết định xem việc này có hữu ích với mình hay không.</p>
+<p>Bạn có thể vô hiệu hóa hoàn toàn các sao lưu bằng lệnh <code>:set nobackup nowritebackup</code>, nhưng bạn không nên làm điều này. <code>'writebackup'</code> là một tính năng bảo mật đảm bảo rằng bạn không làm mất file gốc trong trường hợp bạn lưu file của mình bị lỗi, bất kể bạn có giữ file sao lưu sao đó hay không.</p>
+<p>Nếu bạn thường xuyên sử dụng Vim để chỉnh sửa các file lớn, <a href="#chỉnh-sửa-file-lớn-bị-chậm">và có thể bạn không nên</a>, bạn có thể loại trừ những file đó khỏi danh sách sao lưu với lệnh <code>'backupskip'</code>.</p>
+<p>Vim có hai cách khác nhau để tạo bản sao lưu: <em>sao chép</em> và <em>đổi tên</em>.</p>
+<ul>
+<li><strong>Sao chép</strong>
+<ol type="1">
+<li>Một bản sao đầy đủ của file gốc được tạo và sử dụng làm bản sao lưu.</li>
+<li>File gốc được làm rỗng và sao đó được lấp đầy bằng nội dung của buffer hiện tại trong Vim.</li>
+</ol></li>
+<li><strong>Đổi tên</strong>
+<ol type="1">
+<li>Tệp gốc được đổi tên thành file sao lưu.</li>
+<li>Nội dung của buffer được ghi vào một file mới với tên của file gốc</li>
+</ol></li>
+</ul>
+<p>Xem thêm <code>:h 'backupcopy'</code> để biết thêm nhiều thứ hay ho khác.</p>
+<hr />
+<p>Demo:</p>
+<pre class="vim"><code>:set backup backupskip= backupdir=. backupext=-backup
+:e /tmp/foo
+ifoo&lt;esc&gt;
+:w
+&quot; file gốc được tạo, không cần file sao lưu
+obar&lt;esc&gt;
+:w
+&quot; file sao lưu được tạo, file gốc được cập nhật</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode diff"><code class="sourceCode diff"><a class="sourceLine" id="cb46-1" title="1">$ diff -u /tmp/foo-backup /tmp/foo</a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="kw">--- /tmp/foo-backup     2017-04-22 15:05:13.000000000 +0200</span></a>
+<a class="sourceLine" id="cb46-3" title="3"><span class="dt">+++ /tmp/foo    2017-04-22 15:05:25.000000000 +0200</span></a>
+<a class="sourceLine" id="cb46-4" title="4"><span class="dt">@@ -1 +1,2 @@</span></a>
+<a class="sourceLine" id="cb46-5" title="5"> foo</a>
+<a class="sourceLine" id="cb46-6" title="6"><span class="va">+bar</span></a></code></pre></div>
+<p>Một khả năng khác là bạn có thể dùng <a href="https://wiki.archlinux.org/index.php/Sshfs">sshfs</a> , sshfs sử dụng <a href="https://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> để mount một hệ thống remove vào hệ thống cục bộ của bạn.</p>
+<h2 id="quản-lý-plugins">Quản lý plugins</h2>
+<p><a href="https://github.com/tpope/vim-pathogen">Pathogen</a> là công cụ phổ biến đầu tiên nếu như bạn muốn quản lý các plugin của mình. Trên thực tế, nó chỉ điều chỉnh <em>runtimepath</em> (<code>:h 'rtp'</code>) để đặt tất cả các cài đặt vào một thư mục nhất định. Bạn phải tự sao chép repo của các plugin đó để có thể sử dụng.</p>
+<p>Các trình quản lý plugin sẽ chìa ra các lệnh giúp bạn cài đặt và cập nhật các plugin ngay trong Vim.</p>
+<p><a href="PLUGINS.md#các-trình-quản-lý-plugin">Danh sách trình quản lý plugin</a></p>
+<h2 id="chèn-khối">Chèn khối</h2>
+<p>Chèn khối (block insert) là một kĩ thuật để chèn cùng một văn bản trên nhiều dòng liên tiếp cùng một lúc. Xem <a href="https://raw.githubusercontent.com/mhinz/vim-galore/master/static/images/content-block_insert.gif">demo</a>.</p>
+<p>Chuyển sang chế độ visual block với lệnh <code>&lt;c-v&gt;</code>. Sau đó, chọn một vài dòng. Nhấn <code>I</code> hoặc <code>A</code> và bắt đầu thêm văn bản của bạn.</p>
+<p>Lúc đầu có thể hơi khó hiểu, nhưng văn bản sẽ được nhập ở dòng hiện tại, sau khi bạn kết thúc việc nhập nhiệu, văn bản vừa nhập sẽ được áp dụng cho tất cả các dòng mà bạn đã chọn.</p>
+<p>Một ví dụ đơn giản: <code>&lt;c-v&gt;3jItext&lt;esc&gt;</code>.</p>
+<p>Nếu bạn có các dòng có độ dài khác nhau, và muốn nối cùng một văn bản vào sau mỗi dòng, hãy dùng lệnh: <code>&lt;c-v&gt;3j$Atext&lt;esc&gt;</code>.</p>
+<p>Đôi khi, bạn cần đặt con trỏ ở đâu đó sau khi kết thúc dòng hiện tại. Mặc định, bạn không thể làm điều đó, nhưng bạn có thể cài đặt trong vimrc của mình với cài đặt <code>virtualedit</code>:</p>
+<pre class="vim"><code>set virtualedit=all</code></pre>
+<p>Sau đó <code>$10l</code> or <code>90|</code> hoạt động ngay cả khi con trỏ của bạn đang ở cuối một dòng.</p>
+<p>Xem <code>:h blockwise-examples</code> để biết thêm chi tiết. Ban đầu có thể hơi khó khăn, nhưng nó sẽ sớm trở nên tự nhiên với bạn.</p>
+<p>Đây là một plugin hỗ trợ cho tính năng này mà bạn nên xem qua: <a href="https://github.com/terryma/vim-multiple-cursors">multiple-cursors</a>.</p>
+<h2 id="chạy-các-chương-trình-bên-ngoài-vim-và-sử-dụng-các-bộ-lọc">Chạy các chương trình bên ngoài Vim và sử dụng các bộ lọc</h2>
+<p>Lưu ý: Vim chỉ xử lý một luồng duy nhất (single-threaded), vì vậy việc chạy một chương trình bên ngoài sẽ chặn Vim thực hiện các xử lý tiếp theo. Dĩ nhiên, bạn có thể sử dụng các ngôn ngữ lập trình Vim, ví dụ: Lua, và xử dụng các xử lý hỗ trợ đa luồng của chúng, tuy nhiên, trong quá trình xử lý đó, các luồng xử lý khác của Vim vẫn bị chặn lại. Neovim (Một phiên bản được viết lại của Vim) đã khắc phục điều đó bằng các thêm một API thích hợp.</p>
+<p>(Rõ ràng là Bram cũng đang nghĩ đến việc thêm quyền kiểm soát các tiến trình vào Vim. Nếu bạn đang sử dụng một phiên bản Vim được publish gần đây, hãy xem <code>:helpgrep startjob</code>)</p>
+<p>Sử dụng <code>:!</code> để bắt đầu một công việc. Nếu bạn muốn liệt kê danh sách các file trong thư mục hiện tại, hãy dùng <code>:!ls</code>. Dùng <code>|</code> để thực hiện piping như khi bạn sử dụng các lệnh trong shell của mình, ví dụ <code>:!ls -1 | sort | tail -n5</code>.</p>
+<p>Nếu không được chỉ định phạm vi (ranges), kết quả của lệnh <code>:!</code> sẽ được hiển thị trong một window mà bạn có thể cuộn lên, xuống (scroll). Mặt khác, nếu một phạm vi được chỉ định, các dòng này sẽ được <a href="https://en.wikipedia.org/wiki/Filter_(software)">lọc lại</a>. Điều này nghĩa là chúng sẽ được chuyển đến <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_.28stdin.29">stdin</a> của chương trình lọc và sau khi xử lý chúng sẽ được thay thế bởi <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_output_.28stdout.29">stdout</a> của bộ lọc. Ví dụ: để đánh số đầu dòng cho 5 dòng tiếp theo, hãy dùng.</p>
+<pre><code>:.,+4!nl -ba -w1 -s&#39; &#39;</code></pre>
+<p>Bởi vì việc thêm vào các phạm vi (ranges) một cách thủ công là khá rườm rà, nên Vim cung cấp một số trợ giúp để thuận tiện cho bạn hơn. Như khi sử dụng phạm vi, bạn có thể chọn nhiều dòng trong chế độ visual, sau đó nhấn <code>:</code>. Ngoài ra còn có một toán từ <code>!</code> chấp nhận các chuyển động (motions). Ví dụ: <code>!ip!sort</code> sẽ xắp xếp các dòng của đoạn hiện tại.</p>
+<p>Một trường hợp tốt để sử dụng bộ lọc trong vim đó là <a href="https://golang.org">Ngôn ngữ lập trình Go</a>. Việc căn thụt đầu dòng khá là cần thiết, nên go còn có sẵn luôn một bộ lọc gọi là <code>gofmt</code> để thụt lề mã nguồn Go đúng cách. Vì vậy các plugin cho Go thường cung cấp các lệnh trợ giúp được gọi là <code>:Fmt</code>, về cơ bản, chúng sẽ thực hiện lện <code>:%!gofmt</code>, lệnh này sẽ tự động căn lề tất cả các dòng trong file mã nguồn Go mà bạn đang mở.</p>
+<p>Mọi người thường sử dụng lệnh <code>:r !prog</code> để đặt đầu ra (output) của chương trình bên dưới dòng hiện tại, điều này tốt cho các tập lệnh, nhưng khi cần thực hiện nó một cách nhanh chóng, tôi thấy dễ dàng hơn khi sử dụng lệnh <code>!!ls</code>, lệnh này sẽ thay thế đầu ra cho dòng hiện tại.</p>
+<p>Xem thêm: :h filter :h :read!</p>
+<h2 id="cscope">Cscope</h2>
+<p><a href="http://cscope.sourceforge.net/">Cscope</a> làm được nhiều thức hơn <a href="http://ctags.sourceforge.net/">ctags</a>, nhưng chỉ hỗ trợ ngôn ngữ lập trình C (C++ và Java với một khía cạnh nào đó).</p>
+<p>Trong khi một file tags chỉ biết vị trí của một symbol cụ thể, thì một cơ sở dữ liệu cscope biết nhiều hơn về dữ liệu của bạn:</p>
+<ul>
+<li>Symbol này được xác định ở đâu?</li>
+<li>Symbol này được dùng ở đâu?</li>
+<li>Định nghĩa toàn của của symbol này là gì?</li>
+<li>Biến này lấy giá trị ở đâu?</li>
+<li>Hàm này nằm ở đâu trong các file mã nguồn?</li>
+<li>Các hàm nào gọi đến hàm này?</li>
+<li>Hàm nào được gọi bởi hàm này?</li>
+<li>Thông báo “out of space” đến từ đâu?</li>
+<li>File nguồn này nằm ở đâu trong cấu trúc thư mục?</li>
+<li>File nào include file header này</li>
+</ul>
+<h3 id="xây-dựng-cơ-sở-dữ-liệu">1. Xây dựng cơ sở dữ liệu</h3>
+<p>Chạy lệnh này trong thư mục hiện tại của project bạn đang làm:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb49-1" title="1">$ <span class="ex">cscope</span> -bqR</a></code></pre></div>
+<p>Lệnh trên sẽ tạo ra 3 file: <code>cscope{,.in,.po}.out</code> trong thư mục hiện tại. Cứ nghĩ chúng là cơ sở dữ liệu (database) của bạn đi.</p>
+<p>Không may thay, theo mặc định thì <code>cscope</code> chỉ phân tích các file <code>*.[c|h|y|l]</code>. nên nếu bạn muốn sử dụng cscope cho một project Java, hãy dùng lệnh:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb50-1" title="1">$ <span class="fu">find</span> . -name <span class="st">&quot;*.java&quot;</span> <span class="op">&gt;</span> cscope.files</a>
+<a class="sourceLine" id="cb50-2" title="2">$ <span class="ex">cscope</span> -bq</a></code></pre></div>
+<h3 id="thêm-cơ-sở-dữ-liệu">2. Thêm cơ sở dữ liệu</h3>
+<p>Mở một kết nối đến cơ sở dữ liệu mới được tạo:</p>
+<pre class="vim"><code>:cs add cscope.out</code></pre>
+<p>Xác minh rằng kết nối đã được thực hiện:</p>
+<pre class="vim"><code>:cs show</code></pre>
+<p>(Dĩ nhiên, bạn có thể thêm nhiều kết nối.)</p>
+<h3 id="truy-vấn-cơ-sở-dữ-liệu">3. Truy vấn cơ sở dữ liệu</h3>
+<pre class="vim"><code>:cs find &lt;kind&gt; &lt;query&gt;</code></pre>
+<p>Ví dụ: lệnh <code>:cs find d foo</code> sẽ liệt kê tất cả các hàm được gọi bởi hàm <code>foo(...)</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Loại</th>
+<th>Giải thích</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s</td>
+<td><strong>s</strong>ymbol: tìm tất cả tham chiếu đến token</td>
+</tr>
+<tr class="even">
+<td>g</td>
+<td><strong>g</strong>lobal: tìm các định nghĩa toàn cục của token</td>
+</tr>
+<tr class="odd">
+<td>c</td>
+<td><strong>c</strong>alls: tìm tất cả các liên kết gọi đến hàm</td>
+</tr>
+<tr class="even">
+<td>t</td>
+<td><strong>t</strong>ext: tìm tất cả các bản sao (instance) của văn bản</td>
+</tr>
+<tr class="odd">
+<td>e</td>
+<td><strong>e</strong>grep: egrep để tìm một từ</td>
+</tr>
+<tr class="even">
+<td>f</td>
+<td><strong>f</strong>ile: mở file với tên file</td>
+</tr>
+<tr class="odd">
+<td>i</td>
+<td><strong>i</strong>ncludes: tìm các file có chứa tên file</td>
+</tr>
+<tr class="even">
+<td>d</td>
+<td><strong>d</strong>epends: tìm các hàm được gọi bởi hàm này</td>
+</tr>
+</tbody>
+</table>
+<p>Đây là một số mapping tiện lợi mà tôi có thể gợi ý. Ví dụ:</p>
+<pre class="vim"><code>nnoremap &lt;buffer&gt; &lt;leader&gt;cs :cscope find s  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;cg :cscope find g  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;cc :cscope find c  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;ct :cscope find t  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;ce :cscope find e  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;cf :cscope find f  &lt;c-r&gt;=expand(&#39;&lt;cfile&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;ci :cscope find i ^&lt;c-r&gt;=expand(&#39;&lt;cfile&gt;&#39;)&lt;cr&gt;$&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;cd :cscope find d  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;</code></pre>
+<p>Vì vậy, lệnh <code>:tag</code> (hoặc <code>&lt;c-]&gt;</code>) sẽ nhảy đến một định nghĩa trong các file tag, <code>:cstag</code> cũng làm điều tương tự, nhưng cũng nhận các kết nối đến csdl cscope. Tùy chọn <code>'cscopetag'</code> sẽ làm cho <code>:tag</code> hoạt động giống <code>:cstag</code> một cách tự động. Điều này rất thuận tiện nếu bạn đã có các mapping liên quan đến tag.</p>
+<p>Xem thêm: <code>:h cscope</code></p>
+<h2 id="matchit">MatchIt</h2>
+<p>Vì Vim được viết bằng ngôn ngữ lập trình C, nên rất nhiều tính năng đều được giả định giống như ngôn ngữ C. Theo mặc định, nếu con trỏ của bạn đang ở <code>{</code> hoặc <code>#endif</code>, bạn có thể dùng <code>%</code> để nhảy đến kí tự <code>}</code> hoặc <code>#ifdef</code> tương ứng.</p>
+<p>Vim đi kèm với một plugin có tên là matchit.vim, theo mặc định, plugin này sẽ không hoạt động. Plugin này làm cho phím <code>%</code> cũng nhảy quanh các thẻ HTML, các lệnh if/else/endif trong VimL, và plugin này cũng giới thiệu thêm một vài lệnh khác cũng khá hữu dụng.</p>
+<h4 id="cài-đặt-matchit-cho-vim-8">Cài đặt MatchIt cho Vim 8</h4>
+<pre class="vim"><code>&quot; vimrc
+packadd! matchit</code></pre>
+<h4 id="cài-đặt-matchit-cho-vim-7-và-các-phiên-bản-cũ-hơn">Cài đặt MatchIt cho Vim 7 và các phiên bản cũ hơn</h4>
+<pre class="vim"><code>&quot; vimrc
+runtime macros/matchit.vim</code></pre>
+<p>Vì tài liệu về matchit khá phong phú, tôi khuyên bạn nên làm như sau:</p>
+<pre class="vim"><code>:!mkdir -p ~/.vim/doc
+:!cp $VIMRUNTIME/macros/matchit.txt ~/.vim/doc
+:helptags ~/.vim/doc</code></pre>
+<h4 id="giới-thiệu-nhanh">Giới thiệu nhanh</h4>
+<p>Sau khi cài đặt, plugin đã sẵn sàng để bạn sử dụng. Xem <code>:h matchit-intro</code>, để biết các lệnh được hỗ trợ và <code>:h matchit-languages</code> để biết các ngôn ngữ được matchit hỗ trợ.</p>
+<p>Bạn cũng có thể dễ dàng định nghĩa các matching pairs phù hợp cho riêng bạn:</p>
+<pre class="vim"><code>autocmd FileType python let b:match_words = &#39;\&lt;if\&gt;:\&lt;elif\&gt;:\&lt;else\&gt;&#39;</code></pre>
+<p>Với lệnh trên, bạn có thể nhảy lần lượt từ if, đến elif, rồi đến else trong bất kì file Python nào bằng cách sử dụng <code>%</code> (forward) hoặc <code>g%</code> (backward).</p>
+<p>Đọc thêm:</p>
+<pre><code>:h matchit-install
+:h matchit
+:h b:match_words</code></pre>
+<h2 id="true-colors">True colors</h2>
+<p>Sử dụng các màu sắc trong một trình giả lập terminal nghĩa là bạn có thể sử dụng 24 bits cho màu RGB. Điều này sẽ tạo ra 16777216 (2^24) màu thay vì 256 màu thông thường.</p>
+<p>Như đã giải thích <a href="#bảng-màu">ở đây</a>, mỗi bảng màu (colorschemes) thực chất đều có <em>hai</em> phiên bản, một được định nghĩa cho các terminal (xterm) và phiên bản còn lại là cho giao diện GUIs (gvim). Điều này có ý nghĩa vì nếu các terminal không thể sử dụng true colors, chúng sẽ sử dụng bảng màu dành riêng cho terminal.</p>
+<p>Sau khi chạy lệnh <code>:set termguicolors</code>, Vim bắt đầu phát ra các chuỗi chỉ được hiểu bởi terminal được hỗ trợ true colors. Khi màu sắc của bạn trông kỳ lạ, rất có thể trình giả lập terminal của bạn không hỗ trợ true colors hoặc bảng màu của bạn không được định nghĩa sẵn các màu sắc cho phiên bản GUIs.</p>
+<p>Có rất nhiều người sửa dụng <a href="https://github.com/tmux/tmux/wiki">tmux</a>, tmux về cơ bản sẽ nằm giữa terminal và Vim. Để cho tmux nhận được các màu sắc cụ thể từ vim, đặc biệt là true colors, bạn cần phải đặt những thứ sau vào file cấu hình tmux <code>.tmux.conf</code> của bạn:</p>
+<pre><code>set-option -g  default-terminal &#39;tmux-256color&#39;
+set-option -ga terminal-overrides &#39;,xterm-256color:Tc&#39;</code></pre>
+<p>Vì vậy, đây là danh sách những việc cần làm để sử dụng true colors:</p>
+<ul>
+<li>Đọc <code>:h 'termguicolors'</code>.</li>
+<li>Đặt <code>set termguicolors</code> vào file cấu hình vimrc của bạn.</li>
+<li>Đảm bảo rằng bảng màu (colorscheme) mà bạn đang dùng hỗ trợ GUIs. (Nó phải chứa các dòng đại loại như <code>guifg</code> và <code>guibg</code>.)</li>
+<li>Đảm bảo terminal của bạn hỗ trợ true colors.</li>
+<li>Nếu bạn dùng tmux, cấu hình nó và thêm <code>Tc</code> vào file cấu hình.</li>
+</ul>
+<p>Xem thêm: https://gist.github.com/XVilka/8346728</p>
+<h1 id="các-mẹo-sử-dụng-1">Các mẹo sử dụng</h1>
+<h2 id="chuyển-đến-đầu-hoặc-cuối-của-văn-bản-đang-được-chọn">Chuyển đến đầu hoặc cuối của văn bản đang được chọn</h2>
+<p><code>o</code> và <code>O</code> trong chế độ visual sẽ nhảy con trỏ của bạn đến đầu và cuối văn bản đang được chọn. Hãy thử lựa chọn theo khối (blockwise selection) để thử sự khác biệt. Điều này hữu ích khi bạn muốn thay đổi kích thước của văn bản một cách nhanh chóng.</p>
+<pre><code>:h v_o
+:h v_O</code></pre>
+<h2 id="hành-vi-tốt-hơn-của-n-và-n">Hành vi tốt hơn của n và N</h2>
+<p>Hướng của <code>n</code> và <code>N</code> phụ thuộc vào việc bạn sử dụng <code>/</code> hay <code>?</code> để tìm kiếm tới, hoặc tìm kiếm lùi về trước đó. Điều này khá khó hiểu với tôi.</p>
+<p>Nếu bạn muốn <code>n</code> luôn tìm kiếm tới phía trước và <code>N</code> luôn tìm kiếm ngược lại, hãy dùng:</p>
+<pre class="vim"><code>nnoremap &lt;expr&gt; n  &#39;Nn&#39;[v:searchforward]
+xnoremap &lt;expr&gt; n  &#39;Nn&#39;[v:searchforward]
+onoremap &lt;expr&gt; n  &#39;Nn&#39;[v:searchforward]
+
+nnoremap &lt;expr&gt; N  &#39;nN&#39;[v:searchforward]
+xnoremap &lt;expr&gt; N  &#39;nN&#39;[v:searchforward]
+onoremap &lt;expr&gt; N  &#39;nN&#39;[v:searchforward]</code></pre>
+<h2 id="lịch-sử-các-lệnh-sử-dụng-tốt-hơn">Lịch sử các lệnh sử dụng tốt hơn</h2>
+<p>Nếu bạn giống như tôi, bạn đã quen với việc chuyển đến các mục tiếp theo, và trước đó thông qua các lệnh <code>&lt;c-n&gt;</code> và <code>&lt;c-p&gt;</code> tương ứng. Theo mặc định, điều này cũng hoạt động trong command-line và sẽ gọi lại các lệnh cũ hơn hoặc gần đây hơn từ lịch sử các lệnh đã được sử dụng.</p>
+<p>Nhưng <code>&lt;up&gt;</code> và <code>&lt;down&gt;</code> thậm chí còn thông minh hơn! Chúng nhớ lại lệnh có phần đầu khớp với lệnh hiện tại. Ví dụ: <code>:echo &lt;up&gt;</code> có thể thay đổi thành <code>:echo "Vim rocks!"</code>.</p>
+<p>Dĩ nhiên, tôi không muốn bạn phải rướn tay của mình tới các phím điều hướng, vì vậy hãy map chúng như sau:</p>
+<pre class="vim"><code>cnoremap &lt;c-n&gt;  &lt;down&gt;
+cnoremap &lt;c-p&gt;  &lt;up&gt;</code></pre>
+<p>Tôi sử dụng các lệnh này vài lần mỗi ngày.</p>
+<h2 id="ctrl-l-tốt-hơn">CTRL-L tốt hơn</h2>
+<p>Theo mặc dịnh, lệnh <code>&lt;c-l&gt;</code> sẽ xóa và vẽ lại màn hình (giống lệnh <code>:redraw!</code>). Mapping sau đây cũng làm điều tương tự, thêm nữa là chúng sẽ highlight các kết quả phù hợp tìm được thông qua <code>/</code>, <code>?</code>, highlight cú pháp (đôi khi Vim mất đi các highlight do các quy tắc highlight phức tạp.), cập nhật các highlight cú pháp trong chế độ diff:</p>
+<pre class="vim"><code>nnoremap &lt;leader&gt;l :nohlsearch&lt;cr&gt;:diffupdate&lt;cr&gt;:syntax sync fromstart&lt;cr&gt;&lt;c-l&gt;</code></pre>
+<h2 id="tắt-hình-ảnh-và-âm-thanh-của-chuông">Tắt hình ảnh và âm thanh của chuông</h2>
+<pre class="vim"><code>set noerrorbells
+set novisualbell
+set t_vb=</code></pre>
+<p>Xem thêm <a href="http://vim.wikia.com/wiki/Disable_beeping">Vim Wiki: Disable beeping</a>.</p>
+<h2 id="di-chuyển-nhanh-dòng-hiện-tại">Di chuyển nhanh dòng hiện tại</h2>
+<p>Thỉnh thoảng tôi cần di chuyển nhanh một dòng lên trên hoặc xuống dưới:</p>
+<pre class="vim"><code>nnoremap [e  :&lt;c-u&gt;execute &#39;move -1-&#39;. v:count1&lt;cr&gt;
+nnoremap ]e  :&lt;c-u&gt;execute &#39;move +&#39;. v:count1&lt;cr&gt;</code></pre>
+<p>Các mapping này sẽ nhận vào một số đếm, ví dụ <code>2]e</code> sẽ di chuyển dòng hiện tại xuống 2 dòng.</p>
+<h2 id="thêm-nhanh-các-dòng-trống">Thêm nhanh các dòng trống</h2>
+<pre class="vim"><code>nnoremap [&lt;space&gt;  :&lt;c-u&gt;put! =repeat(nr2char(10), v:count1)&lt;cr&gt;&#39;[
+nnoremap ]&lt;space&gt;  :&lt;c-u&gt;put =repeat(nr2char(10), v:count1)&lt;cr&gt;</code></pre>
+<p>Bây giờ <code>5[&lt;space&gt;</code> sẽ chèn 5 dòng trống lên trên dòng hiện tại.</p>
+<h2 id="chỉnh-sửa-nhanh-macros-của-bạn">Chỉnh sửa nhanh macros của bạn</h2>
+<p>Đây thực sự là một viên quá quý! Mapping sẽ nhận vào một bộ ghi nhớ (register) (Hoặc <code>*</code> theo mặc định) và mở nó trên cửa sổ command line. Nhấn <code>&lt;cr&gt;</code> khi bạn đã chỉnh sửa xong văn bản để cài đặt cho bộ ghi nhớ.</p>
+<p>Tôi thường sử dụng mapping này để chỉnh sửa lỗi chính tả mà tôi mắc phải khi tôi đang ghi lại một macro.</p>
+<pre class="vim"><code>nnoremap &lt;leader&gt;m  :&lt;c-u&gt;&lt;c-r&gt;&lt;c-r&gt;=&#39;let @&#39;. v:register .&#39; = &#39;. string(getreg(v:register))&lt;cr&gt;&lt;c-f&gt;&lt;left&gt;</code></pre>
+<p>Sử dụng như sau <code>&lt;leader&gt;m</code> hoặc <code>"q&lt;leader&gt;m</code>.</p>
+<p>Lưu ý việc sử dụng <code>&lt;c-r&gt;&lt;c-r&gt;</code> để đảm bảo <code>&lt;c-r&gt;</code> được chèn theo nghĩa đen. Xem <code>:h c_^R^R</code>.</p>
+<h2 id="nhảy-nhanh-đến-file-header-hoặc-file-mã-nguồn">Nhảy nhanh đến file header hoặc file mã nguồn</h2>
+<p>Kĩ thuật này có thể được áp dụng cho nhiều loại file khác nhau. Nó sẽ đặt các <em>đánh dấu file</em> (xem <code>:h marks</code>) khi bạn rời khỏi một file mã nguồn hoặc file header, vì vậy bạn có thể nhảy nhanh ngược lại bằng cách dùng <code>'C</code> hoặc <code>'H</code> (Xem thêm <code>:h 'A</code>).</p>
+<pre class="vim"><code>autocmd BufLeave *.{c,cpp} mark C
+autocmd BufLeave *.h       mark H</code></pre>
+<p><strong>LƯU Ý</strong>: Thông tin được lưu trong file viminfo, vì vậy hãy đảm bảo rằng lệnh <code>:set viminfo?</code> đã được bạn đặt vào file cài đặt. Xem thêm <code>:h viminfo-'</code>.</p>
+<h2 id="thay-đổi-kích-thước-font-trong-giao-diện">Thay đổi kích thước font trong giao diện</h2>
+<p>Tôi nghĩ rằng config này được lấy từ config của tpope:</p>
+<pre class="vim"><code>command! Bigger  :let &amp;guifont = substitute(&amp;guifont, &#39;\d\+$&#39;, &#39;\=submatch(0)+1&#39;, &#39;&#39;)
+command! Smaller :let &amp;guifont = substitute(&amp;guifont, &#39;\d\+$&#39;, &#39;\=submatch(0)-1&#39;, &#39;&#39;)</code></pre>
+<h2 id="thay-đổi-kiểu-con-trỏ-tùy-thuộc-vào-chế-độ">Thay đổi kiểu con trỏ tùy thuộc vào chế độ</h2>
+<p>Tôi thích dùng con trỏ hình khối ở chế độ normal, con trỏ dạng i-beam ở chế độ insert, và con trỏ gạch dưới ở chế độ replace.</p>
+<pre class="vim"><code>if empty($TMUX)
+  let &amp;t_SI = &quot;\&lt;Esc&gt;]50;CursorShape=1\x7&quot;
+  let &amp;t_EI = &quot;\&lt;Esc&gt;]50;CursorShape=0\x7&quot;
+  let &amp;t_SR = &quot;\&lt;Esc&gt;]50;CursorShape=2\x7&quot;
+else
+  let &amp;t_SI = &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]50;CursorShape=1\x7\&lt;Esc&gt;\\&quot;
+  let &amp;t_EI = &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]50;CursorShape=0\x7\&lt;Esc&gt;\\&quot;
+  let &amp;t_SR = &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]50;CursorShape=2\x7\&lt;Esc&gt;\\&quot;
+endif</code></pre>
+<p>Điều này chỉ đơn giản là yêu cầu Vim in một chuỗi kí tự nhất định (<a href="https://en.wikipedia.org/wiki/Escape_sequence">escape sequence</a>) khi bạn vào/ rời chế độ insert. Terminal, hoặc chương trình như <a href="https://tmux.github.io">tmux</a> đứng giữa terminal và vim, sẽ xử lý và đánh giá nó. Các cấu hình trên có thể không hoạt động với bạn. Cài đặt của thạm thậm chí còn có thể không hỗ trợ nhiều kiểu con trỏ khác nhau. Hãy đọc tài liệu của chúng sẽ rõ.</p>
+<p>Ví dụ trên hoạt động tốt với iTerm2.</p>
+<h2 id="không-bị-mất-những-lựa-chọn-selection-khi-di-chuyển-sang-một-bên">Không bị mất những lựa chọn (selection) khi di chuyển sang một bên</h2>
+<p>Nếu bạn chọn một hoặc nhiều dòng, bạn có thể dùng <code>&lt;</code> hoặc <code>&gt;</code> để chuyển chúng sang một bên. Thật không may bạn sẽ bị mất các lựa chọn sau khi dùng <code>&lt;</code> và <code>&gt;</code>.</p>
+<p>Bạn có thể gùn <code>gv</code> để chọn lại lựa chọn mà bạn thực hiện lần gần nhất (xem <code>:h gv</code>), do đó, bạn có thể map lệnh lại như sau:</p>
+<pre class="vim"><code>xnoremap &lt;  &lt;gv
+xnoremap &gt;  &gt;gv</code></pre>
+<p>Bây giờ bạn có thể dùng <code>&gt;&gt;&gt;&gt;&gt;</code> mà không có vấn đề gì.</p>
+<p><strong>Lưu ý</strong>: Bạn có thể đạt được điều tương tự với lệnh <code>.</code>, lệnh lặp lại thay đổi cuối cùng.</p>
+<h2 id="tải-lại-file-khi-lưu">Tải lại file khi lưu</h2>
+<p>Sử dụng <a href="#lệnh-tự-động">lệnh tự động</a> bạn có thể làm bất kì thứ gì khi bạn lưu một file. Ví dụ, source nó nếu nó làm một dotfile hoặc chạy linter cho file đó để kiểm tra lỗi cũ pháp của nội dung trong file.</p>
+<pre class="vim"><code>autocmd BufWritePost $MYVIMRC source $MYVIMRC
+autocmd BufWritePost ~/.Xdefaults call system(&#39;xrdb ~/.Xdefaults&#39;)</code></pre>
+<h2 id="con-trỏ-thông-minh-hơn">Con trỏ thông minh hơn</h2>
+<p>Tôi thích con trỏ, nhưng tôi chỉ muốn dùng nó trong window hiện tại chứ không muốn ở chế độ chèn.</p>
+<pre class="vim"><code>autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline</code></pre>
+<h2 id="hoàn-thành-từ-khóa-nhanh-hơn">Hoàn thành từ khóa nhanh hơn</h2>
+<p>Hoàn thành từ khóa khi bạn sử dụng gợi ý code (<code>&lt;c-n&gt;</code>/<code>&lt;c-p&gt;</code>) sẽ cố gắng lựa chọn các lựa chọn trong <code>'complete'</code>. Theo mặc định, điều này cũng bao gồm các tag (có thể khá khó chịu) và quét tất cả các file được include (có thể sẽ rất chậm). Nếu bạn có thể sống mà không cần những thứ này, hãy tắt chúng đi:</p>
+<pre class="vim"><code>set complete-=i   &quot; disable scanning included files
+set complete-=t   &quot; disable searching tags</code></pre>
+<h2 id="thay-đổi-màu-sắc">Thay đổi màu sắc</h2>
+<p>Luôn sử dụng dòng trạng thái (statusline) màu tối, bất kể bảng màu nào đang được sử dụng:</p>
+<pre class="vim"><code>autocmd ColorScheme * highlight StatusLine ctermbg=darkgray cterm=NONE guibg=darkgray gui=NONE</code></pre>
+<p>Lệnh trên sẽ được kích hoạt mỗi khi bạn sử dụng <code>:colorscheme ...</code>. Nếu bạn muốn nó chỉ kích hoạt cho một số bảng màu nhất định, hãy dùng.</p>
+<pre class="vim"><code>autocmd ColorScheme desert highlight StatusLine ctermbg=darkgray cterm=NONE guibg=darkgray gui=NONE</code></pre>
+<p>Lệnh trên chỉ được thực thi cho bảng màu <code>:colorscheme desert</code>.</p>
+<h1 id="các-lệnh-1">Các lệnh</h1>
+<p>Các lệnh hữu ích mà bạn cần biết. Dùng <code>:h :&lt;command name&gt;</code>, để đọc thêm về chúng, ví dụ <code>:h :global</code>.</p>
+<h2 id="global-và-vglobal">:global và :vglobal</h2>
+<p>Thực hiện một lệnh trên tất cả các dòng phừ hợp. Ví dụ <code>:global /regexp/ print</code> sẽ gọi lệnh <code>:print</code> trên tất cả các dòng có chứa “regexp”.</p>
+<p>Thực tế thú vị: Có thể bạn biết rằng grep được viết bởi Ken Thompson hoạt động rất tốt. Nó làm gì? Nó sẽ in ra tất cả các dòng khớp với một biểu thức chính quy (regex) nhất định! Bây giờ hãy đoán dạng rút gọn của <code>:global /regexp/ print</code> xem? ĐÚng rồi! Đó là <code>:g/re/p</code>. Ken Thompson đã lấy cảm hứng từ lệnh <code>:global</code> trong vi (phiên bản cũ hơn của Vim) khi anh ấy lập trình ra grep.</p>
+<p>Không như tên gọi của nó, <code>:global</code> chỉ hoạt động trên tất cả các dòng theo mặc định, nhưng nó cũng nhận vào một phạm vi (ranges). Giả sử bạn muốn dùng lệnh <code>:delete</code> trên tất cả các dòng từ dòng hiện tại đến dòng trống tiếp theo (khớp với regex <code>^$</code>) có chứa “foo”:</p>
+<pre class="vim"><code>:,/^$/g/foo/d</code></pre>
+<p>Để thực hiện các lệnh trên tất cả các dòng mà <em>không</em> có một một mẫu (pattern) nhất định, sử dụng <code>:global!</code> hoặc bí danh của nó <code>:vglobal</code> (<em>inVerse</em>) để thay thế.</p>
+<h2 id="normal-and-execute">:normal and :execute</h2>
+<p>Các lệnh này thường được dùng khi viết mã nguồn cho Vim với VimL.</p>
+<p>Với lệnh <code>:normal</code> bạn có thể thực hiện mapping trong command-line. Ví dụ: <code>:normal! 4j</code> sẽ làm cho con trỏ đi xuống 4 dòng (mà không sử dụng bất kì mapping khác nào cho “j” bởi vì đã có dấu “!”).</p>
+<p>Lưu ý rằng: lệnh <code>:normal</code> cũng nhận vào một <a href="#phạm-vi">phạm vi</a>, vì vậy <code>:%norm! Iabc</code> sẽ thêm “abc” vào trước mỗi dòng.</p>
+<p>Với <code>:execute</code> bạn có thể trộn các lệnh với các biểu thức (expressions). Giả sử bạn đang chỉnh sửa một file C và muốn đổi sang file header của nó, dùng:</p>
+<pre class="vim"><code>:execute &#39;edit&#39; fnamemodify(expand(&#39;%&#39;), &#39;:r&#39;) . &#39;.h&#39;</code></pre>
+<p>Cả hai lệnh thường được sử dụng cùng nhau. Giả sử bạn muốn đưa con trỏ xuống dòng “n” dòng:</p>
+<pre class="vim"><code>:let n = 4
+:execute &#39;normal!&#39; n . &#39;j&#39;</code></pre>
+<h2 id="redir-and-execute">:redir and execute()</h2>
+<p>Rất nhiều lệnh sẽ in ra thông báo, và <code>:redir</code> cho phép bạn chuyển hướng đầu ra của các thông báo đó. Bạn có thể chuyển hướng đến các file, <a href="#bộ-ghi-nhớ">bộ ghi nhớ</a> hoặc các biến (variables).</p>
+<pre class="vim"><code>:redir =&gt; var
+:reg
+:redir END
+:echo var
+:&quot; For fun let&#39;s also put it onto the current buffer.
+:put =var</code></pre>
+<p>Trong Vim 8 thậm chí còn có cách ngắn ngọn hơn:</p>
+<pre class="vim"><code>:put =execute(&#39;reg&#39;)</code></pre>
+<p>Xem thêm:</p>
+<pre><code>:h :redir
+:h execute()</code></pre>
+<h1 id="gỡ-lỗi-1">Gỡ lỗi</h1>
+<h2 id="các-mẹo-chung">Các mẹo chung</h2>
+<p>Nếu bạn gặp phải một lỗi lạ, hãy thử tái lập lại lỗi đó:</p>
+<pre><code>vim -u NONE -N</code></pre>
+<p>Lệnh trên sẽ khởi động Vim mà không có vimrc (nghĩa là Vim sẽ chạy các cài đặt mặc định). (Xem <code>:h --noplugin</code> để biết những gì cần thiết khi Vim khởi động).</p>
+<p>Nếu bạn vẫn có thể tái lập lại lỗi đó, rất có thể đó làm một lỗi của Vim! Hãy báo có nó tại <a href="https://groups.google.com/forum/#!forum/vim_dev">vim_dev</a>. Hầu hết thời gian, vấn đề sẽ không được giải quyết ngay lập tức và bạn sẽ cần phải kiểm tra thêm để xác định.</p>
+<p>Các plugin thường giới thiệu chức năng mới/các thay đổi/các lỗi nếu chúng xảy ra khi bạn lưu file, hãy kiểm tra <code>:verb au BufWritePost</code> để xem danh sách các nguyên nhân có thể gây ra lỗi.</p>
+<p>Nếu bạn đang sử dụng một trình quản lý plugin, hãy thử comment chúng lại cho tới khi bạn tìm ra nguyên nhân.</p>
+<p>Vấn đề vẫn chưa được giải quyết? Nếu đó không phải lỗi từ một plugin, đó có thể là một trong những cài đặt của bạn, vì vậy bạn nên kiểm tra lại các cài đặt, lệnh tự động (autocmd) của mình.</p>
+<p>Đã đến lúc sử dụng tìm kiếm nhị phân (binary search). Hãy liên tục chia đôi không gian tìm kiếm của bạn cho đến khi bạn tìm ra nguyên nhân. (Ví dụ, thử comment một vài dòng để kiểm tra liệu chúng có phải nguyên nhân gây ra lỗi hay không). Vì đó là bản chất của tìm kiếm nhị phân, bạn sẽ không phải mất quá nhiều bước.</p>
+<p>Trong thực tế, bạn có thể làm như sau: Đặt lệnh <code>:finish</code> vào giữa file cấu hình vimrc của bạn. Vim sẽ bỏ qua tất cả các lệnh phía sau nó. Nếu lỗi vẫn còn tồn tại, vậy vấn đề là ở phần cấu hình ở trên, nếu không có lỗi xảy ra, vậy có nghĩa là lỗi nằm ở phần dưới. Di chuyển lệnh <code>:finish</code> của bạn vào phần mà bạn đã xác định là gây ra lỗi, đặt nó vào giữa phần đó, và cứ thế lặp đi lặp lại, bạn sẽ nhanh chóng tìm ra nguyên nhân gây ra lỗi.</p>
+<h2 id="độ-chi-tiết">Độ chi tiết</h2>
+<p>Một cách hữu ích khác để quan sát những gì Vim đang thực hiện là tăng độ chi tiết. Hiện tại Vim hỗ trợ 9 cấp độ khác nhau. Xem <code>:h 'verbose'</code> để biết danh sách đầy đủ.</p>
+<pre class="vim"><code>:e /tmp/foo
+:set verbose=2
+:w
+:set verbose=0</code></pre>
+<p>Lệnh trên sẽ hiển thị tất cả các file được thực thi, ví dụ, file undo hoặc các plugin khác nhau được thực hiện khi bạn lưu file.</p>
+<p>Nếu bạn chỉ muốn tăng độ chi tiết cho một lệnh, thì cũng có lệnh <code>:verbose</code>, lệnh này được sử dụng bằng cách đặt trước các lệnh khác. Bạn có thể cấu hình mức độ chi tiết (mặc định là 1):</p>
+<pre class="vim"><code>:verb set verbose
+&quot;  verbose=1
+:10verb set verbose
+&quot;  verbose=10</code></pre>
+<p>Lệnh này thường được sử dụng với độ chi tiết là 1, để xem một cài đặt được thiết lập lần cuối ở đâu:</p>
+<pre class="vim"><code>:verb set ai?
+&quot;      Last set from ~/.vim/vimrc</code></pre>
+<p>Đương nhiên, mức độ chi tiết càng cao thì kết quả trả ra sẽ càng nhiều. Nhưng đừng lo, bạn có thể chỉ cần chuyển hướng danh sách đó thành một file:</p>
+<pre class="vim"><code>:set verbosefile=/tmp/foo | 15verbose echo &quot;foo&quot; | vsplit /tmp/foo</code></pre>
+<p>Bạn cũng có thể kích hoạt độ chi tiết khi Vim khởi động, với tùy chọn <code>-V</code>. Nó được mặt định ở mức 10. Bạn có thể đặt lại theo bạn muốn, ví dụ <code>vim -V5</code>.</p>
+<h2 id="lập-hồ-sơ-thời-gian-khởi-động">Lập hồ sơ thời gian khởi động</h2>
+<p>Vim của bạn khởi động chậm? Đã đến lúc xem qua vài thông số:</p>
+<pre><code>vim --startuptime /tmp/startup.log +q &amp;&amp; vim /tmp/startup.log</code></pre>
+<p>Cột đầu tiên là cột quan trọng nhất vì nó hiển thị thời gian tuyệt đối đã trôi qua. Nếu có một sự thay đổi lớn về thời gian giữa hai dòng, dòng thứ 2 là một file rất lớn hoặt một file có code VimL bị lỗi đáng để điều tra.</p>
+<h2 id="lập-hồ-sơ-thời-gian-trong-quá-trình-sử-dụng-vim">Lập hồ sơ thời gian trong quá trình sử dụng Vim</h2>
+<p>Cần có <a href="#bạn-đang-sử-dụng-phiên-bản-vim-nào">tính năng</a>: <code>+profile</code></p>
+<p>Vim tích hợp sẵn một tính năng để bạn có thể lập hồ sơ trong khi bạn đang sử dụng Vim, và đó là một cách tuyệt vời để bạn biết phần nào khiến Vim của bạn chạy chậm.</p>
+<p>Lệnh <code>:profile</code> nhận một loạt các lệnh phụ để chỉ định những gì cần thiết để lập nên hồ sơ.</p>
+<p>Nếu bạn muốn lập hồ sơ <em>cho tất cả mọi thứ</em>, hãy dùng:</p>
+<pre><code>:profile start /tmp/profile.log
+:profile file *
+:profile func *
+&lt;do something in Vim&gt;
+:qa</code></pre>
+<p>Vim giữ thông tin hồ sơ trong bộ nhớ và chỉ ghi nó ra file log khi bạn thoát Vim. (Neovim đã sửa lỗi này bằng cách dùng lệnh <code>:profile dump</code>).</p>
+<p>Hãy xem file log <code>/tmp/profile.log</code>. Tất cả các lệnh được thực thi trong quá trình lập hồ sơ sẽ được hiển thị. Mỗi dòng sẽ hiển thị tần suất thực thi, mất bao lâu để thực thi lệnh đó.</p>
+<p>Hảy nhảy đến cuối file log. Ở đây có hai phần khác nhau <code>FUNCTIONS SORTED ON TOTAL TIME</code> và <code>FUNCTIONS SORTED ON SELF TIME</code> rất đáng giá. Chỉ cần nhìn sơ bạn cũng có thể biết hàm nào chạy chậm nhất.</p>
+<p>Bạn có thể dùng <code>:profile</code> khi khởi động Vim:</p>
+<pre><code>$ vim --cmd &#39;prof start prof.log | prof file * | prof func *&#39; test.c
+:q
+$ tail -50 prof.log</code></pre>
+<h2 id="gỡ-lỗi-các-lệnh-vim">Gỡ lỗi các lệnh Vim</h2>
+<p>Nếu bạn đã từng sử dụng trình gỡ lỗi trên command line, <code>:debug</code> sẽ quen thuộc với bạn.</p>
+<p>Chỉ cần thêm trước <code>:debug</code> vào bất kì lệnh nào và bạn sẽ được đưa vào chế độ gỡ lỗi. Tức là việc thực thi sẽ dừng lại ở dòng đầu tiên chuẩn bị được thực thi và dòng đó sẽ được hiển thị ra.</p>
+<p>Xem <code>:h &gt;cont</code> và nội dung bên dưới để biết 6 lệnh gỡ lỗi có sẵn trong Vim, và hãy lưu ý rằng, giống như trong gdb và các trình gỡ lỗi tương tự, bạn cũng có thể sử dụng các dạng rút gọn của chúng: <code>c</code>, <code>q</code>, <code>n</code>, <code>s</code>, <code>i</code>, and <code>f</code>.</p>
+<p>Ngoài những điều đó, bạn có thể tự do sử dụng bất kì lệnh Vim nào, ví dụ <code>:echo myvar</code>, sẽ được thực thi ở vị trí hiện tại trong file code.</p>
+<p>Về cơ bản, bạn sẽ nhận được một <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> bằng cách rất đơn giản, đó là sử dụng <code>:debug 1</code></p>
+<p>Sẽ rất khó khăn nếu bạn phải đi qua từng dòng một, vì vậy, tất nhiên chúng ta cũng có thể xác định các điểm ngắt (breakpoints). (Các điểm ngắt được gọi là điểm ngắt vì quá trình thực thi các lệnh sẽ dừng lại khi chúng gặp điểm ngắt, do đó, bạn có thể đơn giản bỏ qua các lệnh mà bạn không quan tâm). Xem <code>:h :breakadd</code>, <code>:h :breakdel</code>, và <code>:h :breaklist</code> để biết thêm chi tiết.</p>
+<p>Giả sử, bạn muốn biết lệnh nào được chạy mỗi khi bạn lưu file:</p>
+<pre class="vim"><code>:au BufWritePost
+&quot; signify  BufWritePost
+&quot;     *         call sy#start()
+:breakadd func *start
+:w
+&quot; Breakpoint in &quot;sy#start&quot; line 1
+&quot; Entering Debug mode.  Type &quot;cont&quot; to continue.
+&quot; function sy#start
+&quot; line 1: if g:signify_locked
+&gt;s
+&quot; function sy#start
+&quot; line 3: endif
+&gt;
+&quot; function sy#start
+&quot; line 5: let sy_path = resolve(expand(&#39;%:p&#39;))
+&gt;q
+:breakdel *</code></pre>
+<p>Như bạn có thể thấy, việc sử dụng <code>&lt;cr&gt;</code> sẽ lặp lại lệnh gỡ lỗi trước đó, trong trường hợp này là <code>s</code>.</p>
+<p><code>:debug</code> có thể được sử dụng chung với <a href="#độ-chi-tiết">độ chi tiết</a>.</p>
+<h2 id="gỡ-lỗi-các-file-syntax">Gỡ lỗi các file syntax</h2>
+<p>Các file syntax (cú pháp) thường là nguyên nhân gây ra sự chập chạp do các biểu thức chính quy (regex) sai và/hoặc phức tạp. Nếu <a href="#bạn-đang-sử-dụng-phiên-bản-vim-nào">tính năng</a>: <code>+profile</code> được biên dịch sẵn trong Vim, Vim sẽ cung cấp cho bạn một lệnh vô cùng hữu ích, đó là <code>:syntime</code>.</p>
+<pre class="vim"><code>:syntime on
+&quot; nhấn &lt;c-l&gt; vài lần để vẽ lại window, điều này làm cho các cú pháp được vẽ lại
+:syntime off
+:syntime report</code></pre>
+<p>Đầu ra có chứa các số liệu quan trọng. Ví dụ: bạn có thể thấy regexp nào mất quá nhiều thời gian và cần được tối ưu, hoặc regexp nào được sử dụng mọi lúc mà không cần thiết.</p>
+<p>Xem thêm <code>:h :syntime</code>.</p>
+<h1 id="linh-tinh-1">Linh tinh</h1>
+<h2 id="tài-liệu-bổ-sung">Tài liệu bổ sung</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tài liệu</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="http://www.moolenaar.net/habits.html">Seven habits of effective text editing</a></td>
+<td>By Bram Moolenaar, the author of Vim.</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.moolenaar.net/habits_2007.pdf">Seven habits of effective text editing 2.0 (PDF)</a></td>
+<td>See above.</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.ibm.com/developerworks/views/linux/libraryview.jsp?sort_order=asc&amp;sort_by=Title&amp;search_by=scripting+the+vim+editor">IBM DeveloperWorks: Scripting the Vim editor</a></td>
+<td>Five-part series on Vim scripting.</td>
+</tr>
+<tr class="even">
+<td><a href="http://learnvimscriptthehardway.stevelosh.com">Learn Vimscript the Hard Way</a></td>
+<td>Develop a Vim plugin from scratch.</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/">Practical Vim (2nd Edition)</a></td>
+<td>Hands down the best book about Vim.</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.viemu.com/a-why-vi-vim.html">Why, oh WHY, do those #?@! nutheads use vi?</a></td>
+<td>Common misconceptions explained.</td>
+</tr>
+<tr class="odd">
+<td><a href="http://stackoverflow.com/a/1220118">Your problem with Vim is that you don’t grok vi</a></td>
+<td>Concise, informative and correct. A real gem.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="screencasts">Screencasts</h4>
+<ul>
+<li><a href="http://vimcasts.org/episodes/archive">vimcasts.org</a></li>
+<li><a href="https://www.youtube.com/channel/UCXPHFM88IlFn68OmLwtPmZA">By wincent</a></li>
+<li><a href="http://derekwyatt.org/vim/tutorials/index.html">By Derek Wyatt</a></li>
+</ul>
+<h2 id="các-bản-phân-phối-vim">Các bản phân phối Vim</h2>
+<p>Các bản phân phối của Vim là các gói cài đặt và plugin tùy chỉnh cho Vim được làm sẵn.</p>
+<p>Những người dùng Vim nâng cao hơn sẽ biết cách định cấu hình của Vim theo ý thích của họ, do vậy, các bản phân phối của Vim thường chỉ nhắm đến những người mới bắt đầu. Nếu bạn nghĩ về điều đó, thì thật là nghịch lý: làm cho nó dễ dàng hơn bằng cách thêm nhiều thứ hơn để phải tìm hiểu?</p>
+<p>Tôi biết rằng nhiều người không muốn dành hàng giờ đồng hồ để tùy chỉnh trình soạn thảo văn bản của mình (và thực sự là bạn không bao giờ có thể ngừng tùy chỉnh vimrc của mình khi bạn đã dính vào Vim), nhưng cuối cùng, hiệu quả mà bạn đạt được sẽ xứng đáng nếu bạn chịu khó dành thời gian để học Vim.</p>
+<p>Nhắc lại theo tôi: “Một lập trình viên nên biết sử dụng các công cụ của họ”</p>
+<p>Dù sao, nếu bạn biết mình đang làm gì, bạn có thể có được một số cảm hứng khi xem một vài bản phân phối như:</p>
+<ul>
+<li><a href="http://cream.sourceforge.net">cream</a></li>
+<li><a href="https://github.com/carlhuda/janus.git">janus</a></li>
+<li><a href="https://github.com/SpaceVim/SpaceVim">spacevim</a></li>
+<li><a href="https://github.com/spf13/spf13-vim">spf13</a></li>
+</ul>
+<h2 id="các-plugin-tiêu-chuẩn">Các plugin tiêu chuẩn</h2>
+<p>Nhiều người sẽ ngạc nhiên khi biết Vim đi kèm với một số plugin tiêu chuẩn. Một số được sử dụng mặc định (<code>:e $VIMRUNTIME/plugin</code>) và một số thì không (<code>:e $VIMRUNTIME/pack/dist/opt</code>). Đọc <code>:h pack-add</code> để biết cách sử dụng chúng sau này.</p>
+<p>Tuy nhiên, hầu hết các plugin được chạy mặc định sẽ không bao giờ được bạn sử dụng. Hãy tắt chúng khi bạn thấy phù hợp. Chúng sẽ vẫn được hiển thị là đã chạy (sourced) (Xem <code>:scriptnames</code>), nhưng chỉ những dòng đầu tiên thực sự được đọc trước khi Vim ngừng hoạt động. Sẽ không có lệnh nào khác (mappings, các lệnh, logic) được xử lý.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Plugin</th>
+<th>Tắt nó bằng cách..</th>
+<th>Xem thêm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2html</td>
+<td><code>let g:loaded_2html_plugin = 1</code></td>
+<td><code>:h 2html</code></td>
+</tr>
+<tr class="even">
+<td>getscript</td>
+<td><code>let g:loaded_getscriptPlugin = 1</code></td>
+<td><code>:h pi_getscript</code></td>
+</tr>
+<tr class="odd">
+<td>gzip</td>
+<td><code>let g:loaded_gzip = 1</code></td>
+<td><code>:h pi_gzip</code></td>
+</tr>
+<tr class="even">
+<td>logipat</td>
+<td><code>let g:loaded_logipat = 1</code></td>
+<td><code>:h pi_logipat</code></td>
+</tr>
+<tr class="odd">
+<td>matchparen</td>
+<td><code>let g:loaded_matchparen = 1</code></td>
+<td><code>:h pi_paren</code></td>
+</tr>
+<tr class="even">
+<td>netrw</td>
+<td><code>let g:loaded_netrwPlugin = 1</code></td>
+<td><code>:h pi_netrw</code></td>
+</tr>
+<tr class="odd">
+<td>rrhelper</td>
+<td><code>let g:loaded_rrhelper = 1</code></td>
+<td><code>:e $VIMRUNTIME/plugin/rrhelper.vim</code></td>
+</tr>
+<tr class="even">
+<td>spellfile</td>
+<td><code>let g:loaded_spellfile_plugin = 1</code></td>
+<td><code>:h spellfile.vim</code></td>
+</tr>
+<tr class="odd">
+<td>tar</td>
+<td><code>let g:loaded_tarPlugin = 1</code></td>
+<td><code>:h pi_tar</code></td>
+</tr>
+<tr class="even">
+<td>vimball</td>
+<td><code>let g:loaded_vimballPlugin = 1</code></td>
+<td><code>:h pi_vimball</code></td>
+</tr>
+<tr class="odd">
+<td>zip</td>
+<td><code>let g:loaded_zipPlugin = 1</code></td>
+<td><code>:h pi_zip</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="map-capslock-sang-control">Map CapsLock sang Control</h2>
+<p>CapsLock là một trong những phím vô dụng nhất trên bàn phím của bạn, nhưng nó lại nằm ở một vị trí dễ với tới hơn so với phím Control, bởi vì nó nằm trên <a href="https://raw.githubusercontent.com/mhinz/vim-galore/master/static/images/content-homerow.png">home row</a> của bạn. Vì vậy, mapping CapsLock thành Control là một cách tối để ngăn chặn, hay ít nhất là giảm <a href="https://de.wikipedia.org/wiki/Repetitive-Strain-Injury-Syndrom">RSI</a> nếu bạn lập trình hoặc sử dụng bàn phím nhiều.</p>
+<p>Chú ý: Khi đã quen rồi thì bạn sẽ không thể sống thiếu nó nữa.</p>
+<p><strong>Với macOS</strong>:</p>
+<p><code>System Preferences -&gt; Keyboard -&gt; Keyboard Tab -&gt; Modifier Keys</code>.Đổi<br />
+“CapsLock” thành “Control”.</p>
+<p><strong>Với Linux</strong>:</p>
+<p>Để thay đổi các phím trong X, thêm các dòng sau vào <code>~/.xmodmap</code>:</p>
+<pre><code>remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L</code></pre>
+<p>Sau đó hãy áp dụng nó <code>$ xmodmap ~/.xmodmap</code>.</p>
+<p>Một giải pháp thay thế là sử dụng <a href="https://github.com/oblitum/caps2esc">caps2esc</a> hoặc <a href="https://github.com/alols/xcape">xcape</a>.</p>
+<p><strong>Với Windows</strong>:</p>
+<p>Xem <a href="http://superuser.com/questions/764782/map-caps-lock-to-control-in-windows-8-1">superuser.com: Map Caps-Lock to Control in Windows 8.1</a>.</p>
+<h2 id="tạo-file-html-từ-buffer">Tạo file HTML từ buffer</h2>
+<p>Tạo HTML từ buffer với lệnh <code>:TOhtml</code> từ <a href="#các-plugin-tiêu-chuẩn">plugin 2html</a>. Kết quả cho ra có thể được dùng để in hoặc chạy một trang web.</p>
+<p>Lệnh trên sẽ tạo một buffer mới có cùng tên và được thêm <code>.html</code> vào sau đuôi. Các màu sắc cũng tương tự như khi bạn xem trên Vim. Chúng phụ thuộc vào <a href="#bảng-màu">bảng màu</a> mà bạn đang sử dụng.</p>
+<p>Plugin cũng cung cấp một số tùy chọn để tinh chỉnh đầu ra (output). Ví dụ: để cài đặt mã encode và font.</p>
+<p>Xem thêm <code>:h :TOhtml</code>.</p>
+<h2 id="những-điều-thú-vị">Những điều thú vị</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lệnh</th>
+<th>Tin nhắn</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:Ni!</code></td>
+<td><code>Do you demand a shrubbery?</code></td>
+</tr>
+<tr class="even">
+<td><code>:h 'sm'</code></td>
+<td><code>NOTE: Use of the short form is rated PG.</code></td>
+</tr>
+<tr class="odd">
+<td><code>:h 42</code></td>
+<td><code>What is the meaning of life, the universe and everything? Douglas Adams, the only person who knew what this question really was about is now dead, unfortunately.  So now you might wonder what the meaning of death is...</code></td>
+</tr>
+<tr class="even">
+<td><code>:h UserGettingBored</code></td>
+<td><code>When the user presses the same key 42 times. Just kidding! :-)</code></td>
+</tr>
+<tr class="odd">
+<td><code>:h bar</code></td>
+<td><code>Ceci n'est pas une pipe.</code></td>
+</tr>
+<tr class="even">
+<td><code>:h holy-grail</code></td>
+<td><code>You found it, Arthur!</code></td>
+</tr>
+<tr class="odd">
+<td><code>:h map-modes</code></td>
+<td><code>:nunmap can also be used outside of a monastery.</code></td>
+</tr>
+<tr class="even">
+<td><code>:help!</code></td>
+<td><code>E478: Don't panic!</code> (Glitch? When used in a help buffer (<code>buftype=help</code>) this works like <code>:h help.txt</code> instead.)</td>
+</tr>
+<tr class="odd">
+<td><code>:smile</code></td>
+<td>Tự thử nó đi. ;-) Được thêm vào vim từ phiên bản 7.4.1005.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tại-sao-lại-dùng-hjkl-để-điều-hướng">Tại sao lại dùng hjkl để điều hướng?</h2>
+<p>Khi <a href="https://en.wikipedia.org/wiki/Bill_Joy">Bill Joy</a> tạo ra <a href="https://en.wikipedia.org/wiki/Vi">vi</a>, tiền thân của Vim, anh ấy sử dụng <a href="https://en.wikipedia.org/wiki/ADM-3A">ADM-3A</a>, thiết bị này không có các phím điều hướng để sử dụng, bạn có thể đoán ra rồi đó, anh ta sử dụng hjkl để thay thế.</p>
+<p>Bố cục bàn phím: <a href="https://raw.githubusercontent.com/mhinz/vim-galore/master/static/images/content-adm-3a-layout.jpg">click</a></p>
+<p>Điều này cũng cho thấy lý do tại sao <code>~</code> được sử dụng để biểu thị cho thư mục chính trên hệ thống Linux.</p>
+<h1 id="các-vấn-đề-thường-gặp-1">Các vấn đề thường gặp</h1>
+<h2 id="chỉnh-sửa-file-nhỏ-bị-chậm">Chỉnh sửa file nhỏ bị chậm</h2>
+<p>Có hai điều có thể gây ảnh hưởng lớn đến hiệu năng của Vim:</p>
+<ol type="1">
+<li>Biểu thức chính quy (regex) <strong>phức tạp</strong>. Đặc biệt là file cú pháp của ngôn ngữ Ruby đã từng khiến mọi người bị chậm trong quá khứ. (Bạn cũng nên xem <a href="#gỡ-lỗi-các-file-syntax">gỡ lỗi các file syntax</a>.)</li>
+<li><strong>Vẽ lại màn hình</strong>. Một vài tính năng bắt buộc tất cả các dòng phải vẽ (render) lại.</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 17%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Thủ phạm điển hình</th>
+<th>Tại sao?</th>
+<th>Giải pháp?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:set cursorline</code></td>
+<td>Khiến tất cả các dòng phải vẽ lại.</td>
+<td><code>:set nocursorline</code></td>
+</tr>
+<tr class="even">
+<td><code>:set cursorcolumn</code></td>
+<td>Khiến tất cả các dòng phải vẽ lại.</td>
+<td><code>:set nocursorcolumn</code></td>
+</tr>
+<tr class="odd">
+<td><code>:set relativenumber</code></td>
+<td>Khiến tất cả các dòng phải vẽ lại.</td>
+<td><code>:set norelativenumber</code></td>
+</tr>
+<tr class="even">
+<td><code>:set foldmethod=syntax</code></td>
+<td>Nếu file cú pháp đã chậm sẵn, lệnh này còn khiến nó tệ hơn.</td>
+<td><code>:set foldmethod=manual</code>, <code>:set foldmethod=marker</code> or <a href="https://github.com/Konfekt/FastFold">FastFold</a></td>
+</tr>
+<tr class="odd">
+<td><code>:set synmaxcol=3000</code></td>
+<td>Nhìn chung là Vim có vấn đề với các file có nhiều dòng.</td>
+<td><code>:set synmaxcol=200</code></td>
+</tr>
+<tr class="even">
+<td>matchparen.vim</td>
+<td>Được sử dụng mặc định. Sử dụng regex để tìm dấu ngoặc đơn đi kèm.</td>
+<td>Vô hiệu hóa plugin: <code>:h matchparen</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lưu ý</strong>: Bạn chỉ làm điều này nếu bạn gặp phải những hạn chế về hiệu suất thực tế. Trong hầu hết các trường hợp, việc bạn sử dụng các giải pháp được nêu trên đều hoàn toàn tốt.</p>
+<h2 id="chỉnh-sửa-file-lớn-bị-chậm">Chỉnh sửa file lớn bị chậm</h2>
+<p>Vấn đề lớn nhất với các file lớn là Vim đọc toàn bộ file cùng một lúc. Đều này được thực hiện do cách buffer được hiển thị bên trong. (<a href="https://groups.google.com/forum/#!topic/vim_dev/oY3i8rqYGD4/discussion">Thảo luận trên vim_dev@</a>)</p>
+<p>Nếu bạn chỉ muốn đọc, <code>tail hugefile | vim -</code> là một giải pháp tốt.</p>
+<p>Nếu bạn có thể sống mà không cần syntax, đây là lúc cài đặt và sử dụng các plugin:</p>
+<pre><code>$ vim -u NONE -N</code></pre>
+<p>Đều này sẽ làm cho việc điều hướng nhanh hơn rất nhiều, đặc biệt là vì không sử dụng các regex phức tạp để tô màu cho các cú pháp. Bạn cũng nên yêu cầu Vim không sử dụng file swap và file viminfo để tránh sự chậm trễ khi sử dụng Vim:</p>
+<pre><code>$ vim -n -u NONE -i NONE -N</code></pre>
+<p>Tóm lại, hãy cố gắng tránh sử dụng Vim khi có ý định viết các file thực sự lớn . :<br />
+</p>
+<h2 id="dán-nội-dung-trong-ngoặc-hoặc-tại-sao-tôi-phải-đặt-lệnh-dán-mọi-lúc">Dán nội dung trong ngoặc (hoặc tại sao tôi phải đặt lệnh ‘dán’ mọi lúc?</h2>
+<p>Chế độ dán trong ngoặc (bracketed paste) cho phép terminal phân biệt giữ văn bản đã nhập và văn bản đã được dán.</p>
+<p>Bạn đã bao giờ thử dán code của mình vào Vim và sau đó mọi thứ dường như rối tung lên?</p>
+<p>Điều này chỉ xảy ra nếu bạn dán văn bản sử dụng <code>cmd+v</code>, <code>shift-insert</code>, <code>middle-click</code>, .v.v bởi vì khi bạn đang dán văn bản vào terminal. Vim không biết rằng bạn vừa dán văn bản đó, nó chỉ nghĩ rằng bạn đang gõ bàn phím cực kì nhanh. Do đó, Vim cố gắng thụt lề các dòng nhưng tất nhiên là không thành công.</p>
+<p>Dĩ nhiên đây không phải là một vấn đề, nếu bạn dán văn bản sử dụng bộ ghi nhớ (register) trong Vim, bởi vì Vim biết rằng bạn đang thực sự dán văn bản đó.</p>
+<p>Để giải quyết vấn đề này, bạn phải sử dụng <code>:set paste</code>. Xem thêm <code>:h 'paste'</code> và <code>:h 'pastetoggle'</code>.</p>
+<p>Nếu bạn đã chán ngấy với việc chuyển đối các chế đọ <code>'dán'</code> (paste) mọi lúc, hãy xem plugin này: <a href="https://github.com/ConradIrwin/vim-bracketed-paste">bracketed-paste</a>.</p>
+<p>Đọc thêm bài viết từ tác giả của plugin: <a href="http://cirw.in/blog/bracketed-paste">tại đây</a>.</p>
+<p><strong>Neovim</strong>: Neovim cố gắng làm cho tất cả những điều này trở nên liền mạch hơn nhiều và tự động đặt chế độ dán nếu terminal của bạn hỗ trợ nó.</p>
+<h2 id="độ-trễ-khi-sử-dụng-phím-esc-trong-terminal">Độ trễ khi sử dụng phím esc trong terminal</h2>
+<p>Nếu bạn sống với command-line, bạn có thể sử dụng thứ gọi là <em>trình giả lập terminal</em> như xterm, gnome-terminal, iTerm2, v.v. (trái ngược với <a href="https://en.wikipedia.org/wiki/Computer_terminal">terminal</a>).</p>
+<p>Cũng giống như tổ tiên của mình, các trình giả lập terminal sử dụng <a href="https://en.wikipedia.org/wiki/Escape_sequence">escape sequences</a> (hoặc <em>control sequences</em>) để điều khiển những thứ như di chuyển con trỏ, thay đổi màu của văn bản.v.v Chúng chỉ đơn giả là các chuỗi ký tự ASCII bắt đầu bằng một ký tự (được hiển thị trong <a href="https://en.wikipedia.org/wiki/Caret_notation">kí hiệu dấu mũ</a>) như là <code>^[</code>). Khi trình tự như vậy xuất hiện, trình giả lập terminal sẽ tra cứu hành động kèm theo trong csdl <a href="https://en.wikipedia.org/wiki/Terminfo">terminfo</a>.</p>
+<p>Để làm rõ các vấn đề hơn, trước tiên tôi sẽ giải thích thời gian chờ của việc mapping. Chúng luôn xảy ra khi có sự không rõ ràng giữa các mapping:</p>
+<pre class="vim"><code>:nnoremap ,a  :echo &#39;foo&#39;&lt;cr&gt;
+:nnoremap ,ab :echo &#39;bar&#39;&lt;cr&gt;</code></pre>
+<p>Cả hai mapping đều hoạt động như mong đợi, nhưng khi nhập <code>,a</code>, sẽ có độ trễ 1 giây, vì Vim sẽ chờ xem người dùng có nhập phím <code>b</code> hay không.</p>
+<p>Các sự kiện liên tiếp đều phơi bày ra cùng một vấn đề:</p>
+<ul>
+<li><code>&lt;esc&gt;</code> được sử dụng rất nhiều để quay lại chế độ bình thường hoặc thoát một hành động nào đó.</li>
+<li>Các phím điều hướng được mã hóa sử dụng chuỗi các phím escape.</li>
+<li>Vim hy vọng rằng phím <kbd>Alt</kbd> (còn được gọi là <em>Meta key</em>) sẽ gửi một thông tin 8-bit đã được mã hóa thích hợp với với bộ bit cao hơn, nhưng rất nhiều terminal giả lập không hỗ trợ nó (hoặc không bật nó) mà thay vào đó, chúng gửi một chuỗi các nút escape.</li>
+</ul>
+<p>Bạn có thể kiểm tra lại phần trên như sau: <code>vim -u NONE -N</code> và gõ <code>i&lt;c-v&gt;&lt;left&gt;</code>, bạn sẽ thấy một chuỗi được chèn vào, bắt đầu bằng <code>^[</code>, biểu trưng cho nút escape.</p>
+<p>Tóm lại, Vim gặp khó khăn trong việc phân biệt giữa ký tự <code>&lt;esc&gt;</code> và một chuỗi kí tự escape thật sự.</p>
+<p>Theo mặc định, Vim sử dụng <code>:set timeout timeoutlen=1000</code>, do đó, nó sẽ trì hoãn sự không rõ ràng của các mapping <em>và</em> các phím trong 1 giây. Đây là một cách giải quyết phổ biến nhất cho toàn bộ vấn đề này:</p>
+<pre class="vim"><code>set timeout           &quot; cho mappings
+set timeoutlen=1000   &quot; giá trị mặc định
+set ttimeout          &quot; cho các phím
+set ttimeoutlen=10    &quot; giá trị nhỏ không đáng lưu ý</code></pre>
+<p>Trong <code>:h ttimeout</code> bạn sẽ tìm thấy một bảng nhỏ hiển thị mối quan hệ giữa các tùy chọn này.</p>
+<p>Nếu bạn đang sử dụng tmux giữa Vim và Terminal giả lập của mình, hãy thêm cài đặt sau vào <code>~/.tmux.conf</code>:</p>
+<pre class="tmux"><code>set -sg escape-time 0</code></pre>
+<h2 id="hoàn-tác-các-hàm-tìm-kiếm">Hoàn tác các hàm tìm kiếm</h2>
+<ul>
+<li>Một tìm kiếm với lệnh (<code>/</code>, <code>:substitute</code>, …) sẽ thay đổi “tìm kiếm được sử dụng lần gần nhất”. (Nó được lưu vào bộ ghi nhớ <code>/</code>; bạn có thể in danh sách đó ra với lệnh <code>:echo @/</code>).</li>
+<li>Một thay đổi văn bản đơn giản có thể được hoàn tác với lệnh <code>.</code>. (Nó được lưu vào bộ ghi nhớ <code>.</code>; bạn có thể in danh sách này ra với lệnh <code>:echo @.</code>)</li>
+</ul>
+<p>Cả hai đều <em>không phải</em> là vấn đề, nếu bạn thực hiện chúng từ một hàm. Do đó,<br />
+bạn không thể dễ dàng highlight các từ từ một hàm hoặc thực hiện lại các thay đổi văn bản được thực hiện bởi nó.</p>
+<p>Xem thêm: <code>:h function-search-undo</code></p>
+<h1 id="các-vấn-đề-kĩ-thuật-kì-quặc-1">Các vấn đề kĩ thuật kì quặc</h1>
+<h2 id="dòng-mới-được-sử-dụng-cho-nul">Dòng mới được sử dụng cho NUL</h2>
+<p>Ký tự NUL (<code>\0</code>) trong một file, được lưu trữ dưới dạng một dòng mới (<code>\n</code>) trong bộ nhớ và hiển thị trong một buffer dưới dạng <code>^@</code>.</p>
+<p>Xem <code>man 7 ascii</code> và <code>:h NL-used-for-Nul</code> để biết thêm chi tiết.</p>
+<h1 id="thuật-ngữ-1">Thuật ngữ</h1>
+<h2 id="vim-script-vimscript-viml">Vim script? Vimscript? VimL?</h2>
+<p><code>Vim script</code>, <code>Vimscript</code>, and <code>VimL</code> đều đề cập đến cùng một thứ: Ngôn ngữ lập trình dùng để viết kịch bản cho Vim (Ngôn ngữ lập trình Vim). Mặc dù phiên bản <a href="https://github.com/vim/vim/commit/b544f3c81f1e6a50322855681ac266ffaa8e313c">8.0.360</a> đã thay đổi các tham chiếu đến <code>VimL</code> thành <code>Vim script</code>, hiện nay có thể được coi là thuật ngữ chính thức, <code>Viml</code> vẫn còn phổ biến trên internet.</p>
+<p>Bất kể bạn sử dụng thuật ngữ nào, mọi người cũng đều sẽ hiểu.</p>
+</body>
+</html>

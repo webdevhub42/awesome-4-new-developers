@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README (131)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<figure>
+<img src="https://rawgit.com/AllThingsSmitty/css-protips/master/media/logo.svg" alt="light bulb icon" /><figcaption>light bulb icon</figcaption>
+</figure>
+<h1 id="css-專家密技-awesome">CSS 專家密技 <a href="https://github.com/sindresorhus/awesome"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome" /></a></h1>
+<p>這裡收集了一系列 CSS 專家密技，幫助你提升 CSS 技能點數。</p>
+<blockquote>
+<p>更多專家密技可以查看 <span class="citation" data-cites="sindresorhus">[<span class="citation" data-cites="sindresorhus">@sindresorhus</span>]</span>(https://github.com/sindresorhus/) 的 <a href="https://github.com/sindresorhus/awesome/">Awesome Lists</a></p>
+</blockquote>
+<blockquote>
+<p>正體中文由 <a href="http://blog.miniasp.com/">Will 保哥</a> 翻譯，歡迎造訪 <a href="https://www.facebook.com/will.fans">Will 保哥的技術交流中心</a></p>
+</blockquote>
+<h2 id="目錄">目錄</h2>
+<ul>
+<li><a href="#專家密技">專家密技</a></li>
+<li><a href="#瀏覽器支援度">瀏覽器支援度</a></li>
+<li><a href="../../CONTRIBUTING.md">貢獻準則</a></li>
+</ul>
+<h2 id="專家密技">專家密技</h2>
+<ol type="1">
+<li><a href="#使用-css-reset">使用 CSS Reset</a></li>
+<li><a href="#繼承-box-sizing">繼承 <code>box-sizing</code></a></li>
+<li><a href="#使用-unset-而不是重置所有屬性">使用 <code>unset</code> 而不是重置所有屬性</a></li>
+<li><a href="#使用-not-選擇器來決定表單是否顯示邊框">使用 <code>:not()</code> 選擇器來決定表單是否顯示邊框</a></li>
+<li><a href="#检查字体是否在本地安装">检查字体是否在本地安装</a></li>
+<li><a href="#將-line-height-加入到-body-元素">將 <code>line-height</code> 加入到 <code>body</code> 元素</a></li>
+<li><a href="#為表單元素設定focus">為表單元素設定<code>focus</code></a></li>
+<li><a href="#將所有元素設定垂直居中">將所有元素設定垂直居中</a></li>
+<li><a href="#逗號分隔列表">逗號分隔列表</a></li>
+<li><a href="#使用負數的-nth-child-來選擇元素">使用負數的 <code>nth-child</code> 來選擇元素</a></li>
+<li><a href="#使用-svg-圖示">使用 SVG 圖示</a></li>
+<li><a href="#使用-貓頭鷹-選擇器">使用 “貓頭鷹” 的選擇器</a></li>
+<li><a href="#使用-max-height-來建立純-css-的捲動軸">使用 <code>max-height</code> 來建立純 CSS 的捲動軸</a></li>
+<li><a href="#讓表格中每個儲存格維持等寬">讓表格中每個儲存格維持等寬</a></li>
+<li><a href="#利用-flexbox-去除多餘的-margin-技巧">利用 Flexbox 去除多餘的 Margin 技巧</a></li>
+<li><a href="#利用屬性選擇器填滿空白連結的文字內容">利用屬性選擇器填滿空白連結的文字內容</a></li>
+<li><a href="#幫沒有類別的連結設定一個預設樣式">幫沒有類別的連結設定一個預設樣式</a></li>
+<li><a href="#等比例的方塊">等比例的方塊</a></li>
+<li><a href="#為破圖定義樣式">為破圖定義樣式</a></li>
+<li><a href="#用-rem-來調整全域大小用-em-來調整區域大小">用 <code>rem</code> 來調整全域大小；用 <code>em</code> 來調整區域大小</a></li>
+<li><a href="#隱藏沒有靜音並設定自動播放的影片">隱藏沒有靜音並設定自動播放的影片</a></li>
+<li><a href="#使用-root-選擇器來設定彈性的字體大小">使用 <code>:root</code> 選擇器來設定彈性的字體大小</a></li>
+<li><a href="#為了更好的行動體驗來設定表單元素的-font-size">為了更好的行動體驗來設定表單元素的 <code>font-size</code></a></li>
+<li><a href="#使用指標事件來控制滑鼠事件">使用指標事件來控制滑鼠事件</a></li>
+<li><a href="#在用作間距的換行符上設置display-none">在用作間距的換行符上設置<code>display: none</code></a></li>
+</ol>
+<h3 id="使用-css-reset">使用 CSS Reset</h3>
+<p>CSS Reset 可以幫你在不同的瀏覽器上維持一致的樣式風格。你可以使用像 <a href="http://necolas.github.io/normalize.css/">Normalize</a> 這類的 CSS Reset 套件，或使用更簡潔的 CSS Reset 方法：</p>
+<pre><code>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}</code></pre>
+<p>現在元素的 margin 和 padding 已重設，且 <code>box-sizing</code> 可以讓你透過 CSS Box Model 管理版面配置。</p>
+<h4 id="示範"><a href="http://codepen.io/AllThingsSmitty/pen/kkrkLL">示範</a></h4>
+<p>注意：如果你接著套用 <a href="#繼承-box-sizing">繼承 <code>box-sizing</code></a> 這個技巧, 你或許不需要在你的 CSS Reset 中加入 <code>box-sizing</code> 屬性。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="繼承-box-sizing">繼承 <code>box-sizing</code></h3>
+<p>讓 <code>box-sizing</code> 屬性自動從 <code>html</code> 元素繼承下來 ：</p>
+<pre><code>html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}</code></pre>
+<p>如此一來，你就很容易的在其他外掛或元件裡改變 <code>box-sizing</code> 的值。</p>
+<h4 id="示範-1"><a href="https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="使用-unset-而不是重置所有屬性">使用 <code>unset</code> 而不是重置所有屬性</h3>
+<p>當重置元素的屬性時，並不需要重置元素中每個屬性：</p>
+<pre><code>button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  padding: 0;
+}</code></pre>
+<p>你可以用 <code>all</code> 來代表元素中所有的樣式屬性。 將該值設定為 <code>unset</code> 意味著將元素中所有樣式屬性回復到預設值：</p>
+<pre><code>button {
+  all: unset;
+}</code></pre>
+<p><strong>注意：</strong> IE11 不支持<code>all</code>和<code>unset</code>的简写。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="使用-not-選擇器來決定表單是否顯示邊框">使用 <code>:not()</code> 選擇器來決定表單是否顯示邊框</h3>
+<p>假設你用以下樣式先替元素新增邊框</p>
+<pre><code>/* 新增邊框 */
+.nav li {
+  border-right: 1px solid #666;
+}</code></pre>
+<p>然後在最後一個元素去除邊框</p>
+<pre><code>/* 去掉邊框 */
+.nav li:last-child {
+  border-right: none;
+}</code></pre>
+<p>不過你可以改用 <code>:not()</code> 偽類別 (pseudo-class) 來做到完全相同的效果：</p>
+<pre><code>.nav li:not(:last-child) {
+  border-right: 1px solid #666;
+}</code></pre>
+<p>CSS 選擇器以人類描述它的方式定義邊界。</p>
+<h4 id="示範-2"><a href="http://codepen.io/AllThingsSmitty/pen/LkymvO">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="检查字体是否在本地安装">检查字体是否在本地安装</h3>
+<p>您可以在远程获取字体之前检查是否在本地安装了字体，这也是一个很好的性能提示。</p>
+<pre><code>@font-face {
+  font-family: &quot;Dank Mono&quot;;
+  src:
+    /* Full name */
+    local(&quot;Dank Mono&quot;),
+    /* Postscript name */
+    local(&quot;Dank Mono&quot;),
+    /* Otherwise, download it! */
+    url(&quot;//...a.server/fonts/DankMono.woff&quot;);
+}
+
+code {
+  font-family: &quot;Dank Mono&quot;, system-ui-monospace;
+}</code></pre>
+<p>亚当·阿盖尔（Adam Argyle）的帽子技巧，分享了这个技巧和<a href="https://codepen.io/argyleink/pen/VwYJpgR">例子</a>.</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="將-line-height-加入到-body-元素">將 <code>line-height</code> 加入到 <code>body</code> 元素</h3>
+<p>你不必為分別為每一個 <code>&lt;p&gt;</code>、<code>&lt;h*&gt;</code> 元素加入 <code>line-height</code> 樣式，相反的，你應該直接新增到 <code>body</code> 元素：</p>
+<pre><code>body {
+  line-height: 1.5;
+}</code></pre>
+<p>所有的文字元素預設就會繼承 <code>body</code> 的樣式。</p>
+<h4 id="示範-3"><a href="http://codepen.io/AllThingsSmitty/pen/VjbdYd">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="為表單元素設定focus">為表單元素設定<code>focus</code></h3>
+<p>視力正常的鍵盤使用者依靠焦點來確認鍵盤事件在頁面中的位置。使表單元素的焦點脫穎而出，然後與瀏覽器的預設實作保持一致：</p>
+<pre><code>a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: none;
+  outline: #000 dotted 2px;
+  outline-offset: .05em;
+}</code></pre>
+<h4 id="demo"><a href="https://codepen.io/AllThingsSmitty/pen/ePzoOP/">Demo</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="將所有元素設定垂直居中">將所有元素設定垂直居中</h3>
+<p>不！這絕不是黑魔法，這真的可以將所有元素設定垂直居中：</p>
+<pre><code>html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: flex;
+}</code></pre>
+<p>…還有 CSS Grid:</p>
+<pre><code>body {
+  display: grid;
+  height: 100vh;
+  margin: 0;
+  place-items: center center;
+}</code></pre>
+<p>還想居中排版其他的東西？垂直居中、水平居中、… 任何事、任何時間、任何地點？CSS-Tricks <a href="https://css-tricks.com/centering-css-complete-guide/">有篇不錯的文章</a> 提到了各種居中排版的技巧。</p>
+<p><strong>注意：</strong> IE11 的 flexbox <a href="https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items">有些怪怪的行為</a> 要注意。</p>
+<h4 id="示範-4"><a href="http://codepen.io/AllThingsSmitty/pen/GqmGqZ">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="逗號分隔列表">逗號分隔列表</h3>
+<p>使列表的每項都由逗號分隔：</p>
+<pre><code>ul &gt; li:not(:last-child)::after {
+  content: &#39;,&#39;;
+}</code></pre>
+<p>列表中最後一項不用加逗號，所以可以使用 <code>:not()</code> 偽類別 (pseudo-class) 。</p>
+<p><strong>注意：</strong>這一技巧對於無障礙網頁，特別是螢幕閱讀器而言，並不理想。而且預設要複製貼網頁內容時，並不會包含 CSS 動態產生的內容，這點必須特別注意。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="使用負數的-nth-child-來選擇元素">使用負數的 <code>nth-child</code> 來選擇元素</h3>
+<p>使用負數的 <code>nth-child</code> 可以選擇 1 至 n 個元素。</p>
+<pre><code>li {
+  display: none;
+}
+
+/* 選擇第 1 至第 3 個元素並顯示出來 */
+li:nth-child(-n+3) {
+  display: block;
+}</code></pre>
+<p>或者，你已經知道 <a href="#使用-not-選擇器來決定表單是否顯示邊框">使用 <code>:not()</code> 選擇器來決定表單是否顯示邊框</a> 這個技巧，你可以試試：</p>
+<pre><code>/* 選擇除了前 3 個之外的所有項目，並顯示出來 */
+li:not(:nth-child(-n + 3)) {
+  display: none;
+}</code></pre>
+<p>就是這麼簡單！</p>
+<h4 id="示範-5"><a href="http://codepen.io/AllThingsSmitty/pen/WxjKZp">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="使用-svg-圖示">使用 SVG 圖示</h3>
+<p>沒有理由不使用 SVG 圖示：</p>
+<pre><code>.logo {
+  background: url(&#39;logo.svg&#39;);
+}</code></pre>
+<p>SVG 在所有解析度下都可以良好縮放，並且支援 IE9 之後的所有瀏覽器，丟棄你的 .png, .jpg, 或 .gif 檔案！</p>
+<p><strong>注意：</strong> 如果你有一個只用 SVG 圖示的按鈕，只給看的見的人來點選。當 SVG 無法載入的時候，以下樣式可以幫助你維持網頁的可及性(Accessibility)：</p>
+<pre><code>.no-svg .icon-only::after {
+  content: attr(aria-label);
+}</code></pre>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="使用-貓頭鷹-選擇器">使用 “貓頭鷹” 選擇器</h3>
+<p>這個名字 “Lobotomized Owl” (貓頭鷹) 大家可能比較陌生，不過如果你將 通用選擇器 (<code>*</code>) 和 相鄰兄弟選擇器 (<code>+</code>) 一起使用的話，將可帶來極大效益：</p>
+<pre><code>* + * {
+  margin-top: 1.5em;
+}</code></pre>
+<p>在此範例中，在檔案中所有的元素，只要緊接著其他元素，就會套用一個 <code>margin-top: 1.5em</code> 樣式。</p>
+<p>更多 “貓頭鷹” (Lobotomized Owl) 選擇器，可參考 <em>A List Apart</em> 上面關於 <a href="http://alistapart.com/article/axiomatic-css-and-lobotomized-owls">Heydon Pickering 的文章</a></p>
+<h4 id="示範-6"><a href="http://codepen.io/AllThingsSmitty/pen/grRvWq">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="使用-max-height-來建立純-css-的捲動軸">使用 <code>max-height</code> 來建立純 CSS 的捲動軸</h3>
+<p>你可以透過 <code>max-height</code> 與 <code>overflow-y: hidden</code> 來實作出 CSS-only 的捲動軸：</p>
+<pre><code>.slider {
+  max-height: 200px;
+  overflow-y: hidden;
+  width: 300px;
+}
+
+.slider:hover {
+  max-height: 600px;
+  overflow-y: scroll;
+}</code></pre>
+<p>當滑鼠移到 <code>.slider</code> 的元素時，元素的內容如果過多，最大高度只會擴展到 <code>max-height</code> 的值，而且會自動顯示捲動軸。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="讓表格中每個儲存格維持等寬">讓表格中每個儲存格維持等寬</h3>
+<p>表格中要維持每一格都等寬是一件痛苦的事，所以你應該嘗試用 <code>table-layout: fixed</code> 來讓所有儲存格維持等寬：</p>
+<pre><code>.calendar {
+  table-layout: fixed;
+}</code></pre>
+<p>這才是無痛的 Table 版面配置。</p>
+<h4 id="示範-7"><a href="http://codepen.io/AllThingsSmitty/pen/jALALm">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="利用-flexbox-去除多餘的-margin-技巧">利用 Flexbox 去除多餘的 Margin 技巧</h3>
+<p>排版的時候，為了設計出每一欄的間隙 (gutters)，一般都會用到像是 <code>nth-</code>、<code>first-</code> 和 <code>last-child</code> 的技巧，來去除頭尾多餘的間隙，不如使用 Flexbox 的 <code>space-between</code> 屬性：</p>
+<pre><code>.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list .person {
+  flex-basis: 23%;
+}</code></pre>
+<p>現在，每一欄之間的間隙將會平均分佈。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="利用屬性選擇器填滿空白連結的文字內容">利用屬性選擇器填滿空白連結的文字內容</h3>
+<p>當 <code>&lt;a&gt;</code> 元素沒有文字內容，但有 <code>href</code> 屬性的時候，可以這樣做：</p>
+<pre><code>a[href^=&#39;http&#39;]:empty::before {
+  content: attr(href);
+}</code></pre>
+<p>這真的非常方便。</p>
+<h4 id="示範-8"><a href="http://codepen.io/AllThingsSmitty/pen/zBzXRx">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="幫沒有類別的連結設定一個預設樣式">幫沒有類別的連結設定一個預設樣式</h3>
+<p>幫沒有套用 class 的超連結設定一個預設樣式：</p>
+<pre><code>a[href]:not([class]) {
+  color: #008000;
+  text-decoration: underline;
+}</code></pre>
+<p>使用者透過後台 CMS 系統插入的超連結通常沒有 <code>class</code> 屬性，以上樣式可以針對這些超連結進行設定，且不會影響其它樣式定義。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="等比例的方塊">等比例的方塊</h3>
+<p>要建立一個固定比例的方塊 (Box)，你需要的就是將 <code>padding-top</code> 或 <code>padding-bottom</code> 設定到 div 元素：</p>
+<pre><code>.container {
+  height: 0;
+  padding-bottom: 20%;
+  position: relative;
+}
+
+.container div {
+  border: 2px dashed #ddd;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}</code></pre>
+<p>在 <code>padding-bottom</code> 設定 <code>20％</code> 意味著各個 div 方塊的高度等同於 20% 的寬度。無論 Viewport 現在的寬度多少，子元素的 div 將維持其寬高比（100％ / 20％ = 5:1）。</p>
+<h4 id="示範-9"><a href="http://codepen.io/AllThingsSmitty/pen/jALZvE">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="為破圖定義樣式">為破圖定義樣式</h3>
+<p>只要一點 CSS 就可以美化所有破圖：</p>
+<pre><code>img {
+  display: block;
+  font-family: sans-serif;
+  font-weight: 300;
+  height: auto;
+  line-height: 2;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}</code></pre>
+<p>接著新增一個 偽元素規則 (pseudo-elements rules) 來顯示使用者訊息，以及這張破圖的 URL 參考：</p>
+<pre><code>img::before {
+  content: &quot;We&#39;re sorry, the image below is broken :(&quot;;
+  display: block;
+  margin-bottom: 10px;
+}
+
+img::after {
+  content: &#39;(url: &#39; attr(src) &#39;)&#39;;
+  display: block;
+  font-size: 12px;
+}</code></pre>
+<p>想學習更多這類樣式技巧，可以參考 <a href="https://github.com/ireade/">Ire Aderinokun</a> 的 <a href="http://bitsofco.de/styling-broken-images/">原始文章</a>。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="用-rem-來調整全域大小用-em-來調整區域大小">用 <code>rem</code> 來調整全域大小；用 <code>em</code> 來調整區域大小</h3>
+<p>在根元素設定基礎字體大小後 (<code>html { font-size: 100%; }</code>), 使用 <code>em</code> 設定文字元素的字體大小：</p>
+<pre><code>h2 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1em;
+}</code></pre>
+<p>然後設定模組的字體大小為 <code>rem</code>：</p>
+<pre><code>article {
+  font-size: 1.25rem;
+}
+
+aside .module {
+  font-size: 0.9rem;
+}</code></pre>
+<p>現在，每個模組變得獨立，更容易、靈活的樣式便於維護。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="隱藏沒有靜音並設定自動播放的影片">隱藏沒有靜音並設定自動播放的影片</h3>
+<p>當你在一個可以自訂樣式的後台環境設定網站樣式時，這是一個不錯的小技巧。畢竟自動撥放影片是蠻惱人的，這個技巧可以幫助你避免影片在沒有靜音的情況下自動撥放。</p>
+<pre><code>video[autoplay]:not([muted]) {
+  display: none;
+}</code></pre>
+<p>你看，我們再次利用了 <a href="#使用-not-選擇器來決定表單是否顯示邊框"><code>:not()</code></a> 偽類別 (pseudo-class) 的優勢。</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="使用-root-選擇器來設定彈性的字體大小">使用 <code>:root</code> 選擇器來設定彈性的字體大小</h3>
+<p>在響應式版面(responsive layout)中，字體大小通常需要根據不同的 Viewport (畫面大小) 進行調整。你可以根據 <code>:root</code> 所定義的 Viewport 高度與寬度來調整字體大小：</p>
+<pre><code>:root {
+  font-size: calc(1vw + 1vh + 0.5vmin);
+}</code></pre>
+<p>現在你便能使用依 <code>:root</code> 字級為基準的 <code>rem</code> 單位了。</p>
+<pre><code>body {
+  font: 1rem/1.6 sans-serif;
+}</code></pre>
+<h4 id="示範-10"><a href="http://codepen.io/AllThingsSmitty/pen/XKgOkR">示範</a></h4>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="為了更好的行動體驗來設定表單元素的-font-size">為了更好的行動體驗來設定表單元素的 <code>font-size</code></h3>
+<p>為了避免使用者在行動瀏覽器 (iOS Safari, 等等）點擊 <code>&lt;select&gt;</code> 的下拉選單時在 HTML 表單元素進行縮放，你可以加上<code>font-size</code> 到這些選取器樣式規則：</p>
+<pre><code>input[type=&#39;text&#39;],
+input[type=&#39;number&#39;],
+select,
+textarea {
+  font-size: 16px;
+}</code></pre>
+<p>:dancer:</p>
+<p><sup><a href="#table-of-contents">回到目錄</a></sup></p>
+<h3 id="使用指標事件來控制滑鼠事件">使用指標事件來控制滑鼠事件</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events">指標事件</a>允許您指定滑鼠如何與其觸控的元素進行互動。 要停用按鈕上的預設指標事件，例如：</p>
+<pre><code>.button-disabled {
+  opacity: .5;
+  pointer-events: none;
+}</code></pre>
+<p>就這麼簡單。</p>
+<p><sup><a href="#目錄">回目錄</a></sup></p>
+<h3 id="在用作間距的換行符上設置display-none">在用作間距的換行符上設置<code>display: none</code></h3>
+<p>正如<a href="https://twitter.com/csswizardry/status/1170835532584235008">Harry Roberts 指出</a>，這有助於防止 CMS 用戶使用額外的換行符</p>
+<pre><code>br + br {
+  display: none;
+}</code></pre>
+<p><sup><a href="#目錄">回目錄</a></sup></p>
+<h2 id="瀏覽器支援度">瀏覽器支援度</h2>
+<p>以上技巧支援 Chrome, Firefox, Safari, Opera, Edge 最新版本與 IE11 瀏覽器。</p>
+</body>
+</html>

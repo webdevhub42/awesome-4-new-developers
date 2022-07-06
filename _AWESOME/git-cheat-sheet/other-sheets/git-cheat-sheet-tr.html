@@ -96,9 +96,11 @@
 <p>$ git commit –amend</p>
 <pre><code>
 ##### Mevcut branchteki kaydedilmemiş commitleri diğer bazı branchlere taşıma:</code></pre>
-<p>git stash git checkout branch2 git stash pop ```</p>
-<h5 id="saklanan-değişiklikleri-mevcut-branche-geri-yükleme">Saklanan değişiklikleri mevcut branche geri yükleme:</h5>
-<pre class="shell"><code>$ git stash apply</code></pre>
+<p>git stash git checkout branch2 git stash pop</p>
+<pre><code>
+##### Saklanan değişiklikleri mevcut branche geri yükleme:
+```shell
+$ git stash apply</code></pre>
 <h4 id="istenilen-saklanma-yerini-mevcut-branche-geri-yükleme">İstenilen saklanma yerini mevcut branche geri yükleme:</h4>
 <ul>
 <li><em>{stash_number}</em> <code>git stash list</code> ile elde edilebilir</li>
@@ -257,7 +259,8 @@ $ git commit -m &quot;remove xyz file&quot;</code></pre>
 <h6 id="bu-noktada-kafanızda-dallarınızı-branches-isimlendirme-konusuna-ilişkin-birçok-soru-işareti-oluşacaktır.-bu-bağlamda-varsayılan-default-değerleri-kullanmanız-önerilir.">Bu noktada kafanızda dallarınızı (branches) isimlendirme konusuna ilişkin birçok soru işareti oluşacaktır. Bu bağlamda varsayılan (default) değerleri kullanmanız önerilir.</h6>
 <h6 id="git-flowu-kullanmak-istediğiniz-reponuzdayken">git flow’u kullanmak istediğiniz reponuzdayken:</h6>
 <pre class="shell"><code>git flow init</code></pre>
-<p>ya da ###### varsayılan:</p>
+<p>ya da</p>
+<h6 id="varsayılan">varsayılan:</h6>
 <pre class="shell"><code>git flow init -d</code></pre>
 <hr>
 <h3 id="özellikler-features">Özellikler (Features)</h3>

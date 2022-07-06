@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<div data-align="center">
+<br /><br /><br /> <img src='https://raw.githubusercontent.com/mhinz/vim-galore/master/static/images/logo-vim-galore.png' alt='vim-galore logo' /> <br /><br /><br /><br />
+<div>
+<pre><code>&lt;a href=&#39;https://github.com/mhinz/vim-galore&#39;&gt; 
+    &lt;img src=&#39;https://img.shields.io/badge/Version:-Original-blue.svg&#39; alt=&#39;version: original&#39; /&gt; 
+&lt;/a&gt; 
+&lt;a href=&#39;https://github.com/wsdjeg/vim-galore-zh_cn&#39;&gt; 
+    &lt;img src=&#39;https://img.shields.io/badge/Translation:-Chinese-grey.svg&#39; alt=&#39;translation: chinese&#39; /&gt; 
+&lt;/a&gt; 
+&lt;a href=&#39;http://postd.cc/?s=vim-galore&#39;&gt;
+    &lt;img src=&#39;https://img.shields.io/badge/Translation:-Japanese-grey.svg&#39; alt=&#39;tranlsation: japanese&#39; /&gt; 
+&lt;/a&gt; 
+&lt;a href=&#39;http://givi.olnd.ru/vim-galore/vim-galore-ru.html&#39;&gt;
+    &lt;img src=&#39;https://img.shields.io/badge/Translation:-Russian-grey.svg&#39; alt=&#39;translation: russian&#39; /&gt;
+&lt;/a&gt;
+&lt;div&gt; 
+    &lt;br /&gt; 
+    &lt;sub&gt;Licenciado sob &lt;a href=&#39;https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR&#39;&gt;CC BY-SA 4.0&lt;a/&gt;.&lt;/sub&gt; 
+&lt;/div&gt; </code></pre>
+</div>
+<p><br /><br /></p>
+</div>
+<h3 id="introdução"><a href="#introdução-1">Introdução</a></h3>
+<ul>
+<li><a href="#o-que-é-o-vim">O que é o Vim?</a></li>
+<li><a href="#a-filosofia-do-vim">A filosofia do Vim</a></li>
+<li><a href="#primeiros-passos">Primeiros passos</a></li>
+<li><a href="#vimrc-mínimo">Vimrc mínimo</a></li>
+<li><a href="#que-tipo-de-vim-eu-estou-rodando">Que tipo de Vim eu estou rodando?</a></li>
+<li><a href="#planilhas-de-cola">Planilhas de cola</a></li>
+</ul>
+<h3 id="o-básico"><a href="#o-básico-1">O básico</a></h3>
+<ul>
+<li><a href="#buffers-janelas-abas">Buffers, janelas, abas</a></li>
+<li><a href="#buffers-ativos-carregados-listados-e-nomeado">Buffers ativos, carregados, listados e nomeados</a></li>
+<li><a href="#lista-de-argumento">Lista de argumentos</a></li>
+<li><a href="#mapeamentos">Mapeamentos</a></li>
+<li><a href="#a-tecla-líder">A tecla líder</a></li>
+<li><a href="#registradores">Registradores</a></li>
+<li><a href="#alcances">Alcances</a></li>
+<li><a href="#marcadores">Marcadores</a></li>
+<li><a href="#complementar-e-concluir">Completar e concluir</a></li>
+<li><a href="#Movimentos-operadores-objetos-de-texto">Movimentos, operadores, objetos de texto</a></li>
+<li><a href="#autocmds">Autocmds</a></li>
+<li><a href="#lista-de-alterações-lista-de-pulos">Lista de alterações, lista de pulos</a></li>
+<li><a href="#árvore-do-desfazer">Árvore do desfazer</a></li>
+<li><a href="#listas-de-conserto-rápido-e-de-localização">Listas de conserto rápido e de localização</a></li>
+<li><a href="#macros">Macros</a></li>
+<li><a href="#esquemas-de-cores">Esquemas de cores</a></li>
+<li><a href="#dobraduras">Dobraduras</a></li>
+<li><a href="#sessões">Sessões</a></li>
+<li><a href="#localidade">Localidade</a></li>
+</ul>
+<h3 id="utilização"><a href="#Utilização-1">Utilização</a></h3>
+<ul>
+<li><a href="#conseguir-ajuda-desconectado">Conseguir ajuda desconectado</a></li>
+<li><a href="#conseguir-ajuda-desconectado-alternativa">Conseguir ajuda desconectado (alternativa)</a></li>
+<li><a href="#conseguindo-ajuda-conectado">Conseguindo ajuda conectado</a></li>
+<li><a href="#autocmds-na-prática">Autocmds na prática</a>
+<ul>
+<li><a href="#eventos-da-usuária">Eventos da usuária</a></li>
+<li><a href="#nested-autocmds">Nested autocmds</a></li>
+</ul></li>
+<li><a href="#área-de-transferência">Área de transferência</a>
+<ul>
+<li><a href="#utilização-da-área-de-transferência-windows-macos">Utilização da área de transferência (Windows, macOS))</a></li>
+<li><a href="#utilização-da-área-de-transferência-linux-bsd-">Utilização da área de transferência (Linux, BSD, …)</a></li>
+</ul></li>
+<li><a href="#restaurar-posição-do-cursor-ao-abrir-arquivo">Restaurar posição do cursor ao abrir arquivo</a></li>
+<li><a href="#arquivos-temporários">Arquivos temporários</a></li>
+<li><a href="#editando-arquivos-remotos">Editando arquivos remotos</a></li>
+<li><a href="#gerenciando-plugins">Gerenciando plugins</a></li>
+<li><a href="#inserção-de-bloco">Inserção de bloco</a></li>
+<li><a href="#rodando-programas-externos-e-usando-filtros">Rodando-programas-externos-e-usando-filtros</a></li>
+<li><a href="#cscope">Cscope</a></li>
+<li><a href="#matchit">MatchIt</a></li>
+<li><a href="#true-colors">True colors</a></li>
+</ul>
+<h3 id="dicas"><a href="#dicas-1">Dicas</a></h3>
+<ul>
+<li><a href="#comportamento-mais-saudável-para-n-e-N">Comportamento mais saudável para n e N</a></li>
+<li><a href="#comportamento-mais-saudável-para-a-história-da-linha-de-comando">Comportamento mais saudável para a história da linha de comando</a></li>
+<li><a href="#CTRL-L-com-comportamento-mais-saudável">CTRL-L com comportamento mais saudável</a></li>
+<li><a href="#desativar-firulas-audiovisuais">Desativar firulas audiovisuais</a></li>
+<li><a href="#mover-a-linha-atual-rapidamente">Mover a linha atual rapidamente</a></li>
+<li><a href="#adicionar-linhas-vazias-rapidamente">Adicionar linhas vazias rapidamente</a></li>
+<li><a href="#edite-seus-macros-rapidamente">Edite seus macros rapidamente</a></li>
+<li><a href="#pular-rapidamente-para-o-arquivo-de-cabeçalho-ou-fonte">Pular rapidamente para o arquivo de cabeçalho ou fonte</a></li>
+<li><a href="#mudar-tamanho-da-fonte-rapidamente-na-interface-gráfica-(GUI)">Mudar tamanho da fonte rapidamente na interface gráfica (GUI)</a></li>
+<li><a href="#mudar-o-estilo-do-cursor-de-acordo-com-o-modo">Mudar o estilo do cursor de acordo com o modo</a></li>
+<li><a href="#não-perca-a-seleção-ao-se-deslocar-lateralmente">Não perca a seleção ao se deslocar lateralmente</a></li>
+<li><a href="#regarregar-um-arquivo-ao-salvar">Regarregar um arquivo ao salvar</a></li>
+<li><a href="#linha-do-cursor-mais-inteligente">Linha do cursor mais inteligente</a></li>
+<li><a href="#completar-palavras-chave-mais-rapidamente">Completar palavras chave mais rapidamente</a></li>
+<li><a href="#alterações-cosméticas-a-esquemas-de-cores">Mudanças cosméticas a esquemas de cores</a></li>
+</ul>
+<h3 id="comandos"><a href="#comandos-1">Comandos</a></h3>
+<ul>
+<li><a href="#global-and-vglobal">:global and :vglobal</a> - Execute a command on all matching lines.</li>
+<li><a href="#normal-and-execute">:normal and :execute</a> - The scripting dream team.</li>
+<li><a href="#redir-e-execute">:redir e execute()</a> - Capturar saída de comando.</li>
+</ul>
+<h3 id="depuração"><a href="#depuração-1">Depuração</a></h3>
+<ul>
+<li><a href="#general-tips">General tips</a></li>
+<li><a href="#verbosity">Verbosity</a></li>
+<li><a href="#profiling-startup-time">Profiling startup time</a></li>
+<li><a href="#profiling-at-runtime">Profiling at runtime</a></li>
+<li><a href="#debugging-vim-scripts">Debugging Vim scripts</a></li>
+<li><a href="#debugging-syntax-files">Debugging syntax files</a></li>
+</ul>
+<h3 id="diversos"><a href="#diversos-1">Diversos</a></h3>
+<ul>
+<li><a href="#additional-resources">Additional resources</a></li>
+<li><a href="#vim-distributions">Vim distributions</a></li>
+<li><a href="#standard-plugins">Standard plugins</a></li>
+<li><a href="#map-capslock-to-control">Map CapsLock to Control</a></li>
+<li><a href="#easter-eggs">Easter eggs</a></li>
+<li><a href="#why-hjkl-for-navigation">Why hjkl for navigation?</a></li>
+</ul>
+<h3 id="problemas-comuns"><a href="#problemas-comuns-1">Problemas comuns</a></h3>
+<ul>
+<li><a href="#editing-small-files-is-slow">Editing small files is slow</a></li>
+<li><a href="#editing-huge-files-is-slow">Editing huge files is slow</a></li>
+<li><a href="#colar-entre-parenteses-ou-por-que-preciso-configurar-paste-o-tempo-todo">Colar entre parenteses (ou por que preciso configurar ‘paste’ o tempo todo?)</a></li>
+<li><a href="#delays-when-using-escape-key-in-terminal">Delays when using escape key in terminal</a></li>
+<li><a href="#function-search-undo">Function search undo</a></li>
+</ul>
+<h3 id="peculiaridades-técnicas"><a href="#peculiaridades-técnicas-1">Peculiaridades técnicas</a></h3>
+<ul>
+<li><a href="#newline-used-for-nul">Newline used for NUL</a></li>
+</ul>
+<p><br></p>
+<h1 id="introdução-1">Introdução</h1>
+<h2 id="o-que-é-o-vim">O que é o Vim?</h2>
+<p><a href="http://www.vim.org">Vim</a> é um editor de texto com uma longa linha de ancestrais que vem desde o <a href="https://en.wikipedia.org/wiki/QED_(text_editor)">qed</a>. <a href="https://en.wikipedia.org/wiki/Bram_Moolenaar">Bram Moolenaar</a> lançou o Vim em 1991.</p>
+<p>O projeto está hospedado na rede em <a href="http://www.vim.org/index.php">vim.org</a>.</p>
+<p>Para adquirir o Vim: use o seu gerenciador de pacotes preferido ou visite a <a href="http://www.vim.org/download.php">página para baixar</a> direto da vim.org.</p>
+<p>Discussões e questões de uso são melhores se feitas na lista de correio eletrônico <a href="https://groups.google.com/forum/#!forum/vim_use">vim_use</a> (<em>em inglês</em>) ou usando o IRC (<a href="https://freenode.net">Freenode</a>) no canal <code>#vim</code> (<em>em inglês</em>).</p>
+<p>O desenvolvimento acontece no <a href="https://github.com/vim/vim">Github</a>, e discussões na lista de correio eletrônico <a href="https://groups.google.com/forum/#!forum/vim_dev">vim_dev</a>.</p>
+<p>Leia <a href="http://www.viemu.com/a-why-vi-vim.html">Why, oh WHY, do those #?@! nutheads use vi?</a> (<em>em inglês</em>) para ver equívocos comuns sobre o Vim explicados.</p>
+<h2 id="a-filosofia-do-vim">A filosofia do Vim</h2>
+<p>O Vim adere a filosofia de edição modal. Isso quer dizer que ele provem múltiplos modos e a função/significado das teclas muda de acordo com o modo. Você navega pelos arquivos no <em>modo normal</em>, você insere texto no <em>modo de inserção</em>, você seleciona linhas no <em>modo visual</em>, você acessa comandos no <em>modo de linha de comando</em> e assim por diante. Isso pode até parecer complicado à primeira vista, mas tem uma grande vantagem: você não precisa entortar os dedos segurando várias teclas ao mesmo tempo, na maioria das vezes você simplesmente pressiona uma tecla após a outra. Quanto mais comum for a tarefa menos teclas são necessárias.</p>
+<p>Um conceito relacionado que funciona bem com a edição modal são operadores e movimentos. <em>Operadores</em> começam uma certa ação, por exemplo mudando, removendo ou selecionando texto. Logo em seguida você especifíca a região do texto onde a ação deve ocorrer usando um <em>movimento</em>. Para mudar tudo entre os parênteses, use <code>ci(</code> (leia como “mudar dentro dos parênteses”, em inglês: <em>change inner parentheses</em>). Para remover todo um parágrafo de texto de uma vez, use <code>dap</code> (leia como “deletar em volta do parágrafo”, em inglês: <em>delete around paragraph</em>).</p>
+<p>Se você ver usuárias avançadas do Vim trabalhando, você irá reparar que elas falam a <em>língua do Vim</em> da mesma forma que pianistas tratam seus instrumentos. Operações complexas são feitas usando apenas alguns pressionamentos de teclas. Elas nem sequer pensam mais sobre isso já que a <a href="https://en.wikipedia.org/wiki/Muscle_memory">memória muscular</a> tomou conta. Isso reduz o <a href="https://pt.wikipedia.org/wiki/Esfor%C3%A7o_cognitivo">esforço cognitivo</a> e ajuda a focar na verdadeira tarefa.</p>
+<h2 id="primeiros-passos">Primeiros passos</h2>
+<p>O pacote do Vim inclui um tutorial interativo que ensina as coisas mais básicas que você precisa saber a respeito. Você pode iniciar o tutorial direto do shell:</p>
+<pre><code>$ vimtutor</code></pre>
+<p>Não fique adiando o tutorial só porque parece chato, vá e trabalhe através dos exercícios. Os editores ou IDEs que você já usou antes eram todos provavelmente não-modais, então trabalhar mudando de modo vai ser um pouco esquisito a princípio, mas quanto mais você usar o Vim, mais isso vai virar <a href="https://en.wikipedia.org/wiki/Muscle_memory">memória muscular</a>.</p>
+<p>O Vim partiu do <a href="https://en.wikipedia.org/wiki/Stevie_(text_editor)">Stevie</a>, um clone do <a href="https://pt.wikipedia.org/wiki/Vi">vi</a>, e suporta dois modos “compatível” e “não-compatível”. Usar o Vim em modo compatível quer dizer usar os padrões do vi para todas as opções, ao contrário dos padrões do Vim. O modo compátivel é assumido enquanto você ainda não tiver criado um vimrc do usuário ou começado o Vim com <code>vim -N</code>! Não use o Vim em modo compatível. Simplesmente não use.</p>
+<p>Próximos passos:</p>
+<ol type="1">
+<li>Crie o seu próprio <a href="#vimrc-minimo">vimrc</a>.</li>
+<li>Tenha alguma <a href="#cheatsheets">planilha de cola</a> pronta para as primeiras semanas.</li>
+<li>Leia através da seção <a href="#basics-1">basico</a> para ter uma ideia do que é possível.</li>
+<li>Aprenda de acordo com a necessidade! Você nunca termina de aprender o Vim. Se você encontrar problemas, basta procurar por ele pela rede. Seu problema já foi resolvido antes. O Vim vem com uma documentação ótima e saber como navegar por ela é uma obrigação: <a href="#getting-help-offline">conseguindo ajuda desconectado</a>.</li>
+<li>Dê uma olhada nos <a href="#additional-resources">Recursos adicionais</a>.</li>
+</ol>
+<p>Um último conselho: por favor aprenda a usar o Vim apropriadamente antes de começar a adicionar tudo quanto é tipo de <a href="#managing-plugins">plugins</a> extravagantes que apenas implementam funcionalidades que o Vim já suporta nativamente.</p>
+<h2 id="vimrc-mínimo">Vimrc mínimo</h2>
+<p>O vimrc do usuário pode ser colocado em <code>~/.vimrc</code> ou só para melhor separar/organizar as coisas em <code>~/.vim/vimrc</code>. A última opção deixa fácil colocar toda a configuração sob controle de versão e enviar ela para onde esteja, por exemplo no Github.</p>
+<p>Você encontra muitos “vimrcs mínimos” por toda a rede, e talvez a minha versão não seja tão mínima quanto deveria, mas ela provem um bom conjunto de configurações sãs que julgo serem úteis para começar.</p>
+<p>Então, aqui vai: <a href="static/minimal-vimrc.vim">vimrc-minimo</a></p>
+<p>Caso você esteja interessado, aqui está o <a href="https://github.com/mhinz/dotfiles/blob/master/.vim/vimrc">meu vimrc</a>.</p>
+<p><strong>DICA</strong>: A maioria dos autores de plugins mantêm vários plugins e também publicam seus próprios vimrc no Github (com frequência em um repositório chamado de “vim-config” ou “dotfiles”), então quando quer você entre um plugin que você gosta, dê uma olhada na página do Github do mantenedor e olhe através dos repositórios.</p>
+<h2 id="que-tipo-de-vim-eu-estou-rodando">Que tipo de Vim eu estou rodando?</h2>
+<p>Olhar em <code>:version</code> irá te dar toda a informação que você precisa saber sobre como que a versão binária que está rodando atualmente foi compilada.</p>
+<p>A primeira linha te diz quando que o binário foi compilado e qual a versão, por exemplo 7.4. Uma das linhas seguintes irá dizer <code>Included patches: 1-1051</code>, que é o nível do remendo (patch). Portanto, sua versão exata do Vim é 7.4.1051.</p>
+<p>Uma outra linha irá colocar algo como <code>Tiny version without GUI</code> (“<em>versão minúscula sem interface gráfica</em>”) ou <code>Huge version with GUI</code> (“<em>versão enorme com interface gráfica</em>”). A informação que tiramos disso é se o seu Vim inclui interface gráfica (“GUI”), como por exemplo iniciar o <code>gvim</code> do shell ou rodar <code>:gui</code> dentro do Vim em um emulador de terminal. A outra informação importante é o <code>Tiny</code> (“<em>minúscula</em>”) e <code>Huge</code> (“<em>enorme</em>”). O Vim distingue entre conjuntos de funções/características chamados de <code>tiny</code> (“<em>minúcula</em>”), <code>small</code> (“<em>pequna</em>”), <code>normal</code>, <code>big</code> (“<em>grande</em>”), e <code>huge</code> (“<em>enorme</em>”), todas ativando diferentes subconjuntos de funções/características.</p>
+<p>A maioria do resultado que aparece com o <code>:version</code> é consumida pela própria função de listagem mesma. <code>+clipboard</code> significa que a função da área de transferência foi compilada junto, e <code>-clipboard</code> significa que não foi compilada.</p>
+<p>São poucas as funções que precisam ser compiladas juntamente para funcionar. Por exemplo, para que <code>:prof</code> funcione, você precisa de um Vim com um conjunto enorme (“<em>huge</em>”) de funções/características, porque esse conjunto ativa a função <code>+profile</code>.</p>
+<p>Se esse não for o caso e você instalou o Vim por um gerenciador de pacotes, tenha certeza de instalar um pacote chamado <code>vim-x</code>, <code>vim-x11,</code>vim-gtk<code>,</code>vim-gnome` ou algo parecido, já que esses pacotes normalmente vêm com o conjunto enorme (“<em>huge</em>”) de funções.</p>
+<p>Você também pode testar programavelmente a versão ou as funcionalidades:</p>
+<pre class="vim"><code>&quot; Fazer alguma coisa se rodando pelo menos a versão 7.4.42 do Vim com +profile
+ativado. 
+if (v:version &gt; 704 || v:version == 704 &amp;&amp; has(&#39;patch42&#39;)) &amp;&amp; has(&#39;profile&#39;)
+  &quot; fazer algo
+endif</code></pre>
+<p>Ajuda:</p>
+<pre><code>:h :version
+:h feature-list
+:h +feature-list
+:h has-patch</code></pre>
+<h2 id="planilhas-de-cola">Planilhas de cola</h2>
+<ul>
+<li>http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png</li>
+<li>https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png</li>
+<li>http://www.nathael.org/Data/vi-vim-cheat-sheet.svg</li>
+<li>http://michael.peopleofhonoronly.com/vim/vim_cheat_sheet_for_programmers_screen.png</li>
+<li>http://www.rosipov.com/images/posts/vim-movement-commands-cheatsheet.png</li>
+</ul>
+<p>Ou abra rapidamente uma planilha com cola de dentro do Vim: <a href="https://github.com/lifepillar/vim-cheat40">vim-cheat40</a>.</p>
+<h1 id="o-básico-1">O básico</h1>
+<h2 id="buffers-windows-tabs">Buffers, windows, tabs</h2>
+<p>O Vim é um editor de texto. Toda vez que um texto é mostrado, o texto é parte de um <strong>buffer</strong>. Cada arquivo será aberto em seu próprio buffer. Plugins mostram as coisas também em seus próprios buffers e assim por diante.</p>
+<p>Os buffers tem muito atributos, por exemplo se o texto que o buffer contém é modificável ou se o texto está associado com um outro arquivo e portanto precisa ser sincronizado ao disco na hora de salvar.</p>
+<p><strong>Windows</strong> ou <strong>Janelas</strong> são janelas de exibição <em>para</em> o buffer. Se você quiser ver vários arquivos ao mesmo tempo ou até mesmo diferentes partes de um mesmo arquivo, você usa janelas.</p>
+<p>E por favor, não as chame de <em>splits</em> (“<em>divisões</em>” ou “<em>partes</em>”). Você pode dividir uma janela em duas partes (dois “<em>splits</em>”), mas isso não necessáriamente as transforma em divisões (“<em>splits</em>”).</p>
+<p>Janelas podem ser divididas vertical ou horizontalmente, e as alturas e larguras das janelas existentes também podem ser alteradas. E é por isso que você pode rearranjar as janelas como preferir.</p>
+<p>Uma <strong>tab page</strong> ou (ou simplesmente “<em>aba</em>”) é uma coleção/coletânea de janelas. Por tanto se você quiser ter múltiplos arranjos de janelas, use as abas.</p>
+<p>A propósito, a lista de buffers é global e você pode acessar qualquer buffer a partir de qualquer aba.</p>
+<h2 id="buffers-ativos-carregados-listados-e-nomeados">Buffers ativos, carregados, listados e nomeados</h2>
+<p>Inicie o Vim como <code>vim arquivo1</code>. O conteúdo do arquivo será carregado dentro do buffer. Agora você tem um <strong>buffer carregado</strong> (“<em>loaded buffer</em>”). O conteúdo do buffer só será sincronizado ao disco rígido (salvo no arquivo original) se você salvar de dentro do Vim.</p>
+<p>Já que o buffer também é mostrado em uma janela, ele também é um <strong>buffer ativo</strong> (“<em>active buffer</em>”). Agora, se você abrir um outro arquivo com <code>e: arquivo2</code>, o <code>arquivo1</code> vai se tornar um <strong>buffer escondido</strong> (“<em>hidden buffer</em>”) e o <code>arquivo2</code> será o buffer ativo.</p>
+<p>Ambos buffers estão também <strong>listados</strong> (“<em>listed</em>”), portanto eles serão listados com a saída do comando <code>:ls</code>. Os buffers de plugins, ou os buffers de ajuda, normalmente são marcados como não-listados (“<em>unlisted</em>”), já que eles não são arquivos regulares, que você normalmente edita com um editor de texto. Tanto os buffers listados quanto os não-listados são mostrados pelo comando <code>:ls!</code>.</p>
+<p><strong>Buffers não-nomeados</strong> (“<em>unnamed buffers</em>”), geralmente usados por plugins, são buffers que não tem um nome de arquivo associado a si. Por exemplo, <code>:enew</code> irá criar um buffer não-nomeado para ser usado como rascunho. Adicione algum texto e salve o buffer no disco com <code>:w /tmp/foo</code>, e ele irá se tornar um buffer nomeado.</p>
+<h2 id="lista-de-argumentos">Lista de argumentos</h2>
+<p>A <a href="#">lista de buffers global</a> é uma coisa do Vim. Antes disso, no Vi, costumava ter apenas a lista de argumentos, que também está disponível no Vim.</p>
+<p>Todo nome de arquivo fornecido ao Vim na linha de comando do Shell, é lembrado na lista de argumentos. Podem existir múltiplas listas de argumentos: por padrão todos os argumentos são colocados na lista global de argumentos, mas você pode usar <code>:arglocal</code> para criar uma nova lista de argumentos que é local a janela.</p>
+<p>Liste os argumentos atuais com <code>:args</code>. Alterne entre os arquivos da lista de argumentos com <code>:next</code> (“<em>próximo</em>”, <code>:previous</code> (“<em>anterior</em>”), <code>:first</code> (“<em>primeiro</em>”), <code>:last</code> (“<em>último</em>”) e companhia. Altere com <code>:argadd</code> (para "_ad(d)_icionar“), <code>:argdelete</code> (para”_delet_ar") ou <code>args</code> uma lista de arquivos.</p>
+<p>Se você deve usar a lista de buffers ou a lista de argumentos, é só uma questão de preferência. Minha impressão é a maioria das pessoas usa exclusivamente a lista de buffers.</p>
+<p>Mesmo assim, existem uma forte razão para usar a lista de argumentos: processamento em batch por meio do <code>:argdo</code>! Um exemplo simples de reestruturamento:</p>
+<pre class="vim"><code>:args **/*.[ch]
+:argdo %s/foo/bar/ge | update</code></pre>
+<p>Isso irá substituir todas as ocorrências de “foo” por “bar” em todas as fontes e cabeçalhos de todos os arquivos em C do diretório atual e abaixo.</p>
+<p>Ajuda: <code>:h argument-list</code></p>
+<h2 id="mapeamentos">Mapeamentos</h2>
+<p>Você pode definir os seus próprios mapas de teclado com a família de comandos <code>:map</code>. Cada comando dessa família define o mapeamentos para um conjunto específico de modos. Tecnicamente o Vim vem com a enorme quantidade de 12 modos, e 6 deles podem ser mapeados. Adicionalmente, existem alguns comandos que agem em múltiplos modos ao tempo.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Recursivo</th>
+<th>Não-recursivo</th>
+<th>Desmapear</th>
+<th>Modos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:map</code></td>
+<td><code>:noremap</code></td>
+<td><code>:unmap</code></td>
+<td>normal, visual, operador-pendendo</td>
+</tr>
+<tr class="even">
+<td><code>:nmap</code></td>
+<td><code>:nnoremap</code></td>
+<td><code>:nunmap</code></td>
+<td>normal</td>
+</tr>
+<tr class="odd">
+<td><code>:xmap</code></td>
+<td><code>:xnoremap</code></td>
+<td><code>:xunmap</code></td>
+<td>visual</td>
+</tr>
+<tr class="even">
+<td><code>:cmap</code></td>
+<td><code>:cnoremap</code></td>
+<td><code>:cunmap</code></td>
+<td>linha de comando</td>
+</tr>
+<tr class="odd">
+<td><code>:omap</code></td>
+<td><code>:onoremap</code></td>
+<td><code>:ounmap</code></td>
+<td>operador-pendendo</td>
+</tr>
+<tr class="even">
+<td><code>:imap</code></td>
+<td><code>:inoremap</code></td>
+<td><code>:iunmap</code></td>
+<td>inserção</td>
+</tr>
+</tbody>
+</table>
+<p>Por exemplo, isso aqui irá definir um mapeamento apenas para o modo normal:</p>
+<pre class="vim"><code>:nmap &lt;space&gt; :echo &quot;foo&quot;&lt;cr&gt;</code></pre>
+<p>Desmapei novamente usando <code>:nunmap &lt;space&gt;</code>.</p>
+<p>Para conferir alguns outros modos mais incomuns (ou uma combinação deles), veja <code>h map-modes</code>.</p>
+<p>Até agora, tudo sob controle. Mas tem um detalhe que pode ser bem confuso para iniciantes: <code>:nmap</code> é <em>recursivo</em>! Ou seja, o lado direito (que é remapeado) vai levar outros mapeamentos em conta também.</p>
+<p>Então, você definiu um mapeamento que simplesmente ecoa “Foo” ao apertar a tecla “b”:</p>
+<pre class="vim"><code>:nmap b :echo &quot;Foo&quot;&lt;cr&gt;</code></pre>
+<p>Mas e se você quiser mapear o comportamento padrão de <code>b</code> (voltar uma palavra) para uma outra tecla?</p>
+<pre class="vim"><code>:nmap a b</code></pre>
+<p>Se você apertar <kbd>a</kbd>, esperamos que o cursor volte à uma palavra atrás, mas ao contrário, “Foo” vai ser impresso de novo na linha de comando! Isso acontece devido ao fato que a tecla <code>b</code>, que fica no lado direito do mapeamento,já tinha sido remapeada para fazer ou ação, que no caso foi a ação de ecoar “foo” com <code>:echo "Foo"&lt;cr&gt;</code>.</p>
+<p>Para resolver esse problema de forma adequada, é preciso usar um mapeamento <em>não-recursivo</em>:</p>
+<pre class="vim"><code>:nnoremap a b</code></pre>
+<p>Regra de ouro: Sempre use mapeamentos não-recursivos, a não ser que realmente se deseje um mapeamento recursivo.</p>
+<p>Olhe os seus mapeamentos sem fornecer o lado direito do comando. Por exemplo, <code>:nmap</code> mostra todos os mapeamentos para o modo normal, e <code>:nmap &lt;leader&gt;</code> mostra todos os mapeamentos (para o modo normal) que começam com a tecla-líder.</p>
+<p>Se você quiser desativar um mapeamento padrão, o mapei para o caractére especial <code>&lt;nop&gt;</code>, como por exemplo <code>:noremap &lt;left&gt; &lt;nop&gt;</code>.</p>
+<p>Ajuda:</p>
+<pre><code>:h key-notation
+:h mapping
+:h 05.3</code></pre>
+<h2 id="a-tecla-líder">A tecla-líder</h2>
+<p>A tecla-líder é uma base de suporte usada com mapeamentos personalizados e por padrão é configurada para a tecla <code>\</code>.</p>
+<pre class="vim"><code>nnoremap &lt;leader&gt;h :helpgrep&lt;space&gt;</code></pre>
+<p>Esse mapa é acionado por <code>\h</code>. Se você quiser usar a tecla de espaço ao invés da barra invertida (que é o padrão)</p>
+<pre class="vim"><code>let mapleader = &#39; &#39;
+nnoremap &lt;leader&gt;h :helpgrep&lt;space&gt;</code></pre>
+<p>Além disse, existe a <code>&lt;localleader&gt;</code> que é a contraparte local de <code>&lt;leader&gt;</code> e é para ser supostamente usada para mapas que são locais ao buffer, como por exemplo plugins para tipos específicos de arquivos. Ela também é por padrão a tecla <code>\</code>.</p>
+<p><strong>Nota</strong>: Configure as teclas-líder antes de fazer algum mapeamento! Todos os mapeamentos que já foram efetuados não mudarão só porquê a tecla-líder foi alterada. <code>:nmap &lt;leader&gt;</code> irá mostrar todos os mapeamentos com a tecla líder para o modo normal que já estão acionados, então use-o para rechecar os seus mapeamentos.</p>
+<p>Veja <code>:h mapleader</code> e <code>:h maplocalleader</code> para saber mais.</p>
+<h2 id="registradores">Registradores</h2>
+<p>Registradores (inglês: “<em>registers</em>”) são lugares que o Vim usa para registrar texto. Copiar texto para um registrador é chamado de <strong>yanking</strong> e extrair texto de um registrador é chamado de <strong>pasting</strong> (“<em>colar</em>”).</p>
+<p>O Vim provem os seguintes registradores:</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 26%" />
+<col style="width: 13%" />
+<col style="width: 12%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Charactére</th>
+<th>preenchido por?</th>
+<th>Apenas de leitura?</th>
+<th>Contém texto de?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Não nomeado</td>
+<td><code>"</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Último puxão ou remoção. (<code>d</code>, <code>c</code>, <code>s</code>, <code>x</code>, <code>y</code>)</td>
+</tr>
+<tr class="even">
+<td>Numerado</td>
+<td><code>0</code> to <code>9</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Registrador <code>0</code>: último puxão. Registrador <code>1</code>: Última remoção. Registrador <code>2</code>: Seunda remoção. E assim por diante. Pense nos registradores <code>1</code>-<code>9</code> como uma <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">file</a> com 9 elementos apenas de leitura.</td>
+</tr>
+<tr class="odd">
+<td>Pequena remoção</td>
+<td><code>-</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Última remoção que for menor que uma linha.</td>
+</tr>
+<tr class="even">
+<td>Nomeado</td>
+<td><code>a</code> até <code>z</code>, <code>A</code> até <code>Z</code></td>
+<td>usuário</td>
+<td>[ ]</td>
+<td>Se você empurrar para o registrador <code>a</code>, você substitui o texto dele. Se você empurrar para o registrador <code>A</code>, você acrescenta ao texto no registrador <code>a</code>.</td>
+</tr>
+<tr class="odd">
+<td>apenas leitura</td>
+<td><code>:</code>, <code>.</code>, <code>%</code></td>
+<td>vim</td>
+<td>[x]</td>
+<td><code>:</code>: Último comando <code>.</code>: Último texto inserido, <code>%</code>: Nome do arquivo atual.</td>
+</tr>
+<tr class="even">
+<td>Buffer alternativo</td>
+<td><code>#</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Na maioria das vezes é o último buffer visitado na janela atual. Veja <code>:h alternate-file</code></td>
+</tr>
+<tr class="odd">
+<td>Expressão</td>
+<td><code>=</code></td>
+<td>usuário</td>
+<td>[ ]</td>
+<td>Avaliação da expressão em VimL que foi puxada (“yanked”). Por exemplo, faça isso em modo de inserção: <code>&lt;c-r&gt;=5+5&lt;cr&gt;</code> e “10” será inserido no buffer.</td>
+</tr>
+<tr class="even">
+<td>Seleção</td>
+<td><code>+</code>, <code>*</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td><code>*</code> e <code>+</code> são os registradores da área de transferência. <a href="#clipboard">clipboard</a>.</td>
+</tr>
+<tr class="odd">
+<td>Soltar</td>
+<td><code>~</code></td>
+<td>vim</td>
+<td>[x]</td>
+<td>Do último arrastas e soltar.</td>
+</tr>
+<tr class="even">
+<td>Buraco negro</td>
+<td><code>_</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Se você não quiser que nenhum outro registrador seja implicitamente afetado. Por exemplo, <code>"_dd</code> deleta a linha tual sem afetar os registradores <code>"</code>, <code>1</code>, <code>+</code>, <code>*</code>.</td>
+</tr>
+<tr class="odd">
+<td>Último padrão de busca</td>
+<td><code>/</code></td>
+<td>vim</td>
+<td>[ ]</td>
+<td>Último padrão usado com <code>/</code>, <code>?</code>, <code>:global</code>, etc.</td>
+</tr>
+</tbody>
+</table>
+<p>Cada registrador que não é apenas de leitura pod ser determinado com:</p>
+<pre class="vim"><code>:let @/ = &#39;registro&#39;</code></pre>
+<p>Em seguida <kbd>n</kbd> iria pular para a próxima ocorrência de “registro”.</p>
+<p>Há várias exceções onde os registradores são implicitamente preenchidos, então só para ter certeza, confira <code>:h registers</code>.</p>
+<p>Copie com <code>y</code> e cole com <code>p</code>/<code>P</code>, mas lembre-se que o Vim distingue entre seleções visuais de caracteres e de linha. Veja <code>:h linewise</code>.</p>
+<p><strong>Exemplo: com atenção lineal</strong></p>
+<p><code>yy</code> (ou apenas <code>Y</code>) copia a linha atual, mova o cursor para algum outro lugar, use <code>p</code> para colar abaixo da linha em que esteja ou <code>P</code> para colar na linha acima.</p>
+<p><strong>Exemplo: com atenção focada em caracteres</strong></p>
+<p>Copie a primeira palavra com <code>0yw</code>, mova para algum outro lugar, cole na linha em que esteja e após o cursor com <code>p</code> e antes do cursor com <code>P</code>.</p>
+<p><strong>Exemplo: nomeação explícita de registrador</strong></p>
+<p><code>"aY</code> copia a linha atual para o registrador <code>a</code>. Vá para alguma outra linha. Use <code>"AY</code> para acrescentar a linha atual ao registrador <code>a</code>.</p>
+<p>Sugiro que você dê uma brincada com esses registradores e constantemente olhe em <code>:reg</code>, para que você veja em primeira mão o quê está acontecendo com os registradores.</p>
+<p><strong>Caso engraçado</strong>: No Emacs, <code>yaking</code> quer dizer colar [ou <em>reinserir texto que anteriormente morto</em>(“<em>reinserting previously killed text</em>”)] e não copiar.</p>
+<h2 id="alcances">Alcances</h2>
+<p>Os alcances são bem fáceis de entender, mas muitos (Vimmers) não sabem sobre o potencial que eles possuem.</p>
+<ul>
+<li>Muitos comandos aceitam alcances.</li>
+<li>Um endereço denota uma certa linha.</li>
+<li>Um alcance pode ser tanto um único endereço quanto um par de endereços separados tanto por <code>,</code> quanto por <code>;</code>.</li>
+<li>Os alcances informam os comandos em quais linhas eles devem agir.</li>
+<li>Muitos comandos agem por padrão apenas na linha atual.</li>
+<li>Somente <code>:write</code> e <code>:global</code> agem em todas as linhas por padrão.</li>
+</ul>
+<p>A utilização dos alcances é bem intuitiva, portanto aqui seguem alguns exemplos (usando <code>:d</code> como uma abreviação de <code>:delete</code>):</p>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comando</th>
+<th>Linhas em que age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:d</code></td>
+<td>Linha atual.</td>
+</tr>
+<tr class="even">
+<td><code>:.d</code></td>
+<td>Linha atual</td>
+</tr>
+<tr class="odd">
+<td><code>:1d</code></td>
+<td>Primeira linha.</td>
+</tr>
+<tr class="even">
+<td><code>:$d</code></td>
+<td>Última linha.</td>
+</tr>
+<tr class="odd">
+<td><code>:1,$d</code></td>
+<td>Todas as linhas.</td>
+</tr>
+<tr class="even">
+<td><code>:%d</code></td>
+<td>Todas as linhas (alívio sintático para <code>1,$</code>).</td>
+</tr>
+<tr class="odd">
+<td><code>:.,5d</code></td>
+<td>Da linha atual até a linha 5.</td>
+</tr>
+<tr class="even">
+<td><code>:,5d</code></td>
+<td>Também a linha atual e até a linha 5.</td>
+</tr>
+<tr class="odd">
+<td><code>:,+3d</code></td>
+<td>Linha atual e as próximas 3 linhas.</td>
+</tr>
+<tr class="even">
+<td><code>:1,+3d</code></td>
+<td>Da primeira linha até a linha atual + 3.</td>
+</tr>
+<tr class="odd">
+<td><code>:,-3d</code></td>
+<td>Linha atual e as últimas 3 linhas. (O Vim irá lhe perguntar, já que esse é um alcance reverso.)</td>
+</tr>
+<tr class="even">
+<td><code>:3,'xdelete</code></td>
+<td>Lines 3 to the line marked by <a href="#marks">mark</a> x.</td>
+</tr>
+<tr class="odd">
+<td><code>:/^foo/,$delete</code></td>
+<td>Da próxima linha que começa com “foo” até o final.</td>
+</tr>
+<tr class="even">
+<td><code>:/^foo/+1,$delete</code></td>
+<td>Da linha após a linha que começa com “foo” até o final.</td>
+</tr>
+</tbody>
+</table>
+<p>Repare que ao invés de <code>,</code>, o <code>;</code> também pode ser usado como separador. A diferença é como <code>de,para</code> o <em>para</em> é relativo a linha atual, mas ao usar <code>de;para</code>, o <em>para</em> é relativo ao endereço do <em>de</em>! Assumindo que você está na linha 5, <code>:1,+1d</code> deletaria as linhas de 1 a 6, ao mesmo tempo que <code>:1;+1d</code> deletaria apenas as linhas 1 e 2.</p>
+<p>O endereço <code>/</code> pode ser precedido com outro endereço. Isso permite que você <em>empilhe</em> padrões, por exemplo:</p>
+<pre class="vim"><code>:/foo//bar//quux/d</code></pre>
+<p>Isso iria deletar a primeira linha contendo “quux” após a primeira linha contendo “bar” depois da primeira linha contendo “foo” depois da linha atual.</p>
+<p>As vezes o Vim automaticamente antecipa com um alcance na linha de comando. Por exemplo, comece uma seleção visual de linha com o <code>V</code>, selecione algumas linhas e digite <code>:</code>. A linha linha de comando será povoada com o alcance <code>'&lt;,'&gt;</code>, que significa que o próximo comando irá usar as linhas previamente selecionadas como um alcance. (Essa também é a razão pela qual as vezes você vê mapeamentos como <code>:vnoremap foo :&lt;c-u&gt;command</code>. Neste caso, <code>&lt;c-u&gt;</code> é usado para remover o alcance, porque o Vim irá jogar um erro quando der um alcance a um comando que não suporta o tal alcance.).</p>
+<p>Outro exemplo é ao usar <code>!!</code> em modo normal. Isso irá povoar a linha de comando com <code>:.!</code>. Se seguido por um programa externo, a saída do programa iria substituir a linha atual. Portanto, você substituiria o parágrafo atual com a saída do comando ls usando: <code>:?^$?+1,/^$/-1!ls</code>. Chique!</p>
+<p>Ajuda:</p>
+<pre><code>:h cmdline-ranges
+:h 10.3</code></pre>
+<h2 id="marcadores-marks">Marcadores (marks)</h2>
+<p>Você usa marcadores para lembrar uma posição em um arquivo, ou seja; número da linha e coluna.</p>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 41%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marcadores</th>
+<th>Determinado pelo…</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>a</code> - <code>z</code></td>
+<td>Usuário</td>
+<td>Local ao arquivo, portanto é apenas válido dentro de um arquivo. Jumping to a lowercase mark, means jumping within the current file.</td>
+</tr>
+<tr class="even">
+<td><code>A</code> - <code>Z</code></td>
+<td>Usuário</td>
+<td>Global, portanto válido entre arquivos. Também chamado de <em>marcador de arquivo</em> (“<em>file marks</em>”). Pular para um marcador de arquivo pode significar mudar para um outro buffer.</td>
+</tr>
+<tr class="odd">
+<td><code>0</code> - <code>9</code></td>
+<td>viminfo</td>
+<td><code>0</code> É a posição onde o arquivo viminfo foi sobreescrito (salvo) pela última vez. Na prática, isso quer dizer quando o último processo do Vim foi encerrado. <code>1</code> é a posição de quando o penúltimo processo do Vim foi encerrado, e assim por diante.</td>
+</tr>
+</tbody>
+</table>
+<p>Coloque <code>'</code>/<code>g'</code> ou <code>`</code>/<code>g`</code> na frente de um marcador para formar um movimento (“<em>motion</em>”).</p>
+<p>Use <code>mm</code> para lembrar a posição atual com o marcador “m”. Movimente-se pelo arquivo e pule de volta via <code>'m</code> (para o primeiro caractere não-vazio), ou <code>`m</code> (para a coluna exata). Marcadores minúsculos serão lembrados após sair do Vim apenas se você falar para o seu arquivo viminfo fazer isso, veja <code>:h viminfo-'</code>.</p>
+<p>Use <code>mM</code> para lembrar a posição atual com o marcador de arquivo “M”. Mude para outro buffer e volte de novo com <code>'M' ou ``</code>M ``.</p>
+<p>Outros movimentos incluem:</p>
+<table>
+<colgroup>
+<col style="width: 65%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Movimento</th>
+<th>Pular para…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>'[</code>, <code>`[</code></td>
+<td>Primeira linha ou caractere do último texto mudado (“<code>c</code>”) ou puxado/copiado (“<code>y</code>”).</td>
+</tr>
+<tr class="even">
+<td><code>']</code>, <code>`]</code></td>
+<td>Última linha ou caractere do último texto mudado (“<code>c</code>”) ou puxado/copiado (“<code>y</code>”).</td>
+</tr>
+<tr class="odd">
+<td><code>'&lt;</code>, <code>`&lt;</code></td>
+<td>Começo da linha ou caractere da última seleção visual.</td>
+</tr>
+<tr class="even">
+<td><code>'&gt;</code>, <code>`&gt;</code></td>
+<td>Fim da linha ou caractere da última seleção visual.</td>
+</tr>
+<tr class="odd">
+<td><code>''</code>, <code>``</code></td>
+<td>Posição antes do último pulo (“<em>jump</em>”).</td>
+</tr>
+<tr class="even">
+<td><code>'"</code>, <code>`"</code></td>
+<td>Posição de quando aconteceu a última saída do arquivo (buffer) atual.</td>
+</tr>
+<tr class="odd">
+<td><code>'^</code>, <code>`^</code></td>
+<td>Posição de onde a última inserção parou.</td>
+</tr>
+<tr class="even">
+<td><code>'.</code>, <code>`.</code></td>
+<td>Posição de onde a última mudança foi feita.</td>
+</tr>
+<tr class="odd">
+<td><code>'(</code>, <code>`(</code></td>
+<td>Começo da frase atual.</td>
+</tr>
+<tr class="even">
+<td><code>')</code>, <code>`)</code></td>
+<td>Fim da frase atual.</td>
+</tr>
+<tr class="odd">
+<td><code>'{</code>, <code>`{</code></td>
+<td>Começo do parágrafo atual.</td>
+</tr>
+<tr class="even">
+<td><code>'}</code>, <code>`}</code></td>
+<td>Fim do parágrafo atual.</td>
+</tr>
+</tbody>
+</table>
+<p>Marcadores também podem ser usados em um <a href="#Alcançadores">alcançador</a>. Você provavelmente já viu isso antes e se perguntou o quê isso significa: Selecione algum texto em modo visual e aperte <code>:</code>, a linha de comando será “antecipada” com <code>:'&lt;,'&gt;</code>, o que significa que o comando que vier em seguida terá o alcance encoberto pela seleção visual.</p>
+<p>Use <code>:marks</code> para listar todos os marcadores. Leia tudo que puder em <code>:h mark-motions</code>.</p>
+<h2 id="completar-e-concluir">Completar e concluir</h2>
+<p>O Vim possui vários tipos de complemento em modo de inserção. Em caso de múltiplas possibilidades, um menu flutuante irá permitir que você navegue até a o complemento de sua escolha.</p>
+<p>Tipos típicos de complementos são tags, funções de módulos importados ou bibliotecas, nome de arquivos, dicionários ou simplesmente palavras do buffer atual.</p>
+<p>O Vim também provém um mapeamento de teclado para cada tipo de complementação e todos eles começam com <code>&lt;c-x&gt;</code> (lembre-se de usá-los em modo de inserção).</p>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 20%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mapeamento</th>
+<th>Tipo</th>
+<th>Ajuda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-l&gt;</code></td>
+<td>completa linhas inteiras</td>
+<td><code>:h i^x^l</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-n&gt;</code></td>
+<td>palavras chave do arquivo atual</td>
+<td><code>:h i^x^n</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-k&gt;</code></td>
+<td>palavras chave da opção de <code>dicionário</code></td>
+<td><code>:h i^x^k</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-t&gt;</code></td>
+<td>palavras chave da opção de <code>'thesaurus'</code> (sinônimos)</td>
+<td><code>:h i^x^t</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-i&gt;</code></td>
+<td>palavras chave do arquivo atual e arquivos incluídos</td>
+<td><code>:h i^x^i</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-]&gt;</code></td>
+<td>completa tags</td>
+<td><code>:h i^x^]</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-f&gt;</code></td>
+<td>completa nome de arquivos</td>
+<td><code>:h i^x^f</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-d&gt;</code></td>
+<td>definições ou macros</td>
+<td><code>:h i^x^d</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-v&gt;</code></td>
+<td>comandos do Vim</td>
+<td><code>:h i^x^v</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;&lt;c-u&gt;</code></td>
+<td>definido pela usuária (como especificado em <code>'completefunc'</code>)</td>
+<td><code>:h i^x^u</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;c-x&gt;&lt;c-o&gt;</code></td>
+<td>omni complementação (como especificado em <code>'omnifunc'</code>)</td>
+<td><code>:h i^x^o</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;c-x&gt;s</code></td>
+<td>sugestões ortográficas</td>
+<td><code>:h i^Xs</code></td>
+</tr>
+</tbody>
+</table>
+<p>As pessoas podem se confundir entre Complementação definida pela usuária e a omni complementação, mas tecnicamente elas fazem a mesma coisa. Elas pegam uma função que inspeciona a posição atual (do cursor) e retornam uma lista de sugestões. Complementações definidas pela usuária são determinadas pela própria pessoa e para uso pessoal. (Surpresa!) Pode ser qualqer coisa. A Omni Complementação tem o propósito de ser usada para tipos específicos de arquivos, como complementando estruturas de membros ou métodos de classes, e é normalmente determinada por plugins de tipos de arquivo (“<em>filetype plugins</em>”).</p>
+<p>O Vim também permite a complementação de múltiplos tipos de uma vez só, bastando ativar a opção <code>'complete'</code>. Por padrão, essa opção já inclui um bocado de coisas por si mesma, então tenha certeza de dar uma polida para que fique ao seu gosto. Você pode ativar essa opção de complementação usando tanto <code>&lt;c-n&gt;</code> (próximo) quanto <code>&lt;c-p&gt;</code> (anterior), que por coincidência também são os atalhos de teclado usados para navegar pelas opções do menu flutuante. Veja <code>:h i^n</code> e <code>:h 'complete'</code> para saber mais sobre isso.</p>
+<p>Aproveite e confira também <code>:h 'completeopt'</code> para configurar o comportamento do menu flutuante. O padrão até que é bem são, mas eu prefiro adicionar também “noselect” (“<em>nenhuma seleção</em>”).</p>
+<p>Ajuda:</p>
+<pre><code>:h ins-completion
+:h popupmenu-keys
+:h new-omni-completion</code></pre>
+<h2 id="movimentos-operadores-objetos-de-texto">Movimentos, operadores, objetos de texto</h2>
+<p><strong>Movimentos</strong> movem o cursor. Todos você já sabem sobre <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code>. Ou <code>w</code> e <code>b</code>. Até <code>/</code> é um movimento. Eles também aceitam uma conta. <code>2?the&lt;cr&gt;</code> pula para a anti-penúltima ocorrência de “the”.</p>
+<p>Veja <code>:h navigation</code> e tudo que estiver abaixo para todos os movimentos disponíveis.</p>
+<p><strong>Operadores</strong> agem em uma região do texto, por exemplo <code>d</code>, <code>~</code>, <code>gU</code>, <code>&gt;</code> para mencionar apenas alguns. Eles são usados em dois contextos, ou em modo normal ou em modo visual. Em modo normal, os operadores vem primeiro seguidos por um movimento, por exemplo <code>&gt;j</code>. Em modo visual, operadores simplesmente agem na área selecionada, por exemplo <code>Vjd</code>.</p>
+<p>Assim como os movimentos, os operadores também aceitam uma conta, como por exemplo <code>2gUw</code> que transforma o resto da palavra atual e da próxima palavra em maiúsculas. Já que movimentos e operadores aceitam contas, <code>2gU2w</code> funciona bem e executa <code>gU2w</code> duas vezes.</p>
+<p>Veja <code>:h operator</code> para conferir todos os operadores disponíveis. Use <code>:set tildeop</code> para fazer com que o til (<code>~</code>) funcione como um operador.</p>
+<p><strong>Objetos de texto</strong> agem na área que os cerca, em oposição aos movimentos que agem em uma direção específica. Na verdade eles funcionam em objetos, como por exemplo uma palavra toda, uma frase inteira, tudo entre parênteses, e assim por diante.</p>
+<p>Objetos de texto não podem ser usados para mover o cursor em modo normal, porque nem mesmo os cursores mais habilidores dão conta de pular em duas direções ao mesmo tempo. Entretanto, isso funciona em modo visual, pois que um lado do texto já está selecionado e o cursor pode simplesmente pular para o outro lado.</p>
+<p>Objetos de texto começam ou com um <code>i</code> ou <code>a</code> seguidos por um caractere que denota o objeto (<code>i</code> pode ser lembrado como "_i_nterno“, e <code>a</code> como o que está”_a_o redor"). Com o <code>i</code> a ação é executada apenas no objeto em si, com o <code>a</code> a ação é no objeto e mais os espaçoes (em branco) ao redor do objeto. Por exemplo, <code>diw</code> deleta a palavra atual e <code>ci(</code> altera tudo que estiver entre os parênteses.</p>
+<p>Objetos de texto também aceitam uma conta. Imagine <code>((( )))</code> e o cursor no meio ou nos parênteses mais internos, então <code>d2a(</code> irá remover os dois <em>pares de parênteses</em> mais internos e tudo o que estiver no meio e entre eles.</p>
+<p>Veja <code>:h text-objects</code> para conferir todos os objetos de texto disponíveis.</p>
+<h2 id="autocmds">Autocmds</h2>
+<p>Em muitas ocasiões o Vim emite eventos. Você engancha nesses eventos usando Autocmds (“<em>auto comandos</em>”).</p>
+<p>Você não usaria o Vim se não houvessem os Autocmds. Eles são usados o tempo todo, mesmo que você não perceba. Não acredita em mim? Confira <code>:au</code>, mas não deixe que o resultado te assuste. Esses são todos os Autocmds que estão fazendo efeito agora mesmo.</p>
+<p>Veja <code>:h {event}</code> para uma ter uma rápida visão geral de todos os eventos disponíveis e <code>:h autocmd-events-abc</code> para mais detalhes.</p>
+<p>Um exemplo típico seria determinar configurações de acordo um típo específico de arquivo:</p>
+<pre class="vim"><code>autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 comments-=:#</code></pre>
+<p>Mas como que um buffer pode saber que ele contém um código em Ruby? Porque um outro Autocmd detectou isso e configurou o tipo de arquivo de acordo, o que por sua vez engatilhou o evento <code>FileType</code> (“<em>tipo de arquivo</em>”).</p>
+<p>Uma das primeiras coisas que todos adicionam aos seus vimrc é <code>filetype on</code>. Isso simplesmente quer dizer que o <code>filetype.vim</code> é lido na inicialização, o que determina Autocmds para quase todos os tipos de arquivo que existem sob o sol.</p>
+<p>Se você tiver coragem, de uma olhada nisto aqui: <code>:e $VIMRUNTIME/filetype.vim</code>. Procure por “Ruby” e você descobrirá que o Vim simplesmente usa a extensão de arquivo <code>.rb</code> para detectar arquivos de Ruby:</p>
+<p><strong>NOTA</strong>: Autocmds do mesmo evento são executados na ordem em que foram criados. <code>:au</code> os mostra na ordem correta.</p>
+<pre class="vim"><code>au BufNewFile,BufRead *.rb,*.rbw  setf ruby</code></pre>
+<p>Os eventos <code>BufNewFile</code> e <code>BufRead</code> nesse caso são codificados manualmente nas fontes (sources) em C do Vim e são emitidos a cada vez que você abre um arquivo por meio de <code>:e</code> e comandos similares. Em seguida todas as centenas de tipos de arquivo do <code>filetype.vim</code> são testados.</p>
+<p>Resumindo, o Vim faz uso pesado de eventos e Autocmds mas também expõe uma interface limpa para enganchar nesse sistema dirigido por eventos para a customização.</p>
+<p>Ajuda: <code>:h autocommand</code></p>
+<h2 id="lista-de-alterações-lista-de-pulos">Lista de alterações, lista de pulos</h2>
+<h3 id="changelist-jumplist">Changelist, jumplist</h3>
+<p>As posições das últimas 100 alterações são mantidas na <strong>lista de alterações</strong>. Várias alterações pequenas feitas na mesma linha serão fundidas, mas assim a posição será aquela da última mudança (caso você tenha adicionado alguma coisa no meio da linha).</p>
+<p>Cada vez que você pular, a posição de <em>antes</em> do pulo será lembrada na <strong>lista de pulos</strong>. A lista de pulos tem até 100 registros. Cada janela possui sua própria lista de pulos. Quando você divide (“<em>split</em>”) uma janela, a lista de pulos será copiada.</p>
+<p>Um pulo é um dos seguintes comandos: <code>'</code>, <code>`</code>, <code>G</code>, <code>/</code>, <code>?</code>, <code>n</code>, <code>N</code>, <code>%</code>, <code>(</code>, <code>)</code>, <code>[[</code>, <code>]]</code>, <code>{</code>, <code>}</code>, <code>:s</code>, <code>:tag</code>, <code>L</code>, <code>M</code>, <code>H</code> e comandos que começam a edição de um novo arquivo.</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 24%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Lista</th>
+<th>Listar todos os registros</th>
+<th>Ir para uma posição anterior</th>
+<th>Ir para uma posição posterior</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>lista de pulos</td>
+<td><code>:jumps</code></td>
+<td><code>[conta]&lt;c-o&gt;</code></td>
+<td><code>[conta]&lt;c-i&gt;</code></td>
+</tr>
+<tr class="even">
+<td>lista de alterações</td>
+<td><code>:changes</code></td>
+<td><code>[conta]g;</code></td>
+<td><code>[conta]g,</code></td>
+</tr>
+</tbody>
+</table>
+<p>Quando você listar todos os registros, um marcador <code>&gt;</code> será usado para mostrar qual a posição atual. Normalmente isso estará abaixo da posição 1, a última posição.</p>
+<p>Se você quiser que ambas as listas continuem a existir mesmo após reiniciar o Vim, você precisará utilizar o arquivo viminfo e <code>:h viminfo-</code>.</p>
+<p><strong>NOTA</strong>: A posição antes do último pulo também é mantida como um <a href="#marcadores">marcador</a> e pode ser pulada com <code>``</code> ou <code>''</code>.</p>
+<p>Ajuda:</p>
+<pre><code>:h changelist
+:h jumplist</code></pre>
+<h2 id="árvore-do-desfazer">Árvore do desfazer</h2>
+<p>As últimas mudanças do estado do texto são lembradas. Você pode usar o comando <em>undo</em> (“desfazer”) para reverter as mudanças, e o comando <em>redo</em> (“refazer”) para reverter mudanças.</p>
+<p>O ponto importante para entender disso; é que a estrutura de dados que mantém as alterações recentes não é uma <a href="https://es.wikipedia.org/wiki/Cola_(inform%C3%A1tica)">fila</a>, mas sim uma <a href="https://pt.wikipedia.org/wiki/%C3%81rvore_(estrutura_de_dados)">árvore</a>! Suas alterações são nodos/nós na árvore e cada um deles (com exceção do mais superior) possui um nodo antecestral/antecessor. Cada nodo mantém informação sobre o texto e o tempo da alteração. Um galho (ou ramo) é uma série de nodos que começam a partir de um nodo e vão até o nodo do topo. Um novo é galho é criado quando você desfaz uma mudança e insere algo novo.</p>
+<pre><code>ifoo&lt;esc&gt;
+obar&lt;esc&gt;
+obaz&lt;esc&gt;
+u
+oquux&lt;esc&gt;</code></pre>
+<p>Agora você tem três linhas e a árvore dos desfazares fica mais ou menos assim:</p>
+<pre><code>     foo(1)
+       /
+    bar(2)
+   /      \
+baz(3)   quux(4)</code></pre>
+<p>A árvore do desfazer possui 4 mudanças. Os números representam o <em>tempo</em> em que os nodos foram criados.</p>
+<p>Agora há duas formas de atravessar essa árvore, podemos dizer que uma é <em>conforme o galho</em> e a outra é <em>conforme o tempo</em>.</p>
+<p>Desfazer (“<em>undo</em>” ou <code>u</code>) e refazer (“<em>redo</em>” ou <code>&lt;c-r&gt;</code>) funcionam conforme-o-galho. Eles vão para cime e para baixo no galho atual. O <code>u</code> irá reverter o texto ao nodo em que “bar” se encontra. Um outro <code>u</code> a mais irá reverter o texto ainda mais, ao ponto (nodo) em que “foo” se encontra. Agora, ao apertar <code>&lt;c-r&gt;</code> irá voltar ao estado do nodo “bar”, e apertar <code>&lt;c-r&gt;</code> mais uma vez irá levar ao nodo “quux”. (Não existe mais nenhuma forma de alcançar o nodo “baz” apenas conforme-o-galho).</p>
+<p>Por outro lado, <code>g-</code> e <code>g+</code> funcionam conforme-o-tempo. Portanto, <code>g-</code> não irá reverter ao estado do nodo “bar”, como o <code>u</code> faz, mas ao estado cronologicamente anterior, que no caso é o nodo “baz”. Um outro <code>g-</code> a mais irá reverter ao estado em que o nodo “bar” se encontra, e assim por diante. Portanto, <code>g-</code> e <code>g+</code> vão e voltam no tempo, respectivamente.</p>
+<table>
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comando / Mapeamento</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>[conta]u</code>, <code>:undo [conta]</code></td>
+<td>Desfazer [conta] mudanças.</td>
+</tr>
+<tr class="even">
+<td><code>[conta]&lt;c-r&gt;</code>, <code>:redo</code></td>
+<td>Refazer [conta] mudanças.</td>
+</tr>
+<tr class="odd">
+<td><code>U</code></td>
+<td>Desfazer todas as alterações na linha desde a última mudança (a mais</td>
+</tr>
+<tr class="even">
+<td>recente).</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>[conta]g-</code>, <code>:earlier [conta]?</code></td>
+<td>Ir para o estado anterior do texto tantas vezes quanto a [conta]. A “?” pode ser também “s”, “m”, “h”, “d”, ou “f”. Por</td>
+</tr>
+<tr class="even">
+<td>exemplo, <code>:earlier 2d</code> volta o texto ao estado em que estava a 2 dias atrás. <code>:earlier 1f</code> irá ao estado em que o texto se encontrava quano foi salvo pela última vez.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>[conta]g+</code>, <code>:later [conta]?</code></td>
+<td>Assim como o comando acima, só que na outra</td>
+</tr>
+</tbody>
+</table>
+<p>direção. (OBS: em inglês “earlier” quer dizer “<em>mais cedo</em>” e “later” quer dizer “<em>mais tarde</em>”).|</p>
+<p>A árvore com os desfazares é mantida na memória e será perdida quando o Vim for encerrado. Veja <a href="#manipulando-os-arquivos-de-backup-swap-undo-e-viminfo">Manipulando os arquivos de backup, swap, undo, e viminfo</a> para saber como ativar permanentemente o desfazer.</p>
+<p>Se você está confuso com a árvore do desfazer, o plugin <a href="https://github.com/mbbill/undotree">undotree</a> faz um ótimo trabalho ajudando a visualizar a árvore.</p>
+<p>Ajuda:</p>
+<pre><code>:h undo.txt
+:h usr_32</code></pre>
+<h2 id="listas-de-conserto-rápido-e-de-localização">Listas de conserto rápido e de localização</h2>
+<h3 id="quickfix-and-location-lists">Quickfix and location lists</h3>
+<p>Toda vez que uma ação precisar retornar uma lista de localizações, a <em>lista de conserto rápido</em> ou a <em>lista de localização</em> podem ser usadas. Neste caso, uma localização é um arquivo, o número de uma linha e opcionalmente uma coluna.</p>
+<p>Exemplos disso seriam erros de compilador montados em uma lista de conserto rápido, ou os resultados correspontes de ferrementa grep externa montados em uma lista de localização.</p>
+<p>A grande vantagem de usar essas listas ao invés de um buffer vazio é que você obtem uma boa interface para navegar pelos resultados.</p>
+<p>Todo o tempo, existe apenas uma lista de conserto rápido, mas cada janela pode ter sua própria lista de localização. As duas listas <em>podem até</em> parecerem iguais, mas usam comandos um pouco diferentes para a navegação.</p>
+<p>Comandos mais comuns:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Ação</th>
+<th>Conserto rápido (Quickfix)</th>
+<th>Localização (Location)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>abrir janela</td>
+<td><code>:copen</code></td>
+<td><code>:lopen</code></td>
+</tr>
+<tr class="even">
+<td>fechar janela</td>
+<td><code>:cclose</code></td>
+<td><code>:lclose</code></td>
+</tr>
+<tr class="odd">
+<td>próximo resultado</td>
+<td><code>:cnext</code></td>
+<td><code>:lnext</code></td>
+</tr>
+<tr class="even">
+<td>resultado anterior</td>
+<td><code>:cprevious</code></td>
+<td><code>:lprevious</code></td>
+</tr>
+<tr class="odd">
+<td>primeiro resultado</td>
+<td><code>:cfirst</code></td>
+<td><code>:lfirst</code></td>
+</tr>
+<tr class="even">
+<td>resultado anterior</td>
+<td><code>:clast</code></td>
+<td><code>:llast</code></td>
+</tr>
+</tbody>
+</table>
+<p>Veja <code>:h :cc</code> e tudo que estiver abaixo para saber todos os comandos.</p>
+<p><strong>Exemplo</strong>:</p>
+<p>Vamos usar nosso velho amigo <code>grep</code> para pesquisar pelos arquivos do diretório atual por uma certa informação e colocar os resultados na lista de conserto rápido.</p>
+<pre class="vim"><code>:let &amp;grepprg = &#39;grep -Rn $* .&#39;
+:grep! foo
+&lt;grep output - hit enter&gt;
+:copen</code></pre>
+<p>Assumindo que algum dos arquivos continha alguma ocorrência de “foo”, o mesmo será mostrado na lista de conserto rápido.</p>
+<h2 id="macros">Macros</h2>
+<p>O Vim permite que você <em>grave</em> os caracteres digitados em um <a href="#registradores">registrador</a>. É um ótimo jeito de automatizar certas tarefas no meio do trabalho. (Para tarefas mais elaboradas, <a href="#Vim-scripting">Vim scripting</a> deve ser usado ao invés de Macros).</p>
+<ul>
+<li>Comece a gravar digitando <code>q</code> seguido por um registrador, por exemplo o <code>q</code>. (A linha de comando irá assinalar com a mensagem “recording <span class="citation" data-cites="q">@q</span>”.)</li>
+<li>Encerre a gravação digitando <code>q</code> novamente.</li>
+<li>Execute o macro digitando <code>[conta]@q</code>.</li>
+<li>Repita o último macro com <code>[count]@@</code>.</li>
+</ul>
+<p><strong>Exemplo 1:</strong></p>
+<p>Insira uma linha e repita 10 vezes:</p>
+<pre><code>qq
+iabc&lt;cr&gt;&lt;esc&gt;
+q
+10@q</code></pre>
+<p>(O mesmo poderia ser feito sem macros: <code>oabc&lt;esc&gt;10.</code>)</p>
+<p><strong>Exemplo 2:</strong></p>
+<p>Para adicionar o número da linha na frente de todas as linhas, comece na primeira linha adicione “1.” a ela manualmente. Incremente o número sob o cursor usando <code>&lt;c-a&gt;</code>, mostrado como <code>^A</code>.</p>
+<pre><code>qq
+0yf jP0^A
+q
+1000@q</code></pre>
+<p>Aqui nós simplesmente esperamos que o arquivo não contenha mais que 1000 linhas quando usamos <code>1000@q</code>, mas também podemos usar um <em>macro recursivo</em>, que executa até que o macro não possa mais ser aplicado a uma linha:</p>
+<pre><code>qq
+0yf jP0^A@q
+q
+@q</code></pre>
+<p>(O mesmo poderia ser atingido sem macros: <code>:%s/^/\=line('.') . '. '</code>)</p>
+<p>Repare que apesar de eu mostrar como conseguir o mesmo resultado sem o uso de macros, isso só funciona para esses tipos de exemplos simples. Para automatizações mais complexas, macros são literalmente como uma bomba!</p>
+<p>Veja também: <a href="#edite-seus-macros-rapidamente">Edite seus macros rapidamente</a></p>
+<p>Ajuda:</p>
+<pre><code>:h recording
+:h &#39;lazyredraw&#39;</code></pre>
+<h2 id="esquemas-de-cores">Esquemas de cores</h2>
+<p>Esquemas de cores são o jeito que você pode estilizar o seu Vim. O Vim consiste de vários componentes e cada um deles pode ser customizado com diferentes cores para o plano de frente, plano de fundo e alguns outros atributos como texto em negrito etc. Eles podem podem ser determinados desse jeito:</p>
+<pre class="vim"><code>:highlight Normal ctermbg=1 guibg=red</code></pre>
+<p>Isso iria colorir o plano de fundo (“<em>bg</em>”) de vermelho. Veja <code>:h highlight</code> para mais informações.</p>
+<p>Então, esquemas de cores são basicamente coleções de comandos <code>:highlight</code>.</p>
+<p>Na verdade, a maioria dos esquemas de cores são 2 esquemas de cores! O exemplo acima determina as cores com <code>cterbg</code> e <code>guibg</code>. A primeira opção (<code>cterm</code>) apenas será usada se o Vim for inicializado em um emulador de terminal, por exemplo o xterm. A última (<code>gui*</code>) será usada em ambientes gráficos como o Gvim ou o MacVim.</p>
+<p>Se alguma vez ocorrer de você usar um esquema de cores no Vim em um terminal e as cores não se parecerem com as da imagem (screenshot/printscreen), provavelmente o esquema de cores define apenas as cores a GUI (Interface Gráfica da Usuária). O oposto também pode acontecer, se você usar um Vim gráfico (como o Gvim ou o MacVim) e as cores parecerem meio desajustadas, talvez o esquema de cores esteja definindo apenas as cores para o terminal.</p>
+<p>O último caso pode ser “resolvido” ativando as cores verdadeiras (“<em>true colors</em>”) no Neovim ou no Vim a partir da versão 7.4.1830. Isso faz com que o Vim use as definições de cores para o ambiente gráfico (“<em>GUI</em>”), mas isso também requer que o emulador de terminal em si e todo programa que estiver pelo meio do caminho (como o tmux) serem capazes de lidar com cores verdadeiras. (<a href="https://gist.github.com/XVilka/8346728">Essa gist</a> fornece uma boa visão geral sobre o assunto.)</p>
+<p>Ajuda:</p>
+<ul>
+<li><code>:h 'termguicolors'</code></li>
+<li><a href="PLUGINS.md#lista-de-esquemas-de-cores-1">Lista de esquemas de cores</a></li>
+<li><a href="#alterações-cosméticas-a-esquemas-de-cores">Alterações cosméticas a esquemas de cores</a></li>
+</ul>
+<h2 id="dobraduras">Dobraduras</h2>
+<h3 id="folding">Folding</h3>
+<p>Todo texto (ou código fonte) possui uma certa estrutura. Se você tem uma estrutura, isso significa que você tem regiões de texto separadas logicamente. As dobraduras permitem que você “dobre” certa região em uma única linha e mostrando uma descrição curta. Existem vários comandos que agem nessas regiões chamadas de <em>dobras</em> (“<em>folds</em>”). As dobras também podem ser aninhadas.</p>
+<p>O Vim faz distinção entre vários tipos de métodos de dobraduras:</p>
+<table>
+<colgroup>
+<col style="width: 66%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>‘método de dobra’</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>diff</td>
+<td>Usado em janelas de diff para dobrar texto não alterado.</td>
+</tr>
+<tr class="even">
+<td>expr</td>
+<td>Usa <code>'foldexpr'</code> para basicamente criar um novo método de dobra.</td>
+</tr>
+<tr class="odd">
+<td>indent</td>
+<td>Dobra baseado na indentação.</td>
+</tr>
+<tr class="even">
+<td>manual</td>
+<td>Crie dobras você mesma com <code>zf</code>, <code>zF</code>, e <code>:fold</code>.</td>
+</tr>
+<tr class="odd">
+<td>marker</td>
+<td>Dobra baseado nos marcadores no texto (com frequência nos comentários).</td>
+</tr>
+<tr class="even">
+<td>syntax</td>
+<td>Dobra baseado na sintáxe, como dobrar em blocos de <code>if</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTA</strong>: Dobraduras podem ser computacionalmente intensas! Se você experienciardesvantagens na performance (pequenos atrasos enquanto digita), de uma olhada no plugin <a href="https://github.com/Konfekt/FastFold">FastFold</a>, que prevem que o Vim atualize as dobras quando isso não é necessário.</p>
+<p>Ajuda:</p>
+<pre><code>:h usr_28
+:h folds</code></pre>
+<h2 id="sessões">Sessões</h2>
+<h3 id="sessions">Sessions</h3>
+<p>Se você salvar uma <strong>visão</strong> (“<em>view</em>”, <code>:h :mkview</code>), o estado atual da janela (e as opções e mapeamentos) são salvos para uso posterior (<code>:h :loadview</code>).</p>
+<p>Uma <strong>sessão</strong> salva as visões de todas as janelas e mais as configurações globais. Ela basicamente ‘tira um retrato’ da sua instância atual do Vim e a salva um um arquivo de sessão. Deixe-me realçar isso: ela salva o estado atual; tudo que for feito após salvar a sessão não será parte do arquivo de sessão. Para “atualizar” a sessão, simplesmente salve-a novamente.</p>
+<p>Isso é perfeito para salvar os seus <em>projetos</em> e facilita na hora de mudar entre eles.</p>
+<p>Tente fazer isso agora mesmo! Abra algumas janelas e abas e faça <code>:mksession Foo.Vim</code>. Se você omitir o nome do arquivo, o Vim assumirá que é <code>Session.vim</code>. O arquivo será salvo no diretório de trabalho atual, confira qual o diretório com <code>:pwd</code>. Recomece o Vim e faça <code>:source Foo.vim</code> e voilà, a lista de buffers, o leiaute das janelas, os mapeamentos, o diretório atual e etc. tudo deve ser o mesmo que era quando você salvou a sessão. Faça um pouco mais de trabalho e atualize a sessão sobreescrevendo o arquivo de sessão que já existe com <code>:mksession! Foo.vim</code>.</p>
+<p>Note que um arquivo de sessão não passa de uma coleção de comando do Vim que supostamente vão restaurar um certo estado de uma instância do Vim, portanto sinta-se a livre para dar uma olhada nele: <code>:vs Foo.vim</code>.</p>
+<p>Você pode dizer ao Vim que tipo de coisas devem ser salvas em uma sessão determinando (“<em>set</em>”) as opções da sessão <code>'sessionoptions'</code>.</p>
+<p>Com o próposito de scripts o Vim mantém o nome da última sessão originada (“<em>sourced</em>”) na variável interna <code>v:this_session</code>.</p>
+<p>Ajuda:</p>
+<pre><code>:h Session
+:h &#39;sessionoptions&#39;
+:h v:this_session</code></pre>
+<h2 id="localidade">Localidade</h2>
+<h3 id="locality">Locality</h3>
+<p>Muitos dos conceitos mencionados acima possuem uma contraparte <em>local</em>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Global</th>
+<th>Local</th>
+<th>Escopo</th>
+<th>Ajuda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:set</code></td>
+<td><code>:setlocal</code></td>
+<td>buffer ou janela</td>
+<td><code>:h local-options</code></td>
+</tr>
+<tr class="even">
+<td><code>:map</code></td>
+<td><code>:map &lt;buffer&gt;</code></td>
+<td>buffer</td>
+<td><code>:h :map-local</code></td>
+</tr>
+<tr class="odd">
+<td><code>:autocmd</code></td>
+<td><code>:autocmd * &lt;buffer&gt;</code></td>
+<td>buffer</td>
+<td><code>:h autocmd-buflocal</code></td>
+</tr>
+<tr class="even">
+<td><code>:cd</code></td>
+<td><code>:lcd</code></td>
+<td>janela</td>
+<td><code>:h :lcd</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;leader&gt;</code></td>
+<td><code>&lt;localleader&gt;</code></td>
+<td>buffer</td>
+<td><code>:h maplocalleader</code></td>
+</tr>
+</tbody>
+</table>
+<p>Variáveis também suportam escopos diferentes, mas isso será explicado em <a href="#vim-scripting">Vim scripting</a>.</p>
+<h1 id="utilização-1">Utilização</h1>
+<h2 id="conseguir-ajuda-desconectado">Conseguir ajuda desconectado</h2>
+<p>O Vim vem com uma ótima documentação no formato de simples arquivos de texto com um layout especial. O sistema utilizado pelo Vim para acessar certas partes desses arquivos é baseado em marcas (tags).</p>
+<p>Primeiramente, leia isso: <code>:help :help</code>. Isso irá abrir o arquivo <code>$VIMRUNTIME/doc/helphelp.txt</code> em uma nova janela e pular para a marca <code>:help</code> dentro desse arquivo.</p>
+<p>Algumas regras simples:</p>
+<ul>
+<li>opções são colocadas dentro de aspas curvas simples (<code>'</code>, e não <code>`</code>), como em <code>:h 'textwidth'</code></li>
+<li>funções de VimL terminam em <code>()</code>, como em <code>:h reverse()</code></li>
+<li>comandos começam com <code>:</code>, como em <code>:h :echo</code></li>
+</ul>
+<p>Você pode usar <code>&lt;c-d&gt;</code> (isso quer dizer <kbd>ctrl</kbd>+<kbd>d</kbd>) para listar todas as marcas (“<em>tags</em>”) que correspondem com o termo pesquisado em questão. Por exemplo, <code>:h tab&lt;c-d&gt;</code> irá lhe mostrar uma lista de todas as marcas desde <code>tab</code> até <code>'softtabstop'</code> e <code>setting-guitablabel</code>.</p>
+<p>Você quer listar todas as funções de VimL? Simples: <code>:h ()&lt;c-d&gt;</code>. Você quer listar todas as funções de VimL relacionadas as janelas (“<em>windows</em>”)? <code>:h win*()&lt;c-d&gt;</code>.</p>
+<p>Isso rapidamente fica instintivo, mas especialmente no começo, você não sabe nem sequer uma parte da marca que está procurando. Você apenas pode imaginar algumas palavras chave que podem estar envolvidas. <code>:helpgrep</code> irá salvar!</p>
+<pre><code>:helpgrep backwards</code></pre>
+<p>Isso irá procurar por “backwards” em toda a documentação e irá pular para a primeira ocorrência. As ocorrências serão agrupadas em uma lista de conserto rápido (“<em>quickfix list</em>”). Use <code>:cn</code>/<code>:cp</code> para pular para a próxima/última ocorrência. Ou use <code>:copen</code> para abrir a janela de conserto rápido, navegar para uma ocorrência e apertar <code>&lt;cr&gt;</code> para pular para o ocorrência em questão. Veja <code>:h quickfix</code> para conhecer a verdade.</p>
+<h2 id="conseguindo-ajuda-desconectado-alternativa">Conseguindo ajuda desconectado (alternativa)</h2>
+<p>Esta lista foi compilada por <span class="citation" data-cites="chrisbra">@chrisbra</span>, um dos desenvolvedores mais ativos do Vim, e foi postada na <a href="https://groups.google.com/forum/#!forum/vim_dev">vim_dev</a>.</p>
+<p>Está sendo repostada aqui com algumas poucas alterações.</p>
+<hr />
+<p>Se você sabe o quê está procurando, é normalmente mais fácil procurar usando o sistema de ajuda, pois os assuntos seguem um certo guia de estilo.</p>
+<p>Outra coisa, o sistema de ajuda tem a vantagem de pertencer à sua versão em particular do Vim, de modo que tópicos obsoletos ou tópicos que foram adicionados mais tarde não irão aparecer.</p>
+<p>Por isso que é importante aprender a usar o sistema de ajuda e a linguagem que ele usa. Aqui vão alguns exemplos (não necessariamente completo, e eu devo ter me esquecido de alguma coisa).</p>
+<ol type="1">
+<li><p>Opções são colocadas entre aspas únicas e simples. Então você usaria <code>:h 'list'</code> para ir para o tópico de ajuda para a opção “list”. Se você só sabe que está procurando por uma certa opção, você também pode fazer <code>:h options.txt</code> para abrir a página de ajuda que descreve como que todas as opções são tratadas, e a partir daí usar expressões regulares, como <code>/width</code>. Algumas opções possuem nome próprio, como <code>: h cpo-a</code>, <code>:h cpo-A</code>, <code>:h cpo-b</code>, e assim por diante.</p></li>
+<li><p>Comandos do modo normal são apenas isso mesmo. Use <code>:h gt</code> para ir para a página de ajuda do comando “gt”.</p></li>
+<li><p>Expressões regulares (“<em>regexp</em>”) sempre começam com “/”, então <code>:h /\+</code> leva você para a página de ajuda do itém quantificador “+” nas expressões regulares do Vim. Se você precisa aprender alguma coisa sobre expressões regulares, comece lendo em <code>:h pattern.txt</code>.</p></li>
+<li><p>Combinações de teclas. Elas normalmente começam com uma única letra indicando o modo para o qual elas podem ser usadas. Por exemplo, <code>:h i_CTRL-X</code> irá levar você para a família dos comandos com CTRL-X para o modo de inserção, que podem ser usados para autocompletar diferentes coisas. Repare que certas chaves serão sempre escritas da mesma maneira, por exemplo Control sempre será CTRL. Atenção também para o fato de que para os comandos para o modo normal, o “n” é deixado de fora, como em <code>:h CTRL-A</code>. Por outro lado, <code>:h c_CTRL-R</code> irá descrever o quê CTRL-R faz quando estiver escrevendo comandos na linha de comando, e <code>:h g_CTRL-A</code> fala sobre o comando g<C-A> (portanto você precisa apertar “g” e em seguida <Ctrl-A>). Aqui o “g” se refere ao comando “g” do modo normal, que sempre espera uma segunda tecla antes de fazer alguma coisa, os comandos començando com “z” também agem de forma parecida.</p></li>
+<li><p>Registradores sempre começam com “quote”, portanto use <code>:h quote</code> para saber mais sobre o registrador especial “:”.</p></li>
+<li><p>Vim script (VimL) está disponível em <code>:h eval.txt</code>. Certos aspectos da língua estão disponíveis em <code>:h expr-X</code> onde ‘X’ é um caractere único, como em <code>:h  expr-!</code> que irá lhe levar ao tópico que descreve o (Não) operador ‘!’ para VimL. Também importante, veja <code>:h function-list</code> para encontrar uma curta descrição de todas as funções disponíveis.</p></li>
+<li><p>Mapeamentos são encontrados na página de ajuda <code>:h map.txt</code>. Use <code>:h mapmode-i</code> para descobrir mais sobre o comando <code>:imap</code>. Use também <code>:h map-tópico</code> para saber mais sobre certos subtópicos sobre mapeamentos (como em <code>:h :map-local</code> para mapeamentos localizados/específicos a um buffer ou <code>:h map_bar</code> para como lidar com a ‘|’ em mapeamentos.</p></li>
+<li><p>Definições de comandos são encontradas em <code>:h command-*</code>, portanto use <code>:h command-bang</code> para saber sobre o argumento ‘!’ para comandos customizados.</p></li>
+<li><p>Comandos para o gerenciamento de janelas sempre começam com CTRL-W, portanto você encontra a ajuda correspondente em <code>:h CTRL-W_*</code> (por exemplo <code>:h CTRL-W_p</code> para mudar a janela acessada anteriormente). Você também pode acessar <code>:h windows.txt</code> e olhar tudo, caso esteja procurando por um comando para lidar com janelas.</p></li>
+<li><p>Comandos Ex sempre começam com “:”, portanto <code>:h :s</code> cobre o comando “:s”.</p></li>
+<li><p>Use CTRL-D após digitar um tópico e deixe o Vim completar com todos os tópicos disponíveis.</p></li>
+<li><p>Use <code>:helpgrep</code> para fazer uma busca em todas as páginas de ajuda (geralmente também inclui as páginas de ajuda instaladas por plugins). Veja <code>:h :helpgrep</code> para saber como a usar. Uma vez que você tenha buscado por um tópico, todos os resultados estarão disponíveis na janela da <a href="#listas-de-conserto-rápido-e-de-localização">lista de conserto rápido ou de localização</a> que podem ser abertas com <code>:copen</code> ou <code>:lopen</code>. Uma vez lá, você pode usar <code>/</code> para filtrar os resultados ainda mais.</p></li>
+<li><p><code>:h helphelp</code> contém alguma informação sobre como usar a ajuda.</p></li>
+<li><p>O manual do usuário. Ele irá descrever os tópicos de ajuda para iniciantes em uma maneira até amigável. Comece em <code>:h usr_toc.txt</code> para encontrar a tabela de conteúdo. Passe o olho por essa ajuda para encontrar certos tópicos, como por exemplo você encontrará uma entrada chamada “Digraphs” e “Entering special characters” no capítulo 24 (então use <code>:h usr_24.txt</code> para ir para a página de ajuda em particular).</p></li>
+<li><p>Grupos de realçamentos (“<em>Highlighting groups</em>”) sempre iniciam com <code>hl-*</code>. Por exemplo, <code>:h hl-WarningMsg</code> fala sobre o grupo “WarningMsg” de realçamento.</p></li>
+<li><p>Realçamento de sintáxe (“<em>syntax highlighting</em>”) é renomeado para “:syn-tópico”, como em <code>:h :syn-conceal</code> que fala sobre o argumento “conceal” para o comando <code>:syn</code>.</p></li>
+<li><p>Comandos de conserto rápido (“quickfix”) geralmente começam com “:c”, enquanto que os comandos da lista de localização geralmente começam com “:l”.</p></li>
+<li><p>A página <code>:h BufWinLeave</code> fala sobre o autocmd BufWinLeave (“<em>deixar a janela do buffer</em>”). Também <code>:h autocommands-events</code> fala sobre todos os eventos possíveis.</p></li>
+<li><p>Argumentos de inicialização sempre começam com “-”, então <code>:h -f</code> irá lhe levar a página de ajuda do comando “-f” para iniciar o Vim.</p></li>
+<li><p>Funções extras compiladas sempre começam com “+”, então <code>:h +conceal</code> fala sobre o suporte a função “conceal” compilada.</p></li>
+<li><p>Códigos de erro podem ser buscados diretamente na ajuda. <code>:h E297</code> irá exatamente para a descrição da mensagem do erro. Entretanto algumas vezes, esses códigos de erro não estão descritos, mas sim listados no comando do Vim que os causa. Como em <code>:h hE128</code> que o levará diretamente para o comando <code>:function</code>.</p></li>
+<li><p>A documentação para arquivos de sintáxe incluídos geralmente estão disponíveis em <code>:h ft-*-syntax</code>. Por exemplo, <code>:h ft-c-syntax</code> fala sobre o arquivo de sintáxe C e as opções que ele apresenta. Algumas vezes, seções adicionais para a omni autocomplementação (<code>:h ft-php-omni</code>) ou plugins de tipos de arquivo (<code>:h ft-tex-plugin</code>) estão disponíveis.</p></li>
+</ol>
+<p>Também, um linque para a documentação do usuário (que por sua vez descreve certos comandos mais da perspectiva do usuário e de forma menos detalhada) serão mencionados no topo das páginas de ajuda caso estejam disponíveis. Portanto, <code>:h pattern.txt</code> menciona os tópicos <code>:h 03.9</code> e <code>:h usr_27</code> do guia do usuário.</p>
+<h2 id="conseguindo-ajuda-conectado">Conseguindo ajuda conectado</h2>
+<p>Caso tenha um problema que não consiga resolver ou precise de uma orientação geral, veja o grupo de e-mail <a href="https://groups.google.com/forum/#!forum/vim_use">vim_use</a> (em inglês). Um outro ótimo recurso é usar o <a href="https://pt.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a>. O canal <code>#vim</code> na <a href="https://freenode.net">Freenode</a> é grande e geralmente cheio de gente disposta a ajudar.</p>
+<p>Se você quiser reportar um bug no Vim, use a lista de e-mails <a href="https://groups.google.com/forum/#!forum/vim_dev">vim_dev</a>.</p>
+<h2 id="autocmds-na-prática">Autocmds na prática</h2>
+<p>Você pode ativar qualquer evento agora mesmo com: <code>:doautocmd BufRead</code>.</p>
+<h3 id="eventos-do-usuário">Eventos do usuário</h3>
+<h4 id="user-events">User events</h4>
+<p>Especialmente para plugins, vale a pena criar os seus próprios eventos de usuário:</p>
+<pre class="vim"><code>function! Aleatoriedade()
+  &quot; Um monte de coisa tá acontecendo aqui.
+  &quot; E por útlimo...
+  doautocmd User AleatoriedadeSaida
+endfunction</code></pre>
+<p>Agora os usuários do seu plugin pode executar qualquer coisa assim que Aleatoriedade terminar de rodar:</p>
+<pre class="vim"><code>autocmd User AleatoriedadeSaida call AleatoriedadeCleanup()</code></pre>
+<p>A propósito, se não houver nenhum comando :autocmd para ser encontrado, :doautocmd vai jogar uma mensagem irritado “No matching autocommands”. É por isso que muitos plugins usam <code>silent doautocmd ...</code>. Mas isso também possui a desvantagem que você não pode simplesmente usar <code>echo foo</code> no :autocmd, você precisa usar <code>unsilent echo "foo"</code>.</p>
+<p>É por isso que é melhor checar se ao menos existe o recebimento de um autocmd e não se incomodar de emitir uma mensagem em caso contrário:</p>
+<pre class="vim"><code>if exists(&#39;#User#AleatoriedadeSaida&#39;)
+  doautocmd User AleatoriedadeSaida
+endif</code></pre>
+<p>Ajuda: <code>:h User</code></p>
+<h3 id="autocmds-aninhados">Autocmds aninhados</h3>
+<p>Por padrão, autocmds não aninham! Se um autocmd executa um comando, que em seguida iria geralmente ativar um outro evento, isso não irá acontecer.</p>
+<p>Vamos supor que você queira que abrir o seu vimrc automaticamente toda vez que o Vim for inicializado:</p>
+<pre class="vim"><code>autocmd VimEnter * edit $MYVIMRC</code></pre>
+<p>A partir de agora, quando o Vim for inicializado, o seu vimrc será aberto, mas a primeira coisa que você irá notar é que não haverá nenhum realce que normalmente haveria.</p>
+<p>O problema é que <code>:edit</code> no seu autocmd não-aninhado não irá ativar o evento “BufRead”, portanto o tipo de arquivo (“<em>filetype</em>”) não será configurado para “vim” e <code>$VIMRUNTIME/syntax/vim.vim</code> nunca será originado. Veja <code>:au BufRead *.vim</code>. Use isso ao invés:</p>
+<pre class="vim"><code>autocmd VimEnter * nested edit $MYVIMRC</code></pre>
+<p>Ajuda: <code>:h autocmd-nested</code></p>
+<h2 id="área-de-transferência">Área de transferência</h2>
+<h4 id="clipboard">Clipboard</h4>
+<p>Recursos <a href="#que-tipo-de-vim-eu-estou-rodando">necessários</a>: <code>+Clipboard</code> e opcionalmente <code>+xterm_clipboard</code> caso queira usar a opção <code>+clipboard</code> em um sistema Unix com o Vim mas que não suporta interface gráfica.</p>
+<p>Ajuda:</p>
+<pre><code>:h &#39;clipboard&#39;
+:h gui-clipboard
+:h gui-selections</code></pre>
+<p>Veja também: <a href="#colar-entre-parenteses-ou-por-que-preciso-configurar-paste-o-tempo-todo">Colar entre parenteses (ou por que preciso configurar ‘paste’ o tempo todo?)</a></p>
+<h3 id="utilização-da-área-de-transferência-windows-macos">Utilização da área de transferência (Windows, macOS)</h3>
+<p>O Windows vem com <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms649012(v=vs.85).aspx">clipboard</a> e macOS vem com uma <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/PasteboardGuide106/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008100-SW1">pasteboard</a>.</p>
+<p>Ambos funcionam mais ou menos como usuários esperariam que funcionassem. Você copia o texto selecionado com <code>ctrl+c</code>/<code>cmd+c</code> e cola em um outro aplicativo com <code>ctrl+v</code>/<code>cmd+v</code>.</p>
+<p>Repare que o texto copiado é naverdade transferido para a área de transferência (“<em>clipboard</em>”), e por isso você pode fechar o aplicativo onde copiou o texto antes de colar em um outro aplicativo sem problemas.</p>
+<p>Quando quer que isso aconteça, o registro <code>*</code> da área de transferência é preenchido com a seleção. A partir do Vim, use <code>"*y"</code> e <code>"+p</code> para copiar e colar para dentro ou para fora da área de transferência respectivamente.</p>
+<p>Se você nem sequer quer ter que especificar o registrador <code>*</code> todo o tempo, coloque isso no seu vimrc:</p>
+<pre class="vim"><code>set clipboard=unnamed</code></pre>
+<p>Geralmente todas as operações de copiar/deletar/colocar (“<em>yank/delete/put</em>”) preencheriam o registrador <code>"</code>, mas agora o registrador <code>*</code> é usado para as mesmas operações, e portanto, simplesmente <code>y</code> e <code>p</code> serão suficiente.</p>
+<p>Deixe-me repetir: usar a opção acima quer dizer que todo e qualquer copiar/colar, até mesmo quando usado apenas na mesma janela do Vim, todos irão alterar a área de transferência. Decida por conta própria se isso é útil ou não.</p>
+<p>Se você tem preguiça até mesmo de digitar <code>y</code>, você pode enviar cada seleção visual para a área de transferência usando essas configurações:</p>
+<pre class="vim"><code>set clipboard=unnamed,autoselect
+set guioptions+=a</code></pre>
+<p>Ajuda:</p>
+<pre><code>:h clipboard-unnamed
+:h autoselect
+:h &#39;go_a&#39;</code></pre>
+<h3 id="utilização-da-área-de-transferência-linux-bsd">Utilização da área de transferência (Linux, BSD, …)</h3>
+<p>Se o seu sistema operacional (SO) faz uso do <a href="http://www.x.org/wiki">X</a>, as coisas são um pouco diferentes. O X implementa o <a href="http://www.x.org/releases/X11R7.7/doc/xproto/x11protocol.html">Protocolo de Janela de Sistema X</a> que está em na versão principal 11 desde 1987, e por isso o X é normalmente chamado de X11.</p>
+<p>Antes, o X10, <a href="http://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html#Peer_to_Peer_Communication_by_Means_of_Cut_Buffers">cut buffers</a> foram introduzidos e meio que funcionaram como que uma espécie de <em>área de transferência</em> já o texto copiado era na verdade mantido pelo X e podia ser acessado a partir de outros aplicativos. Esse mecanismo ainda existe no X, mas o seu uso foi discontinuado e a maioria dos programas não mas faz uso dele.</p>
+<p>Hoje em dia o dado é transferido entre aplicativos pelo meio de [seleções][selections](http://www.x.org/releases/X11R7.7/doc/xorg-docs/icccm/icccm.html#Peer_to_Peer_Communication_by_Means_of_Selections). Dos 3 <em>átomos de seleção</em> definos, apenas 2 estão em uso na prática: PRIMARY e CLIPBOARD (“<em>primário</em>” e “<em>área de transferência</em>” respectivamente).</p>
+<p>Grosseiramente falando, as seleções funcionam mais ou menos assim:</p>
+<pre><code>Programa A: &lt;ctrl+c&gt;
+Programa A: assegura a posse da área de transferênci (CLIPBOARD)
+Programa B: &lt;ctrl+v&gt;
+Programa B: nota que a posse da área de transferência é mantida pelo Programa A
+Programa B: pede dado Programa A
+Programa A: responde ao pedido e envia o dado ao Programa B
+Programa B: recebe dado do Programa A e o insere na janela</code></pre>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 19%" />
+<col style="width: 23%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Seleção</th>
+<th>Quando é usado?</th>
+<th>Como colar?</th>
+<th>Como acessar pelo Vim?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PRIMÁRIA (“<em>PRIMARY</em>”)</td>
+<td>Selecionando texto</td>
+<td><code>Clicando com o botão do meio do mouse</code>, <code>shift+insert</code></td>
+<td>Registrador <code>*</code></td>
+</tr>
+<tr class="even">
+<td>Área de transferência (“<em>CLIPBOARD</em>”)</td>
+<td>Selecionando texto e <code>ctrl+c</code></td>
+<td><code>ctrl+v</code></td>
+<td>Registrador <code>+</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTA</strong>: Seleções (não, nem mesmo as seleções da Área de Transferência) não são nunca mantidas no servidor X! Portanto, você perde o dado copiado com <code>ctrl+c</code> quando o aplicativo é encerrado.</p>
+<p>Use <code>"*p</code> para colar a seleção PRIMÁRIA ou `“+y1g” para copiar o arquivo inteiro para a seleção da Área de Transferência.</p>
+<p>Caso você se veja tendo que acessar um desses dois registradores o tempo todo, considere usar:</p>
+<pre class="vim"><code>set clipboard^=unnamed      &quot; * register
+&quot; ou
+set clipboard^=unnamedplus  &quot; + register</code></pre>
+<p>(O <code>^=</code> é usado para antecipar para o valor padrão, <code>:h :set^=</code>.)</p>
+<p>Isso irá fazer com que todo e qualquer copiar/deletar/colocar (“<em>yank/delete/put</em>”) façam uso do registrador <code>*</code> ou do registrador <code>+</code>, ao invés de usar o registrados não nomeado <code>"</code> (“<em>unamed register</em>”). Em seguida você pode usar simplemente <code>y</code> ou <code>p</code> para acessar a seleção do X escolhida.</p>
+<p>Ajuda:</p>
+<pre class="vim"><code>:h clipboard-unnamed
+:h clipboard-unnamedplus</code></pre>
+<h2 id="restaurar-posição-do-cursor-ao-abrir-arquivo">Restaurar posição do cursor ao abrir arquivo</h2>
+<p>Sem isso, você sempre estará na primeira linha ao abrir um arquivo. Com isso, você estará na posição em que você estava quando partiu anteriormente.</p>
+<p>Coloque isso no seu vimrc:</p>
+<pre class="vim"><code>autocmd BufReadPost *
+    \ if line(&quot;&#39;\&quot;&quot;) &gt; 1 &amp;&amp; line(&quot;&#39;\&quot;&quot;) &lt;= line(&quot;$&quot;) |
+    \   exe &quot;normal! g`\&quot;&quot; |
+    \ endif</code></pre>
+<p>Isso simplesmente faz <code>g`"</code> (pula para a posição em que você estava quando você saiu sem alterar a lista de pulos) se a posição ainda existir (o arquivo pode ter algumas linhas a menos desde que foi alterado por um outro programa).</p>
+<p>Isso requer o uso do arquivo vimfile: <code>:h viminfo-'</code>.</p>
+<h2 id="arquivos-temporários">Arquivos temporários</h2>
+<p>Depending on the options, Vim creates up to 4 kinds of working files.</p>
+<p><strong>Arquivos de backup</strong>:</p>
+<p>Você pode falar pro Vim manter um arquivo de backup do arquivo original antes de salvar. Por padrão, Vim o mantém um backup, mas o remove imediatamente, logo após o arquivo ser salvo com sucesso (<code>:set writebackup</code>). Caso você queira que o último backup persista, <code>:set backup</code>. Ou você pode desativar todos os backups de uma vez, <code>:set nobackup nowritebackup</code>.</p>
+<p>Vejamos o quê que eu adicionei ao meu vimrc por último…</p>
+<pre><code>$ diff ~/.vim/vimrc ~/.vim/files/backup/vimrc-vimbackup
+390d389
+&lt; command! -bar -nargs=* -complete=help H helpgrep &lt;args&gt;</code></pre>
+<p>Ajuda: <code>:h backup</code></p>
+<p><strong>Arquivos de troca (swap)</strong>:</p>
+<p>Você teve uma ideia para o melhor romance de ficção científica de todos os tempos. Depois de passar horas em um bom ritmo escrevendo várias centenas de milhares de palavras… acaba a bateria! Esse é o momento em que você se dá conta que a última vez em que você salvou <code>~/wicked_alien_invaders_from_outer_space.txt</code> foi… bem, você nunca tinha salvado.</p>
+<p>Mas nem toda a esperança está perdida! Ao editar um arquivo, o Vim cria um arquivo de troca que contém mudanças que não foram salvas. Tente você mesmo, abra qualquer arquivo e consiga o arquivo de troca atual usando <code>:swapname</code>. Você também pode desativar arquivos de troca colocando <code>:set noswapfile</code> no seu vimrc.</p>
+<p>Por padrão, o arquivo de troca é criado no mesmo diretório que o arquivo editado e chamado de algo como <code>.file.swp</code>, atualizado tanto a cada 200 caractéres ou quando você não tenha digitado nada por 4 segundos, e deletado quando você pára de editar o arquivo. Você pode mudar esses números com <code>:h 'updatecount'</code> e <code>:h updatetime'</code>.</p>
+<p>Por causa da queda de bateria, o arquivo de troca nunca foi deletado. Se você fizer <code>vim ~/wicked_alien_invaders_from_outer_space.txt</code>, o Vim irá te perguntar se você quer recuperar o arquivo.</p>
+<p>Ajuda: <code>:h swap-file</code> e <code>:h usr_11</code>.</p>
+<p><strong>Arquivos de desfazares (Undo files)</strong>:</p>
+<p>A <a href="#árvore-do-desfazer">árvore do desfazer</a> é mantida em memória e será perdida quando o Vim for encerrado. Se você quiser que ela persista, <code>:set undofile</code>. Isso irá salvar o arquivo de desfazares para <code>~/foo.c</code> em <code>~/foo.ce.un~</code>.</p>
+<p>Ajuda: <code>:h 'undofile'</code> e <code>:h undo-persistence</code></p>
+<p><strong>Arquivo Viminfo</strong>:</p>
+<p>Enquanto que os arquivos de backup, de troca, e de desfazer são voltados para o estado do texto, os arquivos Viminfo são usados para salvar todo o resto, tudo que seria perdido ao encerrar o Vim. O arquivo viminfo mantém as histórias (da linha de comando, de buscas, de entrada de dados), registradores, marcadores, lista de buffer, variáveis globais, etc.</p>
+<p>Por padrão, o viminfo é sobreescrito em <code>~/.viminfo</code>.</p>
+<p>Ajuda: <code>:h viminfo</code> e <code>:h 'viminfo'</code>.</p>
+<hr />
+<p>Se você for um pouco parecido comigo, você vai preferir manter todos esses arquivos no mesmo lugar, como em <code>~/.vim/files</code>:</p>
+<pre><code>set backup
+set backupdir   =$HOME/.vim/files/backup/
+set backupext   =-vimbackup
+set backupskip  =
+set directory   =$HOME/.vim/files/swap//
+set updatecount =100
+set undofile
+set undodir     =$HOME/.vim/files/undo/
+set viminfo     =&#39;100,n$HOME/.vim/files/info/viminfo</code></pre>
+<p>O diretório <code>~/.vim/files</code> precisa ser criado de antemão, caso contrário o Vim vai vomitar erros. Se você trabalha com frequência em novos hospedeiros (“<em>hosts</em>”), você talvez queira automatizar isso:</p>
+<pre class="vim"><code>if exists(&#39;*mkdir&#39;) &amp;&amp; !isdirectory($HOME.&#39;/.vim/files&#39;)
+  call mkdir($HOME.&#39;/.vim/files&#39;)
+endif</code></pre>
+<p>NOTA: Se você editar um arquivo em um sistema com múltiplos usuários e o Vim te falar que um arquivo de troca (“<em>swap file</em>”) já existe, isso provavelmente significa que alguém esteja editando o arquivo ao mesmo tempo. Você perde essa “característica” quando você salva os arquivos de troca no diretório home (~/).</p>
+<h2 id="editando-arquivos-remotos">Editando arquivos remotos</h2>
+<p>O Vim vêm com o plugin netrw que permite a edição de arquivos remotos. Na verdade, o plugin transfere o arquivo remoto para um arquivo local temporário via scp, abre um buffer usando esse arquivo, e sobreescreve as mudanças de volta para o arquivo remoto ao salvar.</p>
+<p>Isso é extremamente útil caso você queira usar as suas configurações locais ao invés de entrar por meio de ssh em um servidor e usar o quer que o administrador queira que você use.</p>
+<pre><code>:e scp://bram@awesome.site.com/.vimrc</code></pre>
+<p>Se você tiver uma <code>~/.ssh/fig</code> já configurada, ela será usada automaticamente:</p>
+<pre><code>Host maravilhoso
+    HostName maravilhoso.site.com
+    Port 1234
+    User bram</code></pre>
+<p>Assumindo o conteúdo acima em <code>~/.ssh/config</code>, isso também funcionaria do mesmo jeito:</p>
+<pre><code>:e scp://maravilhoso/.vimrc</code></pre>
+<p>Algo similar pode ser feito com um <code>~/.netrc</code>, veja <code>:h netrw-netrc</code>.</p>
+<p>Certifique-se de ler <code>:h netrw-ssh-hack</code> e <code>:h g:netrw_ssh_cmd</code>.</p>
+<hr />
+<p>Uma outra possibilidade é usar <a href="https://wiki.archlinux.org/index.php/Sshfs">sshfs</a> o qual usa <a href="https://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> para montar um sistema de arquivos remoto no seu sistema de arquivo local.</p>
+<h2 id="gerenciando-plugins">Gerenciando plugins</h2>
+<p><a href="https://github.com/tpope/vim-pathogen">Pathogen</a> foi a primeira ferramenta de gerenciar plugins que ficou popular. Na verdade, o Pathogen apenas ajusta o <em>runtimepath</em> (<code>:h 'rtp'</code>) para incluir tudo que for colocado em um certo diretório. Você precisa clonar os repositórios dos plugins para lá por conta própria.</p>
+<p>Os gerenciadores reais de plugins apresentam comandos que te ajudam a instalar e atualizar plugins de dentro do Vim. Aqui segue uma lista de gerenciadores de plugins comumente usados:</p>
+<p><a href="PLUGINS.md#gerenciadores-de-plugins">Lista de gerenciadores de plugins</a> - <a href="https://github.com/Shougo/dein.vim">dein</a> - <a href="https://github.com/junegunn/vim-plug">plug</a> - <a href="https://github.com/MarcWeber/vim-addon-manager">vim-addon-manager</a> - <a href="https://github.com/VundleVim/Vundle.vim">vundle</a></p>
+<h2 id="inserção-de-bloco">Inserção de bloco</h2>
+<p>Essa é uma técnica para inserir o mesmo texto em várias linhas consecutivas ao mesmo tempo. Veja essa <a href="https://raw.githubusercontent.com/mhinz/vim-galore/master/static/images/content-block_insert.gif">demonstração</a>.</p>
+<p>Passe para o modo de seleção visual de bloco com <code>&lt;c-v&gt;</code>. Em seguida vá para algumas linhas abaixo. Aperte <code>I</code> ou <code>A</code> e comece a inserir o seu texto.</p>
+<p>Isso pode parecer um pouco confuso à primeira vista, mas o text é sempre inserido na linha atual e somente após terminar a inserção é que o mesmo texto será aplicado em todas as outras linhas da seleção visual anterior.</p>
+<p>Então um exemplo bem simples é <code>&lt;c-v&gt;3jItext&lt;esc&gt;</code>.</p>
+<p>Se você tiver linhas com larguras diferentes e quiser pendurar o mesmo logo após o final de cada uma das linhas, faça assim: <code>&lt;c-v&gt;3j$Atext&lt;esc&gt;</code>.</p>
+<p>Pode acontecer que você precise posicionar o cursor em algum lugar após o final da linha atual. Você não pode fazer isso por padrão, mas você pode configurar a opção <code>virtualedit</code>:</p>
+<pre class="vim"><code>set virtualedit=all</code></pre>
+<p>Em seguida <code>$10l</code> ou <code>90|</code> irão funcionar mesmo após o final da linha.</p>
+<p>Veja <code>:h blockwise-examples</code> para mais informações. Pode parecer complicado à primeira vista, mas fica instintivo rapidamente.</p>
+<p>Se você quiser ficar realmente chique, dê uma olhada no <a href="https://github.com/terryma/vim-multiple-cursors">multiple-cursors</a>.</p>
+<h2 id="rodando-programas-externos-e-usando-filtros">Rodando programas externos e usando filtros</h2>
+<p>Aviso: O Vim é um programa de linha única - “<em>single-threaded</em>”, portanto ao rodar um programa externo no plano de fundo irá bloquear tudo o mais. Claro, você pode usar uma das interfaces de programação do Vim, por exemplo Lua, e usar o suporte de linhas dela, mas - mesmo assim - o processo do Vim estará bloqueado enquanto isso. O Neovim consertou isso ao adicionar um API de trabalhos apropriada.</p>
+<p>(Aparentemente o Bram está pensando em adicionar controle de trabalhos (“<em>job control</em>”) ao Vim também. Case você tenha uma versão bem recente, veja <code>:helpgrep startjob</code>).</p>
+<p>Use <code>:!</code> para começar um trabalho. Se você quiser listar os arquivos no diretório de trabalho atual, use <code>:!ls</code>. Use <code>|</code> para entubar comandos no shell como normalmente faria: <code>:!ls -1 | sort | tail -n5</code>.</p>
+<p>Sem um alcance, a saída de <code>:!</code> será mostrada em uma janela que pode ser rolada. Por outro lado, se um alcance for dado, essas linhas serão <a href="https://es.wikipedia.org/wiki/Filtro_(programa)">filtradas</a>. Isso significa que elas serão entubadas a entrada padrão (<a href="https://pt.wikipedia.org/wiki/Fluxos_padr%C3%A3o#Entrada_padr.C3.A3o_.28stdin.29">stdin</a>) do programa de filtragem e após o processamento serão substituídas pela saída padrão (<a href="https://pt.wikipedia.org/wiki/Fluxos_padr%C3%A3o#Sa.C3.ADda_padr.C3.A3o_.28stdout.29">stdout</a>) do filtro. Por exemplo, para pendurar números nas próximas 5 linhas, use isto:</p>
+<pre><code>:.,+4!nl -ba -w1 -s&#39; &#39;</code></pre>
+<p>Mas já que custa tanto adicionar o alcance, o Vim também apresenta algumas ajudas, só pela conveniência. Com alcances, como sempre, você pode selecionar linhas no modo visual e então apertar <code>:</code>. Há também um operador <code>!</code> que aceita um movimento. Por exemplo, <code>!ip!sort</code> irá ordenar as linhas do parágrafo atual.</p>
+<p>Um bom caso para fazer filtragem é na <a href="https://lang.org">língua Go de programação</a>. A indentação é bem arbitrária, tanto que até vem com um filtro chamado de <code>gofmt</code> para indentar código em Go propriamente. Assim sendo, plugins para Go, normalmente oferecem uma ajuda com comandos chamados de <code>:Fmt</code> que basicamente fazem <code>:%!gofmt</code>, e assim indentam todas as linhas no arquivo.</p>
+<p>As pessoas usam com frequência <code>:r !prog</code> para colocar a saída do prog abaixo da linha atual, o que é sem problemas para scripts, mas quando se está no meio da produção, acho mais fácil usar <code>!!ls</code> que substitui a linha atual.</p>
+<pre><code>:h filter
+:h :read!</code></pre>
+<h2 id="cscope">Cscope</h2>
+<p>O <a href="http://cscope.sourceforge.net/">Cscope</a> faz mais coisas que o <a href="http://ctags.sourceforge.net/">ctags</a>, mas suporta apenas C (a C++ e Java até certo ponto).</p>
+<p>Enquanto que um arquivo de tags sabe apenas onde um símbolo foi definido, um banco de dados do cscope sabe muito mais sobre os seus dados:</p>
+<ul>
+<li>Onde esse símbolo está definido?</li>
+<li>Onde esse símbolo é usado?</li>
+<li>Qual é a definição global desse símbolo?</li>
+<li>Onde que essa variável conseguiu esse valor?</li>
+<li>Onde no código fonte essa função está?</li>
+<li>Quais funções chamam essa função?</li>
+<li>Quais funções são chamadas por essa função?</li>
+<li>De onde que ta vindo a mensagem “out of space”?</li>
+<li>Onde na estrutura de diretório está esse código fonte?</li>
+<li>Quais arquivos incluem esse arquivo de cabeçalho?</li>
+</ul>
+<h3 id="construa-o-banco-de-dados">1. Construa o banco de dados</h3>
+<p>Faço isso na raíz do seu projeto:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb54-1" title="1">$ <span class="ex">cscope</span> -bqR</a></code></pre></div>
+<p>Isso irá criar 3 arquivos: `cscope{,.in,.po}.out no diretório de trabalho atual. Pense neles como sendo o seu banco de dados.</p>
+<p>Infelizmente o <code>cscope</code> analisa por padrão apenas arquivos <code>*.[c|h|y|l]</code>. Entretanto, se você quiser usar o cscope para um projeto em Java, faça assim:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb55-1" title="1">$ <span class="fu">find</span> . -name <span class="st">&quot;*.java&quot;</span> <span class="op">&gt;</span> cscope.files</a>
+<a class="sourceLine" id="cb55-2" title="2">$ <span class="ex">cscope</span> -bq</a></code></pre></div>
+<h3 id="adicione-o-banco-de-dados">2. Adicione o banco de dados</h3>
+<p>Abra uma conexão ao seu banco de dados que acabou de set construído:</p>
+<pre class="vim"><code>:cs add cscope.out</code></pre>
+<p>Verificar se a conexão foi feita:</p>
+<pre class="vim"><code>:cs show</code></pre>
+<p>(Sim, você pode adicionar múltiplas conexões.)</p>
+<h3 id="consulte-o-banco-de-dados">3. Consulte o banco de dados</h3>
+<pre class="vim"><code>:cs find &lt;kind&gt; &lt;query&gt;</code></pre>
+<p>Por exemplo <code>:cs find d foo</code> irá listar todas as funções que são chamadas por <code>foo(...)</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Explicação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s</td>
+<td><strong>s</strong>ímbolo: encontre todas as referências ao símbolo</td>
+</tr>
+<tr class="even">
+<td>g</td>
+<td><strong>g</strong>lobal: encontre a(s) definição(ões) globais do símbolo.</td>
+</tr>
+<tr class="odd">
+<td>c</td>
+<td><strong>c</strong>hamada: encontre todas as chamadas à função</td>
+</tr>
+<tr class="even">
+<td>t</td>
+<td><strong>t</strong>exto: encontre todas as instâncias do texto</td>
+</tr>
+<tr class="odd">
+<td>e</td>
+<td><strong>e</strong>grep: pesquisa pela palavra com o egrep</td>
+</tr>
+<tr class="even">
+<td>f</td>
+<td><strong>f</strong>ile (“<em>arquivo</em>”): abrir o nome do arquivo</td>
+</tr>
+<tr class="odd">
+<td>i</td>
+<td><strong>i</strong>nclui: encontrar arquivos que incluem o nome do arquivo</td>
+</tr>
+<tr class="even">
+<td>d</td>
+<td><strong>d</strong>epende: encontrar funções chamadas por essa função</td>
+</tr>
+</tbody>
+</table>
+<p>Eu sugiro uns atalhos convenientes, como:</p>
+<pre class="vim"><code>nnoremap &lt;buffer&gt; &lt;leader&gt;cs :cscope find s  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;cg :cscope find g  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;cc :cscope find c  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;ct :cscope find t  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;ce :cscope find e  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;cf :cscope find f  &lt;c-r&gt;=expand(&#39;&lt;cfile&gt;&#39;)&lt;cr&gt;&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;ci :cscope find i ^&lt;c-r&gt;=expand(&#39;&lt;cfile&gt;&#39;)&lt;cr&gt;$&lt;cr&gt;
+nnoremap &lt;buffer&gt; &lt;leader&gt;cd :cscope find d  &lt;c-r&gt;=expand(&#39;&lt;cword&gt;&#39;)&lt;cr&gt;&lt;cr&gt;</code></pre>
+<p>Então, quando <code>:tag</code> (ou <code>&lt;c-]&gt;</code>) pula para uma definição do arquivo de tags, <code>:cstag</code> faz o mesmo, mas também leva em conta banco de dados de cscope que estejam conectados. A opção <code>cscopetag</code> faz com que <code>:tag</code> aja como <code>:cstag</code> automaticamente. Isso é muito conveniente caso você já tenha atalhos relacionados a tags.</p>
+<p>Ajuda: <code>:h cscope</code></p>
+<h2 id="matchit">MatchIt</h2>
+<p>Já que o Vim é escrito em C, muitas características assumem uma sintáxe com a de C. Por padrão, se o seu cursor estiver em <code>{</code> or <code>#endif</code>, você pode usar <code>%</code> para pular para o <code>}</code> ou <code>#endif</code> correspondente, respectivamente.</p>
+<p>O Vim já vem empacotado com um plugin chamado matchit.vim que não vem ativado por padrão. Ele faz com que <code>%</code> também circule por tags de HTML, construções de if/else/endif em VimL e etc., e introduz alguns novos comandos.</p>
+<h4 id="instalação-para-vim-8">Instalação para Vim 8</h4>
+<pre class="vim"><code>&quot; vimrc
+packadd! matchit</code></pre>
+<h4 id="instalação-para-vim-7-e-anterior">Instalação para Vim 7 e anterior</h4>
+<pre class="vim"><code>&quot; vimrc
+runtime macros/matchit.vim</code></pre>
+<p>Já que a documentação do matchit é bem extensa, eu sugiro faz o seguinte uma vez:</p>
+<pre class="vim"><code>:!mkdir -p ~/.vim/doc
+:!cp $VIMRUNTIME/macros/matchit.txt ~/.vim/doc
+:helptags ~/.vim/doc</code></pre>
+<h4 id="introdução-curta">Introdução curta</h4>
+<p>O plugin está pronto para o uso agora. Veja <code>:h matchit-intro</code> para saber os comandos suportados e <code>:h matchit-languages</code> para as línguas suportadas.</p>
+<p>Agora, é fácil definir as suas próprias combinações de pares:</p>
+<pre class="vim"><code>autocmd FileType python let b:match_words = &#39;\&lt;if\&gt;:\&lt;eliffhs\&gt;:\&lt;else\&gt;&#39;</code></pre>
+<p>Em seguida, você pode circular através dessas 3 declarações em qualquer arquivo de Python pelo uso de <code>%</code> (para frente) ou <code>g%</code> (para o anterior).</p>
+<p>Ajuda:</p>
+<pre><code>:h matchit-install
+:h matchit
+:h b:match_words</code></pre>
+<h2 id="true-colors">True colors</h2>
+<p>Usar <em>true colors</em> (“<em>cores verdadeiras</em>”) em um emulador de terminal que dizer ser capaz de usar 24 bits para as cores RGB. Isso significa 16777216 (2^24) cores ao invés das 256 cores usuais.</p>
+<p>Como é explicado <a href="#esquemas-de-cores">aqui</a>, esquemas de cores podem na verdade ser <em>dois</em> esquemas de cores, tendo assim defini;’oes para terminais (xterm) e para interfaces gráficas (“<em>GUIs</em>”, como o Gvim). Isso fazia sentido no tempo em que os emuladores de terminais ainda não tinham apredido sobre <em>true colors</em>.</p>
+<p>Depois de <code>:set termguicolors</code>, Vim começa a emitir sequencias de escape (“<em>escape sequences</em>”) que só são entendidas por um emulador de terminal com suporte a <em>true colors</em>. Quando as suas cores parecerem esquisitas, é possível que o seu emulador de terminal não suporte <em>true colors</em> ou que o seu esquema de cores não tenha cores definidas para interfaces gráficas (“<em>GUI color</em>”).</p>
+<p>Help: <code>:h 'termguicolors'</code></p>
+<h1 id="dicas-1">Dicas</h1>
+<h2 id="comportamento-mais-saudável-para-n-e-n">Comportamento mais saudável para n e N</h2>
+<p>A direção de <code>n</code> e <code>N</code> depende se <code>/</code> ou <code>?</code> foi usado para pesquisar para adiante ou para traz respectivamente. Isso é bem confuso para mim.</p>
+<p>Se você quiser que o <code>n</code> sempre pesquise avançando e o <code>N</code> sempre retrocedendo, use isso:</p>
+<pre class="vim"><code>nnoremap &lt;expr&gt; n  &#39;Nn&#39;[v:searchforward]
+nnoremap &lt;expr&gt; N  &#39;nN&#39;[v:searchforward]</code></pre>
+<h2 id="comportamento-mais-saudável-para-a-história-da-linha-de-comando">Comportamento mais saudável para a história da linha de comando</h2>
+<p>Se você for um pouco parecido comigo, você tá acostumado a ir para o próximo item ou para o anterior via <code>&lt;c-n&gt;</code> e <code>&lt;c-p&gt;</code> respectivamente. Por padrão, isso também funciona na linha de comando e relembra a história anterior ou mais recente da linha de comando.</p>
+<p>Até aí tudo bem. Mas <code>&lt;up&gt;</code> (a seta pra cima) e <code>&lt;down&gt;</code> (seta pra baixo) são ainda mais inteligentes! Elas lembram da linha comando que combina com a linha de comando atual. Por exemplo, <code>:echo &lt;up&gt;</code> pode mudar para <code>:echo "Vim? Uhu!"</code>.</p>
+<p>Claro que eu não to querendo que você precise alcançar as setas, ao invés disso, remapei:</p>
+<pre class="vim"><code>cnoremap &lt;c-n&gt;  &lt;down&gt;
+cnoremap &lt;c-p&gt;  &lt;up&gt;</code></pre>
+<p>Eu dependo desse comportamento várias vezes ao dia.</p>
+<h2 id="ctrl-l-com-comportamento-mais-saudável">CTRL-L com comportamento mais saudável</h2>
+<p>Por padrão, <code>&lt;c-l&gt;</code> limpa e redesenha a tela (como em <code>:redraw!</code>). O seguinte mapa faz o mesmo, mas também deseleciona os itens encontrados via <code>/</code>, <code>?</code> etc., além de consertar realce de sintáxe (as vezes o Vim perde o realçamento por conta de regras complexas de realçamento), e ainda força a atualização do realce de sintáxe em modo diff:</p>
+<pre class="vim"><code>nnoremap &lt;leader&gt;l :nohlsearch&lt;cr&gt;:diffupdate&lt;cr&gt;:syntax sync fromstart&lt;cr&gt;&lt;c-l&gt;</code></pre>
+<h2 id="desativar-firulas-audiovisuais">Desativar firulas audiovisuais</h2>
+<pre class="vim"><code>set noerrorbells
+set novisualbell
+set t_vb=</code></pre>
+<p>Veja <a href="http://vim.wikia.com/wiki/Disable_beeping">Vim Wiki: Disable beeping</a>.</p>
+<h2 id="mover-a-linha-atual-rapidamente">Mover a linha atual rapidamente</h2>
+<p>As vezes eu preciso de um jeito rápido para mover a linha atual para cima ou para baixo:</p>
+<pre class="vim"><code>nnoremap [e  :&lt;c-u&gt;execute &#39;move -1-&#39;. v:count1&lt;cr&gt;
+nnoremap ]e  :&lt;c-u&gt;execute &#39;move +&#39;. v:count1&lt;cr&gt;</code></pre>
+<p>Esses mapas também aceitam uma conta, portanto <code>2]e</code> move a linha atual duas linhas abaixo.</p>
+<h2 id="adicionar-linhas-vazias-rapidamente">Adicionar linhas vazias rapidamente</h2>
+<pre class="vim"><code>nnoremap [&lt;space&gt;  :&lt;c-u&gt;put! =repeat(nr2char(10), v:count1)&lt;cr&gt;&#39;[
+nnoremap ]&lt;space&gt;  :&lt;c-u&gt;put =repeat(nr2char(10), v:count1)&lt;cr&gt;</code></pre>
+<p>Agora <code>5[&lt;space&gt;</code> insere 5 linhas vazias acima da linha atual.</p>
+<h2 id="edite-os-seus-macros-rapidamente">Edite os seus macros rapidamente</h2>
+<p>Essa é uma verdadeira gema! O mapa aceita um registrdor (ou <code>*</code> por padrão) e o abre na janela de linha de comando (“<em>cmdline-window</em>”). Para configurar o seu registrador, aperte <code>&lt;cr&gt;</code> quando você tiver terminado a edição.</p>
+<p>Eu uso isso com frequência para corrigir erros de digitação feitos durante o registro do macro.</p>
+<pre class="vim"><code>nnoremap &lt;leader&gt;m  :&lt;c-u&gt;&lt;c-r&gt;&lt;c-r&gt;=&#39;let @&#39;. v:register .&#39; = &#39;. string(getreg(v:register))&lt;cr&gt;&lt;c-f&gt;&lt;left&gt;</code></pre>
+<p>Você pode usar como <code>&lt;leader&gt;m</code> ou <code>"q&lt;leader&gt;m</code>.</p>
+<p>Perceba o uso de <code>&lt;c-r&gt;&lt;c-r&gt;</code> para ter certeza que o <code>&lt;c-r&gt;</code> é inserido literalmente. Veja <code>:h c_^R^R</code>.</p>
+<h2 id="pular-rapidamente-para-o-arquivo-de-cabeçalho-ou-fonte">Pular rapidamente para o arquivo de cabeçalho ou fonte</h2>
+<p>Essa técnica provavelmente pode ser aplicada à vários tipos de arquivos (“<em>filetypes</em>”). Ela cria <em>marcadores de arquivo</em> (“<em>file marks</em>”, veja <code>:h marks</code>) ao deixar um arquivo de código fonte ou de cabeçalho (“<em>header</em>”), e assim permite que você pule rapidamente de volta ao último que foi acessado usando <code>'C</code> ou <code>'H</code> (veja <code>:h 'A</code>).</p>
+<pre class="vim"><code>autocmd BufLeave *.{c,cpp} mark C
+autocmd BufLeave *.h       mark H</code></pre>
+<p><strong>NOTA</strong>: A informação é salva em um arquivo viminfo, então tenha certeza que <code>:set viminfo?</code> inclui <code>:h viminfo-'</code>.</p>
+<h2 id="mudar-tamanho-da-fonte-rapidamente-na-interface-gráfica-gui">Mudar tamanho da fonte rapidamente na interface gráfica (GUI)</h2>
+<p>Creio que isso aqui saiu da configuração do tpope:</p>
+<pre class="vim"><code>command! Bigger  :let &amp;guifont = substitute(&amp;guifont, &#39;\d\+$&#39;, &#39;\=submatch(0)+1&#39;, &#39;&#39;)
+command! Smaller :let &amp;guifont = substitute(&amp;guifont, &#39;\d\+$&#39;, &#39;\=submatch(0)-1&#39;, &#39;&#39;)</code></pre>
+<h2 id="mudar-o-estilo-do-cursor-de-acordo-com-o-modo">Mudar o estilo do cursor de acordo com o modo</h2>
+<p>Eu gosto de usar um cursor em formato de bloco para o modo normal, i-beam cursor no modo de inserção, e cursor sublinhado quando no modo de substituição.</p>
+<pre class="vim"><code>if empty($TMUX)
+  let &amp;t_SI = &quot;\&lt;Esc&gt;]50;CursorShape=1\x7&quot;
+  let &amp;t_EI = &quot;\&lt;Esc&gt;]50;CursorShape=0\x7&quot;
+  let &amp;t_SR = &quot;\&lt;Esc&gt;]50;CursorShape=2\x7&quot;
+else
+  let &amp;t_SI = &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]50;CursorShape=1\x7\&lt;Esc&gt;\\&quot;
+  let &amp;t_EI = &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]50;CursorShape=0\x7\&lt;Esc&gt;\\&quot;
+  let &amp;t_SR = &quot;\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]50;CursorShape=2\x7\&lt;Esc&gt;\\&quot;
+endif</code></pre>
+<p>Isso simplemente fala para o Vim imprimir uma certa sequência de caractéres (<a href="https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_escape">sequência de escape</a>) ao entrar/sair do modo de inserção. O terminal subjacente, ou programas como <a href="https://tmux.github.io">tmux</a>, que se localização entre o Vim e o terminal irão processar e avaliar.</p>
+<p>Entretanto há uma contrapartida: há muitas implementações de emulação de terminal e nem todos usam as mesmas sequências para fazer as mesma coisas. As sequências usadas acima podem não funcionar com a sua implementação. A sua implementação pode talvez nem sequer suportar diferentes estilos de curso. Confira a documentação.</p>
+<p>O exemplo acima funciona com o iTerm2.</p>
+<h2 id="não-perca-a-seleção-ao-se-deslocar-lateralmente">Não perca a seleção ao se deslocar lateralmente</h2>
+<p>Se você selecionar uma ou mais linhas, você pode usar <code>&lt;</code> e <code>&gt;</code> para deslocar lateralmente. Infelizmente, você perde imediatamente a seleção logo em seguida.</p>
+<p>Você pode usar <code>gv</code> para reselecionar a última seleção (veja <code>:h gv</code>), e portanto você pode contornar a situação assim:</p>
+<pre class="vim"><code>xnoremap &lt;  &lt;gv
+xnoremap &gt;  &gt;gv</code></pre>
+<p>Agora você pode usar <code>&gt;&gt;&gt;&gt;&gt;</code> na sua seleção visual sem nenhum problema.</p>
+<p><strong>NOTA</strong>: O mesmo pode ser atingido usando <code>.</code>, que repete a última mudança.</p>
+<h2 id="regarregar-um-arquivo-ao-salvar">Regarregar um arquivo ao salvar</h2>
+<p>Usando <a href="#autocmds">autocmds</a> você pode fazer qualquer coisa ao salvar um arquivo, como recarregar o arquivo em caso de algum arquivo escondido, ou rodar um linter para checar se há erros de sintáxe no seu código fonte.</p>
+<pre class="vim"><code>autocmd BufWritePost $MYVIMRC source $MYVIMRC
+autocmd BufWritePost ~/.Xdefaults call system(&#39;xrdb ~/.Xdefaults&#39;)</code></pre>
+<h2 id="linha-do-cursor-mais-inteligente">Linha do cursor mais inteligente</h2>
+<p>Eu amo a linha do cursor, mas eu só preciso usar ela na janela atual e quando não estando em modo de inserção:</p>
+<pre class="vim"><code>autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline</code></pre>
+<h2 id="completar-palavras-chave-mais-rapidamente">Completar palavras chave mais rapidamente</h2>
+<p>A compeplementação de palavras chave (<code>&lt;c-n&gt;</code>/<code>&lt;c-p&gt;</code>) tenta completar o quê quer que esteja listado na opção <code>'complete'</code>. Por padrão, isso também inclui tags (o que pode ser irritante) e escanear todos os arquivos incluídos ( o que pode ser bem lento). Se você pode viver sem essas coisas, desative-as:</p>
+<pre class="vim"><code>set complete-=i   &quot; disable scanning included files
+set complete-=t   &quot; disable searching tags</code></pre>
+<h2 id="mudanças-cosméticas-a-esquemas-de-cores">Mudanças cosméticas a esquemas de cores</h2>
+<p>Sempre usar linha de status (“<em><code>statusline</code></em>”) cinza escura, independente do esquema de cores escolhido:</p>
+<pre class="vim"><code>autocmd ColorScheme * highlight StatusLine ctermbg=darkgray cterm=NONE guibg=darkgray gui=NONE</code></pre>
+<p>O mesmo, mas apenas o esquema de cores “lucius” (confira <code>:echo color_name</code> que deveria ser configurado por todos os esquemas de cores válidos):</p>
+<pre class="vim"><code>autocmd ColorScheme lucius highlight StatusLine ctermbg=darkgray cterm=NONE guibg=darkgray gui=NONE</code></pre>
+<h1 id="comandos-1">Comandos</h1>
+<p>Comandos úteis que são bons de saber. Use <code>:h :&lt;command name&gt;</code> para aprender mais sobre eles, por exemplo <code>:h :global</code>.</p>
+<h2 id="global-e-vglobal">:global e :vglobal</h2>
+<p>Execute um comando em todas as linhas que baterem. Por exemplo <code>:global /regexp/ print</code> irá usar <code>:print</code> em todas as linhas que conterem “regexp”.</p>
+<p>Fato engraçado: vocês todos provavelmente conhecem o bom e velho grep, o programa de filtragem escrito por Ken Thompson. O que ele faz? Ele imprime todas as linhas que baterem com uma certa expressão regular! Agora tente adivinhar qual que é a forma abreviada de <code>:global /regexp/ print</code>? Isso mesmo! É <code>:g/re/p</code>. Ken Thompson foi inspirado pelo comando <code>:global</code> do vi quando ele escreveu o grep.</p>
+<p>Apesar do nome, o <code>:global</code> age apenas em todas as linhas por padrão, mas ele também aceita um alcance. Assumindo que você queira usar <code>:delete</code> em todas as linhas a partir da linha atual até a próxima linha em branco (que bata com a expressão regular <code>^$</code>) e que contenha “foo”:</p>
+<pre class="vim"><code>:,/^$/g/foo/d</code></pre>
+<p>Para executar comandos em todas as linhas que <em>não</em> batam com um dado padrão, use <code>:global!</code> ou o seu alias <code>:vglobal</code> (pense ao invés em <em>inVerso</em>).</p>
+<h2 id="normal-e-execute">:normal e :execute</h2>
+<p>Esses são comandos usados com frequência em scripts do Vim.</p>
+<p>Com <code>:normal</code> você pode fazer mapeamentos do modo normal a partir da linha de comando. Como por exemplo <code>:normal! 4j</code> irá fazer com que o cursor vá 4 linhas para baixo (sem precisar usar nenhum mapeamento personalizado para o “j” por causa da “!”).</p>
+<p>Tenha em conte que o <code>:normal</code> também aceita um alcance, e portanto <code>:%norm! Iabc</code> iria pendurar “abc” no início de todas as linhas.</p>
+<p>Com <code>:execute</code> você pode misturar comandos com expressões. Assumindo que você esteja editando um arquivo de código em C e queira mudar o arquivo de cabeçalho:</p>
+<pre class="vim"><code>:execute &#39;edit&#39; fnamemodify(expand(&#39;%&#39;), &#39;:r&#39;) . &#39;.h&#39;</code></pre>
+<p>Ambos os comandos são com frequência utilizados em conjunto. Assumindo que você queira fazer com que o cursor vá “n” linhas para baixo:</p>
+<pre class="vim"><code>:let n = 4
+:execute &#39;normal!&#39; n . &#39;j&#39;</code></pre>
+<h2 id="redir-e-execute">:redir e execute()</h2>
+<p>Muitos comandos imprimem mensagens e <code>:redir</code> permite redirecionar essa saída. Você pode redirecionar para arquivos, <a href="#registradores">registradores</a> ou variáveis.</p>
+<pre class="vim"><code>:redir =&gt; var
+:reg
+:redir END
+:echo var
+:&quot; For fun let&#39;s also put it onto the current buffer.
+:put =var</code></pre>
+<p>No Vim 8 existe um jeito ainda mais curto:</p>
+<pre class="vim"><code>:put =execute(&#39;reg&#39;)</code></pre>
+<p>Ajuda:</p>
+<pre class="vim"><code>:h :redir
+:h :execute()</code></pre>
+<h1 id="debugging">Debugging</h1>
+<h2 id="dicas-gerais">Dicas gerais</h2>
+<p>Se você encontrar um comportamento estranho, tente reproduzir dessa maneira:</p>
+<pre><code>vim -u NONE -N</code></pre>
+<p>Isso irá iniciar o vim sem o vimrc (portanto, com as configurações padrões) e no modo “nocompatiple” (“<em>não compatível</em>”, o que faz com que o vim use os seus próprios padrões ao invés dos do Vi). (Veja <code>:h --noplugin</code> para outras combinações do quê carregar ao iniciar.)</p>
+<p>Se nesse ponto você ainda puder reproduzir o tal do comportamento estranho, é bem provável que seja um bug do Vim mesmo! Relate-o a lista de endereços <a href="https://groups.google.com/forum/#!forum/vim_dev">vim_dev</a>. Na maioria dos casos, o problema não estará resolvido neste ponto e você terá que avançar na investigação.</p>
+<p>Os plugins com frequência introduzem comportamentos novos/alterados/defeituosos. Por exemplo, se acontecer na hora de salvar, confira <code>:verb au BufWritePost</code> para conseguir uma lista dos (possíveis) culpados.</p>
+<p>Se você estiver usando um gerenciador de plugin, comente os plugins até que você encontre qual deles é o responsável.</p>
+<p>Problema ainda não resolvido? Se não é um plugin, deve ser as suas outras configurações, talvez as suas opções ou os autocmds etc.</p>
+<p>Hora de usar a pesquisa binária. Divida repetidamente o espaço de pesquisa em dois até encontrar a linha culpada. Por causa da natureza da divisão binária, isso não ṕrecisará de muitos passos.</p>
+<p>Na prática, funciona mais ou menos assim: Coloque o comando <code>:finish</code> no meio do seu vimrc. O Vim irá pular tudo que estiver após ele. Se ainda acontecer, o problema está na metade superior que ainda está ativa. Mova o <code>:finish</code> para o meio <em>dessa metade ativa</em>. Caso contrário, o próblema está na metade inativa abaixo. Mova o <code>:finish</code> para a <em>metade dessa metade inativa</em>. E assim por diante.</p>
+<h2 id="verbosidade">Verbosidade</h2>
+<p>Um outro jeito útil para observar o quê o Vim está atualmente fazendo é aumentar o nível de verbosidade. Atualmente o Vim suporta 9 níveis deferentes. Veja <code>:h 'verbose'</code> para conferir a lista completa.</p>
+<pre class="vim"><code>:e /tmp/foo
+:set verbose=2
+:w
+:set verbose=0</code></pre>
+<p>Isso irá mostrar todos os arquivos são avaliados (“<em>sourced</em>”), como por exemplo o arquivo com os desfazeres ou vários plugins que agem na hora de salvar.</p>
+<p>Se você quiser apenas aumentar a verbosidade para um programa, há também <code>:verbose</code>, que é simplesmente colocado em frente a qualquer outro programa. Ele aceita o nível de verbosidade como um alcance e por padrão refere-se a 1:</p>
+<pre class="vim"><code>:verb set verbose
+&quot;  verbose=1
+:10verb set verbose
+&quot;  verbose=10</code></pre>
+<p>Isso com muita frequência usado com o próprio nível de verbosidade (1) que mostra onde uma opção foi vista pela última vez:</p>
+<pre class="vim"><code>:verb set ai?
+&quot;      Last set from ~/.vim/vimrc</code></pre>
+<p>Naturalmente, quanto maior o nível de verbosidade, mais sobrecarregado será o resultado. Mas não precisa ter medo, você pode simplesmente redirecionar o resultado para um arquivo:</p>
+<pre class="vim"><code>:set verbosefile=/tmp/foo | 15verbose echo &quot;foo&quot; | vsplit /tmp/foo</code></pre>
+<p>Você também pode ativar a verbosidade na hora de iniciar o Vim com a opção <code>-V</code>. Ela refere-se por padrão ao nível 10 de verbosidade. Por exemplo, <code>vim -V5</code>.</p>
+<h2 id="analisando-o-tempo-de-inicialização">Analisando o tempo de inicialização</h2>
+<p>O Vim parece estar inicializando devagar? Hora de conferir alguns números:</p>
+<pre><code>vim --startuptime /tmp/startup.log +q &amp;&amp; vim /tmp/startup.log</code></pre>
+<p>A primeira coluna é a mais importante já que ela mostra o tempo absoluto transcorrido. Se houver um grande salto entre duas linhas, a sengunda linha ou é um arquivo grande ou um arquivo com código VimL defeituoso que vale a pena investigar.</p>
+<h2 id="analisando-o-tempo-de-execução">Analisando o tempo de execução</h2>
+<p><a href="#Que-tipo-de-Vim-eu-estou-rodando">Caractéristica requerida</a>: <code>+profile</code></p>
+<p>O Vim apresenta uma capacidade própria de analisar o próprio tempo de execução e essa é uma boa forma de encontrar código lento no seu ambiente.</p>
+<p>O comando <code>:profile</code> aceita um bando de sub-comandos para especificar o quê deve ser analisado.</p>
+<p>Se você quiser analisar <em>tudo</em>, faça assim:</p>
+<pre><code>:profile start /tmp/profile.log
+:profile file *
+:profile func *
+&lt;faça alguma coisa no vim&gt;
+&lt;encerre o Vim&gt;</code></pre>
+<p>O Vim mantém a informação analisada na memória e apenas a escreve para o arquivo de log na hora que for encerrado. (O Neovim consertou isso usando <code>:profile dump</code>).</p>
+<p>Dê uma olhada em <code>/tmp/profile.log</code>. Todo o código que foi executado durante a análise será mostrado. Cada linha, com que frequência foi executada e quanto tempo levou.</p>
+<p>Na maioria das vezes, isso será código de plugin que a usuária não está familiarizada com, mas se você está investigando alguma questão específica, pule direto para o final do arquivo. Aqui estarão duas sessões diferentes: <code>FUNCTIONS SORTED ON TOTAL TIME</code> (“<em>funções classificadas pelo tempo total</em>”) e <code>FUNCTIONS SORTED ON SELF TIME</code> (“<em>funções classificadas pelo tempo prórprio</em>”) que são puro ouro. Basta bater olho e você poderá ver se uma certa função tá levando muito tempo.</p>
+<h2 id="depurando-vim-scripts">Depurando Vim scripts</h2>
+<p>Se você já usou alguma vez um depurador de linha de comando antes, o <code>:debug</code> irá rapidamente lhe parecer familiar.</p>
+<p>Simplesmente coloque <code>:debug</code> antes de qualquer outro comando e você você entrará no modo de depuração. Isso quer dizer que a execução irá parar na primeira linha que está para ser executada, e essa linha será mostrada</p>
+<p>Veja <code>:h &gt;cont</code> e abaixo para ver os 6 comandos de depuração disponíveis e note, que assim como no gdb e depuradores similares, você também pode usar a forma curta deles: <code>c</code>, <code>q</code>, <code>n</code>, <code>s</code>, <code>i</code> e <code>f</code>.</p>
+<p>Tirando esses, você é livre para usar qualquer comando do Vim, por exemplo <code>:echo minhavariavel</code>, que será executado no context da posição atual no código.</p>
+<p>Você basicamente obtém um <a href="https://es.wikipedia.org/wiki/REPL">REPL</a> pelo simple uso de <code>:debug 1</code>.</p>
+<p>Seria muito sofrido se você tivesse que ir passo após passo através de cada linha, então é claro que você pode definir pontos de interrupção também. (Pontos de interrupção são chamados de pontos de interrupção - “<em>breakpoints</em>” - porque a execução é parada quando eles são atingidos, e assim você pode simplesmente pular código que não interessa). Veja <code>:h :breakadd</code>, <code>:h :breakdel</code>, e <code>:h breaklist</code> para mais detalhes.</p>
+<p>Vamos assumir que você queira saber qual código que é rodado toda vez que você salva um arquivo:</p>
+<pre class="vim"><code>:au BufWritePost
+&quot; signify  BufWritePost
+&quot;     *         call sy#start()
+:breakadd func *start
+:w
+&quot; Breakpoint in &quot;sy#start&quot; line 1
+&quot; Entering Debug mode.  Type &quot;cont&quot; to continue.
+&quot; function sy#start
+&quot; line 1: if g:signify_locked
+&gt;s
+&quot; function sy#start
+&quot; line 3: endif
+&gt;
+&quot; function sy#start
+&quot; line 5: let sy_path = resolve(expand(&#39;%:p&#39;))
+&gt;q
+:breakdel *</code></pre>
+<p>Como você pode ver, usando <code>&lt;cr&gt;</code> irá repetir o comando de depuração anterior, <code>s</code> nesse caso.</p>
+<p><code>:debug</code> pode ser usado em combinação a opção de <a href="#verbosidade">verbosidade</a>.</p>
+<h2 id="depurando-arquivos-de-sintáxe">Depurando arquivos de sintáxe</h2>
+<p>Arquivos de sintáxe são com frequência a causa de lentidões devido a expressões regulares erradas e/ou complexas. Se a <a href="#que-tipo-de-vim-eu-estou-rodando">característica</a> <code>+profile</code> foi compilada, o Vim apresenta o comando <code>:syntime</code> que é super útil.</p>
+<pre class="vim"><code>:syntime on
+&quot; hit &lt;c-l&gt; a few times to redraw the window which causes the syntax rules to get applied again
+:syntime off
+:syntime report</code></pre>
+<p>A saída desse comando contém medidores importantes. Como por exemplo você pode ver qual regexp leva muito tempo e deveria ser optimizada ou quais expressões regulares são usadas todo tempo mais que quase nunca batem.</p>
+<p>Veja <code>:h :syntime</code>.</p>
+<h1 id="diversos-1">Diversos</h1>
+<h2 id="recursos-adicionais">Recursos adicionais</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Recurso</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="http://www.moolenaar.net/habits.html">Seven habits of effective text editing</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Por Bram Moolenaar, o autor do Vim.</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[Seven habits of effective text editing 2.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>(PDF)](http://www.moolenaar.net/habits_2007.pdf)</td>
+<td>Veja acima.</td>
+</tr>
+<tr class="odd">
+<td>[IBM DeveloperWorks: Scripting the Vim</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>editor](http://www.ibm.com/developerworks/views/linux/libraryview.jsp?sort_order=asc&amp;sort_by=Title&amp;search_by=scripting+the+vim+editor) | Série de 5 partes sobre Vimscript. | | <a href="http://learnvimscriptthehardway.stevelosh.com">Learn Vimscript the Hard Way</a> | Construa um plugin para o Vim desde o princípio. | | <a href="http://www.amazon.com/Practical-Vim-Edit-Speed-Thought/dp/1680501275/">Practical Vim (2nd Edition)</a> | Facilmente o melhor livre sobre o Vim. | | <a href="http://vimcasts.org/episodes/archive">Vimcasts.org</a> | Vim screencasts. | | <a href="https://www.youtube.com/channel/UCXPHFM88IlFn68OmLwtPmZA">wincent’s screencasts on YouTube</a> | Vim screencasts. | | <a href="http://www.viemu.com/a-why-vi-vim.html">Why, oh WHY, do those #?@! nutheads use vi?</a> | Equívocos comuns explicados. | | <a href="http://stackoverflow.com/a/1220118">Your problem with Vim is that you don’t grok vi</a> | Conciso, informativo e correto. Uma verdadeira gema. |</p>
+<h2 id="distribuições-do-vim">Distribuições do Vim</h2>
+<p>Distribuições do Vim são agrupamentos de configurações personalizadas e plugins para o Vim.</p>
+<p>Usuários mais avançados sabem como configurar o seu editor, por isso distribuições são mais focadas em iniciantes. Se você pensar sobre o assunto, é algo paradoxal: fazer ficar ainda mais fácil adicionando ainda mais coisas para serem aprendidas?</p>
+<p>Eu sei que muitas pessoas não querem despediçar horas e mais horas para personalizar um editor de texto (e na verdade, você nunca pára de customizar o seu vimrc depois que tiver pegado o jeito da coisa), mais eventualmente você só ficará eficiente no Vim quando você dedicar o tempo para aprender apropriadamente.</p>
+<p>Repita comigo: “Uma programadora deve conhecer suas ferramentas”.</p>
+<p>De qualquer forma, se você souber o que você está fazendo, você se inspirar dando uma olhada em algumas distribuições:</p>
+<ul>
+<li><a href="http://cream.sourceforge.net">cream</a></li>
+<li><a href="https://github.com/carlhuda/janus.git">janus</a></li>
+<li><a href="https://github.com/SpaceVim/SpaceVim">spacevim</a></li>
+<li><a href="https://github.com/spf13/spf13-vim">spf13</a></li>
+</ul>
+<h2 id="plugins-padrões">Plugins padrões</h2>
+<p>Para a surpresa de muitos, o Vim já vem com uma mão cheia de plugins em si mesmo que são todos carregados por padrão. Confira <code>:scriptnames</code> depois que tiver inicializado o Vim para ver todos os plugins que são carregados por padrão.</p>
+<p>A maioria deles nunca serão usados, portanto desative-os conforme achar melhor. Eles ainda serão mostrados como carregados, mas apenas as primeiras linhas são carregadas antes que o Vim comece a resgatar. Nenhum código a mais (mapas, comandos, lógica) será processado. Most of them will never get used, so disable them as you see fit. They will still be shown as sourced, but only the first lines actually get read before Vim bails out. No further code (mappings, commands, logic) will be processed.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Plugin</th>
+<th>Desative usando..</th>
+<th>Ajuda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2html</td>
+<td><code>let g:loaded_2html_plugin = 1</code></td>
+<td><code>:h 2html</code></td>
+</tr>
+<tr class="even">
+<td>getscript</td>
+<td><code>let g:loaded_getscriptPlugin = 1</code></td>
+<td><code>:h pi_getscript</code></td>
+</tr>
+<tr class="odd">
+<td>gzip</td>
+<td><code>let g:loaded_gzip = 1</code></td>
+<td><code>:h pi_gzip</code></td>
+</tr>
+<tr class="even">
+<td>logipat</td>
+<td><code>let g:loaded_logipat = 1</code></td>
+<td><code>:h pi_logipat</code></td>
+</tr>
+<tr class="odd">
+<td>matchparen</td>
+<td><code>let g:loaded_matchparen = 1</code></td>
+<td><code>:h pi_paren</code></td>
+</tr>
+<tr class="even">
+<td>netrw</td>
+<td><code>let g:loaded_netrwPlugin = 1</code></td>
+<td><code>:h pi_netrw</code></td>
+</tr>
+<tr class="odd">
+<td>rrhelper</td>
+<td><code>let g:loaded_rrhelper = 1</code></td>
+<td><code>:e $VIMRUNTIME/plugin/rrhelper.vim</code></td>
+</tr>
+<tr class="even">
+<td>spellfile</td>
+<td><code>let g:loaded_spellfile_plugin = 1</code></td>
+<td><code>:h spellfile.vim</code></td>
+</tr>
+<tr class="odd">
+<td>tar</td>
+<td><code>let g:loaded_tarPlugin = 1</code></td>
+<td><code>:h pi_tar</code></td>
+</tr>
+<tr class="even">
+<td>vimball</td>
+<td><code>let g:loaded_vimballPlugin = 1</code></td>
+<td><code>:h pi_vimball</code></td>
+</tr>
+<tr class="odd">
+<td>zip</td>
+<td><code>let g:loaded_zipPlugin = 1</code></td>
+<td><code>:h pi_zip</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="remapear-o-capslock-para-ser-um-outro-control">Remapear o CapsLock para ser um outro Control</h2>
+<p>O CapsLock faz pare do time das teclas mais inúteis do teclado, por outro lado é uma tecla muito mais fácil de ser alcançada que a tecle Control, já que está localizada na <a href="https://raw.githubusercontent.com/mhinz/vim-galore/master/static/images/content-homerow.png">linha central</a> do seu teclado. Remapear o CapsLock para Control é um ótimo jeito de prevenir ou menos reduzir <a href="https://pt.wikipedia.org/wiki/Les%C3%A3o_por_esfor%C3%A7o_repetitivo">lesão por esforço repetitivo</a> se você programar muito.</p>
+<p>Atenção: Quando você se acostumar a isso, você não poderá mais viver sem.</p>
+<p><strong>macOS</strong>:</p>
+<p><code>System Preferences -&gt; Keyboard -&gt; Keyboard Tab -&gt; Modifier Keys</code>. Mude “CapsLock” para “Control”.</p>
+<p><strong>Linux</strong>:</p>
+<p>Para mudar as teclas no X, coloque isso no seu <code>~/.xmodmap</code>:</p>
+<pre><code>remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L</code></pre>
+<p>Em seguida avalie com <code>$ xmodmap ~/.xmodmap</code>.</p>
+<p>Uma alternativa seria usar o <a href="https://github.com/oblitum/caps2esc">caps2esc</a> ou o <a href="https://github.com/alols/xcape">xcape</a>.</p>
+<p><strong>Windows</strong>:</p>
+<p>Veja <a href="http://superuser.com/questions/764782/map-caps-lock-to-control-in-windows-8-1">superuser.com: Map Caps-Lock to Control in Windows 8.1</a>.</p>
+<h2 id="ovos-de-páscoa">Ovos de páscoa</h2>
+<table>
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Comando</th>
+<th>Mensagem</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:Ni!</code></td>
+<td><code>Do you demand a shrubbery?</code></td>
+</tr>
+<tr class="even">
+<td><code>:h 'sm'</code></td>
+<td><code>NOTE: Use of the short form is rated PG.</code></td>
+</tr>
+<tr class="odd">
+<td><code>:h 42</code></td>
+<td><code>What is the meaning of life, the universe and everything? Douglas Adams, the only person who knew what this question really was about is now dead, unfortunately.  So now you might wonder what the meaning of death is...</code></td>
+</tr>
+<tr class="even">
+<td><code>:h UserGettingBored</code></td>
+<td><code>When the user presses the same key 42 times. Just kidding! :-)</code></td>
+</tr>
+<tr class="odd">
+<td><code>:h bar</code></td>
+<td><code>Ceci n'est pas une pipe.</code></td>
+</tr>
+<tr class="even">
+<td><code>:h holy-grail</code></td>
+<td><code>You found it, Arthur!</code></td>
+</tr>
+<tr class="odd">
+<td><code>:h map-modes</code></td>
+<td><code>:nunmap can also be used outside of a monastery.</code></td>
+</tr>
+<tr class="even">
+<td><code>:help!</code></td>
+<td><code>E478: Don't panic!</code> (Glitch? When used in a help buffer (<code>buftype=help</code>) this works like <code>:h help.txt</code> instead.)</td>
+</tr>
+<tr class="odd">
+<td><code>:smile</code></td>
+<td>Try it out yourself. ;-) Added in 7.4.1005.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="por-que-hjkl-para-navegação">Por que hjkl para navegação?</h2>
+<p>Quando <a href="https://pt.wikipedia.org/wiki/Bill_Joy">Bill Joy</a> criou o <a href="https://pt.wikipedia.org/wiki/Vi">vi</a>, o predecessor do Vim, ele o fez em um <a href="https://en.wikipedia.org/wiki/ADM-3A">ADM-3A</a> que não tinha nenhuma tecla extra para movimentar o cursor, e por isso ele usou hjkl, como você já deve ter adivinhado.</p>
+<p>Layout do teclado: <a href="https://raw.githubusercontent.com/mhinz/vim-galore/master/static/images/content-adm-3a-layout.jpg">clique</a></p>
+<p>Isso também mostra o porque que <code>~</code> é usado para denotar o diretório “home” em sistemas Unix.</p>
+<h1 id="problemas-comuns-1">Problemas comuns</h1>
+<h2 id="edição-de-arquivos-pequenos-está-lenta">Edição de arquivos pequenos está lenta</h2>
+<p>Há duas coisas que podem ter um grande impacto sobre a performance:</p>
+<ol type="1">
+<li><em>Expressões regulares</em> complexas. Em particular, o arquivo de sintáxe para Ruby fez com que pessoas experienciassem lentidões no passado. (Veja também <a href="#Depurando-arquivos-de-sintáxe">Depurando arquivos de sintáxe</a>.)</li>
+<li><em>Redimensionamentos de tela</em>. Certas características forçam o redimensionamento de todas as linhas.</li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 46%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Típico culpado</th>
+<th>Por que?</th>
+<th>Solução?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>:set cursorline</code></td>
+<td>Faz com que todas as linhas sejam redimensionadas.</td>
+<td><code>:set nocursorline</code></td>
+</tr>
+<tr class="even">
+<td><code>:set cursorcolumn</code></td>
+<td>Faz com que todas as linhas sejam redimensionadas.</td>
+<td><code>:set nocursorcolumn</code></td>
+</tr>
+<tr class="odd">
+<td><code>:set relativenumber</code></td>
+<td>Faz com que todas as linhas sejam redimensionadas.</td>
+<td><code>:set norelativenumber</code></td>
+</tr>
+<tr class="even">
+<td><code>:set foldmethod = syntax</code></td>
+<td>Se o arquivo de sintáxe já estiver lento, isso fará a coisa ficar ainda pior.</td>
+<td><code>:set foldmethod=manual</code>, <code>:set foldmethod=marker</code> ou <a href="https://github.com/Konfekt/FastFold">FastFold</a></td>
+</tr>
+<tr class="odd">
+<td><code>:set synmaxcol  = 3000</code></td>
+<td>Devido à representação interna, o Vim em geral tem problemas com linhas longas. Realça colunas até a coluna 3000.</td>
+<td><code>:set synmaxcol=200</code></td>
+</tr>
+<tr class="even">
+<td>matchparen.vim</td>
+<td>Carregado por padrão. Usa expressões regulares para encontrar o parênteses que faz companhia.</td>
+<td>Desativar o plugin: <code>:h matchparen</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTA</strong>: Você só precisa agir assim caso esteja experienciando problemas reais de performance. Na maioria dos casos, usar alguma das coisas mencionadas acima é perfeitamente aceitável.</p>
+<h2 id="edição-de-arquivos-grandes-está-lenta">Edição de arquivos grandes está lenta</h2>
+<p>O maior problema com arquivos grandes é que o Vim lê o arquivo inteiro de uma vez. Isso é feito por conta da maneira em que os buffers são representados internalmente. (<a href="https://groups.google.com/forum/#!topic/vim_dev/oY3i8rqYGD4/discussion">Discussão na vim_dev@</a>)</p>
+<p>Se você quer apenas ler, <code>tail hugefile | vim -</code></p>
+<p>Se você pode viver sem a sintáxe, configurações e plugins por um momento:</p>
+<pre><code>$ vim -u NONE -N</code></pre>
+<p>Isso deveria fazer com que a navegação fique um bocado mais ligeira, especialmente já que nenhuma expressão regular (custosa) é usada para o realce de sintáxe. Você deveria também falar pro Vim não usar os arquivos de troca (“<em>swapfiles</em>”) e os arquivos viminfo para evitar atrados longos ao escrever:</p>
+<pre><code>$ vim -n -u NONE -i NONE -N</code></pre>
+<p>Resumindo, evite usar o Vim quando pretender escrever realmente gigantescos. :<br />
+</p>
+<h2 id="colar-entre-parenteses-ou-porque-eu-tenho-que-configurar-paste-o-tempo">Colar entre parenteses (ou porque eu tenho que configurar ‘paste’ o tempo</h2>
+<p>todo?)</p>
+<p>O modo de colar entre parenteses permite que emuladores de terminal possam distinguir entre texto digitado e texto colado.</p>
+<p>Você já tentou alguma vez colar código no Vim e em seguida tudo parecia bangunçado?</p>
+<p>Isso só acontece se você colar via <code>cmd+v</code>, <code>shift-insert</code>, <code>middle-click</code> etc. porque você está simplesmente jogando texto no emulador de terminal. O Vim não sabe que você acabou de colar o texto, ele pensa que você é uma digitadora extremamente veloz. E assim sendo, ele tenta indentar as linhas e acaba falhando.</p>
+<p>Obviamente, isso não é um problema se você colar usando os registradores do Vim, como <code>"+p</code>, pois nesse caso o Vim sabe que você está na verdade colando texto.</p>
+<p>Para contornar essa situação, você precisa configurar com <code>:set paste</code>, e o texto será colado como ele é. Veja <code>:h 'paste'</code> e <code>:h 'pastetoggle'</code>.</p>
+<p>Se você está cansado de ficar ativando <code>'paste'</code> o tempo todo, dê uma olhada nesse plugin que faz exatamente isso por você: <a href="https://github.com/ConradIrwin/vim-bracketed-paste">bracketed-paste</a>.</p>
+<p>Leitura adicional (em <em>inglês</em>) do mesmo autor do plugin: <a href="http://cirw.in/blog/bracketed-paste">aqui</a>.</p>
+<p><strong>Neovim</strong>: O Neovim tenta fazer tudo isso ficar mais harmonioso e configura a colagem entre parenteses automaticamente se o emulador de terminal tiver suporte para ela.</p>
+<h2 id="atrasos-ao-usar-a-tecla-de-escape-no-terminal">Atrasos ao usar a tecla de escape no terminal</h2>
+<p>Se você vive na linha de comando, você provavelmente usa algo chamado <em>emulador de terminal</em> como o xterm, gnome-terminal, iTerm2, etc. (Ao invés de um <a href="https://pt.wikipedia.org/wiki/Terminal_(inform%C3%A1tica)">terminal real</a>.</p>
+<p>Assim como os seus ancestrais, emuladores de terminal usam <a href="https://pt.wikipedia.org/wiki/Sequ%C3%AAncia_de_escape">sequencias de escape</a> para controlar coisas como a movimentação do cursor, mudança da cor do texto, etc. Elas são simplesmente “<em>strings</em>” de caractéres de ASCII começando com um caractére de escape (mostradas em <a href="https://pt.wikipedia.org/wiki/Nota%C3%A7%C3%A3o_com_circunflexo">notação com circumfléxo</a> como <code>^[</code>). Quando esse tipo de string chega, o emulador de terminal confere a ação que acompanha no banco de dados <a href="https://en.wikipedia.org/wiki/Terminfo">terminfo</a>.</p>
+<p>Para deixar o problema mais claro, eu irei primeiro explicar como funciona o mapeamento do esgotamento de tempo (“<em>timeouts</em>”). Eles sempre acontecem quando existe alguma ambiguidade entre os mapas:</p>
+<pre class="vim"><code>:nnoremap ,a  :echo &#39;foo&#39;&lt;cr&gt;
+:nnoremap ,ab :echo &#39;bar&#39;&lt;cr&gt;</code></pre>
+<p>Ambos os mapas funcionam como esperado, mais ao digitar <code>,a</code>, haverá um atraso de 1 segundo, porque o Vim espera para saber se a usuária irá pressionar um outro <code>b</code> ou não.</p>
+<p>Sequências de escape apresentam o mesmo problema:</p>
+<ul>
+<li><code>&lt;esc&gt;</code> é muito usado para retornar ao modo normal ou para terminar uma ação.</li>
+<li>Teclas do cursor são encodificadas usando sequências de escape. -O Vim o espera que o <kbd>Alt</kbd> (também chamado de <em>tecla Meta</em>) envie uma própria encodificação de 8-bit com o bit alto configurado, mas muitos emuladores de terminal não suportam isso (ou não ativam isso por padrão) e acabam enviando uma sequência de escape ao contrário.</li>
+</ul>
+<p>Você pode testar isso assim: <code>vim -u NONE -N</code> e digitar <code>i&lt;c-v&gt;&lt;left&gt;</code> e você verá uma sequência inserida que começa com <code>^[</code> que denota o caractére de escape.</p>
+<p>Colocando de outra forma, o Vim na verdade passa por um grande desafio para distinguir entre um <code>&lt;esc&gt;</code> que foi digitado e uma sequência de escape.</p>
+<p>Por padrão, o Vim usa <code>:set timeout timeoutlen=1000</code>, então quando houver ambiguidade entre mapas <em>e</em> códigos de tecla ele irá atrasar em 1 segundo. Esse é um valão saudável para mapas, mas você pode definir o esgotamento de tempo (“<em>timeout</em>”) para códigos de tecla a parte, que acaba sendo o jeito mais comum para contornar todo esse problema:</p>
+<pre class="vim"><code>set timeout           &quot; para mapas
+set timeoutlen=1000   &quot; valor padrão
+set ttimeout          &quot; para códigos de tecla
+set ttimeoutlen=10    &quot; valor pequeno e imperceptível</code></pre>
+<p>Em <code>:h ttimeout</code> você encontrará uma pequena tabela demonstrando a relação entre essas opções.</p>
+<p>Se você estiver usando o tmux entre o Vim e o seu emulador de terminal, coloque também isso aqui em seu <code>~/.tmux.conf</code>:</p>
+<pre class="tmux"><code>set -sg escape-time 0</code></pre>
+<h2 id="função-para-desfazer-pesquisa">Função para desfazer pesquisa</h2>
+<h3 id="function-search-undo">Function search undo</h3>
+<ul>
+<li>Um padrão de pesquisa em um comando (<code>/</code>, <code>:substitute</code>, …) muda o “último padrão de pesquisa usado”. (Ele é salvo no registrador <code>/</code>; você pode “imprimir” com <code>:echo @/</code>).</li>
+<li>Uma mudança simples de texto pode ser refeita com <code>.</code>. (Ela é salva no registrador <code>.</code>; para imprimir use <code>:echo @.</code>).</li>
+</ul>
+<p>Ambas situações <em>não são</em> o caso se você as fizer a partir de uma função! Por isso você não pode realçar palavras facilmente a partir de uma função ou refazer mudanças de texto feitas por uma função.</p>
+<p>Ajuda: <code>:h function-search-undo</code></p>
+<h1 id="caprichos-técnicos">Caprichos técnicos</h1>
+<h2 id="nova-linha-usada-para-nul">Nova linha usada para NUL</h2>
+<p>Caractéres NULOS (ou “<em>NUL characters</em>”, <code>\0</code>) em um arquivo, são guardados como uma nova linha (ou “<em>Newline</em>”, <code>\n</code>) na memória e mostrados em um buffer como <code>^@</code>.</p>
+<p>Veja <code>man 7 ascii</code> e <code>:h NL-used-for-Nul</code> para mais informação.</p>
+</body>
+</html>

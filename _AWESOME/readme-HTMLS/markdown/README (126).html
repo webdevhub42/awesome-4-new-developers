@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README (126)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p><img src="https://rawgit.com/AllThingsSmitty/css-protips/master/media/logo.svg" alt="light bulb icon" width="200" /></p>
+<h1 id="wskazówki-css-awesome">Wskazówki CSS <a href="https://github.com/sindresorhus/awesome"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome" /></a></h1>
+<p>Zbiór porad, które pomogą Ci rozwinąć zawansowane umiejętności CSS.</p>
+<blockquote>
+<p>Sprawdż takze inne wspaniałe listy <span class="citation" data-cites="sindresorhus">[<span class="citation" data-cites="sindresorhus">@sindresorhus</span>]</span>(https://github.com/sindresorhus/) z <a href="https://github.com/sindresorhus/awesome/">zaufanych list</a>.</p>
+</blockquote>
+<h2 id="powrót-do-spisu-treści">Powrót do spisu treści</h2>
+<ul>
+<li><a href="#Wskazowki">Wskazówki</a></li>
+<li><a href="#Wsparcie">Wsparcie</a></li>
+<li><a href="../../CONTRIBUTING.md">Wskazówki dotyczące kontrybucji do tego projektu</a></li>
+</ul>
+<h2 id="wskazówki">Wskazówki</h2>
+<ol type="1">
+<li><a href="#użyj-resetowania-css">Użyj resetowania CSS</a></li>
+<li><a href="#dziedziczenie-box-sizing">Dziedziczenie <code>box-sizing</code></a></li>
+<li><a href="#użyj-unset-zamiast-resetowania-wszystkich-ustawień">Użyj <code>unset</code> zamiast resetowania wszystkich ustawień</a></li>
+<li><a href="#użyj-not-aby-dodaćusunąć-obramownie-nawigacji">Użyj <code>:not()</code> aby dodać/usunąć obramownie nawigacji</a></li>
+<li><a href="#sprawdź,-czy-czcionka-jest-zainstalowana-lokalnie">Sprawdź, czy czcionka jest zainstalowana lokalnie</a></li>
+<li><a href="#dodaj-line-height-do-body">Dodaj <code>line-height</code> do <code>body</code></a></li>
+<li><a href="#ustaw-:focus-dla-form-elements">Ustaw <code>:focus</code> dla elementów formularza</a></li>
+<li><a href="#przesuwanie-w-pionie">Przesuń cokolwiek pionowo</a></li>
+<li><a href="#listy-podzielone-przecinkami">Listy rozdziele przecinkami</a></li>
+<li><a href="#wybierz-przedmioty-za-pomocą-nth-child">Wybierz elementy za pomocą negatywnego <code>nth-child</code></a></li>
+<li><a href="#użyj-svg-dla-ikon">Użyj SVG dla ikon</a></li>
+<li><a href="#użyj-selektora-lobotomized-owl">Użyj selektora “Lobotomized Owl”</a></li>
+<li><a href="#użyjmax-height-dla-suwaków-pure-csss">Użyj <code>max-height</code> dla suwaków Pure CSS</a></li>
+<li><a href="#równoważne-komórki-tabeli">Komórki tabeli o równej-szerokości</a></li>
+<li><a href="#pozbądź-się-marginesów-za-pomocą-flexbox">Pozbądź się marginesów za pomocą Flexbox</a></li>
+<li><a href="#użyj-selektorów-atrybutów-z-pustymi-linkami">Użyj selektorów atrybutów z pustymi linkami</a></li>
+<li><a href="#stylizuj-domyślne-linki">Stylizuj domyślne linki</a></li>
+<li><a href="#wewnętrzne-proporcje-bloków">Wewnętrzne proporcje bloków</a></li>
+<li><a href="#wystylizuj-uszkodzone-obrazy">Wystylizuj uszkodzone obrazy</a></li>
+<li><a href="#użyj-rem-dla-ustawień-globalnych-rozmiarow-i-em-do-ustawień-localnych">Użyj <code>rem</code> dla ustawień globalnych rozmiarow i <code>em</code> do ustawień localnych</a></li>
+<li><a href="#ukryj-filmy-z-autoodtwarzaniem-które-nie-są-wyciszone">Ukryj filmy z autoodtwarzaniem, które nie są wyciszone</a></li>
+<li><a href="#użyj-%60:root%60-dla-elastycznych-typów">Użyj <code>:root</code> dla elastycznych typów</a></li>
+<li><a href="#ustaw-rozmiar-czcionki-w-elementach-formularza">Ustaw rozmiar czcionki w elementach formularza</a></li>
+<li><a href="#użyj-zdarzeń-wskaźnika-do-sterowania-zdarzeniami-myszy">Użyj zdarzeń wskaźnika do sterowania zdarzeniami myszy</a></li>
+<li><a href="#ustaw-display-none-na-podziały-linii-używane-jako-odstępy">Ustaw <code>display: none</code> na Podziały linii używane jako odstępy</a></li>
+</ol>
+<h3 id="użyj-resetowania-css">Użyj resetowania CSS</h3>
+<p>Reset ustawień CSS umośliwia wymuszenie spójność stylu w różnych przeglądarkach z czystym konturem dla elementów stylizacyjnych. Możesz wykorzystać jedną bibliotek resetującej ustawienia CSS np. <a href="http://necolas.github.io/normalize.css/">Normalize</a> lub użyć uproszczonego sposobu resetowania:</p>
+<pre><code>* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}</code></pre>
+<p>Elementy zostaną pozbawione marginesów i dopełnienia, a <code>box-sizing</code> pozwala zarządzać układami za pomocą modelu pudełkowego CSS (CSS box model).</p>
+<h4 id="demonstracja"><a href="http://codepen.io/AllThingsSmitty/pen/kkrkLL">Demonstracja</a></h4>
+<p><strong>Uwaga:</strong> Jeżeli zdecydujesz sie na wykorzystanie powyżej opisanej wskazówki dotyczącej <a href="#inherit-box-sizing">Dziedziczenia <code>box-sizing</code></a> możesz zrezygnować z dodania <code>box-sizing</code> w zresetowanych ustawieniach CSS.</p>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="dziedziczenie-box-sizing">Dziedziczenie <code>box-sizing</code></h3>
+<p>Niech <code>box-sizing</code> zostanie odziedziczony z <code>html</code>:</p>
+<pre><code>html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}</code></pre>
+<p>Ułatwia to łatwiejszą zmianę <code>box-sizing</code> w wtyczkach lub innych komponentach, które wpływaja na inne zachowania.</p>
+<h4 id="demonstracja-1"><a href="https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/">Demonstracja</a></h4>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="użyj-unset-zamiast-resetowania-wszystkich-ustawień">Użyj <code>unset</code> zamiast resetowania wszystkich ustawień</h3>
+<p>Podczas resetowania ustawień elementu nie jest konieczne resetowanie pojedyńczych ustawień:</p>
+<pre><code>button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  padding: 0;
+}</code></pre>
+<p>Możesz sprecyzować wszystkie właściwości elementu, używając skrótu <code>all</code>. Używając <code>unset</code> możemy zresetować ustawienia elementu do wartości początkowych:</p>
+<pre><code>button {
+  all: unset;
+}</code></pre>
+<p><strong>Uwaga:</strong> skróty <code>all</code> i <code>unset</code> nie są obsługiwane w IE11.</p>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="użyj-not-aby-dodaćusunąć-obramownie-nawigacji">Użyj <code>:not()</code>, aby dodać/usunąć obramownie nawigacji</h3>
+<p>Zamiast dodać obramowanie…</p>
+<pre><code>/* add border */
+.nav li {
+  border-right: 1px solid #666;
+}</code></pre>
+<p>…a później usunąć ja z ostatniego elementu…</p>
+<pre><code>/* usuń obramowanie */
+.nav li:last-child {
+  border-right: none;
+}</code></pre>
+<p>…użyj <code>:not()</code> pseudo-klasy, aby dodać obramowanie do wybranych elementów:</p>
+<pre><code>.nav li:not(:last-child) {
+  border-right: 1px solid #666;
+}</code></pre>
+<p>Selektor CSS definiuje granicę w sposób opisany przez człowieka.</p>
+<h4 id="demonstracja-2"><a href="http://codepen.io/AllThingsSmitty/pen/LkymvO">Demonstracja</a></h4>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="sprawdź-czy-czcionka-jest-zainstalowana-lokalnie">Sprawdź, czy czcionka jest zainstalowana lokalnie</h3>
+<p>Możesz sprawdzić, czy czcionka jest zainstalowana lokalnie, przed jej zdalnym pobraniem, co również jest dobrą wskazówką dotyczącą wydajności.</p>
+<pre><code>@font-face {
+  font-family: &quot;Dank Mono&quot;;
+  src:
+    /* Full name */
+    local(&quot;Dank Mono&quot;),
+    /* Postscript name */
+    local(&quot;Dank Mono&quot;),
+    /* Otherwise, download it! */
+    url(&quot;//...a.server/fonts/DankMono.woff&quot;);
+}
+
+code {
+  font-family: &quot;Dank Mono&quot;, system-ui-monospace;
+}</code></pre>
+<p>Czapka dla Adama Argyle’a za podzielenie się tym prototypem i <a href="https://codepen.io/argyleink/pen/VwYJpgR">demonstracją</a>.</p>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="dodaj-line-height-do-body">Dodaj <code>line-height</code> do <code>body</code></h3>
+<p>Nie musisz dodawać <code>wysokości linii</code> do każdego <code>&lt;p&gt;</code>, <code>&lt;h*&gt;</code>, <em>et al</em>. osobno. Zamiast tego dodaj go do <code>body</code>:</p>
+<pre><code>body {
+  line-height: 1.5;
+}</code></pre>
+<p>W ten sposób elementy tekstowe mogą łatwo odziedziczyć ustawienia z <code>body</code>.</p>
+<h4 id="demonstracja-3"><a href="http://codepen.io/AllThingsSmitty/pen/VjbdYd">Demonstracja</a></h4>
+<p><sup><a href="#Powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="ustaw-focus-dla-elementów-formularza">Ustaw <code>:focus</code> dla elementów formularza</h3>
+<p>Obserwowani użytkownicy klawiatury polegają na fokucie, aby określić, gdzie na stronie pojawiają się zdarzenia na klawiaturze. Skoncentruj się na elementach formy, które będą spójne, a następnie domyślna implementacja przeglądarki:</p>
+<pre><code>a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: none;
+  outline: #000 dotted 2px;
+  outline-offset: .05em;
+}</code></pre>
+<h4 id="demonstracja-4"><a href="https://codepen.io/AllThingsSmitty/pen/ePzoOP/">Demonstracja</a></h4>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="przesuwanie-w-pionie">Przesuwanie w pionie</h3>
+<p>Nie, to nie jest czarna magia, naprawdę możesz wyśrodkować elementy w pionie:</p>
+<pre><code>html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: flex;
+}</code></pre>
+<p>a także używając CSS Grid:</p>
+<pre><code>body {
+  display: grid;
+  height: 100vh;
+  margin: 0;
+  place-items: center center;
+}</code></pre>
+<p>Chcesz coś przenieść? Pionowo, poziomo… zawsze i wszędzie? Na CSS-Tricks znajdziesz <a href="https://css-tricks.com/centering-css-complete-guide/">ciekawy artykuł</a> z dobrymi instrukcje na ten temat.</p>
+<p><strong>Uwaga:</strong> Uważaj na pewne <a href="https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items">nieprawidłowe zachowanie</a> z Flexbox w IE11.</p>
+<h4 id="demonstracja-5"><a href="http://codepen.io/AllThingsSmitty/pen/GqmGqZ">Demonstracja</a></h4>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="listy-podzielone-przecinkami">Listy podzielone przecinkami</h3>
+<p>Elementy listy mogą wyglądać jak prawdziwa, oddzielona przecinkami lista:</p>
+<pre><code>ul &gt; li:not(:last-child)::after {
+  content: &quot;,&quot;;
+}</code></pre>
+<p>Użyj <code>:not()</code> pseudo-klasy, aby przecinek nie zostal dodany do ostatniego elementu.</p>
+<p><strong>Uwaga:</strong> Ta wskazówka może nie być idealna dla ułatwień dostępu, w szczególności na ekranach czytników. Kopiowanie / wklejanie z przeglądarki nie działa z treścią generowaną przez CSS. Postępuj ostrożnie.</p>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="wybierz-przedmioty-za-pomocą-nth-child">Wybierz przedmioty za pomocą <code>nth-child</code></h3>
+<p>Wybierz przedmioty nieparzyste za pomocą negatywnego <code>nth-child</code> w CSS, aby wybrać elementy od 1 do n.</p>
+<pre><code>li {
+  display: none;
+}
+
+/* select items 1 through 3 and display them */
+li:nth-child(-n+3) {
+  display: block;
+}</code></pre>
+<p>Lub, skoro już nauczyłeś się trochę o użyciu <a href="#use-not-to-applyunapply-borders-on-navigation"><code>:not()</code></a>,wypróbuj:</p>
+<pre><code>/* select all items except the first 3 and display them */
+li:not(:nth-child(-n+3)) {
+  display: none;
+}</code></pre>
+<p>To było całkiem łatwe.</p>
+<h4 id="demonstracja-6"><a href="http://codepen.io/AllThingsSmitty/pen/WxjKZp">Demonstracja</a></h4>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="użyj-svg-dla-ikon">Użyj SVG dla ikon</h3>
+<p>Nie ma powodu, aby nie używać SVG jako ikon:</p>
+<pre><code>.logo {
+  background: url(&quot;logo.svg&quot;);
+}</code></pre>
+<p>SVG skaluje się dobrze dla wszystkich typów rozdzielczości i jest obsługiwany we wszystkich przeglądarkach <a href="http://caniuse.com/#search=svg">wróć do IE9</a>. Więc porzuć swoje pliki .png, .jpg lub .gif-jif-whatev.</p>
+<p><strong>Uwaga:</strong> Jeśli masz przyciski tylko ikony SVG dla widzących użytkowników, a SVG nie załaduje się, pomoże to w utrzymaniu dostępności:</p>
+<pre><code>.no-svg .icon-only::after {
+  content: attr(aria-label);
+}</code></pre>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="użyj-selektora-lobotomized-owl">Użyj selektora “Lobotomized Owl”</h3>
+<p>Być może “Lobotomized Owl” to dziwna nazwa dla selektora, ale użycie uniwersalnego (<code>*</code>) selektora z sąsiednim selektorem rodzeństwa (<code>+</code>) może udostepnić potężne możliwości CSS:</p>
+<pre><code>* + * {
+  margin-top: 1.5em;
+}</code></pre>
+<p>W tym przykładzie wszystkie elementy, które śledzą inne elementy, otrzymają <code>margin-top: 1.5em</code>.</p>
+<p>Dowiedź sie wiecej na temat selektora “lobotomized owl” czytajac <a href="http://alistapart.com/article/axiomatic-css-and-lobotomized-owls">artykul Heydon’a Pickering</a> <em>A List Apart</em>.</p>
+<h4 id="demonstracja-7"><a href="http://codepen.io/AllThingsSmitty/pen/grRvWq">Demonstracja</a></h4>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="użyjmax-height-atrybutu-maksymalnej-wysokości-dla-suwaków-pure-css">Użyj<code>max-height</code> (atrybutu maksymalnej wysokości) dla suwaków Pure CSS</h3>
+<p>Zaimplementuj suwaki CSS używając <code>max-height</code> z ukrytym przepełnieniem:</p>
+<pre><code>.slider {
+  max-height: 200px;
+  overflow-y: hidden;
+  width: 300px;
+}
+
+.slider:hover {
+  max-height: 600px;
+  overflow-y: scroll;
+}</code></pre>
+<p>Element rozwija się do <code>max-height</code> po najechaniu kursorem, a suwak wyświetla się w wyniku przepełnienia.</p>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="komórki-tabeli-o-równej-szerokości">Komórki tabeli o równej-szerokości</h3>
+<p>Tworzenie tabel może być uciążliwe. Spróbuj użyć <code>table-layout: fixed</code>, aby upewnić sie, że komórki mają jednakową szerokość:</p>
+<pre><code>.calendar {
+  table-layout: fixed;
+}</code></pre>
+<p>Widzisz jakie to proste! :)</p>
+<h4 id="demonstracja-8"><a href="http://codepen.io/AllThingsSmitty/pen/jALALm">Demonstracja</a></h4>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="pozbądź-się-marginesów-za-pomocą-flexbox">Pozbądź się marginesów za pomocą Flexbox</h3>
+<p>Podczas pracy z rynnami kolumnowymi (column gutters) możesz pozbyć się <code>nth-</code>, <code>first-</code>, i <code>last-child</code> za pomocą właściwości<code>space-between</code>:</p>
+<pre><code>.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list .person {
+  flex-basis: 23%;
+}</code></pre>
+<p>Teraz rynny kolumnowe zawsze są rozmieszczone równomiernie.</p>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="użyj-selektorów-atrybutów-z-pustymi-linkami">Użyj selektorów atrybutów z pustymi linkami</h3>
+<p>Wyświetl linki, gdy element <code>&lt;a&gt;</code> nie ma wartości tekstowej, ale atrybut <code>href</code> posiada link:</p>
+<pre><code>a[href^=&quot;http&quot;]:empty::before {
+  content: attr(href);
+}</code></pre>
+<p>To całkiem wygodne.</p>
+<h4 id="demonstracja-9"><a href="http://codepen.io/AllThingsSmitty/pen/zBzXRx">Demonstracja</a></h4>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="stylizuj-domyślne-linki">Stylizuj “domyślne” linki</h3>
+<p>Dodaj styl dla “domyślnych” linków:</p>
+<pre><code>a[href]:not([class]) {
+  color: #008000;
+  text-decoration: underline;
+}</code></pre>
+<p>Linki wstawiane za pośrednictwem CMS, które zwykle nie mają atrybutu class, będą wyróżnione bez wpływu na kaskadę.</p>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="wewnętrzne-proporcje-bloków">Wewnętrzne proporcje bloków</h3>
+<p>Aby utworzyć pola, które posiada wewnętrzne proporcje, wystarczy zastosować górny lub dolny margines do elementu div:</p>
+<pre><code>.container {
+  height: 0;
+  padding-bottom: 20%;
+  position: relative;
+}
+
+.container div {
+  border: 2px dashed #ddd;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}</code></pre>
+<p>Użycie 20% wypełnienia (padding) sprawia, że wysokość bloku jest równa 20% jego szerokości. Bez względu na szerokość okna roboczego (viewport), element div zachowa swój współczynnik proporcji (100% / 20% = 5:1).</p>
+<h4 id="demonstracja-10"><a href="http://codepen.io/AllThingsSmitty/pen/jALZvE">Demonstracja</a></h4>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="wystylizuj-uszkodzone-obrazy">Wystylizuj uszkodzone obrazy</h3>
+<p>Spraw, aby uszkodzone obrazy były bardziej estetyczne z użyciem odrobiny CSS:</p>
+<pre><code>img {
+  display: block;
+  font-family: sans-serif;
+  font-weight: 300;
+  height: auto;
+  line-height: 2;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}</code></pre>
+<p>Następnie dodaj reguły pseudoelementów, aby wyświetlić komunikat użytkownika i adres URL uszkodzonego obrazu:</p>
+<pre><code>img::before {
+  content: &quot;We&#39;re sorry, the image below is broken :(&quot;;
+  display: block;
+  margin-bottom: 10px;
+}
+
+img::after {
+  content: &quot;(url: &quot; attr(src) &quot;)&quot;;
+  display: block;
+  font-size: 12px;
+}</code></pre>
+<p>Dowiedz się więcej o stylizacji używając tego wzoru w oryginalnym <a href="http://bitsofco.de/styling-broken-images/">originalny artykule</a> <a href="https://github.com/ireade/">Ire Aderinokun</a>.</p>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="użyj-rem-dla-ustawień-globalnych-rozmiarow-i-em-do-ustawień-localnych">Użyj <code>rem</code> dla ustawień globalnych rozmiarow i <code>em</code> do ustawień localnych</h3>
+<p>Po ustawieniu podstawowego rozmiaru czcionki w katalogu głównym (<code>html { font-size: 100%; }</code>), ustaw rozmiar czcionki dla elementów tekstowych na <code>em</code>:</p>
+<pre><code>h2 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1em;
+}</code></pre>
+<p>Następnie ustaw rozmiar czcionki dla modułów na rem`:</p>
+<pre><code>article {
+  font-size: 1.25rem;
+}
+
+aside .module {
+  font-size: .9rem;
+}</code></pre>
+<p>Teraz każdy moduł jest podzielony na sekcje. Sprawia to żę stylizacja i utrzymanie kodu jest łątwiejsze.</p>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="ukryj-filmy-z-autoodtwarzaniem-które-nie-są-wyciszone">Ukryj filmy z autoodtwarzaniem, które nie są wyciszone</h3>
+<p>To świetna sztuczka dla niestandardowego arkusza stylów użytkownika. Unikaj przeciążania użytkownika dźwiękiem z filmu, który odtwarza się automatycznie po wczytaniu strony. Jeśli dźwięk nie jest wyciszony, nie pokazuj widea:</p>
+<pre><code>video[autoplay]:not([muted]) {
+  display: none;
+}</code></pre>
+<p>Po raz kolejny wykorzystujemy pseudo-klasę <a href="#use-not-to-applyunapply-borders-on-navigation"><code>:not()</code></a></p>
+<p><sup><a href="#powrót-do-spisu-treści">Powrót do spisu treści</a>(#Powrót-do-spisu-treści</sup></p>
+<h3 id="użyj-root-dla-elastycznych-typów">Użyj <code>:root</code> dla elastycznych typów</h3>
+<p>Rozmiar czcionki typowej w elastyczny układzie (responsive layout) powinien być dostosowywany dla każdego ekranu. Możesz obliczyć rozmiar czcionki na podstawie wysokości i szerokości okna roboczego używając <code>:root</code>:</p>
+<pre><code>:root {
+  font-size: calc(1vw + 1vh + .5vmin);
+}</code></pre>
+<p>Następnie możesz użyć jednostki<code>root em</code> na podstawie wartości obliczonej przez <code>:root</code>:</p>
+<pre><code>body {
+  font: 1rem/1.6 sans-serif;
+}</code></pre>
+<h4 id="demonstracja-11"><a href="http://codepen.io/AllThingsSmitty/pen/XKgOkR">Demonstracja</a></h4>
+<p><sup><a href="#powrót-do-spisu-treści">powrót do spisu treści</a></sup></p>
+<h3 id="ustaw-rozmiar-czcionki-w-elementach-formularza">Ustaw rozmiar czcionki w elementach formularza</h3>
+<p>Aby uniknąć korzystania z przeglądarek komórkowych (iOS Safari etc.) podczas powiększania elementów formularzy HTML, po dotknięciu menu rozwijanego <code>&lt;select&gt;</code> dnależy dodać <code>font-size</code> do reguły selektora:</p>
+<pre><code>input[type=&quot;text&quot;],
+input[type=&quot;number&quot;],
+select,
+textarea {
+  font-size: 16px;
+}</code></pre>
+<p>:dancer:</p>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="użyj-zdarzeń-wskaźnika-do-sterowania-zdarzeniami-myszy">Użyj zdarzeń wskaźnika do sterowania zdarzeniami myszy</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events">Pointer events</a> umożliwiają określenie sposobu interakcji myszy z elementem, na które kilka. Aby wyłączyć domyślne zdarzenie wskaźnika na przycisku, na przykład:</p>
+<pre><code>.button-disabled {
+  opacity: .5;
+  pointer-events: none;
+}</code></pre>
+<p>To takie proste.</p>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h3 id="ustaw-display-none-na-podziały-linii-używane-jako-odstępy">Ustaw <code>display: none</code> na Podziały linii używane jako odstępy</h3>
+<p>Jak zauważył <a href="https://twitter.com/csswizardry/status/1170835532584235008">Harry Roberts</a>, może to pomóc zapobiec korzystaniu przez użytkowników CMS z dodatkowych podziałów linii dla odstępów:</p>
+<pre><code>br + br {
+  display: none;
+}</code></pre>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+<h2 id="wsparcie">Wsparcie</h2>
+<p>Wersje aktualne Chrome, Firefox, Safari, Opera, Edge, and IE11.</p>
+<p><sup><a href="#Powrót-do-spisu-treści">Powrót do spisu treści</a></sup></p>
+</body>
+</html>
