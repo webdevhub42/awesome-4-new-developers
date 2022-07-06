@@ -619,11 +619,11 @@ Data Structure ទាំងអស់ដែលខ្ញុំធ្លាប់�
       - [ ] [Queue (វីដេអូ)](https://www.coursera.org/lecture/data-structures/queues-EShpq)
 
   - [ ] [Circular buffer/FIFO](https://en.wikipedia.org/wiki/Circular_buffer)
-      - [ ] [Queue អាទិភាព (វីដេអូ)](https://archive.org/details/0102WhatYouShouldKnow/05_04-priorityQueuesAndDeques.mp4)
-      - [ ] ប្រើ linked-list ដែលមានភ្ជាប់ជាមួយទ្រនិចនៅកន្ទុយ៖ - enqueue(តម្លៃ) - បន្ថែមតម្លៃនៅទីតាំងនៅកន្ទុយ - dequeue() - ត្រឡប់តម្លៃនិងយកធាតុដែលបានបន្ថែមថ្មីៗចេញ (ផ្នែកខាងមុខ) - empty()
-      - [ ] អនុវត្តដោយប្រើអារេ Array ទំហំថេរ៖ - enqueue(តម្លៃ) - បន្ថែមធាតុនៅចុងបញ្ចប់នៃការផ្ទុកដែលមាន - dequeue() - ត្រឡប់តម្លៃនិងយកធាតុដែលបានបន្ថែមថ្មីៗចេញ - empty() - full()
-      - [ ] ថ្លៃ៖ - ការអនុវត្តមិនល្អដោយប្រើlinked listដែលអ្នករៀបជាជួរនៅនឹងក្បាលនិងដេស្កាយនៅកន្ទុយប្រហែលជា O(n)
-              ដោយសារតែអ្នកត្រូវការនៅជាប់នឹងធាតុចុងក្រោយ, បណ្តាលឱ្យ dequeue គ្នាឆ្លងកាត់ពេញលេញ - enqueue: O(1) (amortized, linked list and array [probing]) - dequeue: O(1) (linked list and array) - empty: O(1) (linked list and array)
+            - [ ] [Queue អាទិភាព (វីដេអូ)](https://archive.org/details/0102WhatYouShouldKnow/05_04-priorityQueuesAndDeques.mp4)
+            - [ ] ប្រើ linked-list ដែលមានភ្ជាប់ជាមួយទ្រនិចនៅកន្ទុយ៖ - enqueue(តម្លៃ) - បន្ថែមតម្លៃនៅទីតាំងនៅកន្ទុយ - dequeue() - ត្រឡប់តម្លៃនិងយកធាតុដែលបានបន្ថែមថ្មីៗចេញ (ផ្នែកខាងមុខ) - empty()
+            - [ ] អនុវត្តដោយប្រើអារេ Array ទំហំថេរ៖ - enqueue(តម្លៃ) - បន្ថែមធាតុនៅចុងបញ្ចប់នៃការផ្ទុកដែលមាន - dequeue() - ត្រឡប់តម្លៃនិងយកធាតុដែលបានបន្ថែមថ្មីៗចេញ - empty() - full()
+            - [ ] ថ្លៃ៖ - ការអនុវត្តមិនល្អដោយប្រើlinked listដែលអ្នករៀបជាជួរនៅនឹងក្បាលនិងដេស្កាយនៅកន្ទុយប្រហែលជា O(n)
+                    ដោយសារតែអ្នកត្រូវការនៅជាប់នឹងធាតុចុងក្រោយ, បណ្តាលឱ្យ dequeue គ្នាឆ្លងកាត់ពេញលេញ - enqueue: O(1) (amortized, linked list and array [probing]) - dequeue: O(1) (linked list and array) - empty: O(1) (linked list and array)
 
 - ### តារាងហាស (Hash table)
 

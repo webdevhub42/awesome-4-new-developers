@@ -522,7 +522,7 @@ Anki 形式の私のフラッシュカードデータベース：https://ankiweb
       	- dequeue() - 値を返し、少なくとも最近追加された要素を削除する(前面)
 
   - empty() - [ ] 固定長配列を使って実装する： - enqueue(value) - 利用可能なストレージの最後にアイテムを追加する - dequeue() - 値を返し、最近追加された要素のうち最も古い要素を削除します
-          - empty() - full() - [ ] コスト： - 最後の要素の次の要素が必要になるため、先頭にエンキューし、末尾をデキューするリンクリストを使用する悪い実装は O（n）になり、デキューごとに完全なトラバーサルが発生します - enqueue：O(1)(償却、連結リストと配列[プロービング]) - dequeue：O(1)(連結リストと配列) - empty：O(1)(連結リストと配列)
+            - empty() - full() - [ ] コスト： - 最後の要素の次の要素が必要になるため、先頭にエンキューし、末尾をデキューするリンクリストを使用する悪い実装は O（n）になり、デキューごとに完全なトラバーサルが発生します - enqueue：O(1)(償却、連結リストと配列[プロービング]) - dequeue：O(1)(連結リストと配列) - empty：O(1)(連結リストと配列)
 
 - ### ハッシュテーブル
 
@@ -1318,15 +1318,15 @@ Skiena の本(下記の書籍の節を参照)と面接の書籍
 
 ---
 
-************************\*\*\************************* ************************\*\*\************************* \*
-    ************************\*\*\************************* ************************\*\*\************************* \*
+**********\*\*\*\***********\*\*\***********\*\*\*\*********** **********\*\*\*\***********\*\*\***********\*\*\*\*********** \*
+    **********\*\*\*\***********\*\*\***********\*\*\*\*********** **********\*\*\*\***********\*\*\***********\*\*\*\*********** \*
 
 この点以下のものはすべてオプションです。
      これらを勉強することで、より多くの CS コンセプトにさらされることになります。
      任意のソフトウェアエンジニアリングジョブ。あなたはもっと豊富なソフトウェアエンジニアになるでしょう。
 
-************************\*\*\************************* ************************\*\*\************************* \*
-    ************************\*\*\************************* ************************\*\*\************************* \*
+**********\*\*\*\***********\*\*\***********\*\*\*\*********** **********\*\*\*\***********\*\*\***********\*\*\*\*********** \*
+    **********\*\*\*\***********\*\*\***********\*\*\*\*********** **********\*\*\*\***********\*\*\***********\*\*\*\*********** \*
 
 ---
 
@@ -1588,30 +1588,30 @@ Skiena の本(下記の書籍の節を参照)と面接の書籍
       - [ ]  ** AVL木**
 
   - 実際には：
-               私が言うことから、これらは実際にはあまり使われていませんが、どこになるか分かります。
-              AVL 木は、O(log n)検索、挿入、および削除をサポートする別の構造です。より厳格に
-               赤黒の木よりもバランスがとれているため、挿入と取り出しが遅くなりますが、検索が速くなります。これにより
-               一度構築され、再構成なしでロードされる、例えば言語
-               辞書(または、アセンブラまたはインタプリタのオペコードなどのプログラム辞書)を含む。 - [ ] [MIT AVL Trees / AVL Sort(ビデオ)](https://www.youtube.com/watch?v=FNeL18KsWPc&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=6) - [ ] [AVL 木(ビデオ)](https://www.coursera.org/learn/data-structures/lecture/Qq5E0/avl-trees) - [ ] [AVL 木実装(ビデオ)](https://www.coursera.org/learn/data-structures/lecture/PKEBC/avl-tree-implementation) - [ ] [スプリットアンドマージ](https://www.coursera.org/learn/data-structures/lecture/22BgE/split-and-merge)
+                 私が言うことから、これらは実際にはあまり使われていませんが、どこになるか分かります。
+                AVL 木は、O(log n)検索、挿入、および削除をサポートする別の構造です。より厳格に
+                 赤黒の木よりもバランスがとれているため、挿入と取り出しが遅くなりますが、検索が速くなります。これにより
+                 一度構築され、再構成なしでロードされる、例えば言語
+                 辞書(または、アセンブラまたはインタプリタのオペコードなどのプログラム辞書)を含む。 - [ ] [MIT AVL Trees / AVL Sort(ビデオ)](https://www.youtube.com/watch?v=FNeL18KsWPc&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=6) - [ ] [AVL 木(ビデオ)](https://www.coursera.org/learn/data-structures/lecture/Qq5E0/avl-trees) - [ ] [AVL 木実装(ビデオ)](https://www.coursera.org/learn/data-structures/lecture/PKEBC/avl-tree-implementation) - [ ] [スプリットアンドマージ](https://www.coursera.org/learn/data-structures/lecture/22BgE/split-and-merge)
 
-      - [ ]  **スプレッド木**
-
-  - 実際には：
-               スプレイ・木は、キャッシュ、メモリ・アロケータ、ルータ、ガベージ・コレクタ、
-               データ圧縮、ロープ(長いテキスト文字列に使用される文字列の置換)、Windows NT(仮想メモリ、
-               ネットワークおよびファイルシステムコードなど) - [ ] [CS 61B：Splay Trees(video)](https://www.youtube.com/watch?v=Najzh1rYQTo&index=23&list=PL-XXv-cvA_iAlnI-BQr9hjqADPBtujFJd) - [ ] MIT 講義：Splay Trees： - 非常にマッシーになりますが、最後の 10 分を確かめてください。 - [動画](https://www.youtube.com/watch?v=QnPl_Y6EqMo)
-
-      - [ ]  **レッド/ブラックの木**
-      	- これらは2-3木の翻訳です(下記参照)
+        - [ ]  **スプレッド木**
 
   - 実際には：
-               赤黒の木は、挿入時間、削除時間、および検索時間に対して最悪の場合の保証を提供します。
-               これは、リアルタイムアプリケーションなどの時間に敏感なアプリケーションでは、これらを貴重なものにするだけでなく、
-               それは最悪の場合の保証を提供する他のデータ構造における貴重なビルディングブロックになります。
-               例えば、計算幾何学で使用される多くのデータ構造は赤黒の木に基づくことができ、
-               現在の Linux カーネルで使用されている完全に公正なスケジューラは赤黒の木を使用します。 Java のバージョン 8 では、
-              Collection HashMap が変更され、LinkedList を使用して同一の要素を貧弱に保存する代わりに
-               ハッシュコードでは、赤黒の木が使用されます。 - [Aduni - アルゴリズム - 講義 4(リンク先のジャンプ先)(ビデオ)](https://youtu.be/1W3x0f_RmUo?list=PLFDnELG9dpVxQCxuD-9BSy2E7BWY3t5Sm&t=3871) - [Aduni - アルゴリズム - 講義 5(ビデオ)](https://www.youtube.com/watch?v=hm2GHwyKF1o&list=PLFDnELG9dpVxQCxuD-9BSy2E7BWY3t5Sm&index=5) - [ ] [黒い木](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) - [ ] [バイナリサーチとレッドブラック木の紹介](https://www.topcoder.com/community/data-science/data-science-tutorials/an-introduction-to-binary-search-and-red -black-trees /)
+                 スプレイ・木は、キャッシュ、メモリ・アロケータ、ルータ、ガベージ・コレクタ、
+                 データ圧縮、ロープ(長いテキスト文字列に使用される文字列の置換)、Windows NT(仮想メモリ、
+                 ネットワークおよびファイルシステムコードなど) - [ ] [CS 61B：Splay Trees(video)](https://www.youtube.com/watch?v=Najzh1rYQTo&index=23&list=PL-XXv-cvA_iAlnI-BQr9hjqADPBtujFJd) - [ ] MIT 講義：Splay Trees： - 非常にマッシーになりますが、最後の 10 分を確かめてください。 - [動画](https://www.youtube.com/watch?v=QnPl_Y6EqMo)
+
+        - [ ]  **レッド/ブラックの木**
+        	- これらは2-3木の翻訳です(下記参照)
+
+  - 実際には：
+                 赤黒の木は、挿入時間、削除時間、および検索時間に対して最悪の場合の保証を提供します。
+                 これは、リアルタイムアプリケーションなどの時間に敏感なアプリケーションでは、これらを貴重なものにするだけでなく、
+                 それは最悪の場合の保証を提供する他のデータ構造における貴重なビルディングブロックになります。
+                 例えば、計算幾何学で使用される多くのデータ構造は赤黒の木に基づくことができ、
+                 現在の Linux カーネルで使用されている完全に公正なスケジューラは赤黒の木を使用します。 Java のバージョン 8 では、
+                Collection HashMap が変更され、LinkedList を使用して同一の要素を貧弱に保存する代わりに
+                 ハッシュコードでは、赤黒の木が使用されます。 - [Aduni - アルゴリズム - 講義 4(リンク先のジャンプ先)(ビデオ)](https://youtu.be/1W3x0f_RmUo?list=PLFDnELG9dpVxQCxuD-9BSy2E7BWY3t5Sm&t=3871) - [Aduni - アルゴリズム - 講義 5(ビデオ)](https://www.youtube.com/watch?v=hm2GHwyKF1o&list=PLFDnELG9dpVxQCxuD-9BSy2E7BWY3t5Sm&index=5) - [ ] [黒い木](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree) - [ ] [バイナリサーチとレッドブラック木の紹介](https://www.topcoder.com/community/data-science/data-science-tutorials/an-introduction-to-binary-search-and-red -black-trees /)
 
 - [ ] **2-3 の検索木** - 実際には：
                   2〜3 本の木は、検索が遅くなるため(AVL 木よりも高さが高いため)、挿入が速くなります。 - 2-3 の木は非常にまれにしか使用しませんが、実装にはさまざまなタイプのノードが含まれるためです。代わりに、人々はレッドブラックの木を使用します。 - [ ] [23 木の直感と定義(ビデオ)](https://www.youtube.com/watch?v=C3SsdUqasD4&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6&index=2) - [ ] [23-Tree のバイナリビュー](https://www.youtube.com/watch?v=iYvBtGKsqSg&index=3&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6) - [ ] [2-3 木(学生の暗唱)(ビデオ)](https://www.youtube.com/watch?v=TOb1tuEZ2X4&index=5&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp)
@@ -1619,25 +1619,25 @@ Skiena の本(下記の書籍の節を参照)と面接の書籍
       - [ ]  **2-3-4木(別名2-4木)**
 
   - 実際には：
-               すべての 2-4 木には、同じ順序でデータ要素を持つ対応する赤黒の木があります。挿入と削除
-              2-4 木の操作は、赤黒の木の色の反転と回転にも相当します。これは 2-4 の木を
-               赤黒の木の背後にある論理を理解するための重要なツールです。そのため、多くの導入アルゴリズムのテキストでは、
-              2〜4 本の木は実用的ではありません\*\*。 - [ ] [CS 61B 講義 26：バランスの取れた検索木(ビデオ)](https://www.youtube.com/watch?v=zqrqYXkth6Q&index=26&list=PL4BBB74C7D2A1049C) - [ ] [ボトムアップ 234-Trees(ビデオ)](https://www.youtube.com/watch?v=DQdMYevEyE4&index=4&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6) - [ ] [トップダウン 234 木(動画)](https://www.youtube.com/watch?v=2679VQ26Fp4&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6&index=5)
+                 すべての 2-4 木には、同じ順序でデータ要素を持つ対応する赤黒の木があります。挿入と削除
+                2-4 木の操作は、赤黒の木の色の反転と回転にも相当します。これは 2-4 の木を
+                 赤黒の木の背後にある論理を理解するための重要なツールです。そのため、多くの導入アルゴリズムのテキストでは、
+                2〜4 本の木は実用的ではありません\*\*。 - [ ] [CS 61B 講義 26：バランスの取れた検索木(ビデオ)](https://www.youtube.com/watch?v=zqrqYXkth6Q&index=26&list=PL4BBB74C7D2A1049C) - [ ] [ボトムアップ 234-Trees(ビデオ)](https://www.youtube.com/watch?v=DQdMYevEyE4&index=4&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6) - [ ] [トップダウン 234 木(動画)](https://www.youtube.com/watch?v=2679VQ26Fp4&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6&index=5)
 
-      - [ ]  **N-ary(K-ary、M-ary)木**
-      	- 注記：NまたはKは分岐因子(最大分岐)であり、
-      	- 2分木は2分木であり、分岐因子= 2
-      	- 2-3本の木は3本である
-      	- [ ]  [K-Ary Tree](https://en.wikipedia.org/wiki/K-ary_tree)
+        - [ ]  **N-ary(K-ary、M-ary)木**
+        	- 注記：NまたはKは分岐因子(最大分岐)であり、
+        	- 2分木は2分木であり、分岐因子= 2
+        	- 2-3本の木は3本である
+        	- [ ]  [K-Ary Tree](https://en.wikipedia.org/wiki/K-ary_tree)
 
-      - [ ]  **B-Tree**
-      	- 楽しい事実：それは謎ですが、Bはボーイング、バランスの取れた、またはバイエル(共同発明家)のために立つことができます。
+        - [ ]  **B-Tree**
+        	- 楽しい事実：それは謎ですが、Bはボーイング、バランスの取れた、またはバイエル(共同発明家)のために立つことができます。
 
   - 実際には：
-              B 木はデータベースで広く使用されています。最近のファイルシステムのほとんどは、B-tree(または Variants)を使用しています。に加えて
-              B 木はファイルシステムでも使用され、任意のデータベースへの迅速なランダムアクセスを可能にします
-               特定のファイル内のブロック基本的な問題は、ファイルブロックの i アドレスをディスクブロックに変換することです
-              (またはおそらくシリンダーヘッドセクターへの)アドレスである。 - [ ] [B-Tree](https://en.wikipedia.org/wiki/B-tree) - [ ] [B 木(ビデオ)の紹介](https://www.youtube.com/watch?v=I22wEC1tTGo&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6&index=6) - [ ] [B 木の定義と挿入(ビデオ)](https://www.youtube.com/watch?v=s3bCdZGrgpA&index=7&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6) - [ ] [B 木削除(動画)](https://www.youtube.com/watch?v=svfnVhJOfMc&index=8&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6) - [ ] [MIT 6.851 - メモリ階層モデル(ビデオ)](https://www.youtube.com/watch?v=V3omVLzI0WE&index=7&list=PLUl4u3cNGP61hsJNdULdudlRL493b-XZf) - キャッシュに気付かない B 木、非常に興味深いデータ構造 - 最初の 37 分は非常に技術的であり、スキップすることができます(B はブロックサイズ、キャッシュラインサイズです)
+                B 木はデータベースで広く使用されています。最近のファイルシステムのほとんどは、B-tree(または Variants)を使用しています。に加えて
+                B 木はファイルシステムでも使用され、任意のデータベースへの迅速なランダムアクセスを可能にします
+                 特定のファイル内のブロック基本的な問題は、ファイルブロックの i アドレスをディスクブロックに変換することです
+                (またはおそらくシリンダーヘッドセクターへの)アドレスである。 - [ ] [B-Tree](https://en.wikipedia.org/wiki/B-tree) - [ ] [B 木(ビデオ)の紹介](https://www.youtube.com/watch?v=I22wEC1tTGo&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6&index=6) - [ ] [B 木の定義と挿入(ビデオ)](https://www.youtube.com/watch?v=s3bCdZGrgpA&index=7&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6) - [ ] [B 木削除(動画)](https://www.youtube.com/watch?v=svfnVhJOfMc&index=8&list=PLA5Lqm4uh9Bbq-E0ZnqTIa8LRaL77ica6) - [ ] [MIT 6.851 - メモリ階層モデル(ビデオ)](https://www.youtube.com/watch?v=V3omVLzI0WE&index=7&list=PLUl4u3cNGP61hsJNdULdudlRL493b-XZf) - キャッシュに気付かない B 木、非常に興味深いデータ構造 - 最初の 37 分は非常に技術的であり、スキップすることができます(B はブロックサイズ、キャッシュラインサイズです)
 
 - ### k-D 木
 
@@ -1707,7 +1707,7 @@ Skiena の本(下記の書籍の節を参照)と面接の書籍
       	- [グレートスターターコース：機械学習](https://www.coursera.org/learn/machine-learning)
 
   - [動画のみ](https://www.youtube.com/playlist?list=PLZ9qNFMHZ-A4rycgrgOYma6zxF4BZGGPW)
-     - 線形代数のレビューについてはビデオ 12〜18 を参照してください(14 と 15 は重複しています) - [機械学習のためのニューラルネットワーク](https://www.coursera.org/learn/neural-networks) - [Google の Deep Learning Nanodegree](https://www.udacity.com/course/deep-learning--ud730) - [Google / Kaggle Machine Learning Engineer Nanodegree](https://www.udacity.com/course/machine-learning-engineer-nanodegree-by-google--nd009) - [自己運転車技術者 Nanodegree](https://www.udacity.com/drive) - [Metis Online Course(2 ヶ月間 99 ドル)](http://www.thisismetis.com/explore-data-science) - リソース： - 書籍： - [Python Machine Learning](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka/dp/1783555130/) - [ゼロからのデータ科学：Python の第一原理](https://www.amazon.com/Data-Science-Scratch-Principles-Python/dp/149190142X) - [Python による機械学習入門](https://www.amazon.com/Introduction-Machine-Learning-Python-Scientists/dp/1449369413/) - [ソフトウェアエンジニア向け機械学習](https://github.com/ZuzooVn/machine-learning-for-software-engineers) - データスクール：http://www.dataschool.io/
+       - 線形代数のレビューについてはビデオ 12〜18 を参照してください(14 と 15 は重複しています) - [機械学習のためのニューラルネットワーク](https://www.coursera.org/learn/neural-networks) - [Google の Deep Learning Nanodegree](https://www.udacity.com/course/deep-learning--ud730) - [Google / Kaggle Machine Learning Engineer Nanodegree](https://www.udacity.com/course/machine-learning-engineer-nanodegree-by-google--nd009) - [自己運転車技術者 Nanodegree](https://www.udacity.com/drive) - [Metis Online Course(2 ヶ月間 99 ドル)](http://www.thisismetis.com/explore-data-science) - リソース： - 書籍： - [Python Machine Learning](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka/dp/1783555130/) - [ゼロからのデータ科学：Python の第一原理](https://www.amazon.com/Data-Science-Scratch-Principles-Python/dp/149190142X) - [Python による機械学習入門](https://www.amazon.com/Introduction-Machine-Learning-Python-Scientists/dp/1449369413/) - [ソフトウェアエンジニア向け機械学習](https://github.com/ZuzooVn/machine-learning-for-software-engineers) - データスクール：http://www.dataschool.io/
 
 -
 

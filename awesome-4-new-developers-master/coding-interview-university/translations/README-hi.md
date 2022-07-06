@@ -541,6 +541,7 @@ memory" का एरर न दे, और तब मुझे कोई वै
     - dequeue: O(1) (linked list and array)
     - empty: O(1) (linked list and array)
 - ### Hash table
+
   - [ ] विडियो:
 
     - [ ] [Hashing with Chaining (विडियो)](https://www.youtube.com/watch?v=0M_kIqhwbFo&list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb&index=8)
@@ -1674,8 +1675,8 @@ Take coding challenges every day, as many as you can.
 - ### ज्यामिति, कॉन्वेक्स हल (विडियो)
 
   - [ ] [लेखाचित्र अल्गोरिथम IV: ज्यामितीय एल्गोरिदम का परिचय - व्याख्यान ९](https://youtu.be/XIAQRlNkJAw?list=PLFDnELG9dpVxQCxuD-9BSy2E7BWY3t5Sm&t=3164)
-     - [ ] [ज्यामितीय एल्गोरिदम: ग्रैहम और जारविस - व्याख्यान १०](https://www.youtube.com/watch?v=J5aJEcOr6Eo&index=10&list=PLFDnELG9dpVxQCxuD-9BSy2E7BWY3t5Sm)
-     - [ ] [डिवाइड और कॉन्कर: कॉन्वेक्स हल, माध्य ढूँढना](https://www.youtube.com/watch?v=EzeYI7p9MjU&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp&index=2)
+           - [ ] [ज्यामितीय एल्गोरिदम: ग्रैहम और जारविस - व्याख्यान १०](https://www.youtube.com/watch?v=J5aJEcOr6Eo&index=10&list=PLFDnELG9dpVxQCxuD-9BSy2E7BWY3t5Sm)
+           - [ ] [डिवाइड और कॉन्कर: कॉन्वेक्स हल, माध्य ढूँढना](https://www.youtube.com/watch?v=EzeYI7p9MjU&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp&index=2)
 
 - ### Discrete math
 
@@ -1705,10 +1706,10 @@ Take coding challenges every day, as many as you can.
 
 - ### गो
   - [ ] विडियो: - [ ] [Why Learn Go?](https://www.youtube.com/watch?v=FTl0tl9BGdc) - [ ] [Go Programming](https://www.youtube.com/watch?v=CF9S4QZuV30) - [ ] [A Tour of Go](https://www.youtube.com/watch?v=ytEkHepK08c)
-     - [ ] पुस्तके:
-         - [ ] [गो प्रोग्रामिंग का परिचय (ऑनलाइन मुफ्त पढ़े)](https://www.golang-book.com/books/intro)
-         - [ ] [गो प्रोग्रामिंग लैंग्वेज (दोनोवन & केर्निघन)](https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440)
-     - [ ] [बूटकैंप ](https://www.golang-book.com/guides/bootcamp)
+           - [ ] पुस्तके:
+               - [ ] [गो प्रोग्रामिंग का परिचय (ऑनलाइन मुफ्त पढ़े)](https://www.golang-book.com/books/intro)
+               - [ ] [गो प्रोग्रामिंग लैंग्वेज (दोनोवन & केर्निघन)](https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440)
+           - [ ] [बूटकैंप ](https://www.golang-book.com/guides/bootcamp)
 
 --
 
