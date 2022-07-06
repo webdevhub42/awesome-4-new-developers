@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>contributing</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="contributing">Contributing</h2>
+<h3 id="adding-a-language">Adding a language</h3>
+<h4 id="naming">Naming</h4>
+<p>The name of the file will be displayed as-is in the readme. It should be named according to the language it was written in. The name shouldn’t be abbreviated too far (use <code>JavaScript.js</code> instead of <code>JS.js</code>) and it shouldn’t be abbreviated too little (use <code>CSS.css</code> instead of <code>Cascading Style Sheets.css</code>). Additionally, use spaces instead of hyphens or underscores (use <code>Objective C.m</code> instead of <code>Objective-C.m</code>).</p>
+<p>If a file name contains a special character that Windows is not able to display, substitute it with the following:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Original</th>
+<th style="text-align: center;">Substitute</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">/</td>
+<td style="text-align: center;">∕</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">\</td>
+<td style="text-align: center;">＼</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">:</td>
+<td style="text-align: center;">˸</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">*</td>
+<td style="text-align: center;">∗</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">?</td>
+<td style="text-align: center;">？</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">"</td>
+<td style="text-align: center;">＂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">&lt;</td>
+<td style="text-align: center;">﹤</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">&gt;</td>
+<td style="text-align: center;">﹥</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">|</td>
+<td style="text-align: center;">❘</td>
+</tr>
+</tbody>
+</table>
+<h4 id="contents">Contents</h4>
+<p>The code in the file should be the simplest and most straightforward way to print/display/show <code>Hello World</code> exactly once in the language used. User input should not be request and a newline should only be printed when necessary.</p>
+<h3 id="updating-readme">Updating readme</h3>
+<p>After adding the language file, <code>update_list.py</code> (Python 3.6+) automatically updates the language list.</p>
+</body>
+</html>

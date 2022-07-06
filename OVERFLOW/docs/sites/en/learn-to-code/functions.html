@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>functions</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "sinatra" -->
+<h1 id="functions">Functions</h1>
+<ul>
+<li>just like a VARIABLE is a name for a chunk of data</li>
+<li>a FUNCTION is a name for a chunk of code</li>
+<li>if you have some code you want to run again and again
+<ul>
+<li>or just run once, but keep it organized</li>
+</ul></li>
+</ul>
+<h1 id="for-example">For example</h1>
+<p>Here’s a silly function:</p>
+<pre><code>def add x, y
+  x + y
+end</code></pre>
+<ul>
+<li><code>def</code> means “define a function”</li>
+<li><code>add</code> is the <em>name</em> of the function</li>
+<li><code>x, y</code> are the <em>parameters</em> of the function</li>
+<li><code>x + y</code> is the <em>body</em> of the function
+<ul>
+<li>also the <em>return value</em></li>
+</ul></li>
+</ul>
+<p>Lab: write a <code>multiply</code> method and use it to multiply 123 * 456</p>
+<h1 id="rant">Rant!!!</h1>
+<pre><code>def rant s
+  s.upcase.gsub(&quot; &quot;, &quot;&quot;) + &quot;!!!&quot;
+end
+
+puts rant &quot;i like pizza&quot;</code></pre>
+<p>Lab: use “rant” to rant about something really important!!!</p>
+<h1 id="capitalize-just-the-first-character">Capitalize Just The First Character</h1>
+<pre><code>def initial_cap s
+  s[0].upcase + s[1,s.length]
+end
+
+puts initial_cap(&quot;smith&quot;)
+puts initial_cap(&quot;deniro&quot;)</code></pre>
+<p>Lab: capitalize a few things</p>
+<h1 id="titleize">Titleize</h1>
+<pre><code>def titleize string
+  string.split(&#39; &#39;).map(&amp;:capitalize).join(&#39; &#39;)
+end</code></pre>
+<ul>
+<li>The funny <code>&amp;:</code> means “send this message”</li>
+<li><code>map(&amp;:capitalize)</code> means “send the message <code>capitalize</code> to every item in the array”</li>
+</ul>
+<h1 id="lab-titleize-your-favorite-movies">LAB: titleize your favorite movies</h1>
+</body>
+</html>

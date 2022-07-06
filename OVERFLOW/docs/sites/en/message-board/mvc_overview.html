@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>mvc_overview</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="explaining-mvc-and-records">Explaining MVC and Records</h2>
+<figure>
+<img src="/intro-to-rails/img/mvc.png" alt="MVC Overview" /><figcaption>MVC Overview</figcaption>
+</figure>
+<p>Rails implements a very specific notion of the <strong>Model/View/Controller</strong> pattern, which guides how you structure your web applications.</p>
+<h3 id="model">
+Model
+</h3>
+<ul>
+<li>saves data to the database</li>
+<li>accesses data from the database</li>
+<li>bridge between the database and objects</li>
+</ul>
+<h3 id="view">
+View
+</h3>
+<ul>
+<li>display the data for human (or machine) consumption</li>
+<li>webpages are views</li>
+</ul>
+<h3 id="controller">
+Controller
+</h3>
+<ul>
+<li>acts as the glue between the models and the views</li>
+<li>combines data from multiple models</li>
+<li>summarizes and filters data</li>
+</ul>
+<p>In MVC, models, views, and controllers have very specific jobs. Separating responsibilities like this make it easy to maintain and extend rails applications. When responsibilities become muddied it gets much harder to debug issues and add new functionality.</p>
+</body>
+</html>

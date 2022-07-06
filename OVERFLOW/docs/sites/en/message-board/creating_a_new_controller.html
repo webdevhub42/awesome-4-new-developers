@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>creating_a_new_controller</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="getting-started">Getting Started</h2>
+<p><strong>1.</strong> Create your project</p>
+<p><strong>2.</strong> View your project in the browser. You should see a default page.</p>
+<h2 id="create-your-controller">Create your Controller</h2>
+<p>Controllers are classes that inherit from ApplicationController.</p>
+<p>Controllers in Rails have one or many <strong>actions</strong>. Each action is defined as a method inside the controller. Some standard actions are <strong>index, create, new, edit, show, update,</strong> and <strong>destroy</strong>. But you’re not limited to using those names.</p>
+<p>We will start with index, which can be used to display the main page in your application.</p>
+<p><strong>3.</strong> Create your first controller called <strong>HomeController</strong>.</p>
+<p>Create a controller file in the app/controller folder. <em>The file should always be named with lower case letters and underscores.</em></p>
+<pre><code>app/controllers/home_controller.rb</code></pre>
+<p><strong>4.</strong> Create your controller, with an empty index method. In the home_controller.rb file add:</p>
+<pre><code>class HomeController &lt; ApplicationController
+  def index
+  end
+end</code></pre>
+<h2 id="create-your-view">Create your View</h2>
+<p><strong>5.</strong> Create your first view, to be associated with the <code>Home</code> controller and the <code>index</code> action.</p>
+<p>Create a new folder in app/views. <em>The folder name should always be lower case and the name of your controller.</em></p>
+<pre><code>app/views/home</code></pre>
+<p>Create a file for your first action in the app/views/home folder. <em>The filename should always be lower case and the name of the action.</em></p>
+<pre><code>app/views/home/index.html.rb</code></pre>
+<p>Each view created is associated with one controller action. You don’t even really need to define a method in the associated controller: as long as the associated controller and route exist, Rails will pretend that the method exists, and is empty, and render as such.</p>
+<h2 id="create-your-route">Create your Route</h2>
+<p>A <strong>route</strong> is a path that points to an action for a specific controller. This controller and action pair (often stylized as <strong>controller#action</strong>) also indicates which view should be used, via the file naming conventions mentioned above.</p>
+<p><strong>6.</strong> Edit routes.rb so that the base url points to your application entry point</p>
+<pre><code>root &#39;home#index&#39;</code></pre>
+<p>NOTE: This says that your base url (i.e. root) should use the <code>index</code> action of the <code>home</code> controller. The view used will be the file in the app/views/home folder with name <code>index</code> (e.g. app/views/home/index.html.erb).</p>
+<p>Each subsequent route should be defined in a similar way:</p>
+<pre><code>get &#39;about&#39; =&gt; &#39;home#about&#39;</code></pre>
+<p>NOTE: This says that the base url with /about on the end will direct to the <code>about</code> action in the <code>home</code> controller.</p>
+<h2 id="test-your-new-controller">Test your new Controller</h2>
+<p><strong>7.</strong> Go back to your project in the browser and confirm that on the root path you now see the content from your index.html.erb file instead of the default Rails welcome page.</p>
+<p><strong>8.</strong> Add an <code>about</code> action to the Home controller and test that you can see it at the /about path in the web browser.</p>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ko</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>POST 요청만 받아 들어온 POST 몸통의 문자를 대문자로 변환해 클라이언트에 반환하는 HTTP 서버를 작성하세요.</p>
+<p>서버는 프로그램에 첫 번째 인자에서 주어진 포트로 수신해야 합니다.</p>
+<hr />
+<h2 id="힌트">힌트</h2>
+<p><code>request</code>와 <code>response</code> 객체의 스트리밍 기능을 사용한다면 훨씬 쉬워집니다.</p>
+<p>npm에는 통과하는 스트림 데이터를 <em>“변환”</em> 하는데 사용할 수 있는 여러 패키지가 있습니다. 이 연습 문제에서는 가장 간단한 API를 제공하는 <code>through2-map</code>를 추천합니다.</p>
+<p><code>through2-map</code>은 데이터의 덩어리를 받아 데이터의 덩어리를 반환하는 한 개의 함수만으로 <em>변환 스트림</em>을 만들 수 있습니다. 이는 스트림용 <code>Array#map()</code>처럼 설계되었습니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> map <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;through2-map&#39;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">inStream</span>.<span class="at">pipe</span>(<span class="at">map</span>(<span class="kw">function</span> (chunk) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">return</span> <span class="va">chunk</span>.<span class="at">toString</span>().<span class="at">split</span>(<span class="st">&#39;&#39;</span>).<span class="at">reverse</span>().<span class="at">join</span>(<span class="st">&#39;&#39;</span>)</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span>)).<span class="at">pipe</span>(outStream)</a></code></pre></div>
+<p>위의 예제에서, <code>inStream</code>에서 들어오는 데이터는 (이미 변환되어 있지 않다면) 문자열으로 변환하고 뒤집어서 그 결과를 <code>outStream</code>에 넘깁니다. 네, 방금 만든 건 문자 덩어리를 뒤집는 서버입니다! 덩어리의 크기는 업스트림에 의해 결정 되고 들어오는 데이터에서 제어하긴 힘들다는 걸 기억하세요.</p>
+<p><code>through2-map</code>를 설치하려면 다음을 입력하세요.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="ex">npm</span> install through2-map</a></code></pre></div>
+<p>인터넷에 연결되어 있지 않다면, 그냥 {appname}가 설치된 디렉터리 안에 <code>node_modules</code> 디렉터리를 만들어 원하는 패키지의 모든 디렉터리를 복사해도 됩니다.</p>
+<p>{rootdir:/node_modules/through2-map}</p>
+<p>through2-map의 문서는 {appname}와 함께 시스템에 설치되고 브라우저에 이 주소를 넣으면 볼 수 있습니다.</p>
+<p>{rootdir:/docs/through2-map.html}</p>
+</body>
+</html>

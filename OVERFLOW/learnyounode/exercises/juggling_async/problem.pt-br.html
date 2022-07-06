@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.pt-br</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>Este problema é igual ao anterior (HTTP COLLECT) no aspecto do que você deveria fazer, usar <code>http.get()</code>. Porém, dessa vez você vai receber <strong>três</strong> URLs como os primeiros três argumentos da linha de comando.</p>
+<p>Você deve coletar o conteúdo completo fornecido por cada uma das URLs e imprimir os dados no console (stdout). Você não precisa imprimir o comprimento, apenas os dados em forma de String; uma linha por URL. A grande “sacada” aqui é que você <strong>deve</strong> imprimi-las na mesma ordem que as URLs foram passadas à você pela linha de comando.</p>
+<hr />
+<h2 id="dicas">DICAS</h2>
+<p>Não espere que estes três servidores joguem limpo! Eles não vão te dar respostas completas na ordem que você espera, então você não pode inocentemente apenas imprimir os resultados na hora que eles chegam, pois dessa forma eles estarão fora de ordem.</p>
+<p>Você vai precisar enfileirar os resultados e manter um registro de quantas URLs já retornaram o conteúdo completo. Uma vez que você tiver todos os dados, você poderá imprimi-los no console.</p>
+<p>Contar callbacks é uma das maneiras fundamentais de lidar com chamadas assíncronas no Node. Ao invés de fazer isso manualmente, você pode achar mais conveniente depender de uma library de terceiros como por exemplo <a href="https://npmjs.com/async">async</a> ou <a href="https://npmjs.com/after">after</a>. Mas para esse exercício, tente fazer sem ajuda de nenhuma library externa.</p>
+</body>
+</html>

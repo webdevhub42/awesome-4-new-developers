@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.fr</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>Ce problème est le même que le précédent (Collecteur HTTP), dans le sens où vous aurez besoin de <code>http.get()</code>. Cependant, cette fois-ci vous allez recevoir <strong>trois</strong> URLs sur la ligne de commande.</p>
+<p>Vous devrez collecter le contenu complet qui vous sera envoyé pour chaque URL, et l’afficher sur la console (stdout). Vous n’avez pas besoin d’afficher la longueur, juste les données en tant que <code>String</code>, à raison d’une ligne par URL. La difficulté réside dans le fait que vous <strong>devez les afficher dans le même ordre</strong> que celui des URLs transmises sur la ligne de commande.</p>
+<hr />
+<h2 id="conseils">CONSEILS</h2>
+<p>Ne vous attendez pas à ce que les trois serveurs soient sympa ! Ils ne vous enverront pas leurs réponses complètes dans l’ordre que vous espérez, donc vous ne pouvez pas naïvement juste afficher les contenus au fil de leur réception, car l’ordre ne sera pas le bon.</p>
+<p>Vous allez devoir garder les résultats sous le coude et compter les URLs qui ont fini leurs retours. Une fois que vous les aurez toutes, vous pourrez afficher vos résultats dans la console.</p>
+<p>Compter les fonctions de rappels et une des manières basiques de gérer l’asynchrone en Node. Plutôt que de le faire vous-même, vous trouverez sûrement utile de vous baser sur des modules tiers tels que <a href="https://npmjs.com/async">async</a> ou <a href="https://npmjs.com/after">after</a>. Mais pour cet exercice, essayez de réussir sans l’aide d’un module externe.</p>
+</body>
+</html>

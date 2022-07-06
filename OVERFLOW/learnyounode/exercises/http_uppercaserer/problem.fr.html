@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.fr</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Écrivez un <strong>serveur</strong> HTTP qui reçoit uniquement des requêtes POST et convertit le texte du corps de requête entrante en majuscules pour ensuite le renvoyer au client.</p>
+<p>Votre serveur écoutera sur un port dont le numéro vous sera fourni en premier argument de la ligne de commande.</p>
+<hr />
+<h2 id="conseils">CONSEILS</h2>
+<p>Même s’il n’est pas impératif que vous vous cantonniez aux capacités orientées flux des objets <code>request</code> et <code>response</code>, la solution sera nettement plus facile si vous vous en servez.</p>
+<p>On trouve bon nombre de modules tiers sur npm qui fournissent un mécanisme de <em>« transformation »</em> des données d’un flux au fil de l’eau. Pour cet exercice, le module <code>through2-map</code> est probablement le plus simple d’emploi.</p>
+<p><code>through2-map</code> vous permet de créer un <em>flux de transformation</em> simplement à l’aide d’une fonction qui prend un bloc de données et en renvoie un autre. Il est conçu pour fonctionner de façon très similaire à <code>Array#map()</code>, mais pour les flux :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> map <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;through2-map&#39;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">inStream</span>.<span class="at">pipe</span>(<span class="at">map</span>(<span class="kw">function</span> (chunk) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">return</span> <span class="va">chunk</span>.<span class="at">toString</span>().<span class="at">split</span>(<span class="st">&#39;&#39;</span>).<span class="at">reverse</span>().<span class="at">join</span>(<span class="st">&#39;&#39;</span>)</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span>)).<span class="at">pipe</span>(outStream)</a></code></pre></div>
+<p>Dans l’exemple ci-dessus, les données entrantes issues de <code>inStream</code> sont converties en <code>String</code> (si elles n’en sont pas déjà), leurs caractères sont inversés et le résultat est transmis à <code>outStream</code>. Nous avons donc écrit un inverseur de blocs de caractères ! Souvenez-vous toutefois que la taille du bloc est déterminée en amont et que vous n’avez guère de contrôle sur les données entrantes.</p>
+<p>Pour installer <code>through2-map</code>, tapez :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="ex">npm</span> install through2-map</a></code></pre></div>
+<p>Si vous n’avez pas de connexion Internet, créez simplement un dossier <code>node_modules</code> et copiez-y tel quel le répertoire du module que vous souhaitez utiliser depuis le dossier d’installation de {appname} :</p>
+<p>{rootdir:/node_modules/through2-map}</p>
+<p>La documentation pour <code>through2-map</code> a été installée avec le reste de {appname} sur votre système pour que vous puissiez la consulter avec votre navigateur à l’adresse suivante :</p>
+<p>{rootdir:/docs/through2-map.html}</p>
+</body>
+</html>

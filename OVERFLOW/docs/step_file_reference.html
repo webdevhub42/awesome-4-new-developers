@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>step_file_reference</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="stepfile-reference">StepFile Reference</h1>
+<p>A StepFile is a <a href="http://en.wikipedia.org/wiki/domain+specific+language">DSL</a> for describing a series of instructions, possibly nested inside other instructions. Technically speaking it is an <em>internal Ruby DSL</em> which means it parses as Ruby code. Nested blocks use Ruby’s do..end structures, named options use Ruby’s hash syntax, and string options may use any of Ruby’s myriad string formats (double-quote, single-quote, here doc, percent-q, etc.)</p>
+<p>Here Docs are especially useful with <code>message</code>s since you can just dump in markdown between <code>&lt;&lt;-MARKDOWN</code> and <code>MARKDOWN</code> declarations.</p>
+<h2 id="steps">steps</h2>
+<ul>
+<li>steps support nested content via <code>do</code> and <code>end</code></li>
+<li>indents the nested block content</li>
+<li><p>inside the nested block, the step count is reset, then resumes afterwards, e.g.</p>
+<pre><code>  Step 1: steal underpants
+  Step 2: do the hokey pokey
+    | Step 1: put your left foot in
+    | Step 2: take your left foot out
+    | Step 3: put your left foot in again
+    | Step 4: shake it all about
+  Step 3: profit!</code></pre></li>
+</ul>
+<p><code>step "name"</code></p>
+<ul>
+<li>creates a new step heading</li>
+<li>maintains a count of steps at the same level</li>
+<li>prefixes name with e.g. “Step 1:”</li>
+</ul>
+<p><code>goals do</code></p>
+<ul>
+<li>a titled, formatted list of goals</li>
+</ul>
+<p><code>goal "text"</code></p>
+<ul>
+<li>an individual goal (marked up with &lt;li&gt;)</li>
+<li>text can be markdown</li>
+</ul>
+<p><code>steps do</code></p>
+<ul>
+<li>a titled, formatted list of steps</li>
+</ul>
+<p><code>explanation do</code></p>
+<ul>
+<li>a titled, formatted block for a summary of what the student just did</li>
+</ul>
+<p><code>link "name"</code></p>
+<ul>
+<li>links to a step whose file name is <code>filename</code></li>
+</ul>
+<p><code>next_step "name"</code></p>
+<ul>
+<li>makes a new step named “Next Step:”</li>
+<li>links to a step whose file name is <code>filename</code></li>
+</ul>
+<p><code>option "name"</code></p>
+<ul>
+<li>creates a step which is named “Option 1: foo” instead “Step 1: foo”</li>
+<li>supports nested blocks, which reset the step count again</li>
+</ul>
+<p><code>insert "filename"</code></p>
+<ul>
+<li>inserts the contents of one file inside another</li>
+<li>a way to do “partials”</li>
+<li>current limitations:
+<ul>
+<li>only works with <code>.step</code> files</li>
+<li>inserted file must be in same directory as inserting file</li>
+<li>prepends an underscore to the file name</li>
+</ul></li>
+</ul>
+<h2 id="messages">messages</h2>
+<p><code>message "text"</code></p>
+<ul>
+<li>makes a paragraph of text anywhere in the document</li>
+<li>the text parameter is passed through a Markdown converter</li>
+</ul>
+<p><code>important "text"</code></p>
+<ul>
+<li>like a message, but called out in a red box</li>
+</ul>
+<p><code>tip "name" do</code></p>
+<ul>
+<li>called out in a blue box</li>
+<li>the name is <em>not</em> markdown, but is an optional bold title for the tip box</li>
+<li>content should be inside a nested block</li>
+</ul>
+<h2 id="special">special</h2>
+<p>Special elements do <em>not</em> format their text as Markdown.</p>
+<p><code>console "text"</code></p>
+<ul>
+<li>indicates that the student should type something in the terminal</li>
+<li>says “type this in the terminal:” and then puts the text in a <code>pre</code> block</li>
+<li>[should this be named <code>terminal</code> or <code>type</code> instead?]</li>
+</ul>
+<p><code>result "text"</code></p>
+<ul>
+<li>indicates that the student should see some output in the terminal</li>
+<li>says “expected result:” and then puts the text in a <code>pre</code> block</li>
+</ul>
+<p><code>verify</code></p>
+<p><code>verify "name"</code></p>
+<ul>
+<li>usually contains <code>console</code> and <code>result</code> notes</li>
+<li>kind of like a step, but doesn’t increment the number count</li>
+</ul>
+<p><code>irb "text"</code></p>
+<ul>
+<li>like “console” but indicates that the student should type something into irb</li>
+</ul>
+<h2 id="erector-elements">erector elements</h2>
+<p>StepFile is an <a href="https://github.com/erector/erector">Erector</a>-based DSL, so if you want to insert HTML tags or other stuff, use the appropriate Erector methods, e.g.</p>
+<pre><code>step &quot;figure out your OS version&quot; do
+  message &quot;Mac OS has code names, including:&quot;
+  table do
+    tr do
+     th &quot;Leopard&quot;
+     td &quot;OS X 10.5&quot;
+    end
+    tr do
+     th &quot;Snow Leopard&quot;
+     td &quot;OS X 10.6&quot;
+    end
+  end
+end</code></pre>
+</body>
+</html>

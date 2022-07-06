@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>numbers</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "variables" -->
+<h1 id="numbers">Numbers</h1>
+<p>The following operations work on numbers:</p>
+<ul>
+<li><ul>
+<li>– addition</li>
+</ul></li>
+<li><ul>
+<li>– subtraction</li>
+</ul></li>
+<li><ul>
+<li>– multiplication</li>
+</ul></li>
+<li>/ – division</li>
+<li>% – modulus</li>
+<li>** – exponentiation</li>
+</ul>
+<h1 id="lab-playing-with-numbers">LAB: Playing With Numbers</h1>
+<p>Answer the following questions using irb:</p>
+<ul>
+<li>How many seconds are in an hour?</li>
+<li>How many minutes are in a week?</li>
+<li>How many seconds old are you?</li>
+<li>How many years old is someone who is 1 billion seconds old?</li>
+</ul>
+<h1 id="order-of-operations">Order of operations</h1>
+<p>Q: What is 1 plus 2 times 3?</p>
+<h1 id="order-of-operations-1">Order of operations</h1>
+<p>Q: What is 1 plus 2 times 3?</p>
+<p>A: <em>It depends!</em></p>
+<ul>
+<li><code>(1 + 2) * 3</code> is 9</li>
+<li><code>1 + (2 * 3)</code> is 7</li>
+</ul>
+<h1 id="parentheses-are-free">Parentheses Are Free</h1>
+<p>When in doubt, use parentheses!</p>
+<h1 id="strings-vs.-numbers">Strings vs. Numbers</h1>
+<p>Hmmm….</p>
+<pre><code>1 + 2
+&quot;1&quot; + &quot;2&quot;
+&quot;1 + 2&quot;</code></pre>
+<h1 id="strings-plus-numbers">Strings plus Numbers</h1>
+<p>Hmmm again…</p>
+<pre><code>&quot;1&quot; + 2</code></pre>
+<p>Uh-oh!</p>
+<pre><code>TypeError: can&#39;t convert Fixnum into String</code></pre>
+<p>The problem is that Strings and Numbers are different TYPES, aka different CLASSES.</p>
+<p>Don’t panic! The solution is easy.</p>
+<h1 id="type-conversion">Type Conversion</h1>
+<p>Numbers know a message that converts them into strings. <code>to_s</code> means “to string”.</p>
+<pre><code>&quot;1&quot; + 2.to_s</code></pre>
+<p>Likewise, strings know a message that converts them into numbers.</p>
+<pre><code>1 + &quot;2&quot;.to_i</code></pre>
+<p><code>to_i</code> means “to integer”.</p>
+<p>Try this in irb!</p>
+<h1 id="advanced-number-theory-optional">Advanced Number Theory (optional)</h1>
+<h1 id="wtfixnum">WTFixnum?</h1>
+<p>The error said <code>can't convert Fixnum into String</code>.</p>
+<p>Q: What is a Fixnum?</p>
+<p>A: It’s one type of number.</p>
+<h1 id="math-is-hard">Math is hard</h1>
+<p>There are many types of numbers!</p>
+<p>Each is useful in different situations.</p>
+<p>Without getting into too much detail, the two main number types in Ruby are:</p>
+<ul>
+<li><code>Fixnum</code> - for <em>integers</em> like 12 or -1023</li>
+<li><code>Float</code> - for <em>decimals</em> like 3.14</li>
+</ul>
+<p>(Other number types include Complex, Rational, and Bignum.)</p>
+<h1 id="number-to-number">Number to Number</h1>
+<p>You can convert from one type of number to another by sending a message:</p>
+<ul>
+<li><code>to_i</code> turns a Float into a Fixnum</li>
+<li><code>to_f</code> turns a Fixnum into a Float</li>
+</ul>
+<p>Try this:</p>
+<pre><code>3.to_f
+3.14.to_i</code></pre>
+<h1 id="string-to-number">String to Number</h1>
+<p><code>to_f</code> and <code>to_i</code> also work on Strings:</p>
+<pre><code>&quot;3.14&quot;.to_f
+&quot;3.14&quot;.to_i</code></pre>
+<p>and <code>to_s</code> works on numbers:</p>
+<pre><code>3.14.to_s</code></pre>
+<h1 id="arithmetic">Arithmetic</h1>
+<p>Try this in irb:</p>
+<pre><code>1 + 2
+3 - 4
+5 * 6
+7 / 8</code></pre>
+<p>Whoa! What just happened?</p>
+<h1 id="integer-arithmetic">Integer Arithmetic</h1>
+<p>7 and 8 are <em>Integers</em></p>
+<p>so the result is an Integer</p>
+<p>7/8 is somewhere between 0 and 1</p>
+<p>but there is no integer between 0 and 1</p>
+<p>so the computer has to <em>round down</em> to 0</p>
+<h1 id="floating-point-arithmetic">Floating Point Arithmetic</h1>
+<pre><code>7.0/8.0</code></pre>
+<p>7.0 and 8.0 are <em>Floats</em></p>
+<p>so the result is a Float</p>
+<p>and <code>0.875</code> can fit in a float</p>
+<h1 id="okay-thats-enough-math">Okay, that’s enough math!</h1>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>the_request_cycle</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h3 id="how-does-typing-in-a-url-result-in-a-web-page-being-rendered-heres-a-rough-overview.">How does typing in a URL result in a web page being rendered? Here’s a rough overview.</h3>
+<p><img src="img/request-cycle.jpg" height="600px"></p>
+<ol type="1">
+<li>The user types in a URL, hoping for a cool website.</li>
+<li>After the DNS gets resolved (a topic for another day), the request hits a web server, which asks Rails what it’s got.</li>
+<li>Rails goes to the routes file first, which takes the URL and calls a corresponding controller action.</li>
+<li>The controller goes and gets whatever stuff it needs from the database using the relevant model.</li>
+<li>With the data the controller got from the model, it uses the view to make some HTML.</li>
+<li>Rails packages up the response and gives it to the web server.</li>
+<li>The web server delivers the response to the browser to display a cool website to the user.</li>
+</ol>
+</body>
+</html>

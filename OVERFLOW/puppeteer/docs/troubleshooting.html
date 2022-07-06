@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>troubleshooting</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<!-- prettier-ignore-start -->
+<!-- GEN:toc -->
+<ul>
+<li><a href="#chrome-headless-doesnt-launch-on-windows">Chrome headless doesn’t launch on Windows</a></li>
+<li><a href="#chrome-headless-doesnt-launch-on-unix">Chrome headless doesn’t launch on UNIX</a></li>
+<li><a href="#chrome-is-downloaded-but-fails-to-launch-on-nodejs-14">Chrome is downloaded but fails to launch on Node.js 14</a></li>
+<li><a href="#setting-up-chrome-linux-sandbox">Setting Up Chrome Linux Sandbox</a>
+<ul>
+<li><a href="#recommended-enable-user-namespace-cloning">[recommended] Enable user namespace cloning</a></li>
+<li><a href="#alternative-setup-setuid-sandbox">[alternative] Setup setuid sandbox</a></li>
+</ul></li>
+<li><a href="#running-puppeteer-on-travis-ci">Running Puppeteer on Travis CI</a></li>
+<li><a href="#running-puppeteer-on-circleci">Running Puppeteer on CircleCI</a></li>
+<li><a href="#running-puppeteer-in-docker">Running Puppeteer in Docker</a>
+<ul>
+<li><a href="#running-on-alpine">Running on Alpine</a>
+<ul>
+<li><a href="#tips">Tips</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#running-puppeteer-in-the-cloud">Running Puppeteer in the cloud</a>
+<ul>
+<li><a href="#running-puppeteer-on-google-app-engine">Running Puppeteer on Google App Engine</a></li>
+<li><a href="#running-puppeteer-on-google-cloud-functions">Running Puppeteer on Google Cloud Functions</a></li>
+<li><a href="#running-puppeteer-on-heroku">Running Puppeteer on Heroku</a></li>
+<li><a href="#running-puppeteer-on-aws-lambda">Running Puppeteer on AWS Lambda</a></li>
+<li><a href="#running-puppeteer-on-aws-ec2-instance-running-amazon-linux">Running Puppeteer on AWS EC2 instance running Amazon-Linux</a></li>
+</ul></li>
+<li><a href="#code-transpilation-issues">Code Transpilation Issues</a> <!-- GEN:stop --></li>
+</ul>
+<!-- prettier-ignore-end -->
+<h2 id="chrome-headless-doesnt-launch-on-windows">Chrome headless doesn’t launch on Windows</h2>
+<p>Some <a href="https://support.google.com/chrome/a/answer/7532015">chrome policies</a> might enforce running Chrome/Chromium with certain extensions.</p>
+<p>Puppeteer passes <code>--disable-extensions</code> flag by default and will fail to launch when such policies are active.</p>
+<p>To work around this, try running without the flag:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">ignoreDefaultArgs</span><span class="op">:</span> [<span class="st">&#39;--disable-extensions&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<blockquote>
+<p>Context: <a href="https://github.com/puppeteer/puppeteer/issues/3681#issuecomment-447865342">issue 3681</a>.</p>
+</blockquote>
+<h2 id="chrome-headless-doesnt-launch-on-unix">Chrome headless doesn’t launch on UNIX</h2>
+<p>Make sure all the necessary dependencies are installed. You can run <code>ldd chrome | grep not</code> on a Linux machine to check which dependencies are missing. The common ones are provided below.</p>
+<details>
+<p><summary>Debian (e.g. Ubuntu) Dependencies</summary></p>
+<pre><code>ca-certificates
+fonts-liberation
+libappindicator3-1
+libasound2
+libatk-bridge2.0-0
+libatk1.0-0
+libc6
+libcairo2
+libcups2
+libdbus-1-3
+libexpat1
+libfontconfig1
+libgbm1
+libgcc1
+libglib2.0-0
+libgtk-3-0
+libnspr4
+libnss3
+libpango-1.0-0
+libpangocairo-1.0-0
+libstdc++6
+libx11-6
+libx11-xcb1
+libxcb1
+libxcomposite1
+libxcursor1
+libxdamage1
+libxext6
+libxfixes3
+libxi6
+libxrandr2
+libxrender1
+libxss1
+libxtst6
+lsb-release
+wget
+xdg-utils</code></pre>
+</details>
+<details>
+<p><summary>CentOS Dependencies</summary></p>
+<pre><code>alsa-lib.x86_64
+atk.x86_64
+cups-libs.x86_64
+gtk3.x86_64
+ipa-gothic-fonts
+libXcomposite.x86_64
+libXcursor.x86_64
+libXdamage.x86_64
+libXext.x86_64
+libXi.x86_64
+libXrandr.x86_64
+libXScrnSaver.x86_64
+libXtst.x86_64
+pango.x86_64
+xorg-x11-fonts-100dpi
+xorg-x11-fonts-75dpi
+xorg-x11-fonts-cyrillic
+xorg-x11-fonts-misc
+xorg-x11-fonts-Type1
+xorg-x11-utils</code></pre>
+<p>After installing dependencies you need to update nss library using this command</p>
+<pre><code>yum update nss -y</code></pre>
+</details>
+<details>
+<p><summary>Check out discussions</summary></p>
+<ul>
+<li><a href="https://github.com/puppeteer/puppeteer/issues/290">#290</a> - Debian troubleshooting <br/></li>
+<li><a href="https://github.com/puppeteer/puppeteer/issues/391">#391</a> - CentOS troubleshooting <br/></li>
+<li><a href="https://github.com/puppeteer/puppeteer/issues/379">#379</a> - Alpine troubleshooting <br/></li>
+</ul>
+</details>
+<h2 id="chrome-is-downloaded-but-fails-to-launch-on-node.js-14">Chrome is downloaded but fails to launch on Node.js 14</h2>
+<p>If you get an error that looks like this when trying to launch Chromium:</p>
+<pre><code>(node:15505) UnhandledPromiseRejectionWarning: Error: Failed to launch the browser process!
+spawn /Users/.../node_modules/puppeteer/.local-chromium/mac-756035/chrome-mac/Chromium.app/Contents/MacOS/Chromium ENOENT</code></pre>
+<p>This means that the browser was downloaded but failed to be extracted correctly. The most common cause is a bug in Node.js v14.0.0 which broke <code>extract-zip</code>, the module Puppeteer uses to extract browser downloads into the right place. The bug was fixed in Node.js v14.1.0, so please make sure you’re running that version or higher. Alternatively, if you cannot upgrade, you could downgrade to Node.js v12, but we recommend upgrading when possible.</p>
+<h2 id="setting-up-chrome-linux-sandbox">Setting Up Chrome Linux Sandbox</h2>
+<p>In order to protect the host environment from untrusted web content, Chrome uses <a href="https://chromium.googlesource.com/chromium/src/+/HEAD/docs/linux/sandboxing.md">multiple layers of sandboxing</a>. For this to work properly, the host should be configured first. If there’s no good sandbox for Chrome to use, it will crash with the error <code>No usable sandbox!</code>.</p>
+<p>If you <strong>absolutely trust</strong> the content you open in Chrome, you can launch Chrome with the <code>--no-sandbox</code> argument:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="dt">args</span><span class="op">:</span> [<span class="st">&#39;--no-sandbox&#39;</span><span class="op">,</span> <span class="st">&#39;--disable-setuid-sandbox&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<blockquote>
+<p><strong>NOTE</strong>: Running without a sandbox is <strong>strongly discouraged</strong>. Consider configuring a sandbox instead.</p>
+</blockquote>
+<p>There are 2 ways to configure a sandbox in Chromium.</p>
+<h3 id="recommended-enable-user-namespace-cloning">[recommended] Enable <a href="http://man7.org/linux/man-pages/man7/user_namespaces.7.html">user namespace cloning</a></h3>
+<p>User namespace cloning is only supported by modern kernels. Unprivileged user namespaces are generally fine to enable, but in some cases they open up more kernel attack surface for (unsandboxed) non-root processes to elevate to kernel privileges.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">sudo</span> sysctl -w kernel.unprivileged_userns_clone=1</a></code></pre></div>
+<h3 id="alternative-setup-setuid-sandbox">[alternative] Setup <a href="https://chromium.googlesource.com/chromium/src/+/HEAD/docs/linux/suid_sandbox_development.md">setuid sandbox</a></h3>
+<p>The setuid sandbox comes as a standalone executable and is located next to the Chromium that Puppeteer downloads. It is fine to re-use the same sandbox executable for different Chromium versions, so the following could be done only once per host environment:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># cd to the downloaded instance</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="bu">cd</span> <span class="op">&lt;</span>project-dir-path<span class="op">&gt;</span>/node_modules/puppeteer/.local-chromium/linux-<span class="op">&lt;</span>revision<span class="op">&gt;</span>/chrome-linux/</a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="fu">sudo</span> chown root:root chrome_sandbox</a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="fu">sudo</span> chmod 4755 chrome_sandbox</a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co"># copy sandbox executable to a shared location</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="fu">sudo</span> cp -p chrome_sandbox /usr/local/sbin/chrome-devel-sandbox</a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="co"># export CHROME_DEVEL_SANDBOX env variable</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="bu">export</span> <span class="va">CHROME_DEVEL_SANDBOX=</span>/usr/local/sbin/chrome-devel-sandbox</a></code></pre></div>
+<p>You might want to export the <code>CHROME_DEVEL_SANDBOX</code> env variable by default. In this case, add the following to the <code>~/.bashrc</code> or <code>.zshenv</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="bu">export</span> <span class="va">CHROME_DEVEL_SANDBOX=</span>/usr/local/sbin/chrome-devel-sandbox</a></code></pre></div>
+<h2 id="running-puppeteer-on-travis-ci">Running Puppeteer on Travis CI</h2>
+<blockquote>
+<p>👋 We ran our tests for Puppeteer on Travis CI until v6.0.0 (when we’ve migrated to GitHub Actions) - see our historical <a href="https://github.com/puppeteer/puppeteer/blob/v5.5.0/.travis.yml"><code>.travis.yml</code> (v5.5.0)</a> for reference.</p>
+</blockquote>
+<p>Tips-n-tricks:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Xvfb">xvfb</a> service should be launched in order to run Chromium in non-headless mode</li>
+<li>Runs on Xenial Linux on Travis by default</li>
+<li>Runs <code>npm install</code> by default</li>
+<li><code>node_modules</code> is cached by default</li>
+</ul>
+<p><code>.travis.yml</code> might look like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">language:</span><span class="at"> node_js</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="fu">node_js:</span><span class="at"> node</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="fu">services:</span><span class="at"> xvfb</span></a>
+<a class="sourceLine" id="cb10-4" title="4"></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="fu">script:</span></a>
+<a class="sourceLine" id="cb10-6" title="6">  <span class="kw">-</span> npm run test</a></code></pre></div>
+<h2 id="running-puppeteer-on-circleci">Running Puppeteer on CircleCI</h2>
+<p>Running Puppeteer smoothly on CircleCI requires the following steps:</p>
+<ol type="1">
+<li><p>Start with a <a href="https://circleci.com/docs/2.0/circleci-images/#nodejs">NodeJS image</a> in your config like so:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb11-1" title="1"><span class="fu">docker:</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="kw">-</span> <span class="fu">image:</span><span class="at"> circleci/node:12 </span><span class="co"># Use your desired version</span></a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="fu">environment:</span></a>
+<a class="sourceLine" id="cb11-4" title="4">      <span class="fu">NODE_ENV:</span><span class="at"> development </span><span class="co"># Only needed if puppeteer is in `devDependencies`</span></a></code></pre></div></li>
+<li>Dependencies like <code>libXtst6</code> probably need to be installed via <code>apt-get</code>, so use the <a href="https://circleci.com/orbs/registry/orb/threetreeslight/puppeteer">threetreeslight/puppeteer</a> orb (<a href="https://circleci.com/orbs/registry/orb/threetreeslight/puppeteer#quick-start">instructions</a>), or paste parts of its <a href="https://circleci.com/orbs/registry/orb/threetreeslight/puppeteer#orb-source">source</a> into your own config.</li>
+<li><p>Lastly, if you’re using Puppeteer through Jest, then you may encounter an error spawning child processes:</p>
+<pre><code>[00:00.0]  jest args: --e2e --spec --max-workers=36
+Error: spawn ENOMEM
+   at ChildProcess.spawn (internal/child_process.js:394:11)</code></pre>
+<p>This is likely caused by Jest autodetecting the number of processes on the entire machine (<code>36</code>) rather than the number allowed to your container (<code>2</code>). To fix this, set <code>jest --maxWorkers=2</code> in your test command.</p></li>
+</ol>
+<h2 id="running-puppeteer-in-docker">Running Puppeteer in Docker</h2>
+<blockquote>
+<p>👋 We used <a href="https://cirrus-ci.org/">Cirrus Ci</a> to run our tests for Puppeteer in a Docker container until v3.0.x - see our historical <a href="https://github.com/puppeteer/puppeteer/blob/v3.0.1/.ci/node12/Dockerfile.linux"><code>Dockerfile.linux</code> (v3.0.1)</a> for reference.</p>
+</blockquote>
+<p>Getting headless Chrome up and running in Docker can be tricky. The bundled Chromium that Puppeteer installs is missing the necessary shared library dependencies.</p>
+<p>To fix, you’ll need to install the missing dependencies and the latest Chromium package in your Dockerfile:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode dockerfile"><code class="sourceCode dockerfile"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">FROM</span> node:12-slim</a>
+<a class="sourceLine" id="cb13-2" title="2"></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="co"># Install latest chrome dev package and fonts to support major charsets (Chinese, Japanese, Arabic, Hebrew, Thai and a few others)</span></a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="co"># Note: this installs the necessary libs to make the bundled version of Chromium that Puppeteer</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="co"># installs, work.</span></a>
+<a class="sourceLine" id="cb13-6" title="6"><span class="kw">RUN</span> apt-get update \</a>
+<a class="sourceLine" id="cb13-7" title="7">    &amp;&amp; apt-get install -y wget gnupg \</a>
+<a class="sourceLine" id="cb13-8" title="8">    &amp;&amp; wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \</a>
+<a class="sourceLine" id="cb13-9" title="9">    &amp;&amp; sh -c <span class="st">&#39;echo &quot;deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main&quot; &gt;&gt; /etc/apt/sources.list.d/google.list&#39;</span> \</a>
+<a class="sourceLine" id="cb13-10" title="10">    &amp;&amp; apt-get update \</a>
+<a class="sourceLine" id="cb13-11" title="11">    &amp;&amp; apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \</a>
+<a class="sourceLine" id="cb13-12" title="12">      --no-install-recommends \</a>
+<a class="sourceLine" id="cb13-13" title="13">    &amp;&amp; rm -rf /var/lib/apt/lists/*</a>
+<a class="sourceLine" id="cb13-14" title="14"></a>
+<a class="sourceLine" id="cb13-15" title="15"><span class="co"># If running Docker &gt;= 1.13.0 use docker run&#39;s --init arg to reap zombie processes, otherwise</span></a>
+<a class="sourceLine" id="cb13-16" title="16"><span class="co"># uncomment the following lines to have `dumb-init` as PID 1</span></a>
+<a class="sourceLine" id="cb13-17" title="17"><span class="co"># ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_x86_64 /usr/local/bin/dumb-init</span></a>
+<a class="sourceLine" id="cb13-18" title="18"><span class="co"># RUN chmod +x /usr/local/bin/dumb-init</span></a>
+<a class="sourceLine" id="cb13-19" title="19"><span class="co"># ENTRYPOINT [&quot;dumb-init&quot;, &quot;--&quot;]</span></a>
+<a class="sourceLine" id="cb13-20" title="20"></a>
+<a class="sourceLine" id="cb13-21" title="21"><span class="co"># Uncomment to skip the chromium download when installing puppeteer. If you do,</span></a>
+<a class="sourceLine" id="cb13-22" title="22"><span class="co"># you&#39;ll need to launch puppeteer with:</span></a>
+<a class="sourceLine" id="cb13-23" title="23"><span class="co">#     browser.launch({executablePath: &#39;google-chrome-stable&#39;})</span></a>
+<a class="sourceLine" id="cb13-24" title="24"><span class="co"># ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true</span></a>
+<a class="sourceLine" id="cb13-25" title="25"></a>
+<a class="sourceLine" id="cb13-26" title="26"><span class="co"># Install puppeteer so it&#39;s available in the container.</span></a>
+<a class="sourceLine" id="cb13-27" title="27"><span class="kw">RUN</span> npm i puppeteer \</a>
+<a class="sourceLine" id="cb13-28" title="28">    <span class="co"># Add user so we don&#39;t need --no-sandbox.</span></a>
+<a class="sourceLine" id="cb13-29" title="29">    <span class="co"># same layer as npm install to keep re-chowned files from using up several hundred MBs more space</span></a>
+<a class="sourceLine" id="cb13-30" title="30">    &amp;&amp; groupadd -r pptruser &amp;&amp; useradd -r -g pptruser -G audio,video pptruser \</a>
+<a class="sourceLine" id="cb13-31" title="31">    &amp;&amp; mkdir -p /home/pptruser/Downloads \</a>
+<a class="sourceLine" id="cb13-32" title="32">    &amp;&amp; chown -R pptruser:pptruser /home/pptruser \</a>
+<a class="sourceLine" id="cb13-33" title="33">    &amp;&amp; chown -R pptruser:pptruser /node_modules</a>
+<a class="sourceLine" id="cb13-34" title="34"></a>
+<a class="sourceLine" id="cb13-35" title="35"><span class="co"># Run everything after as non-privileged user.</span></a>
+<a class="sourceLine" id="cb13-36" title="36"><span class="kw">USER</span> pptruser</a>
+<a class="sourceLine" id="cb13-37" title="37"></a>
+<a class="sourceLine" id="cb13-38" title="38"><span class="kw">CMD</span> [<span class="st">&quot;google-chrome-stable&quot;</span>]</a></code></pre></div>
+<p>Build the container:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="ex">docker</span> build -t puppeteer-chrome-linux .</a></code></pre></div>
+<p>Run the container by passing <code>node -e "&lt;yourscript.js content as a string&gt;"</code> as the command:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1"> <span class="ex">docker</span> run -i --init --rm --cap-add=SYS_ADMIN \</a>
+<a class="sourceLine" id="cb15-2" title="2">   --name puppeteer-chrome puppeteer-chrome-linux \</a>
+<a class="sourceLine" id="cb15-3" title="3">   node -e <span class="st">&quot;</span><span class="kw">`</span><span class="fu">cat</span> yourscript.js<span class="kw">`</span><span class="st">&quot;</span></a></code></pre></div>
+<p>There’s a full example at https://github.com/ebidel/try-puppeteer that shows how to run this Dockerfile from a webserver running on App Engine Flex (Node).</p>
+<h3 id="running-on-alpine">Running on Alpine</h3>
+<p>The <a href="https://pkgs.alpinelinux.org/package/edge/community/x86_64/chromium">newest Chromium package</a> supported on Alpine is 89, which corresponds to <a href="https://github.com/puppeteer/puppeteer/releases/tag/v6.0.0">Puppeteer v6.0.0</a>.</p>
+<p>Example Dockerfile:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode dockerfile"><code class="sourceCode dockerfile"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">FROM</span> alpine:edge</a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="co"># Installs latest Chromium (89) package.</span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="kw">RUN</span> apk add --no-cache \</a>
+<a class="sourceLine" id="cb16-5" title="5">      chromium \</a>
+<a class="sourceLine" id="cb16-6" title="6">      nss \</a>
+<a class="sourceLine" id="cb16-7" title="7">      freetype \</a>
+<a class="sourceLine" id="cb16-8" title="8">      harfbuzz \</a>
+<a class="sourceLine" id="cb16-9" title="9">      ca-certificates \</a>
+<a class="sourceLine" id="cb16-10" title="10">      ttf-freefont \</a>
+<a class="sourceLine" id="cb16-11" title="11">      nodejs \</a>
+<a class="sourceLine" id="cb16-12" title="12">      yarn</a>
+<a class="sourceLine" id="cb16-13" title="13"></a>
+<a class="sourceLine" id="cb16-14" title="14">...</a>
+<a class="sourceLine" id="cb16-15" title="15"></a>
+<a class="sourceLine" id="cb16-16" title="16"><span class="co"># Tell Puppeteer to skip installing Chrome. We&#39;ll be using the installed package.</span></a>
+<a class="sourceLine" id="cb16-17" title="17"><span class="kw">ENV</span> PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \</a>
+<a class="sourceLine" id="cb16-18" title="18">    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser</a>
+<a class="sourceLine" id="cb16-19" title="19"></a>
+<a class="sourceLine" id="cb16-20" title="20"><span class="co"># Puppeteer v6.0.0 works with Chromium 89.</span></a>
+<a class="sourceLine" id="cb16-21" title="21"><span class="kw">RUN</span> yarn add puppeteer@6.0.0</a>
+<a class="sourceLine" id="cb16-22" title="22"></a>
+<a class="sourceLine" id="cb16-23" title="23"><span class="co"># Add user so we don&#39;t need --no-sandbox.</span></a>
+<a class="sourceLine" id="cb16-24" title="24"><span class="kw">RUN</span> addgroup -S pptruser &amp;&amp; adduser -S -g pptruser pptruser \</a>
+<a class="sourceLine" id="cb16-25" title="25">    &amp;&amp; mkdir -p /home/pptruser/Downloads /app \</a>
+<a class="sourceLine" id="cb16-26" title="26">    &amp;&amp; chown -R pptruser:pptruser /home/pptruser \</a>
+<a class="sourceLine" id="cb16-27" title="27">    &amp;&amp; chown -R pptruser:pptruser /app</a>
+<a class="sourceLine" id="cb16-28" title="28"></a>
+<a class="sourceLine" id="cb16-29" title="29"><span class="co"># Run everything after as non-privileged user.</span></a>
+<a class="sourceLine" id="cb16-30" title="30"><span class="kw">USER</span> pptruser</a>
+<a class="sourceLine" id="cb16-31" title="31"></a>
+<a class="sourceLine" id="cb16-32" title="32">...</a></code></pre></div>
+<h4 id="tips">Tips</h4>
+<p>By default, Docker runs a container with a <code>/dev/shm</code> shared memory space 64MB. This is <a href="https://github.com/c0b/chrome-in-docker/issues/1">typically too small</a> for Chrome and will cause Chrome to crash when rendering large pages. To fix, run the container with <code>docker run --shm-size=1gb</code> to increase the size of <code>/dev/shm</code>. Since Chrome 65, this is no longer necessary. Instead, launch the browser with the <code>--disable-dev-shm-usage</code> flag:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="dt">args</span><span class="op">:</span> [<span class="st">&#39;--disable-dev-shm-usage&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>This will write shared memory files into <code>/tmp</code> instead of <code>/dev/shm</code>. See <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=736452">crbug.com/736452</a> for more details.</p>
+<p>Seeing other weird errors when launching Chrome? Try running your container with <code>docker run --cap-add=SYS_ADMIN</code> when developing locally. Since the Dockerfile adds a <code>pptr</code> user as a non-privileged user, it may not have all the necessary privileges.</p>
+<p><a href="https://github.com/Yelp/dumb-init">dumb-init</a> is worth checking out if you’re experiencing a lot of zombies Chrome processes sticking around. There’s special treatment for processes with PID=1, which makes it hard to terminate Chrome properly in some cases (e.g. in Docker).</p>
+<h2 id="running-puppeteer-in-the-cloud">Running Puppeteer in the cloud</h2>
+<h3 id="running-puppeteer-on-google-app-engine">Running Puppeteer on Google App Engine</h3>
+<p>The Node.js runtime of the <a href="https://cloud.google.com/appengine/docs/standard/nodejs/">App Engine standard environment</a> comes with all system packages needed to run Headless Chrome.</p>
+<p>To use <code>puppeteer</code>, simply list the module as a dependency in your <code>package.json</code> and deploy to Google App Engine. Read more about using <code>puppeteer</code> on App Engine by following <a href="https://cloud.google.com/appengine/docs/standard/nodejs/using-headless-chrome-with-puppeteer">the official tutorial</a>.</p>
+<h3 id="running-puppeteer-on-google-cloud-functions">Running Puppeteer on Google Cloud Functions</h3>
+<p>The Node.js 10 runtime of <a href="https://cloud.google.com/functions/docs/">Google Cloud Functions</a> comes with all system packages needed to run Headless Chrome.</p>
+<p>To use <code>puppeteer</code>, simply list the module as a dependency in your <code>package.json</code> and deploy your function to Google Cloud Functions using the <code>nodejs10</code> runtime.</p>
+<h3 id="running-puppeteer-on-heroku">Running Puppeteer on Heroku</h3>
+<p>Running Puppeteer on Heroku requires some additional dependencies that aren’t included on the Linux box that Heroku spins up for you. To add the dependencies on deploy, add the Puppeteer Heroku buildpack to the list of buildpacks for your app under Settings &gt; Buildpacks.</p>
+<p>The url for the buildpack is https://github.com/jontewks/puppeteer-heroku-buildpack</p>
+<p>Ensure that you’re using <code>'--no-sandbox'</code> mode when launching Puppeteer. This can be done by passing it as an argument to your <code>.launch()</code> call: <code>puppeteer.launch({ args: ['--no-sandbox'] });</code>.</p>
+<p>When you click add buildpack, simply paste that url into the input, and click save. On the next deploy, your app will also install the dependencies that Puppeteer needs to run.</p>
+<p>If you need to render Chinese, Japanese, or Korean characters you may need to use a buildpack with additional font files like https://github.com/CoffeeAndCode/puppeteer-heroku-buildpack</p>
+<p>There’s also another <a href="https://timleland.com/headless-chrome-on-heroku/">simple guide</a> from <span class="citation" data-cites="timleland">@timleland</span> that includes a sample project: https://timleland.com/headless-chrome-on-heroku/.</p>
+<h3 id="running-puppeteer-on-aws-lambda">Running Puppeteer on AWS Lambda</h3>
+<p>AWS Lambda <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> deployment package sizes to ~50MB. This presents challenges for running headless Chrome (and therefore Puppeteer) on Lambda. The community has put together a few resources that work around the issues:</p>
+<ul>
+<li>https://github.com/alixaxel/chrome-aws-lambda (kept updated with the latest stable release of puppeteer)</li>
+<li>https://github.com/adieuadieu/serverless-chrome/blob/master/docs/chrome.md (serverless plugin - outdated)</li>
+</ul>
+<h3 id="running-puppeteer-on-aws-ec2-instance-running-amazon-linux">Running Puppeteer on AWS EC2 instance running Amazon-Linux</h3>
+<p>If you are using an EC2 instance running amazon-linux in your CI/CD pipeline, and if you want to run Puppeteer tests in amazon-linux, follow these steps.</p>
+<ol type="1">
+<li><p>To install Chromium, you have to first enable <code>amazon-linux-extras</code> which comes as part of <a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-enable-epel/">EPEL (Extra Packages for Enterprise Linux)</a>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" title="1"><span class="fu">sudo</span> amazon-linux-extras install epel -y</a></code></pre></div></li>
+<li><p>Next, install Chromium:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" title="1"><span class="fu">sudo</span> yum install -y chromium</a></code></pre></div></li>
+</ol>
+<p>Now Puppeteer can launch Chromium to run your tests. If you do not enable EPEL and if you continue installing chromium as part of <code>npm install</code>, Puppeteer cannot launch Chromium due to unavailablity of <code>libatk-1.0.so.0</code> and many more packages.</p>
+<h2 id="code-transpilation-issues">Code Transpilation Issues</h2>
+<p>If you are using a JavaScript transpiler like babel or TypeScript, calling <code>evaluate()</code> with an async function might not work. This is because while <code>puppeteer</code> uses <code>Function.prototype.toString()</code> to serialize functions while transpilers could be changing the output code in such a way it’s incompatible with <code>puppeteer</code>.</p>
+<p>Some workarounds to this problem would be to instruct the transpiler not to mess up with the code, for example, configure TypeScript to use latest ecma version (<code>"target": "es2018"</code>). Another workaround could be using string templates instead of functions:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" title="1"><span class="cf">await</span> <span class="va">page</span>.<span class="at">evaluate</span>(<span class="vs">`(async() =&gt; {</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="vs">   console.log(&#39;1&#39;);</span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="vs">})()`</span>)<span class="op">;</span></a></code></pre></div>
+</body>
+</html>

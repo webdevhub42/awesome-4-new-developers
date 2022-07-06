@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.it</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>Questo problema è uguale al problema precedente (HTTP COLLECT) per via dell’uso di <code>http.get()</code>. Tuttavia, stavolta ti verranno forniti <strong>tre</strong> URL come i primi tre argomenti da riga di comando.</p>
+<p>Devi raccogliere il contenuto completo fornito da ciascuno degli URL e stamparlo sulla console (stdout). Non devi scrivere la lunghezza, soltanto i dati come una stringa; una riga per ciascun URL. La difficoltà è che <strong>dovrai</strong> scriverli nello stesso ordine in cui gli URL sono forniti come argomenti da riga di comando.</p>
+<hr />
+<h2 id="suggerimenti">SUGGERIMENTI</h2>
+<p>Non ti aspettare che questi tre server collaborino! Non ti daranno risposte complete nell’ordine da te sperato, quindi non puoi ingenuamente stampare i risultati nel momento in cui li ricevi perché si troveranno nell’ordine sbagliato.</p>
+<p>Dovrai accodare i risultati e tener traccia di quanti URL hanno già restituito il loro intero contenuto. Solo quando li avrai ottenuti tutti potrai stampare i dati sulla console.</p>
+<p>Contare le callback è una delle maniere fondamentali di gestire il comportamento asincrono in Node. Anziché farlo da te, potresti trovare più conveniente affidarti ad una libreria di terze parti come <a href="https://npmjs.com/async">async</a> o <a href="https://npmjs.com/after">after</a>. Tuttavia, per quest’esercizio prova a fare a meno di qualsiasi libreria esterna di supporto.</p>
+</body>
+</html>

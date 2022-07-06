@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.es</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>Este ejercicio es similar al anterior puesto que debes usar <code>http.get()</code>. Sin embargo, esta vez tu programa recibirá <strong>tres</strong> URLs como argumentos.</p>
+<p>Tu programa deberá imprimir el contenido de cada una de las URLs en consola en el mismo orden que fueron recibidos los argumentos. No deberás imprimir el largo, solo el contenido como String, pero <strong>debes respetar el orden</strong> de llegada de los argumentos.</p>
+<hr />
+<h2 id="pistas">PISTAS</h2>
+<p>Como las llamadas a las URLs son asíncronas, es probable que no recibas las respuestas en orden por lo que no puedes imprimir las respuestas a medida que llegan.</p>
+<p>Tendrás que encolar los resultados y mantener un contador de cuántas peticiones han sido recibidas de modo que al llegar al final puedas imprimir los resultados.</p>
+<p>En la vida real, utilizar <a href="https://www.npmjs.com/package/async"><code>async</code></a> o <a href="https://www.npmjs.com/package/run-parallel"><code>run-parallel</code></a> facilitaria la continuación de los callbacks. Pero para el alcance de este ejercicio se debería realizar sin utilizarlo.</p>
+</body>
+</html>

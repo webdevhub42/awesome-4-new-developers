@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>arrays</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "argv" -->
+<h1 id="arrays">Arrays</h1>
+<ul>
+<li>An ARRAY is a CONTAINER
+<ul>
+<li>an object that contains other objects</li>
+</ul></li>
+<li>It’s a list of objects</li>
+</ul>
+<h1 id="what-makes-an-array-an-array">What makes an array an array</h1>
+<ul>
+<li>You can put any objects inside it</li>
+<li>In any order</li>
+<li>They stay in order</li>
+<li>Duplicates are fine</li>
+</ul>
+<h1 id="creating-an-array">Creating an array</h1>
+<pre><code>[&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]</code></pre>
+<h1 id="array-indexes">Array Indexes</h1>
+<ul>
+<li>Every slot in the array has a serial number</li>
+<li>You can retrieve any item in an array by its INDEX</li>
+<li>An index is a number from 0 to infinity
+<ul>
+<li>actually to the size of the array</li>
+</ul></li>
+</ul>
+<h1 id="array-indexes-exercise">Array Indexes Exercise</h1>
+<p>Try this in IRB:</p>
+<pre><code>fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+fruits[1]</code></pre>
+<p>Did you get the result you expected?</p>
+<p>Why or why not?</p>
+<h1 id="start-at-zero">Start At Zero</h1>
+<p>When counting,</p>
+<p>humans start at one,</p>
+<p>but <strong>computers start at zero</strong>.</p>
+<p>So the first item in an array is number zero, not number one.</p>
+<h1 id="the-end">The End</h1>
+<p>Try this:</p>
+<pre><code>fruits[99]</code></pre>
+<p>Did you get the result you expected?</p>
+<p>Why or why not?</p>
+<h1 id="array-methods">Array Methods</h1>
+<pre><code>fruits.last
+fruits.first
+fruits.reverse
+fruits.shuffle</code></pre>
+<h1 id="turning-an-array-into-a-string">Turning an array into a string</h1>
+<pre><code>fruits.join
+fruits.join(&quot; and &quot;)</code></pre>
+<p>Note that <code>to_s</code> doesn’t work right on arrays:</p>
+<pre><code>fruits.to_s
+puts fruits.to_s</code></pre>
+<h1 id="looping-through-an-array">Looping through an array</h1>
+<pre><code>fruits.each do |fruit|
+  puts fruit
+end</code></pre>
+<ul>
+<li><code>each</code> is like <code>while</code> for arrays</li>
+<li><code>fruits.each do</code> means “for each item inside this array, do this”</li>
+<li><code>|fruit|</code> means “put the current item into a variable named <code>fruit</code>”</li>
+<li><code>puts fruit</code> means “print out the value of this variable”</li>
+<li><code>end</code> means “we’re done with the loop now” :-)</li>
+</ul>
+<h1 id="lab-reverse-fruit">Lab: reverse fruit</h1>
+<p>Given this array:</p>
+<pre><code>fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]</code></pre>
+<p>write a program that prints:</p>
+<pre><code>yrrehc
+ananab
+elppa</code></pre>
+<h1 id="setting-items-in-an-array">Setting items in an array</h1>
+<p>The <code>[]</code> operator works for assignment as well.</p>
+<pre><code>fruits[0] = &quot;Apricot&quot;
+fruits[1] = &quot;Blueberry&quot;
+
+puts fruits.first</code></pre>
+<h1 id="checking-an-array">Checking an array</h1>
+<p>The <code>include?</code> method checks if an object is inside an array or not.</p>
+<pre><code>fruits.include? &quot;apple&quot;
+true
+
+fruits.include? &quot;pizza&quot;
+false</code></pre>
+<h1 id="lab-enemies-list-refactoring">LAB: enemies list refactoring</h1>
+<p>I’d like you to <strong>refactor</strong> your old <code>hello.rb</code> program to use the <code>include?</code> method to check if someone is your enemy.</p>
+<h1 id="todo-more-array-labs">TODO: more array labs</h1>
+</body>
+</html>

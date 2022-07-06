@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.tr</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p><code>zaman-sunucusu.js</code> isimli bir dosya oluşturunuz.</p>
+<p><strong>TCP zaman sunucu</strong>su yazınız!</p>
+<p>Programınız, ilk argüman olarak kabul edeceği bir portan TCP bağlantılarını dinleyen bir sunucu olmalı. Her bağlantı için o anın zaman bilgisini 24 saatlik zaman formatında göstermelisiniz:</p>
+<pre><code>&quot;YYYY-MM-DD hh:mm&quot; # YIL-AY-GÜN SAAT:DAKİKA</code></pre>
+<p>ve sonuna bir adet <strong>yeni satır</strong> karakteri koymalısınız. Ay, gün, saat ve dakika bilgileri <strong>sıfırlı</strong> şekilde <strong>2 haneli</strong> olarak ifade edilmelidir. Örneğin:</p>
+<pre><code>&quot;2013-07-06 17:42&quot;</code></pre>
+<p>String geri döndükten sonra bağlantıyı kapatınız.</p>
+<hr />
+<h2 id="ipuçlari">İPUÇLARI</h2>
+<p>Bu alıştırma için, yeni ham bir TCP sunucu yaratacağız. Burada HTTP ile işimiz olmayacak, o yüzden Node’un çekirdek kütüphanesindeki <code>net</code> modülünü kullanacağız. Bu modül temel ağ işlemlerini yapmamızı sağlayan bir modüldür.</p>
+<p><code>net</code> modülü, <code>net.createServer()</code> isimli bir metoda sahiptir ve bu method bir fonksiyon alır. Argüman olarak geçirilen bu fonksiyon bir bağlantı dinleyicisidir(connection listener) ve birden çok defa çağrılır. Sunucuya gelen her bağlantı isteğinde sunucunuz bu fonksiyonu çağırır. Bu fonksiyonun yapısı:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">listener</span> (socket) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p><code>net.createServer()</code> fonksiyonu <code>sunucu</code>nuzun bir örneğini(instance) geri döndürür. <code>sunucu.listen(portNumarasi)</code> şeklinde kullanarak belirli bir portu dinlemeye başlarsınız.</p>
+<p>Tipik bir Node TCP sunucusu şuna benzer:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> net <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;net&#39;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">const</span> server <span class="op">=</span> <span class="va">net</span>.<span class="at">createServer</span>(<span class="kw">function</span> (socket) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">// soket(socket) ile ilgili işlemler</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="va">server</span>.<span class="at">listen</span>(<span class="dv">8000</span>)</a></code></pre></div>
+<p>İlk argüman olarak verilen port numarasını sunucunun dinleyeceği port numarası yapmayı unutmayınız.</p>
+<p><code>socket</code> nesnesi bağlantı hakkında çeşitli meta-veriler içerir. Ayrıca Node iki yönlü Stream i de içerir. Bu Stream’den veri okuyabilir ya da bu Stream’e veri yazabilirsinz. Bu alıştırma için <code>socket</code> üzerinden bu Stream’e sadece yazma yapacağız.</p>
+<p><code>socket.write(data)</code> metodu kullanılarak verilerimizi sokete gönderebilir ve <code>socket.end()</code> ile soket bağlantısını kapatabiliriz. Alternatif olarak, <code>.end()</code> metodu veriyi parametre olarak olabilir, yani sadece şu şekilde de kullanabilirsiniz: <code>socket.end(data)</code>.</p>
+<p><code>net</code> modülünün dökümantasyonuna, tarayıcınızdan bu adresi açarak erişebilirsiniz:</p>
+<p>{rootdir:/docs-nodejs/net.html}</p>
+<p>Tarihi oluşturmak için <code>new Date()</code> nesnesinden özelleştirilmiş bir biçim oluşturmalısınız. Yardımcı olabilecek metodlar:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">date</span>.<span class="at">getFullYear</span>() <span class="co">// Yıl bilgisi</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">date</span>.<span class="at">getMonth</span>() <span class="co">// Ay Bilgisi: 0(sıfır)&#39;dan başlar</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">date</span>.<span class="at">getDate</span>() <span class="co">// Ayın hangi günü olduğunu söyler</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">date</span>.<span class="at">getHours</span>() <span class="co">// Saat Bilgisi (sadece saat kısmı)</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="va">date</span>.<span class="at">getMinutes</span>() <span class="co">// Saat Bilgisi (sadece dakika kısmı)</span></a></code></pre></div>
+<p>Ya da maceracı ruhunuzu kullanıp, npm’de ki <code>strftime</code> paketini kurup, kullanabilirsiniz. <code>strftime(fmt, date)</code> fonksiyonu unix de ki <code>date</code> komutu gibi tarih formatlarını kabul eder. strftime ile ilgili daha fazla bilgiyi şu adresten alabilirsiniz: https://github.com/samsonjs/strftime</p>
+<p>Programın doğru olup olmadığını kontrol etmek için aşağıdaki komutu kullanın:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1">$ <span class="dt">{appname}</span> <span class="ex">verify</span> zaman-sunucusu.js</a></code></pre></div>
+</body>
+</html>

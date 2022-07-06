@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ruby_for_beginners.deck</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>!SLIDE subsection</p>
+<h1 id="ruby-programming-for-beginners">Ruby Programming for Beginners</h1>
+<p>&lt;!SLIDE bullets incremental&gt;</p>
+<h1 id="what-well-cover">What we’ll cover</h1>
+<ul>
+<li>Programming: languages &amp; applications</li>
+<li>What is Ruby?</li>
+<li>Ruby’s common objects</li>
+<li>Ruby syntax basics</li>
+<li>Object oriented programming concepts</li>
+<li>Passing code to a Ruby interpreter</li>
+</ul>
+<p>!SLIDE</p>
+<h1 id="programming">Programming</h1>
+<p>!SLIDE</p>
+<h1 id="operating-system-os">Operating System (OS)</h1>
+<p>Talk to a computer’s <code>hardware</code>.</p>
+<table>
+<tr>
+<td>
+<img src='img/os_x_logo.jpg'>
+<td>
+<img src='img/windows_logo.gif'>
+<td>
+<img src='img/linux_logo.gif'>
+</tr>
+</table>
+<p>!SLIDE</p>
+<h1 id="application">Application</h1>
+<p>The <code>software</code>. It sends <code>input</code> (<code>commands</code>, <code>data</code>, etc) to the operating system and receive <code>output</code> after the operating system has acted on it.</p>
+<p><img src="img/acrobat.jpg" /> <img src="img/firefox.png" /> <img src="img/itunes.png" /> <img src="img/wordpress.jpg" /></p>
+<p>!SLIDE</p>
+<h1 id="language">Language</h1>
+<p>A set of code that can be used to create an application.</p>
+<ul>
+<li>Ruby</li>
+<li>Python</li>
+<li>Perl</li>
+<li>Java</li>
+<li>C++</li>
+</ul>
+<p>Many others.</p>
+<p>Q: How is a computer language similar to a human language, like English or Spanish? How is it different?</p>
+<h1 id="library">Library</h1>
+<p>A collection of reusable code to accomplish a generic activity.</p>
+<p>!SLIDE</p>
+<h1 id="framework">Framework</h1>
+<p>Collection of reusable code to facilitate development of a particular product or solution.</p>
+<p>!SLIDE</p>
+<h2 id="ruby-vs.-rails">Ruby vs. Rails</h2>
+<h3 id="ruby-is-a-language">Ruby is a language</h3>
+<p><img src="img/ruby-logo.jpg" height="125" width="125"></p>
+<h3 id="gems-are-ruby-libraries">Gems are Ruby libraries</h3>
+<p><img src="img/rubygems.png" height="125" width="125"></p>
+<h3 id="rails-is-a-framework">Rails is a framework</h3>
+<p><img src="img/rails_logo.jpg" height="125" width="125"></p>
+<p>!SLIDE</p>
+<h2 id="ruby-vs.-rails-1">Ruby vs. Rails</h2>
+<ul>
+<li>Rails is written in Ruby language.</li>
+<li>Rails contains many Ruby gems.</li>
+<li>Rails is a framework.</li>
+<li>Rails’ purpose is to build websites.</li>
+</ul>
+<p>The rest of this tutorial isn’t about Rails. You’re learning how to do <em>any</em> kind of programming with Ruby.</p>
+<p>&lt;!SLIDE subsection incremental&gt;</p>
+<h1 id="ruby-philosophy">Ruby Philosophy</h1>
+<pre><code>I believe people want to express themselves when they program.
+
+They don&#39;t want to fight with the language.
+
+Programming languages must feel natural to programmers.
+
+I tried to make people enjoy programming and concentrate on the fun and creative part of programming when they use Ruby.</code></pre>
+<p>– <a href="http://linuxdevcenter.com/pub/a/linux/2001/11/29/ruby.html">Matz</a> (Yukihiro Matsumoto), Ruby creator</p>
+<p>!SLIDE bullets</p>
+<h1 id="ruby-is-a-scripting-language">Ruby is a scripting language</h1>
+<ul>
+<li>Scripting languages:
+<ul>
+<li>Don’t require a compiler.</li>
+<li>Have an interpreter <em>(more on that later…)</em></li>
+<li>Run “on the fly”</li>
+<li>Easy to change frequently</li>
+</ul></li>
+</ul>
+<p>Python, Perl, and JavaScript are scripting languages too.</p>
+<p>Java and C++ are examples of compiled languages.</p>
+<p>!SLIDE centereverything</p>
+<p>!SLIDE subsection</p>
+<h1 id="lets-start-coding">Let’s start coding!</h1>
+<p>!SLIDE bullets</p>
+<h1 id="open-your-terminal">Open Your Terminal</h1>
+<p>You may also hear it called “command Line”, “console”, “shell”, or “Bash”</p>
+<ul>
+<li><p>Windows: <code>git bash</code> <img src="img/git_bash.png" /></p></li>
+<li><p>Mac OS X &amp; Ubuntu: <code>Terminal</code> <img src="img/mac_terminal_sm.png" /></p></li>
+</ul>
+<p>!SLIDE</p>
+<h1 id="prompt">Prompt</h1>
+<ul>
+<li>Terminals show a line of text when you login &amp; after a command finishes</li>
+<li>It’s called the <code>prompt</code>, and customarily ends with a dollar sign</li>
+</ul>
+<p>Whenever instructions start with <code>"$ "</code>, type the rest of the line into terminal.</p>
+<p>Let’s give the terminal a <code>command</code>, to open Interactive Ruby (IRB)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">  $ <span class="ex">irb</span></a></code></pre></div>
+<p>!SLIDE commandline</p>
+<h1 id="irb-interactive-ruby">irb: Interactive Ruby</h1>
+<p>IRB has its own prompt, which customarily ends with <code>&gt;</code></p>
+<pre><code>  $ irb
+  &gt;</code></pre>
+<p>You can use <code>Control-C</code> to exit IRB any time. Or type <code>exit</code> on its own line.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb4-1" title="1">  &gt; exit</a>
+<a class="sourceLine" id="cb4-2" title="2">  $</a></code></pre></div>
+<p>Now you’re back to the terminal’s prompt.</p>
+<p>Windows Users! Some people have experienced trouble with backspace, delete, and arrow keys working properly in irb - what a pain! If you run into this problem, use this command instead to launch irb.</p>
+<p>$ irb –noreadline</p>
+<p>!SLIDE</p>
+<h2 id="variables">Variables</h2>
+<h3 id="a-variable-holds-information.">A variable holds information.</h3>
+<ul>
+<li>We give it a name so we can refer to it</li>
+<li>The info it holds can be changed</li>
+</ul>
+<pre><code>  $ irb
+  &gt; my_variable = 5
+  =&gt; 5
+  &gt; another_variable = &quot;hi&quot;
+  =&gt; &quot;hi&quot;
+  &gt; my_variable = 10
+  =&gt; 10</code></pre>
+<p>What is happening on the lines beginning with <code>=&gt;</code> ?</p>
+<ul>
+<li>Setting a variable equal to something is called “assignment.” In the above examples, we are assigning my_variable to 5 and my_other_variable to “hi.”</li>
+<li>What types of information can we hold in a variable? (see next slide for answers)</li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="variable">Variable</h2>
+<h3 id="variable-assignment">Variable Assignment</h3>
+<p>Variables are assigned using a single equals sign (<code>=</code>).</p>
+<p>The <em>right</em> side of the equals sign is evaluated first, then the value is assigned to the variable named on the <em>left</em> side of the equals.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1">  apples = <span class="dv">5</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  bananas = <span class="dv">10</span> + <span class="dv">5</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  fruits = <span class="dv">2</span> + apples + bananas</a>
+<a class="sourceLine" id="cb6-4" title="4">  bananas = fruits - apples</a></code></pre></div>
+<p>What happened on each line? Is it what you expected?</p>
+<!-- TODO: Define & discuss return values -->
+<p>What could you do to see each’s <code>return value</code> for confirmation?</p>
+<p>!SLIDE !bullets</p>
+<h2 id="variable-1">Variable</h2>
+<h3 id="variable-naming">Variable Naming</h3>
+<p>Create a variable whose name has:</p>
+<ul>
+<li><p>all letters (like ‘folders’)</p></li>
+<li><p>all numbers like ‘2000’</p></li>
+<li>an underscore (like <code>first_name</code>)</li>
+<li>a dash (like ‘last-name’)</li>
+<li><p>a number anywhere (like <code>y2k</code>)</p></li>
+<li><p>a number at the start (like ‘101dalmatians’)</p></li>
+<li><p>a number at the end (like ‘starwars2’)</p></li>
+</ul>
+<p>What did you learn?</p>
+<p>!SLIDE bullets</p>
+<h1 id="common-types-of-information">Common types of information</h1>
+<ul>
+<li>Variables can hold many types of information, including:
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Collections</li>
+<li>Booleans</li>
+</ul></li>
+<li>Don’t know what these are? Don’t worry! We’re about to find out!</li>
+</ul>
+<p>!SLIDE bullets</p>
+<h2 id="string">String</h2>
+<p>A string is text. It must be wrapped in a matched pair of quotation marks.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1">  $ irb</a>
+<a class="sourceLine" id="cb7-2" title="2">  &gt; <span class="st">&#39;Single quotes work&#39;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  =&gt; <span class="st">&quot;Single quotes work&quot;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  &gt; <span class="st">&quot;Double quotes work&quot;</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  =&gt; <span class="st">&quot;Double quotes work&quot;</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  &gt; <span class="st">&quot;Start and end have to match&#39;</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="st">  &quot;</span>&gt;</a></code></pre></div>
+<p>What is happening on the last two lines? How would you solve it?</p>
+<h3 id="exercise">exercise</h3>
+<ul>
+<li>Create variables called first_name, last_name, and favorite_color.</li>
+<li>Assign the variables to strings.</li>
+<li>Can you print out a sentence that reads “Hi, my name is (first name) (last name) and my favorite color is (favorite color).” with these variables?
+<ul>
+<li>Hint: you can use a “+” to add strings together.</li>
+</ul></li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="numbers">Numbers</h2>
+<ul>
+<li>Numbers without decimal points are called <strong>integers</strong> and numbers with decimal points are called <strong>floats</strong>.</li>
+<li>Examples of integers:
+<ul>
+<li>0</li>
+<li>-105</li>
+<li>898989898</li>
+<li>2</li>
+</ul></li>
+<li>Examples of floats:
+<ul>
+<li>0.0</li>
+<li>-105.56</li>
+<li>0.33</li>
+<li>0.00004</li>
+</ul></li>
+<li>You can perform operations on both types of numbers with these characters: +, -, /, *</li>
+</ul>
+<h3 id="exercises">exercises</h3>
+<ul>
+<li>Try dividing an integer by an integer. Try dividing an integer by a float. How are the results different?</li>
+<li>Create two integer variables called num1 and num2 and assign them your favorite numbers.</li>
+<li>Next, compute the sum, difference, quotient, and product of these two numbers and assign these values to variables called sum, difference, quotient, and product, respectively.</li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="collection">Collection</h2>
+<h3 id="collection-types-array-hash">Collection types: Array, Hash</h3>
+<ul>
+<li>In the following slides, we will cover the following topics:
+<ul>
+<li>Definition of an Array</li>
+<li>Array syntax</li>
+<li>Array indexing</li>
+<li>Array methods</li>
+<li>Definition of a hash</li>
+<li>Hash syntax</li>
+<li>Hash indexing</li>
+</ul></li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="collection-1">Collection</h2>
+<h3 id="array">Array</h3>
+<p>An array is a list.</p>
+<p>Each array must be surrounded by <code>square braces</code> aka <code>square brackets</code>. A comma separates each <code>member</code>.</p>
+<p>@@@ Ruby &gt; fruits = [“kiwi”, “strawberry”, “plum”] =&gt; [“kiwi”, “strawberry”, “plum”]</p>
+<h3 id="exercises-1">exercises</h3>
+<ul>
+<li>Make your own array and name it grocery_list.</li>
+<li>Include at least 5 items from your grocery list in the array.</li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="collection-2">Collection</h2>
+<h3 id="array-1">Array</h3>
+<h4 id="indexing">Indexing</h4>
+<p>Members are stored in order. Each can be accessed by its <code>index</code>. Ruby starts counting at <em>zero</em>.</p>
+<p>@@@ Ruby &gt; fruits[0] =&gt; “kiwi” &gt; fruits[1] =&gt; “strawberry” &gt; fruits[2] =&gt; “plum”</p>
+<h3 id="exercises-2">exercises</h3>
+<ul>
+<li>Still have your grocery_list array? Good, because we’re going to use it in this exercise.</li>
+<li>What is at index zero in your grocery_list array? How about index 5? Guess the answers and then use the syntax in the examples above (eg: fruits[0]) to see if your guesses were right.</li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="collection-3">Collection</h2>
+<h3 id="hash">Hash</h3>
+<p>In a <code>hash</code> we can refer to a member by a keyword instead of a number. Each member is a pair:</p>
+<ul>
+<li><p><em>Key</em>: address of the hash member</p></li>
+<li><p><em>Value</em>: variable contained by the member, and located by key name</p></li>
+</ul>
+<p>A hash may also be known as a <code>dictionary</code>, <code>associative array</code>, or <code>map</code>.</p>
+<p>!SLIDE</p>
+<h2 id="collection-4">Collection</h2>
+<h3 id="hash-1">Hash</h3>
+<h4 id="hash-syntax">Hash Syntax</h4>
+<p>A hash is surrounded by <code>curly braces</code> aka <code>curly brackets</code>. A comma separates each member pair. A key uses <code>=&gt;</code> (the <code>rocket</code>) to point to its value.</p>
+<p>@@@ Ruby &gt; states = {“CA” =&gt; “California”, “DE” =&gt; “Delaware”} =&gt; {“CA”=&gt;“California”, “DE”=&gt;“Delaware”}</p>
+<p>In real life, what lists do we make in key/value pairs?</p>
+<h3 id="exercises-3">exercises</h3>
+<ul>
+<li>Define a Hash variable called my_info which has the following keys:
+<ul>
+<li>“first_name”</li>
+<li>“last_name”</li>
+<li>“hometown”</li>
+<li>“favorite_food”</li>
+</ul></li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="collection-5">Collection</h2>
+<h3 id="hash-2">Hash</h3>
+<h4 id="hash-indexing">Hash Indexing</h4>
+<p>Member pairs can be accessed by their key. So each hash key has to be unique.</p>
+<p>Values don’t have to be unique.</p>
+<p>@@@ Ruby &gt; states[“CA”] =&gt; “California”</p>
+<h3 id="exercises-4">exercises</h3>
+<ul>
+<li>Add the key “good_food” to your my_info hash and give it the same value as your favorite_food key. What happens?</li>
+<li>Add a second “favorite_food” key to your my_info hash. What happens when you print out the has hash again? Why?</li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="methods">Methods</h2>
+<h3 id="things-that-do-stuff.">things that do stuff.</h3>
+<ul>
+<li>“If objects (like strings, integers, and floats) are the nouns in the Ruby language, then methods are like the verbs.” - Chris Pine’s “Learn to Program”</li>
+<li>Methods are called (used) with a “.”
+<ul>
+<li>Example: 5.to_s (to_s is the method)</li>
+</ul></li>
+<li>As it turns out, 5 + 5 is really just a shortcut way of writing 5.+ 5.</li>
+<li>Each data type (string, integer, float) has a set of built in methods. You can see all of the string methods here: http://ruby-doc.org/core-1.9.3/String.html (there are tons - don’t worry about memorizing them, just good to know where you can go to find out more)</li>
+</ul>
+<h3 id="exercises-5">exercises</h3>
+<ul>
+<li>Create a String variable called old_string and assign it the value “Ruby is cool”</li>
+<li>Use String methods to modify the old_string variable so that it is now “LOOC SI YBUR” and assign this to another variable called new_string.</li>
+<li>Hint: look at the string methods “upcase” and “reverse”</li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="boolean">Boolean</h2>
+<p>A boolean is one of only two possible values: <code>true</code> or <code>false</code>.</p>
+<pre><code>  &gt; 1 + 1 == 2
+  =&gt; true
+  &gt; 1 + 1 == 0
+  =&gt; false</code></pre>
+<p>( <code>==</code> means “is equal to”. <em>More on that later.</em>)</p>
+<h3 id="exercises-6">exercises</h3>
+<ul>
+<li>Create a variable named favorite_color and assign it to your favorite color.</li>
+<li>Create a variable named not_favorite_color and assign it to a different color.</li>
+<li>Test to see if these variables are equal.</li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="operators">Operators</h2>
+<h3 id="do-stuff-with-objects">Do stuff with objects</h3>
+<pre><code>  &gt; my_variable + 2
+  =&gt; 7
+  &gt; my_variable * 3
+  =&gt; 15</code></pre>
+<pre><code>  &gt; my_fruits = fruits + [&quot;lychee&quot;]
+  =&gt; [&quot;kiwi&quot;, &quot;strawberry&quot;, &quot;plum&quot;, &quot;lychee&quot;]
+  &gt; my_fruits = my_fruits - [&quot;plum&quot;]
+  =&gt; [&quot;kiwi&quot;, &quot;strawberry&quot;, &quot;lychee&quot;]</code></pre>
+<h3 id="exercises-7">exercises</h3>
+<ul>
+<li>Create an array called “vegetables” than contains 3 vegetables you like and 1 vegetable you don’t like.</li>
+<li>Using the vegetables array, create an array called “my_vegetables” that contains only the vegetables you like.</li>
+<li>Extra: can you use the first two arrays to create a third array called “your_vegetables” that only contains the vegetable you don’t like?</li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="loop">Loop</h2>
+<h3 id="does-something-repeatedly">Does something repeatedly</h3>
+<pre><code>  &gt; fruits.each do |fruit|
+  ?&gt; puts fruit
+  &gt; end
+  kiwi
+  strawberry
+  plum
+  =&gt; [&quot;kiwi&quot;, &quot;strawberry&quot;, &quot;plum&quot;]</code></pre>
+<p>On the second line, what does <code>?&gt;</code> indicate?</p>
+<h3 id="exercises-8">exercises</h3>
+<ul>
+<li>Create an array of 4 places you would like to visit.</li>
+<li>Print out each of these places using a loop.
+<ul>
+<li>Example:</li>
+</ul></li>
+</ul>
+<pre><code>&quot;I would like to visit Barcelona&quot;
+&quot;I would like to visit Antigua&quot;
+&quot;I would like to visit Alaska&quot;
+&quot;I would like to visit New Orleans&quot;</code></pre>
+<p>!SLIDE</p>
+<h2 id="conditional">Conditional</h2>
+<h3 id="do-something-only-if-a-condition-is-true">Do something only if a condition is true</h3>
+<pre><code>  &gt; fruits.each do |fruit|
+  ?&gt; puts fruit if fruit == &quot;plum&quot;
+  &gt; end
+  plum
+  =&gt; [&quot;kiwi&quot;, &quot;strawberry&quot;, &quot;plum&quot;]</code></pre>
+<h3 id="exercises-9">exercises</h3>
+<ul>
+<li>Create an array called “group” that contains the names of some of the people in your Railsbridge group. Make sure you include your own name.</li>
+<li>Using your group array, create a conditional that prints “My Name is (your name)” for your name only.</li>
+</ul>
+<p>!SLIDE</p>
+<h1 id="running-your-code">Running Your Code</h1>
+<p>!SLIDE subsection</p>
+<h1 id="interpreter">Interpreter</h1>
+<p>Ruby is an interpreted language. Its code can’t run by the computer directly. It first must go through a Ruby interpreter.</p>
+<p>The most common interpreter is Matz’s Ruby Interpreter (“MRI”). There are many others.</p>
+<p>There are various ways to run code through a Ruby interpreter. We were using IRB earlier and now we will use a file.</p>
+<p>!SLIDE</p>
+<h2 id="running-code-from-a-file">Running code from a file</h2>
+<h3 id="create-the-file">Create the file</h3>
+<ul>
+<li>Why use a file? What’s different from, say, irb?</li>
+</ul>
+<p>Note which folder your terminal is currently in, this is your <code>working directory</code></p>
+<p>In your text editor, create a file named <code>my_program.rb</code> inside your working directory.</p>
+<p>@@@ Ruby class Sample def hello puts “Hello World!” end end</p>
+<p>s = Sample.new s.hello</p>
+<p>!SLIDE commandline</p>
+<h2 id="passing-code-from-a-file">Passing code from a file</h2>
+<h3 id="run-the-saved-code">Run the saved code</h3>
+<pre><code>  $ ruby my_program.rb
+  Hello World!</code></pre>
+<p>!SLIDE commandline</p>
+<h2 id="passing-code-from-a-file-1">Passing code from a file</h2>
+<h3 id="we-can-even-load-that-files-code-into-irb">We can even load that file’s code into IRB!</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1">  $ <span class="ex">irb</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="op">&gt;</span> <span class="ex">load</span> <span class="st">&#39;my_program.rb&#39;</span></a>
+<a class="sourceLine" id="cb15-3" title="3">  <span class="op">&gt;</span> <span class="va">second_time=</span>Sample.new</a>
+<a class="sourceLine" id="cb15-4" title="4">  <span class="op">&gt;</span> <span class="ex">second_time.hello</span></a></code></pre></div>
+<p>When might it be useful to do this?</p>
+<p>!SLIDE subsection</p>
+<h1 id="your-own-command-line-program">Your Own Command Line Program</h1>
+<p>!SLIDE bullets</p>
+<h1 id="hello-world">Hello World</h1>
+<p><code>hello.rb</code></p>
+<p>@@@ Ruby puts “Hello, World!”</p>
+<p>!SLIDE bullets</p>
+<h1 id="arguments-argv">Arguments (ARGV)</h1>
+<p><code>hello.rb</code></p>
+<p>@@@ Ruby puts “Hello, #{ARGV.first}!”</p>
+<p><code>terminal</code></p>
+<pre><code>$ ruby hello.rb Alice
+Hello, Alice!</code></pre>
+<p>!SLIDE bullets</p>
+<h1 id="conditionals">Conditionals</h1>
+<p><code>hello.rb</code></p>
+<p>@@@ Ruby if ARGV.empty? puts “Hello, World!” else puts “Hello, #{ARGV.first}!” end</p>
+<p><code>terminal</code></p>
+<p>$ ruby hello.rb Hello, World! $ ruby hello.rb Alice Hello, Alice!</p>
+<p>!SLIDE</p>
+<h1 id="object-oriented-programming-oop">Object Oriented Programming (OOP)</h1>
+<p>!SLIDE subsection</p>
+<h2 id="ruby-is-very-object-oriented">Ruby is very object oriented</h2>
+<h3 id="nearly-everything-in-ruby-is-an-object.">Nearly everything in Ruby is an object.</h3>
+<p>!SLIDE</p>
+<h2 id="class">Class</h2>
+<p>Describes the generic characteristics of a single <em>type</em> of object.</p>
+<p>What things of this type <em>are</em>.</p>
+<p>e.g. Dog, Vehicle, Baby</p>
+<p>!SLIDE</p>
+<h2 id="method">Method</h2>
+<p>Defines <em>behavioral</em> characteristic.</p>
+<p>What the things of the class’s type <em>do</em>.</p>
+<p>e.g. Chase, Drive, Talk</p>
+<p>!SLIDE</p>
+<h2 id="variable-2">Variable</h2>
+<p>Defines <em>attribute</em> characteristic.</p>
+<p>What things of the class’s type <em>have</em>.</p>
+<p>e.g. Breed, Model Year, Favorite Ice Cream</p>
+<p>!SLIDE</p>
+<h2 id="instance">Instance</h2>
+<p>A specific incarnation of the class.</p>
+<p>e.g. Rin Tin Tin, garbage truck, the neighbor’s kid</p>
+<p>!SLIDE</p>
+<h1 id="lets-create-projects">Let’s Create Projects!</h1>
+<p>!SLIDE</p>
+<h2 id="project-1">Project 1:</h2>
+<h3 id="personal-chef-lab"><a href="http://tutorials.jumpstartlab.com/projects/ruby_in_100_minutes.html">Personal Chef Lab</a></h3>
+<p><em>(start at “4. Objects, Attributes, and Methods”)</em></p>
+<p>Topics:</p>
+<ul>
+<li><p>Commandline program. Practice in Ruby syntax and OOP concepts, and creating commandline programs.</p></li>
+<li><p>Explore strings: concatenation, manipulation, interpolation, coercion.</p></li>
+<li><p>Symbols, nil, basic math operators, blocks, method chaining, passing parameters to methods, iteration, branching, conditionals &amp; conditional looping.</p></li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="project-2">Project 2:</h2>
+<h3 id="encryptor-lab"><a href="http://tutorials.jumpstartlab.com/projects/encryptor.html">Encryptor Lab</a></h3>
+<p>Topics:</p>
+<ul>
+<li><p>Commandline program. Reinforce skills learned in Personal Chef.</p></li>
+<li><p>Explore how to manipulate arrays, do more elaborate strings manipulations, refactor code, take advantage of character mapping, and access the filesystem from within code.</p></li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="project-3">Project 3:</h2>
+<h3 id="event-manager-lab"><a href="http://tutorials.jumpstartlab.com/projects/eventmanager.html">Event Manager Lab</a></h3>
+<p>Topics:</p>
+<ul>
+<li><p>Commandline program. Reusing others code &amp; data, refactoring your own code &amp; cleaning up data, writing custom code to solve requirements.</p></li>
+<li><p>Gems, <code>initialize</code> method, parameters, file input/output, processing/sanitizing data, looping, conditional branching, using file-based data storage (CSV, XML, JSON), accessing an external API, nils, DRY principle, constants, sort_by, more string manipulations.</p></li>
+</ul>
+<p>!SLIDE</p>
+<h2 id="project-4">Project 4:</h2>
+<h3 id="testing-more">Testing &amp; More</h3>
+<p>A follow-up to EventManager focusing more on Ruby object decomposition and working with Command Line Interfaces and program control flow.</p>
+<ol start="4" type="1">
+<li><a href="http://tutorials.jumpstartlab.com/topics/internal_testing/rspec_and_bdd.html">Testing</a> Topics: TDD, BDD, Rspec <em>(stop at “Exceptions”)</em></li>
+<li><p><a href="http://tutorials.jumpstartlab.com/projects/event_reporter.html">Event Reporter Lab</a> Topics: Object decomposition, working with Command Line Interfaces, and program control flow. Continues project created in Event Manager lab.</p></li>
+<li><p><a href="http://tutorials.jumpstartlab.com/topics/internal_testing/rspec_practices.html">Rspec</a></p></li>
+</ol>
+</body>
+</html>

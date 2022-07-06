@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.pt-br</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Este problema é o mesmo que o anterior, mas introduz o conceito de <strong>módulos</strong>. Você precisará criar dois arquivos para resolver este problema.</p>
+<p>Crie um programa que imprime uma lista de arquivos em um dado diretório, de modo que haja um filtro de acordo com a extensão dos arquivos. O primeiro argumento é o nome do diretório e o segundo argumento é a extensão pela qual filtrar. Imprima a lista de arquivos (um arquivo por linha) no console. Você <strong>precisa</strong>, obrigatoriamente, usar I/O assíncrono.</p>
+<p>Você deve escrever um arquivo <em>módulo</em> para fazer a maior parte do trabalho. O módulo deve <em>exportar</em> uma única função que leva <strong>três</strong> argumentos: o nome do diretório, a extensão do arquivo em uma string e uma função de callback, nessa ordem. O argumento contendo o nome da extensão do arquivo deve ser o mesmo que aquele passado para seu programa. Por exemplo: não transforme-o em uma expressão regular ou prefixe-o com “.” ou faça qualquer coisa que não seja passá-lo para o seu módulo onde você vai poder fazer tudo que for necessário para o filtro funcionar.</p>
+<p>A função de callback deve ser chamada usando a convenção idiomática do node (err, data). Essa convenção estipula que, a não ser se houver algum erro, o primeiro argumento passado para o callback será nulo e o segundo será seu dado. Nesse caso, o dado será sua lista filtrada de arquivos em forma de Array. Se você receber um erro da sua chamada do <code>fs.readdir()</code>, por exemplo, o callback deverá ser chamado com o erro, e somente o erro, como primeiro argumento.</p>
+<p>Você <strong>não deve</strong> imprimir diretamente no console do seu arquivo módulo, apenas do seu programa original.</p>
+<p>No caso de um erro ser lançado para seu arquivo original do programa, simplesmente cheque-o e imprima uma mensagem informativa sobre o erro no console.</p>
+<p>Estes quatro itens representam o <em>contrato</em> que seu módulo deve seguir:</p>
+<ol type="1">
+<li>Exportar uma única função que leva os argumentos exatamente conforme descritos</li>
+<li>Chame o callback exatamente uma vez com um erro ou algum outro dado, conforme descrito</li>
+<li>Não mude mais nada, como por exemplo variáveis globais ou o stdout</li>
+<li>Lide com todos os erros que possam ocorrer e passe-os para o callback</li>
+</ol>
+<p>O benefício de ter um contrato é que seu módulo poderá ser usado por qualquer um que conheça esse contrato. Sendo assim seu módulo pode ser usado por qualquer outra pessoa que faça o curso learnyounode, ou até pelo verificador, e funcionar corretamente.</p>
+<hr />
+<h2 id="dicas">DICAS</h2>
+<p>Crie um novo módulo através da criação de um novo arquivo que contém apenas suas funções de ler e filtrar o diretório. Para definir uma <em>exportação de uma única função</em> você deverá designar sua função ao objeto <code>module.exports</code>, sobrescrevendo o que já está lá:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="kw">function</span> (args) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p>Ou você pode usar uma função nominal e atribuir, então, o nome.</p>
+<p>Para usar seu novo módulo no seu arquivo original de programa, use a chamada <code>require()</code> da mesma maneira que você usou <code>require('fs')</code> para carregar o módulo <code>fs</code>. A única diferença é que no caso de serem módulos locais, eles devem ter ‘./’ prefixado. Então se o nome do seu arquivo é mymodule.js você teria algo como:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> mymodule <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./mymodule.js&#39;</span>)</a></code></pre></div>
+<p>O ‘.js’ é opcional e você frequentemente vai reparar que ele foi omitido.</p>
+<p>Você agora tem o objeto <code>module.exports</code> no seu módulo atribuído à variável <code>mymodule</code>. Como você está exportando uma única função, <code>mymodule</code> é uma função que você pode chamar!</p>
+<p>Também tenha em mente que é comum checar por erros e fazer returns precoces dentro de funções callback:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">bar</span> (callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">foo</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">if</span> (err) <span class="op">{</span> <span class="cf">return</span> <span class="at">callback</span>(err) <span class="op">}</span> <span class="co">// return precoce</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="co">// ... sem erros, continue fazendo coisas legais com `data`</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="co">// tudo foi bem, chame o callback com `null` para o argumento erro</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> data)</a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">}</span></a></code></pre></div>
+</body>
+</html>

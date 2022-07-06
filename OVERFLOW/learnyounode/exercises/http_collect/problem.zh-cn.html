@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.zh-cn</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>编写一个程序，发起一个 HTTP GET 请求，请求的 URL 为所提供给你的命令行参数的第一个。收集<strong>所有</strong>服务器所返回的数据（不仅仅包括 “data” 事件）然后在终端（标准输出 stdout）用两行打印出来。</p>
+<p>你所打印的内容，第一行应该是一个整数，用来表示你所收到的字符串内容长度，第二行则是服务器返回给你的完整的字符串结果。</p>
+<hr />
+<h2 id="提示">提示</h2>
+<p>你有两种解题方法：</p>
+<p><strong>1)</strong> 你可以把所有 “data” 事件所得的结果收集起来，暂存并追加在一起，而不是在收到后立刻打印出来。通过监听 “end” 事件，可以确定 stream 是否完成传输，如果传输结束了，你就可以将你收集到的结果打印出来了。</p>
+<p><strong>2)</strong> 使用一个第三方模块，来简化从 stream 中收集数据的繁琐步骤。这里有两个不同的模块都提供了一些有用的 API 来解决这个问题（似乎还有好多另外的模块可以选哦！）：<code>bl (Buffer list)</code> 或者 <code>concat-stream</code>，来选一个吧！</p>
+<p><a href="https://npmjs.com/bl" class="uri">https://npmjs.com/bl</a> <a href="https://npmjs.com/concat-stream" class="uri">https://npmjs.com/concat-stream</a></p>
+<p>要安装一个 Node 模块，需用到 Node 的包管理工具 <code>npm</code>，输入：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">npm</span> install bl</a></code></pre></div>
+<p>这样，相应的模块的最新版本便会被下载到当前目录下一个名为 <code>node_modules</code> 的子目录中。任何在这个子目录中的模块都可以简单地使用 <code>require</code> 语法来将模块载入到你的程序中，并且不需要加 <code>./</code> 这样的路径前缀，如下所示：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> bl <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;bl&#39;</span>)</a></code></pre></div>
+<p>这里，Node 会先查找是否有这个名字的核心模块，如果没有，再查找在 <code>node_modules</code> 目录下是否有这个模块。</p>
+<p>如果你的设备没有联网，你可以简单地手工新建一个 <code>node_modules</code> 子目录，然后将你需要的模块从 {appname} 的安装目录中完整复制到 <code>node_modules</code> 中。在这里，上文提到的两个模块所在路径如下：</p>
+<p>{rootdir:/node_modules/bl} {rootdir:/node_modules/concat-stream}</p>
+<p>你可以把一个 stream <em>pipe</em> 到 <code>bl</code> 或 <code>concat-stream</code> 中去，它们会为你收集数据。一旦 stream 传输结束，一个回调函数会被执行，并且，这个回调函数会带上所收集的数据：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">response</span>.<span class="at">pipe</span>(<span class="at">bl</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span>))</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">// 或</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">response</span>.<span class="at">pipe</span>(<span class="at">concatStream</span>(<span class="kw">function</span> (data) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span>))</a></code></pre></div>
+<p>要注意的是你可能需要使用 <code>data.toString()</code> 来把 Buffer 转换为字符串。</p>
+<p>这两个模块的文档已经随 {appname} 安装到你的系统中了，你可以使用浏览器访问并阅读它们：</p>
+<p>{rootdir:/docs/bl.html} {rootdir:/docs/concat-stream.html}</p>
+</body>
+</html>

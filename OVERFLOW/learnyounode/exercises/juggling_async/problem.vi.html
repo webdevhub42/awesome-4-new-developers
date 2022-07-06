@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.vi</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>Bài toàn này tương tự như bài toán trước (tập kết HTTP) bằng cách sử dụng <code>http.get()</code>. Tuy nhiên, lần này bạn sẽ được cung cấp <strong>ba</strong> URL qua tham số đầu tiên.</p>
+<p>Bạn phải tập kết toàn bộ nội dung đầy đủ của URL đã được cung cấp và in nó ra giao diện dòng lệnh (stdout). Bạn không cần phải in ra độ dài mà chỉ cần in dữ liệu ra dưới dạng String, với mỗi URL trên một dòng tương ứng. Tức là bạn <strong>cần phải</strong> in chúng ra đúng thứ tự của 3 URL đầu vào.</p>
+<hr />
+<h2 id="gợi-ý">GỢI Ý</h2>
+<p>Các máy chủ từ URL này có thể trả về kết quả không theo thứ tự gọi, nên bạn không thể in ngay kết quả nhận được sau khi nhận được chúng. Mà bạn sẽ phải giữ chúng lại theo đúng thứ tự đầu vào cho tới khi toàn bộ cả 3 URL đều được lấy hết. Khi bạn lấy được toàn bộ dữ liệu rồi thì bạn có thể in nó ra giao diện dòng lệnh.</p>
+<p>Việc đếm thông qua các hàm phản hồi là một kĩ thuật quản lý bất đồng bộ căn bản trong Node. Thay vì phải tự mình thực hiện việc quản lý này, sẽ rất tiện nếu bạn sử dụng một thư viện thứ 3 nào đó chẳng hạn như <a href="https://npmjs.com/async">async</a> hay <a href="https://npmjs.com/after">after</a>. Nhưng trong bài tập này, bạn hãy thử gắng tự thực hiện việc quản lý này xem sao nhé.</p>
+</body>
+</html>

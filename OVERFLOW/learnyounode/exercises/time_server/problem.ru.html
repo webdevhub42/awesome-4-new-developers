@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ru</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Реализуйте <strong>TCP сервер</strong>, возвращающий текущее время при соединении.</p>
+<p>Ваш сервер должен ожидать TCP соединений на порту, который Вы получите в качестве первого аргумента командной строки. На каждое новое соединение сервер должен возвращать текущую дату и время в формате:</p>
+<pre><code>&quot;YYYY-MM-DD hh:mm&quot;</code></pre>
+<p>В конце строки с именем обязательно должен быть символ <strong>переноса строки</strong>. Месяцы, дни, часы и минуты должны быть двучисленными, например:</p>
+<pre><code>&quot;2013-07-06 17:42&quot;</code></pre>
+<hr />
+<h2 id="информация">ИНФОРМАЦИЯ</h2>
+<p>В этом задании мы будем создавать простой TCP сервер. Так как нам не потребуется HTTP, то мы можем просто использовать встроенный модуль <code>net</code>, который включает в себя все базовые функции для работы с сетью.</p>
+<p>У <code>net</code> модуля есть метод <code>net.createServer()</code>, который принимает функцию в качестве аргумента. В отличие от других функций обратного вызова в Node, функция, переданная в <code>net.createServer()</code> вызывается больше чем один раз. Каждое новое соединение с сервером будет вызывать эту функцию. Она имеет следующую сигнатуру:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">callback</span> (socket) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p><code>net.createServer()</code> возвращает экземпляр <code>server</code>. Вы должны вызвать <code>server.listen(portNumber)</code>, для того чтобы запустить сервер на заданом порту.</p>
+<p>Типичный Node TCP сервер выглядит так:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> net <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;net&#39;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">const</span> server <span class="op">=</span> <span class="va">net</span>.<span class="at">createServer</span>(<span class="kw">function</span> (socket) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">// socket handling logic</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="va">server</span>.<span class="at">listen</span>(<span class="dv">8000</span>)</a></code></pre></div>
+<p>Помните о том, что Вы должны использовать номер порта, переданный Вам в первом аргементе командной строки.</p>
+<p>Объект <code>socket</code> содержит в себе много мета-данных о соединении, но помимо этого, он так же является дуплексным потоком (duplex Stream) Node, это означает что он может и читать, и писать данные. В нашем случае мы должны только написать (вывести) данные и затем закрыть соединение.</p>
+<p>Используйте <code>socket.write(data)</code>, для того чтобы вывести данные и <code>socket.end()</code>, для того чтобы закрыть соединение. Также метод <code>.end()</code> может принимать данные в качестве аргумента, поэтому Вы можете вывести данные следующим образом: <code>socket.end(data)</code>.</p>
+<p>Документацию для <code>net</code> модуля Вы сможете найти, набрав в браузере: {rootdir:/docs-nodejs/net.html}</p>
+<p>Для работы с датой воспользуйтесь <code>new Date()</code> объектом. Следующие методы могут быть полезны:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">date</span>.<span class="at">getFullYear</span>()</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">date</span>.<span class="at">getMonth</span>() <span class="co">// starts at 0</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">date</span>.<span class="at">getDate</span>() <span class="co">// returns the day of month</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">date</span>.<span class="at">getHours</span>()</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="va">date</span>.<span class="at">getMinutes</span>()</a></code></pre></div>
+<p>В другом случае, если работа со стандартным объектом даты кажется скучной, то можно воспользоваться <code>strftime</code> библиотекой. Функция <code>strftime(frm, date)</code> принимает такие же форматы даты, как и unix <code>date</code> комманда. Дополнительную информацию о <code>strftime</code> Вы можете получить на: https://github.com/samsonjs/strftime</p>
+</body>
+</html>

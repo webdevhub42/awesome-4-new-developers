@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>variables</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "nil" -->
+<h1 id="variables">Variables</h1>
+<p>A VARIABLE is a NAME for an object. You give an object a name using the ASSIGNMENT operator (it looks like an equal sign).</p>
+<pre><code>color = &quot;blue&quot;
+fruit = &quot;berry&quot;</code></pre>
+<p>Anywhere you can use an object, you can use a variable instead.</p>
+<pre><code>color + fruit
+fruit.upcase</code></pre>
+<h1 id="the-warehouse-metaphor">The Warehouse Metaphor</h1>
+<figure>
+<img src="img/warehouse.jpg" alt="Warehouse from Raiders of the Lost Ark" /><figcaption>Warehouse from Raiders of the Lost Ark</figcaption>
+</figure>
+<p>Think of memory as a giant warehouse.</p>
+<h1 id="the-warehouse-metaphor-explained">The Warehouse Metaphor Explained</h1>
+<p>If memory is a giant warehouse…</p>
+<p>…and <em>objects</em> are <strong>boxes</strong> in that warehouse</p>
+<p>…then a <em>value</em> is the <strong>contents</strong> of a box</p>
+<p>…and a <em>variable</em> is a <strong>label</strong> you stick on the outside of the box</p>
+<h1 id="variables-are-documentation">Variables are documentation</h1>
+<p>Which is clearer, this:</p>
+<pre><code>60 * 60 * 24</code></pre>
+<p>or this:</p>
+<pre><code>seconds_per_minute = 60
+minutes_per_hour = 60
+hours_per_day = 24
+seconds_per_day = seconds_per_minute * minutes_per_hour * hours_per_day</code></pre>
+<p>?</p>
+<h1 id="lab-play-in-irb">Lab: Play In IRB</h1>
+<p>Let’s spend a few minutes just playing around in IRB. Some things to try:</p>
+<ul>
+<li>write a poem</li>
+<li>YELL THE POEM</li>
+<li>calculate 2 + 2 and more complicated things</li>
+<li>assign your best friend to a variable</li>
+<li>reverse your best friend’s name</li>
+<li>get a new best friend and reverse her too</li>
+</ul>
+<h1 id="the-pointer-metaphor">The Pointer Metaphor</h1>
+<pre><code>snack = &quot;Apple&quot;</code></pre>
+<figure>
+<img src="img/snack-apple.svg" alt="snack-apple" /><figcaption>snack-apple</figcaption>
+</figure>
+<p>Think of a variable as <strong>pointing</strong> to an object.</p>
+<h1 id="changing-variables">Changing Variables</h1>
+<p>You can assign and reassign variables at will.</p>
+<pre><code>color = &quot;blue&quot;
+fruit = &quot;berry&quot;
+color + fruit
+
+color = &quot;black&quot;
+color + fruit</code></pre>
+<p>Changing a variable (using ASSIGNMENT) just changes the name of an object. It does <em>not</em> change the data inside the object.</p>
+<h1 id="many-pointers-can-point-to-the-same-thing">Many pointers can point to the same thing</h1>
+<pre><code>fruit = &quot;Apple&quot;
+snack = fruit</code></pre>
+<figure>
+<img src="img/snack-fruit.svg" alt="snack-fruit" /><figcaption>snack-fruit</figcaption>
+</figure>
+<p>After this both <code>snack</code> and <code>fruit</code>…</p>
+<ul>
+<li>are <em>pointing</em> to the same <em>object</em></li>
+<li>have the same <em>value</em></li>
+</ul>
+<h1 id="return-values-are-new">Return values are new</h1>
+<p>most messages return <em>new</em> values</p>
+<pre><code>fruit = &quot;banana&quot;
+snack = fruit.upcase</code></pre>
+<figure>
+<img src="img/fruit-banana-snack-banana.svg" alt="fruit-banana-snack-banana" /><figcaption>fruit-banana-snack-banana</figcaption>
+</figure>
+<p><code>"banana"</code> and <code>"BANANA"</code> are two <em>different objects</em> in memory</p>
+<h1 id="changing-values">Changing Values</h1>
+<p>Most messages do not change the data inside the object.</p>
+<pre><code>color.upcase
+color</code></pre>
+<p>But some messages do change the data!</p>
+<pre><code>color.upcase!
+color</code></pre>
+<p>This can be dangerous so sometimes those messages end with a BANG (exclamation point).</p>
+</body>
+</html>

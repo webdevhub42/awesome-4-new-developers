@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.nb-no</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Denne oppgaven er lik den forrige, men introduserer konseptet **moduler*. Du må opprettet to filer for å løse oppgaven.</p>
+<p>Skriv et program som skriver ut en liste med filenavn fra en gitt katalog filtrert på filetternavn. Programmet skal ta imot to argumenter der første argumentet er stien til katalogen (‘/vei/til/katalog’) og det andre argumentet er filetternavnet som skal filtreres på. Listen med filer skal skrives til konsoll, en fil per linje. Du **må* benytte asynkron I/O.</p>
+<p>I denne oppgaven skal du opprette en <strong>modul</strong>, i dette tilfellet en fil, og en funksjon som vil lese opp listen med filnavn og filterer bort de som ikke har riktig filetternavn. Funksjonen skal ta imot <strong>tre</strong> argumenter: stien til katalogen, filetternavnet og en callback funksjon. Det er viktig at argumentene kommer i riktig rekkefølge.</p>
+<p>En callback funksjon skal følge konvensjonen node(err, data). Denne konvensjonen sier at hvis det ikke har oppstått en feil skal det første argumentet være null og det andre argumentet dataene dine. I denne oppgaven skal dataene være din filterte liste med filnavn, der listen er av typen Array. Hvis det oppstår en feil når du kaller på <code>fs.readdir()</code>, må du kalle callbacket med den feilen som det første argumentet.</p>
+<p>Du skal <strong>ikke</strong> skrive direkte til konsoll fra modul filen, men fra hovedprogrammet.</p>
+<p>I hovedprogrammet må du sjekke om det oppstår en feil i modul filen. Hvis det oppstår en feil skal du skrive ut en informativ melding til konsoll.</p>
+<p>Disse fire ting er kontrakten mellom modulen din og den som skal bruke den: 1. Eksporter en funksjon som tar imot argumentene som er nevnt. 2. Kall callback funksjon kun en gang med enten en feil eller dataene som er beskrevet. 3. Du skal ikke endre noe annet som for eksempel globale variabler eller stdout. 4. Håndter alle feil som kan oppstå og send de til callback funksjonen</p>
+<p>Fordelen med en kontrakt er at modulen kan bli benyttet av alle som forventer den samme kontrakten.</p>
+<hr />
+<h2 id="hint">HINT</h2>
+<p>Lag en modul ved å opprette en ny fil som inneholder funksjonen som leser filene i en katalog og filtrerer bort filnavn som ikke har riktig filetternavn. For å <em>eksportere</em> <em>funksjonen</em> må du tilordne funksjonen til <code>module.exports</code> objektet:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="kw">function</span> (args) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p>Du kan også gi funksjonen et navn og tilordne navnet til <code>module.exports</code> objektet.</p>
+<p>Dette kalles å eksportere eller tilgjengeliggjøre funksjonen på modulen.</p>
+<p>For å kunne benytte den nye modulen i hovedprogrammet må du kalle på <code>require()</code> funksjonen på samme måte som når du lastet inn <code>fs</code> modulen <code>require('fs')</code>. Den eneste forskjellen er at lokale moduler må starte med ‘./’. Hvis filen din heter minmodul.js blir require() kallet slik:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> minmodul <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./minmodul.js&#39;</span>)</a></code></pre></div>
+<p>‘.js’ er valgfritt og du vil ofte se at den er utelatt.</p>
+<p><code>minmodul</code> variabelen skal nå være tilordnet <code>module.exports</code> objektet. Siden du eksporterte en funksjon, vil <code>minmodul</code> være en funksjon du kan kalle på!</p>
+<p>Husk at man burde sjekke etter feil og kalle på callback funksjoner så tidlig så mulig:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">bar</span> (callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">foo</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">if</span> (err) <span class="op">{</span> <span class="cf">return</span> <span class="at">callback</span>(err) <span class="op">}</span> <span class="co">// returner tidlig</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="co">// ... ingen feil, fortsett å gjøre kule ting med `data`</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="co">// alt gikk bra, kall på callback funksjonen med `null` som feil argument</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> data)</a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">}</span></a></code></pre></div>
+</body>
+</html>

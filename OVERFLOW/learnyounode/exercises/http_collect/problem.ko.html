@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ko</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>첫 번째 커맨드 라인 인자로 넘긴 URL로 HTTP GET 요청을 수행하는 프로그램을 작성하세요. 서버에서 <strong>모든</strong> 데이터(첫 번째 “data” 이벤트만 하지 말고)를 수집하고 콘솔(stdout)에 두 줄을 적으세요.</p>
+<p>출력해야 할 첫 번째 줄은 서버에서 받은 글자의 수를 나타내는 정수입니다. 두 번째 줄은 서버에서 보낸 모든 문자열을 가지고 있어야 합니다.</p>
+<hr />
+<h2 id="힌트">힌트</h2>
+<p>이 문제를 푸는 방법은 두 가지가 있습니다.</p>
+<p><strong>1)</strong> 여러 “data” 이벤트에서 데이터를 수집해 결과를 출력하기 전에 합치기. “end” 이벤트를 스트림이 끝나고 결과를 출력할 수 있는지 알아보는데 사용.</p>
+<p><strong>2)</strong> 전체 데이터 스트림을 수집하는 것은 어려운 작업입니다. 서드 파티 패키지를 이용해 해소하세요. <code>bl</code> (Buffer List), <code>concat-stream</code> 두 패키지가 이 문제를 풀기에 유용한 API를 제공.(할 가능성이 있음!) 하나를 고르세요.</p>
+<p><a href="https://npmjs.com/bl" class="uri">https://npmjs.com/bl</a> <a href="https://npmjs.com/concat-stream" class="uri">https://npmjs.com/concat-stream</a></p>
+<p>Node 패키지를 설치하려면, Node 패키지 관리자 <code>npm</code>을 사용하세요. 밑의 줄을 그냥 입력하세요.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">npm</span> install bl</a></code></pre></div>
+<p>그러면 패키지의 최신 버전이 <code>node_modules</code>라는 하위 디렉터리에 다운로드되고 설치될 것입니다. 이 하위 디렉터리에 있는 모든 패키지는 메인 프로그램 파일에서 <code>require</code> 구문으로 ’./’를 앞에 붙이지 않고 로드할 수 있습니다.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> bl <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;bl&#39;</span>)</a></code></pre></div>
+<p>Node는 패키지의 위치를 찾을 때, 먼저 핵심 모듈에서 찾은 다음 <code>node_modules</code> 디렉터리를 찾습니다.</p>
+<p>인터넷에 연결되어 있지 않다면, 그냥 {appname}가 설치된 디렉터리 안에 <code>node_modules</code> 디렉터리를 만들어 원하는 패키지의 모든 디렉터리를 복사해도 됩니다.</p>
+<p>{rootdir:/node_modules/bl} {rootdir:/node_modules/concat-stream}</p>
+<p><code>bl</code>, <code>concat-stream</code> 둘 다 <em>piped</em> 스트림을 가지고 있고 데이터를 수집해 줄 수 있습니다. 스트림이 끝나면, 데이터가 있는 콜백이 일어납니다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">response</span>.<span class="at">pipe</span>(<span class="at">bl</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span>))</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">// or</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">response</span>.<span class="at">pipe</span>(<span class="at">concatStream</span>(<span class="kw">function</span> (data) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span>))</a></code></pre></div>
+<p>버퍼에서 변환하기 위해 <code>data.toString()</code>을 할 필요가 있으니 주의하세요.</p>
+<p>양 모듈의 문서는 {appname}와 함께 시스템에 설치되고 브라우저에 이 주소를 넣으면 볼 수 있습니다.</p>
+<p>{rootdir:/docs/bl.html} {rootdir:/docs/concat-stream.html}</p>
+</body>
+</html>

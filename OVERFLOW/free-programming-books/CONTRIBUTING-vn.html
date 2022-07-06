@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CONTRIBUTING-vn</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p><em>Đọc bằng ngôn ngữ khác: <a href="CONTRIBUTING.md">English</a>, <a href="CONTRIBUTING-es.md">Español</a>, <a href="CONTRIBUTING-zh.md">体中文</a>, <a href="CONTRIBUTING-zh-TW.md">繁體中文</a>, <a href="CONTRIBUTING-fa_IR.md">فارسی</a>.</em></p>
+<p>Bản dịch Tiếng Việt:</p>
+<ul>
+<li><p>Bản dịch này mục đích để khuyến khích các bạn đóng góp vào dự án sách, khóa học miễn phí này mà chưa thể đọc tốt được Tiếng Anh. Mình cũng mong Việt Nam có thể có nhiều hơn những khóa học, những cuốn sách miễn phí về lập trình để giúp các bạn trẻ hiện nay có thể sớm tiếp cận với công nghệ, phát triển sớm được niềm đam mê của bản thân.</p></li>
+<li><p>Mình đã cố gắng dịch cho chính xác, nhưng cũng khó có thể tránh khỏi sai sót, có một số mong các bạn lượng thứ.</p></li>
+<li><p>Mọi ý kiến, đóng góp về bản dịch, vui lòng <a href="/issues/new">tạo một issue mới</a> hoặc bạn có thể chỉnh sửa và tạo Pull Request.</p></li>
+</ul>
+<hr />
+<h2 id="giấy-phép-thỏa-thuận-cộng-tác-viên">Giấy Phép Thỏa Thuận Cộng Tác Viên</h2>
+<p>Bằng cách đóng góp, bạn đồng ý với <a href="https://github.com/EbookFoundation/free-programming-books/blob/master/LICENSE">LICENSE</a> của repo này.</p>
+<h2 id="quy-tắc-ứng-xử-của-cộng-tác-viên">Quy Tắc Ứng Xử của Cộng Tác Viên</h2>
+<p>Bằng cách đóng góp, bạn đồng ý tôn trọng <a href="https://github.com/EbookFoundation/free-programming-books/blob/master/CODE_OF_CONDUCT.md">Quy Tắc Ứng Xử</a> của repo này.</p>
+<h2 id="tóm-tắt">Tóm Tắt</h2>
+<ol type="1">
+<li>“Một liên kết để tải một cuốn sách” không có nghĩa nó là một cuốn sách <em>miễn phí</em>. Vui lòng chỉ đóng góp nội dung miễn phí. Đảm bảo rằng nó là miễn phí. Chúng tôi không chấp nhận các liên kết đến các trang có <em>yêu cầu bắt buộc</em> nhập địa chỉ email để nhận sách.</li>
+<li>Bạn không cần phải biết về Git: nếu bạn tìm được thứ gì đó thú vị <em>và chưa có trong kho lưu trữ này</em>, vui lòng mở một <a href="https://github.com/EbookFoundation/free-programming-books/issues">Issue</a> với các đề xuất mà bạn muốn đóng góp.
+<ul>
+<li>Nếu bạn biết Git, vui lòng Fork repo này và gửi pull requests.</li>
+</ul></li>
+<li><p>Chúng tôi có 5 loại tài liệu, bạn có thể chọn một trong những cái dưới đây:</p>
+<ul>
+<li><em>Sách</em> : PDF, HTML, ePub, một trang web dựa trên gitbook.io, a Git repo, vv.</li>
+<li><em>Khóa Học</em> : Một khóa học là một tài liệu học tập, không phải là sách. <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">Đây là một khóa học</a>.</li>
+<li><em>Hướng Dẫn Tương Tác</em> : Một trang web cho phép người dùng gõ Code và chạy chương trình dựa trên kết quả và đánh giá. Ví dụ: <a href="http://tryhaskell.org">Try Haskell</a>, <a href="http://try.github.io">Try Github</a>.</li>
+<li><em>Podcasts and Screencasts</em> : Podcasts và screencasts.</li>
+<li><em>Đặt Vấn Đề &amp; Cuộc Thi Lập Trình</em> : Trang web hoặc phần mềm cho phép bạn đánh giá kỹ năng lập trình của mình bằng cách giải quyết các vấn đề đơn giản hoặc phức tạp, có hoặc không có đánh giá Code, có hoặc không so sánh kết quả với những người khác.</li>
+</ul></li>
+<li><p>Đảm bảo tuân thủ theo <a href="#guidelines">những nguyên tắc bên dưới</a> và đảm bảo sử dụng đúng những <a href="#formatting">định dạng Markdown</a>.</p></li>
+<li><p>Travis CI sẽ chạy các test để đảm bảo danh sách của bạn được sắp xếp theo thứ tự bảng chữ cái và các quy tắc định dạng được tuân thủ. Đảm bảo kiểm tra xem các thay đổi của bạn có vượt qua các bài test hay không.</p></li>
+</ol>
+<h3 id="những-nguyên-tắc">Những Nguyên Tắc</h3>
+<ul>
+<li>đảm bảo rằng một cuốn sách là miễn phí. Kiểm tra kỹ nếu cần. Nó sẽ giúp ích cho các quản trị viên nếu bạn nhận xét trong phần PR về lý do tại sao bạn cho rằng cuốn sách là miễn phí.</li>
+<li>chúng tôi không chấp nhận các tệp được lưu trữ trên google drive, dropbox, mega, scribd, issu và các nền tảng tải lên tệp tương tự khác.</li>
+<li>chèn các liên kết của bạn theo thứ tự bảng chữ cái. Nếu bạn thấy một liên kết bị đặt sai vị trí, vui lòng sắp xếp lại nó và gửi một PR.</li>
+<li>sử dụng liên kết với nguồn có thẩm quyền nhất (có nghĩa là trang web của tác giả tốt hơn trang web của người biên tập tốt hơn trang web của bên thứ ba)
+<ul>
+<li>không có dịch vụ lưu trữ tệp (điều này bao gồm (nhưng không giới hạn) liên kết Dropbox và Google Drive)</li>
+</ul></li>
+<li>một liên kết <code>https</code> tốt hơn liên kết có giao thức <code>http</code> - miễn là chúng ở trên cùng một domain và phân phát cùng một nội dung.</li>
+<li>trên các miền gốc, bỏ dấu gạch chéo sau: <code>http://example.com</code> thay vì <code>http://example.com/</code></li>
+<li>luôn luôn ưu tiên đường dẫn ngắn: <code>http://example.com/dir/</code> tốt hơn là <code>http://example.com/dir/index.html</code>
+<ul>
+<li>không sử dụng rút gọn link</li>
+</ul></li>
+<li>thường ưu tiên những liên kết “mới nhất” hơn những liên kết có “phiên bản (version)”: <code>http://example.com/dir/book/current/</code> tốt hơn <code>http://example.com/dir/book/v1.0.0/index.html</code></li>
+<li>nếu một liên kết có chứng chỉ hết hạn như chứng chỉ tự ký / chứng chỉ SSL hoặc các vấn đề tương tự:
+<ol type="1">
+<li><em>thay thế nó</em> bằng giao thức <code>http</code> nếu có thể (bởi vì việc chấp nhận các lỗi ngoại lệ có thể phức tạp trên thiết bị di động)</li>
+<li><em>để nguyên</em> nếu không thể sử dụng <code>http</code> nhưng liên kết có thể truy cập được thông qua <code>https</code> bằng cách thêm một ngoại lệ vào trình duyệt hoặc có thể bỏ qua cảnh báo</li>
+<li><em>xóa nó đi</em> nếu không thể làm gì khác</li>
+</ol></li>
+<li>nếu một liên kết tồn tại ở nhiều định dạng, hãy thêm một liên kết riêng với ghi chú về từng định dạng</li>
+<li>nếu một tài liệu tồn tại ở những nơi khác nhau trên Internet
+<ul>
+<li>sử dụng liên kết với nguồn có thẩm quyền nhất (có nghĩa là trang web của tác giả tốt hơn trang web của người biên tập và tốt hơn trang web của bên thứ ba)</li>
+<li>nếu chúng liên kết đến các ấn bản khác nhau và bạn đánh giá các ấn bản này đủ khác nhau để có giá trị giữ chúng, hãy thêm một liên kết riêng với ghi chú về từng ấn bản (xem <a href="https://github.com/EbookFoundation/free-programming-books/issues/2353">Issue #2353</a> để đóng góp vào cuộc thảo luận về định dạng.)</li>
+</ul></li>
+<li>ưu tiên các commit nhỏ (atomic commits - một commit chỉ có thêm, xóa hoặc sửa) hơn các commit lớn. Không cần phải giấu giếm các commits của bạn trước khi gửi PR. (Chúng tôi sẽ không bao giờ thực thi những thứ này vì nó thuận tiện sau này cho người bảo trì)</li>
+<li>nếu sách cũ hơn, hãy bao gồm ngày xuất bản cùng với tên sách.</li>
+<li>bao gồm tên tác giả hoặc tên nếu thích hợp. Bạn có thể rút ngắn danh sách tác giả với “et al.”</li>
+<li>nếu cuốn sách chưa hoàn thành và vẫn đang được hoàn thiện, hãy thêm ký hiệu “đang xử lý”, như được mô tả <a href="#in_process">dưới đây.</a></li>
+<li>nếu địa chỉ email hoặc thiết lập tài khoản được yêu cầu trước khi kích hoạt tải xuống, hãy thêm ghi chú phù hợp với ngôn ngữ trong ngoặc đơn, ví dụ: <code>(địa chỉ email *được yêu cầu*, không bắt buộc)</code></li>
+</ul>
+<h3 id="định-dạng">Định Dạng</h3>
+<ul>
+<li>Tất cả danh sách đều là tệp <code>.md</code>. Cố gắng học các cú pháp <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>. Nó rất đơn giản!</li>
+<li>Tất cả các danh sách bắt đầu bằng một Chỉ mục. Ý tưởng là liệt kê và liên kết tất cả các phần và tiểu mục ở đó. Giữ nó theo thứ tự bảng chữ cái.</li>
+<li>Các phần đang sử dụng tiêu đề cấp 3 (<code>###</code>) và các tiểu mục là tiêu đề cấp 4 (<code>####</code>).</li>
+</ul>
+<p>Ý tưởng là phải có - <code>2</code> dòng trống giữa liên kết cuối cùng và phần mới - <code>1</code> dòng trống giữa tiêu đề và liên kết đầu tiên của phần của nó - <code>0</code> dòng trống giữa hai liên kết - <code>1</code> dòng trống ở cuối mỗi tệp<code>.md</code></p>
+<p>Ví dụ:</p>
+<pre><code>[...]
+* [Một cuốn sách tuyệt vời](http://example.com/example.html)
+                                (dòng trống)
+                                (dòng trống)
+### Ví dụ
+                                (dòng trống)
+* [Một cuốn sách tuyệt vời khác](http://example.com/book.html)
+* [Một số sách khác](http://example.com/other.html)</code></pre>
+<ul>
+<li>Không đặt dấu cách giữa <code>]</code> và <code>(</code>:</li>
+</ul>
+<pre><code>Tệ : * [Một cuốn sách tuyệt vời khác] (http://example.com/book.html)
+Tốt: * [Một cuốn sách tuyệt vời khác](http://example.com/book.html)</code></pre>
+<ul>
+<li>Nếu bao gồm tác giả, hãy sử dụng <code>-</code> (dấu gạch ngang được bao quanh bởi các khoảng trắng):</li>
+</ul>
+<pre><code>Tệ : * [Một cuốn sách tuyệt vời khác](http://example.com/book.html)- John Doe
+Tốt: * [Một cuốn sách tuyệt vời khác](http://example.com/book.html) - John Doe</code></pre>
+<ul>
+<li>Đặt một khoảng trắng giữa liên kết và định dạng của nó:</li>
+</ul>
+<pre><code>Tệ : * [Một cuốn sách rất tuyệt vời](https://example.org/book.pdf)(PDF)
+Tốt: * [Một cuốn sách rất tuyệt vời](https://example.org/book.pdf) (PDF)</code></pre>
+<ul>
+<li>Tác giả đặt trước định dạng:</li>
+</ul>
+<pre><code>Tệ : * [Một cuốn sách rất tuyệt vời](https://example.org/book.pdf)- (PDF) Jane Roe
+Tốt: * [Một cuốn sách rất tuyệt vời](https://example.org/book.pdf) - Jane Roe (PDF)</code></pre>
+<ul>
+<li>Nhiều định dạng:</li>
+</ul>
+<pre><code>Tệ : * [Một cuốn sách tuyệt vời khác](http://example.com/)- John Doe (HTML)
+Tệ : * [Một cuốn sách tuyệt vời khác](https://downloads.example.org/book.html)- John Doe (download site)
+Tốt: * [Một cuốn sách tuyệt vời khác](http://example.com/) - John Doe (HTML) [(PDF, EPUB)](https://downloads.example.org/book.html)</code></pre>
+<ul>
+<li>Bao gồm năm xuất bản trong tiêu đề cho các sách cũ hơn:</li>
+</ul>
+<pre><code>Tệ : * [Một cuốn sách rất tuyệt vời](https://example.org/book.html) - Jane Roe - 1970
+Tốt: * [Một cuốn sách rất tuyệt vời (1970)](https://example.org/book.html) - Jane Roe</code></pre>
+<p><a name="in_process"></a> - Sách đang trong quá trình viết:</p>
+<pre><code>Tốt: * [Sách sẽ sớm trở nên tuyệt vời](http://example.com/book2.html) - John Doe (HTML) (:construction: *in process*)</code></pre>
+<h3 id="ghi-chú">Ghi Chú</h3>
+<p>Mặc dù những điều cơ bản tương đối đơn giản, nhưng có sự đa dạng lớn trong các nguồn mà chúng tôi liệt kê. Dưới đây là một số lưu ý về cách chúng ta phân loại những sự đa dạng này.</p>
+<h4 id="metadata">Metadata</h4>
+<p>Danh sách của chúng tôi cung cấp một metadata: tiêu đề, URL, người tạo, nền tảng và ghi chú truy cập.</p>
+<h5 id="tiêu-đề">Tiêu Đề</h5>
+<ul>
+<li>Không được chế ra tiêu đề. Chúng tôi cố gắng lấy các tiêu đề từ chính các nguồn tài liệu đó; những người đóng góp được khuyến cáo không chế ra tiêu đề hoặc chỉnh sửa chúng nếu điều này có thể tránh được. Một ngoại lệ là đối với các tác phẩm cũ hơn; nếu họ chủ yếu quan tâm đến lịch sử, thêm số năm vào trong dấu ngoặc đơn nằm trong tiêu đề sẽ giúp người dùng biết liệu họ có quan tâm hay không.</li>
+<li>Không sử dụng tiêu đề ALLCAPS (tiêu đề sử dụng toàn bộ bằng chữ In Hoa). Thông thường, viết hoa tiêu đề là phù hợp, nhưng khi không chắc chắn, hãy sử dụng chữ viết hoa từ nguồn.</li>
+</ul>
+<h5 id="urls">URLs</h5>
+<ul>
+<li>Chúng tôi không cho phép các URL rút gọn.</li>
+<li>Mã theo dõi phải được xóa khỏi URL.</li>
+<li>URL quốc tế phải được thoát. Các thanh trình duyệt thường hiển thị chúng thành Unicode, nhưng vui lòng sử dụng sao chép và dán.</li>
+<li>Các URL an toàn (https) luôn được ưu tiên hơn các url không an toàn (http) nơi https đã được triển khai.</li>
+<li>Chúng tôi không thích các URL trỏ đến các trang web không lưu trữ tài liệu được liệt kê, mà thay vào đó trỏ đến nơi khác.</li>
+</ul>
+<h5 id="người-sáng-tạo">Người Sáng Tạo</h5>
+<ul>
+<li>Chúng tôi muốn ghi công những người tạo ra các tài liệu miễn phí nếu thích hợp, bao gồm cả những người dịch!</li>
+<li>Đối với các tác phẩm đã dịch, tác giả gốc nên được ghi công.</li>
+<li>Chúng tôi không cho phép liên kết bởi Người sáng tạo.</li>
+<li>Đối với các tác phẩm tổng hợp hoặc phối lại, “người sáng tạo” có thể cần mô tả. Ví dụ: sách “GoalKicker” được ghi là “Được tổng hợp từ tài liệu StackOverflow”</li>
+</ul>
+<h5 id="nền-tảng-và-ghi-chú-truy-cập">Nền Tảng và Ghi Chú Truy Cập</h5>
+<ul>
+<li>Các khóa học. Đặc biệt đối với danh sách khóa học của chúng tôi, nền tảng là một phần quan trọng của mô tả tài liệu. Điều này là do các nền tảng khóa học có khả năng chi trả và mô hình truy cập khác nhau. Mặc dù chúng tôi thường không liệt kê một cuốn sách yêu cầu đăng ký, nhưng nhiều nền tảng khóa học có khả năng chi trả không hoạt động nếu không có một số loại tài khoản. Các nền tảng khóa học ví dụ bao gồm Coursera, EdX, Udacity và Udemy. Khi một khóa học phụ thuộc vào một nền tảng, tên nền tảng phải được liệt kê trong ngoặc đơn.</li>
+<li>YouTube. Chúng tôi có nhiều khóa học bao gồm các danh sách phát trên YouTube. Chúng tôi không cho rằng Youtube như một nền tảng, chúng tôi cố gắng liệt kê người sáng tạo nội dung trên Youtube, thường là một nền tảng phụ.</li>
+<li>Video trên YouTube. Chúng tôi thường không có các liên kết đến các video YouTube riêng lẻ trừ khi chúng dài hơn một giờ và có cấu trúc giống như một khóa học hoặc một hướng dẫn.</li>
+<li>Leanpub. Leanpub lưu trữ sách với nhiều mô hình truy cập. Đôi khi một cuốn sách có thể được đọc mà không cần đăng ký; đôi khi một cuốn sách yêu cầu tài khoản Leanpub để được truy cập miễn phí. Do chất lượng của sách và sự hỗn hợp và tính linh hoạt của các mô hình truy cập Leanpub, chúng tôi cho phép liệt kê mô hình sau cùng với ghi chú truy cập <em>(yêu cầu tài khoản Leanpub hoặc email hợp lệ)</em></li>
+</ul>
+<h4 id="thể-loại">Thể Loại</h4>
+<p>Quy tắc đầu tiên để quyết định tài liệu thuộc danh sách nào là xem tài liệu đó mô tả thế nào. Nếu nó tự gọi nó là một cuốn sách, thì có lẽ nó là một cuốn sách.</p>
+<h5 id="các-thể-loại-chúng-tôi-không-liệt-kê">Các Thể Loại chúng tôi không liệt kê</h5>
+<p>Vì Internet rất rộng lớn, chúng tôi không đưa chúng vào danh sách của mình:</p>
+<ul>
+<li>blogs</li>
+<li>bài đăng trên blog</li>
+<li>bài viết</li>
+<li>các trang web (ngoại trừ những nơi lưu trữ RẤT NHIỀU tài liệu mà chúng tôi liệt kê.)</li>
+<li>video không phải là khóa học hoặc video truyền hình.</li>
+<li>các chương của cuốn sách</li>
+<li>các ví dụ khó từ sách</li>
+<li>IRC hoặc Telegram</li>
+<li>Slacks hoặc danh sách mail</li>
+</ul>
+<p>Danh sách của chúng tôi không nghiêm ngặt về những loại trừ này. Phạm vi của repo được xác định bởi cộng đồng; nếu bạn muốn đề xuất thay đổi hoặc bổ sung, vui lòng tạo một Issue để đưa ra đề xuất.</p>
+<h5 id="sách-so-với-nội-dung-khác">Sách so với Nội dung khác</h5>
+<p>Chúng tôi không quá cầu kỳ về sách. Dưới đây là một số thuộc tính biểu thị rằng nguồn tài liệu là sách:</p>
+<ul>
+<li>nó có một ISBN</li>
+<li>nó có một Mục lục</li>
+<li>một phiên bản đã tải xuống, đặc biệt là ePub</li>
+<li>nó có các tái bản</li>
+<li>nó không phụ thuộc vào nội dung hoặc video tương tác</li>
+<li>nó cố gắng bao quát toàn diện một chủ đề</li>
+<li>nó khép kín</li>
+</ul>
+<p>Có rất nhiều sách mà chúng tôi liệt kê không có các thuộc tính này; nó có thể phụ thuộc vào ngữ cảnh.</p>
+<h5 id="sách-so-với-các-khóa-học">Sách so với các khóa học</h5>
+<p>Đôi khi chúng có thể khó phân biệt!</p>
+<p>Các khóa học thường có sách giáo khoa liên quan, mà chúng tôi sẽ liệt kê trong danh sách sách của chúng tôi. Các khóa học có các bài giảng, bài tập, bài kiểm tra, ghi chú hoặc các hỗ trợ giáo khoa khác. Bản thân một bài giảng hoặc video không phải là một khóa học. Powerpoint không phải là một khóa học.</p>
+<h5 id="hướng-dẫn-tương-tác-so-với-những-thứ-khác">Hướng dẫn tương tác so với những thứ khác</h5>
+<p>Nếu bạn có thể in nó ra và giữ lại bản chất của nó, thì đó không phải là Hướng dẫn tương tác.</p>
+<h3 id="tự-động-hóa">Tự động hóa</h3>
+<ul>
+<li>Việc thực thi quy tắc định dạng được tự động hóa qua <a href="https://travis-ci.com">Travis CI</a> sử dụng <a href="https://github.com/vhf/free-programming-books-lint">fpb-lint</a> (xem file <a href=".travis.yml">.travis.yml</a>)</li>
+<li>Sử dụng xác thực URL <a href="https://github.com/dkhamsing/awesome_bot">awesome_bot</a></li>
+<li>Để kích hoạt xác thực URL, hãy push một commit bao gồm một commit message chứa <code>check_urls=file_to_check</code>:</li>
+</ul>
+<pre><code>check_urls=free-programming-books.md free-programming-books-en.md</code></pre>
+<ul>
+<li>Bạn có thể chỉ định nhiều tệp để kiểm tra, sử dụng một khoảng trắng duy nhất để tách từng mục nhập.</li>
+<li>Nếu bạn chỉ định nhiều hơn một tệp, kết quả của việc build sẽ dựa trên kết quả của tệp cuối cùng được kiểm tra. Bạn nên biết rằng bạn có thể nhận được bản build thành công, vì vậy hãy đảm bảo kiểm tra build log ở cuối pull request bằng cách nhấp vào “Show all checks” -&gt; “Details”.</li>
+</ul>
+</body>
+</html>

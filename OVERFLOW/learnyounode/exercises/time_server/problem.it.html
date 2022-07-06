@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.it</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Scrivi un <strong>time server TCP</strong>!</p>
+<p>Il tuo server deve ascoltare connessioni TCP sulla porta fornita come primo argomento al tuo programma. Per ciascuna connessione devi scrivere la data attuale e il tempo nel formato 24 ore nella forma:</p>
+<pre><code>&quot;YYYY-MM-DD hh:mm&quot;</code></pre>
+<p>seguito da un carattere <strong>nuova riga</strong>. Mese, giorno, ora e minuto devono essere <em>riempiti con zeri</em> per occupare 2 cifre. Ad esempio:</p>
+<pre><code>&quot;2013-07-06 17:42&quot;</code></pre>
+<hr />
+<h2 id="suggerimenti">SUGGERIMENTI</h2>
+<p>Per quest’esercizio creeremo un server di basso livello TCP. Non c’è alcun HTTP coinvolto qui quindi dobbiamo usare il modulo <code>net</code> di Node core che ha tutte le funzioni di base per le comunicazioni di rete.</p>
+<p>Il modulo <code>net</code> ha un metodo chiamato <code>net.createServer()</code> che riceve una funzione callback. Diversamente da molte callback in Node, la callback usata da <code>createServer()</code> viene chiamata più di una volta. Ciascuna connessione ricevuta dal tuo server scatena un’altra chiamata alla callback. La funzione callback ha la firma:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">callback</span> (socket) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p><code>net.createServer()</code> restituisce anche un’istanza del tuo <code>server</code>. Devi chiamare <code>server.listen(portNumber)</code> per cominciare ad ascoltare su una porta specifica.</p>
+<p>Un tipico server TCP di Node si presenta così:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> net <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;net&#39;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">const</span> server <span class="op">=</span> <span class="va">net</span>.<span class="at">createServer</span>(<span class="kw">function</span> (socket) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">// logica per gestire la socket</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="va">server</span>.<span class="at">listen</span>(<span class="dv">8000</span>)</a></code></pre></div>
+<p>Ricorda di utilizzare il numero di porta a te fornito come primo argomento da riga di comando.</p>
+<p>L’oggetto <code>socket</code> contiene una quantità di metadati riguardo la connessione, ma è anche uno Stream duplex di Node, cioè vi si può sia leggere che scrivere. Per questo esercizio dobbiamo soltanto scrivere dati e chiudere la socket.</p>
+<p>Usa <code>socket.write(data)</code> per scrivere dati sulla socket e <code>socket.end()</code> per chiudere la socket. In alternativa, il metodo <code>.end()</code> riceve anche un oggetto dati quindi puoi semplificare come: <code>socket.end(data)</code>.</p>
+<p>La documentazione sul modulo <code>net</code> può essere ottenuta puntando il tuo browser all’indirizzo:</p>
+<p>{rootdir:/docs-nodejs/net.html}</p>
+<p>Per creare la data, dovrai creare un formato personalizzato da un oggetto <code>new Date()</code>. I metodi che ti saranno utili sono:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">date</span>.<span class="at">getFullYear</span>()</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">date</span>.<span class="at">getMonth</span>() <span class="co">// comincia da 0</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">date</span>.<span class="at">getDate</span>() <span class="co">// restituisce il giorno del mese</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">date</span>.<span class="at">getHours</span>()</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="va">date</span>.<span class="at">getMinutes</span>()</a></code></pre></div>
+<p>Oppure, se vuoi essere avventuroso, usa il pacchetto <code>strftime</code> di npm. La funzione <code>strftime(fmt, date)</code> riceve formati di data proprio come il comando unix <code>date</code>. Puoi leggere maggiori dettagli su <code>strftime</code> su: https://github.com/samsonjs/strftime</p>
+</body>
+</html>

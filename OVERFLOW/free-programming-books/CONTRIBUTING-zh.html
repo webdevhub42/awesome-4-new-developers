@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CONTRIBUTING-zh</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p><em>阅读本文的其他语言版本：<a href="CONTRIBUTING.md">English</a>, <a href="CONTRIBUTING-es.md">Español</a>, <a href="CONTRIBUTING-zh-TW.md">繁體中文</a>, <a href="CONTRIBUTING-fa_IR.md">فارسی</a>, <a href="CONTRIBUTING-vn.md">Tiếng Việt</a>.</em></p>
+<h2 id="贡献者许可协议">贡献者许可协议</h2>
+<p>请遵循此<a href="https://github.com/EbookFoundation/free-programming-books/blob/master/LICENSE">许可协议</a>参与贡献。</p>
+<h2 id="贡献者行为准则">贡献者行为准则</h2>
+<p>请同意并遵循此<a href="https://github.com/EbookFoundation/free-programming-books/blob/master/CODE_OF_CONDUCT.md">行为准则</a>参与贡献。</p>
+<h2 id="概要">概要</h2>
+<ol type="1">
+<li>“一个可以轻易下载一本书的链接” 并不代表它指向的就是 <em>免费</em> 书籍。 请只提供免费内容。 确信你所提供的书籍是免费的。我们不接受指向<em>需要</em>工作电子邮件地址才能获取书籍的页面的链接，但我们欢迎有需求它们的列表。</li>
+<li>你不需要会 Git：如果你发现了一些有趣的东西 <em>尚未出现在本仓库</em> 中，请开一个<a href="https://github.com/EbookFoundation/free-programming-books/issues">Issue</a>进行主题讨论。
+<ul>
+<li>如果你已经知晓Git，请Fork本仓库并提交PR。</li>
+</ul></li>
+<li><p>这里有5种列表，请选择正确的一个：</p>
+<ul>
+<li><em>Books</em> ：PDF、HTML、ePub、基于一个 gitbook.io的站点、一个Git仓库等等。</li>
+<li><em>Courses</em> ：课程是一种学习材料，而不是一本书 <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">This is a course</a>。</li>
+<li><em>Interactive Tutorials</em> ：一个交互式网站，它允许用户输入代码或命令并对结果进行评估。例如：<a href="http://tryhaskell.org">Try Haskell</a>，<a href="http://try.github.io">Try Github</a>。</li>
+<li><em>Podcasts and Screencasts</em> ：播客和视频。</li>
+<li><em>Problem Sets &amp; Competitive Programming</em> ：一个网站或软件，让你通过解决简单或复杂的问题来评估你的编程技能，有或没有代码审查，有或没有与其他用户对比结果。</li>
+</ul></li>
+<li><p>确保遵循下面的<a href="#基本准则">基本准则</a>，并遵循本仓库文件的<a href="#规定格式">Markdown规定格式</a>。</p></li>
+<li><p>Travis CI 将运行测试，以确保你的列表是 <strong>按字母顺序排列</strong> 的，并 <strong>遵循格式化规则</strong>。请 <strong>确保</strong> 你的更改通过了该测试。</p></li>
+</ol>
+<h3 id="基本准则">基本准则</h3>
+<ul>
+<li>确保你提交的每一本书都是免费的。如有需要请做Double-check。如果你在PR中注明为什么你认为这本书是免费的，这将对管理员是很有帮助的。</li>
+<li>我们不接受存储在google drive、dropbox、mega、scribd、issuu和其他类似文件上传平台上的文件。</li>
+<li>请按照字母顺序插入链接。如果你看到一个错位的链接，请重新对他进行排序并提交一个PR。</li>
+<li>使用最权威来源的链接(意思是原作者的网站比编辑的网站好，比第三方网站好)。
+<ul>
+<li>没有文件托管服务(包括(但不限于)Dropbox和谷歌驱动器链接)。</li>
+</ul></li>
+<li>优先选择使用 <code>https</code> 链接，而不是 <code>http</code> 链接 – 只要它们位于相同的域并提供相同的内容。</li>
+<li>在根域上，去掉末尾的斜杠：使用 <code>http://example.com</code> 代替 <code>http://example.com/</code>。</li>
+<li>总是选择最短的链接：使用 <code>http://example.com/dir/</code> 比使用 <code>http://example.com/dir/index.html</code> 更好。
+<ul>
+<li>不要提供短链接</li>
+</ul></li>
+<li>优先选择使用 “current” 链接代替有 “version” 链接：使用 <code>http://example.com/dir/book/current/</code> 比使用 <code>http://example.com/dir/book/v1.0.0/index.html</code> 更好。</li>
+<li>如果一个链接存在过期的证书/自签名证书/SSL问题的任何其他类型：
+<ol type="1">
+<li><em>replace it</em> ：如果可能的话，将其 <em>替换</em> 为对应的<code>http</code>(因为在移动设备上接受异常可能比较复杂)。</li>
+<li><em>leave it</em> ：如果没有http版本，但仍然可以通过https访问链接，则在浏览器中添加异常或忽略警告。</li>
+<li><em>remove it</em> ：上述以外删除掉它。</li>
+</ol></li>
+<li>如果一个链接以多种格式存在，请添加一个单独的链接，并注明每种格式。</li>
+<li>如果一个资源存在于Internet上的不同位置
+<ul>
+<li>使用最权威来源的链接(意思是原始作者的网站比编辑的网站好，比第三方网站好)。</li>
+<li>如果它们链接到不同的版本，你认为这些版本差异很大，值得保留，那么添加一个单独的链接，并对每个版本做一个说明(参见<a href="https://github.com/EbookFoundation/free-programming-books/issues/2353">Issue #2353</a>有助于格式化问题的讨论)。</li>
+</ul></li>
+<li>相较一个比较大的提交，我们更倾向于原子提交(通过添加/删除/修改进行一次提交)。在提交PR之前没有必要压缩你的提交。(我们永远不会执行这个规则，因为这只是维护人员的方便)。</li>
+<li>如果一本书比较旧，请在书名中注明出版日期。</li>
+<li>包含作者的名字或适当的名字。中文版本可以用 “等” 缩短作者列表。</li>
+<li>如果一本书还没有完成，并且仍在编写中，则需添加 “编写中” 符号，参见<a href="#in_process">下文</a>所述。</li>
+<li>如果在开始下载之前需要电子邮件地址或帐户设置，请在括号中添加合适的语言描述，例如：<code>(*需要*电子邮件，但不是必须的)</code>。</li>
+</ul>
+<h3 id="规定格式">规定格式</h3>
+<ul>
+<li>所有列表都是<code>.md</code>文件。试着学习<a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>语法。它很容易上手！</li>
+<li>所有的列表都以索引开始。它的作用是列出并链接所有的sections(章节/段落)或subsections(子段落/子章节)。务必遵循字母顺序排列。</li>
+<li>Sections(章节/段落)使用3级标题(<code>###</code>)，subsections(子段落/子章节)使用4级标题 (<code>####</code>)。</li>
+</ul>
+<h4 id="整体思想为">整体思想为：</h4>
+<ul>
+<li><code>2</code> ：新添加的Section与末尾链接间必须留有<code>2</code>个空行</li>
+<li><code>1</code> ：标题和第一个链接之间必须留有<code>1</code>个空行的空行</li>
+<li><code>0</code> ：任何两个链接之间不能留有任何空行</li>
+<li><code>1</code> ：每个<code>.md</code>文件末尾必须留有<code>1</code>个空行</li>
+</ul>
+<h4 id="举例">举例：</h4>
+<pre><code>[...]
+* [一本很有用的书](http://example.com/example.html)
+                                (空行)
+                                (空行)
+### 电子书种类标题
+                                (空行)
+* [Another 很有用的书](http://example.com/book.html)
+* [Other 有用的书](http://example.com/other.html)</code></pre>
+<ul>
+<li>在 <code>]</code> 和 <code>(</code> 之间不要留有空格：</li>
+</ul>
+<pre><code>错误：* [一本很有用的书] (http://example.com/book.html)
+正确：* [一本很有用的书](http://example.com/book.html)</code></pre>
+<ul>
+<li>如果包括作者，请使用’ - ’(由单个空格(英文半角)包围的破折号)：</li>
+</ul>
+<pre><code>错误：* [一本很有用的书](http://example.com/book.html)- 张显宗
+正确：* [一本很有用的书](http://example.com/book.html) - 张显宗</code></pre>
+<ul>
+<li>在链接和电子书格式之间放一个空格：</li>
+</ul>
+<pre><code>错误：* [一本很有用的书](https://example.org/book.pdf)(PDF)
+正确：* [一本很有用的书](https://example.org/book.pdf) (PDF)</code></pre>
+<ul>
+<li>如需备注或注解，请使用英文半角括号<code>( )</code>：</li>
+</ul>
+<pre><code>错误：* [一本很有用的书](https://example.org/book.pdf) （繁体中文）
+正确：* [一本很有用的书](https://example.org/book.pdf) (繁体中文)</code></pre>
+<ul>
+<li>作者在电子书格式之前：</li>
+</ul>
+<pre><code>错误：* [一本很有用的书](https://example.org/book.pdf)- (PDF) 张显宗
+正确：* [一本很有用的书](https://example.org/book.pdf) - 张显宗 (PDF)</code></pre>
+<ul>
+<li>多重格式：</li>
+</ul>
+<pre><code>错误：* [一本很有用的书](http://example.com/)- 张显宗 (HTML)
+错误：* [一本很有用的书](https://downloads.example.org/book.html)- 张显宗 (download site)
+正确：* [一本很有用的书](http://example.com/) - 张显宗 (HTML) [(PDF, EPUB)](https://downloads.example.org/book.html)</code></pre>
+<ul>
+<li>多作者，多译者时，请使用中文 <code>、</code> 进行分隔，在译者名字后请使用英文半角括号包围的 <code>(翻译)</code>，可以用 “等” 缩短作者列表：</li>
+</ul>
+<pre><code>错误：* [一本很有用的书](https://example.org/book.pdf) - 张显宗，岳绮罗
+正确：* [一本很有用的书](https://example.org/book.pdf) - 张显宗、岳绮罗(翻译)
+正确：* [一本很有用的书](https://example.org/book.pdf) - 张显宗、岳绮罗、顾玄武、出尘子 等</code></pre>
+<ul>
+<li>在旧书的标题中包括出版年份：</li>
+</ul>
+<pre><code>错误：* [一本很有用的书](https://example.org/book.html) - 张显宗 - 1970
+正确：* [一本很有用的书 (1970)](https://example.org/book.html) - 张显宗</code></pre>
+<p><a name="in_process"></a> * 编写(翻译)中的书籍：</p>
+<pre><code>正确：* [马上出版的一本书](http://example.com/book2.html) - 张显宗 (HTML) (:construction: *编写中*)
+正确：* [马上出版的一本书](http://example.com/book2.html) - 张显宗 (HTML) (:construction: *翻译中*)</code></pre>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>argv</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "hashes" -->
+<h1 id="argv">ARGV</h1>
+<p>There is a magic array named <code>ARGV</code>.</p>
+<p>It contains the <em>command line arguments</em> to the program.</p>
+<p>If the user types:</p>
+<pre><code>ruby hello.rb Alice Bob</code></pre>
+<p>then ARGV contains:</p>
+<pre><code>[&quot;Alice&quot;, &quot;Bob&quot;]</code></pre>
+<h1 id="why-argv">Why ARGV?</h1>
+<p>ARGV is a historical name. It means “Argument Vector” and has been around since the early 1970s.</p>
+<h1 id="command-line-hello">Command-Line Hello</h1>
+<p>Change <code>hello.rb</code> to contain:</p>
+<pre><code>puts &quot;Hello, &quot; + ARGV[0]</code></pre>
+<p>and run it a few times, e.g.</p>
+<pre><code>ruby hello.rb Alice</code></pre>
+<h1 id="lab-hello-everyone">LAB: Hello, Everyone!</h1>
+<p>Change <code>hello.rb</code> to say hello to <em>every one</em> of its command line arguments.</p>
+<p>For instance:</p>
+<pre><code>ruby hello.rb Alice Bob Charlie
+Hello, Alice!
+Hello, Bob!
+Hello, Charlie!</code></pre>
+<h1 id="lab-add">LAB: Add</h1>
+<p>Write a program named <code>add.rb</code> that adds all of its command line arguments together.</p>
+<p>e.g.</p>
+<pre><code>ruby add.rb 1 2 3
+6</code></pre>
+<p>Do you remember how to convert a string to an integer?</p>
+</body>
+</html>

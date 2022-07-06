@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.zh-cn</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>编写一个简单的程序，使其能接收一个或者多个命令行参数，并且在终端（标准输出 stdout）中打印出这些参数的总和。</p>
+<hr />
+<h2 id="提示">提示</h2>
+<p>你可以通过 <code>process</code> 这个全局对象来获取命令行中的参数。<code>process</code> 对象 拥有一个名为 <code>argv</code> 的属性，该属性是一个数组，数组中包含了整条命令的所有部分。</p>
+<p>首先，请先编写一个包含如下带简易代码的程序来熟悉一下：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">console</span>.<span class="at">log</span>(<span class="va">process</span>.<span class="at">argv</span>)</a></code></pre></div>
+<p>通过执行命令 <code>node program.js</code> 并在后面多加几个参数，来运行我们的程序，比如：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="ex">node</span> program.js 1 2 3</a></code></pre></div>
+<p>这样，你就会得到这样一个数组：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">[<span class="st">&#39;node&#39;</span><span class="op">,</span> <span class="st">&#39;/path/to/your/program.js&#39;</span><span class="op">,</span> <span class="st">&#39;1&#39;</span><span class="op">,</span> <span class="st">&#39;2&#39;</span><span class="op">,</span> <span class="st">&#39;3&#39;</span>]</a></code></pre></div>
+<p>你需要考虑的问题是，如何去循环遍历这些代表数字的参数，从而得到他们的总和。<code>process.argv</code> 数组的第一个元素永远都会是 <code>node</code>，并且第二个参数总是指向你的程序的路径，所以，你应该从第三个元素（index 是 2）开始，依次累加，直到数组末尾。</p>
+<p>同时，你需要注意的是，所有 <code>process.argv</code> 中的数组的元素都是字符串类型的，因此，你需要将它们强制转换成数字。你可以通过加上 <code>+</code> 前缀，或者将其传给 <code>Number()</code> 来解决。例如： <code>+process.argv[2]</code> 或者 <code>Number(process.argv[2])</code>。</p>
+<p>{appname} 会在你执行 <code>{appname} verify program.js</code> 的时候提供参数给你的程序，所以你不需要自己去加参数了。如果仅仅只是想测试一下，而不想验证验证你的答案，你可以通过输入 <code>{appname} run program.js</code> 来测试。当你使用 <code>run</code> 的时候，{appname} 会进入它各个练习所准备的测试环境。</p>
+</body>
+</html>

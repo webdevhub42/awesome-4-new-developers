@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>objects</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "strings" -->
+<h1 id="objects">Objects</h1>
+<p>An OBJECT is a location in computer memory where you can store DATA (aka VALUES).</p>
+<p>There are many kinds of objects, including String, Number, Array, Hash, Time, …</p>
+<p>(The different kinds of objects are called CLASSES or TYPES. Some day soon you will create your own classes but for now, we will use the built-in ones.)</p>
+<h1 id="numbers">Numbers</h1>
+<p>A NUMBER is what it sounds like.</p>
+<pre><code>10
+-12
+3.14</code></pre>
+<h1 id="strings">Strings</h1>
+<p>A STRING is an object that’s a collection of characters, like a word or a sentence.</p>
+<pre><code>&quot;apple&quot;
+&quot;banana&quot;
+&quot;Cherry Pie&quot;</code></pre>
+<h1 id="messages-and-operators">Messages and Operators</h1>
+<p>An object responds to MESSAGES. You send it messages using OPERATORS.</p>
+<p>The most powerful operator is DOT.</p>
+<p>On screen she looks like this…</p>
+<pre><code>.</code></pre>
+<h1 id="dot-up-close">Dot up close</h1>
+<p>…but here’s what she looks like up close:</p>
+<figure>
+<img src="img/dot.jpg" alt="picture of Dot the Operator" /><figcaption>picture of Dot the Operator</figcaption>
+</figure>
+<h1 id="dots-job">Dot’s job</h1>
+<p>Dot can send any message she likes, by name, to any object.</p>
+<pre><code>&quot;apple&quot;.upcase</code></pre>
+<p>The <code>upcase</code> message turns <code>"apple"</code> into <code>"APPLE"</code>.</p>
+<h1 id="other-operators">Other Operators</h1>
+<p>There are other operators, like PLUS (<code>+</code>) and TIMES (<code>*</code>), but they only send one message each.</p>
+<p>And remember, Dot is more powerful than any other operator!</p>
+<pre><code>2 + 7</code></pre>
+<p>is the same as</p>
+<pre><code>2.+ 7</code></pre>
+<p>Both send the message <code>+</code> to the object <code>2</code>.</p>
+<h1 id="return-values">Return Values</h1>
+<p>Every time an object receives a message, it returns a response.</p>
+<p>The response is also called the VALUE or the RETURN VALUE.</p>
+<p>You can think of it as the answer to a question.</p>
+<pre><code>2 + 2    # Question: What is 2 + 2?
+4        # Answer: 4
+
+&quot;apple&quot;.upcase
+# Q: What is the upcase of the string &quot;apple&quot;?
+
+&quot;APPLE&quot;
+# A: the string &quot;APPLE&quot;</code></pre>
+</body>
+</html>

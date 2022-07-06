@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.uk</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Ця задача дуже схожа на попередню, з тією лише різницею, що вона знайомить нас з концепцією <strong>модулів</strong>. Ви маєте створити два файли, щоб розв’язати цю задачу.</p>
+<p>Реалізуйте програму, котра виведе список відфільтрованих по розширенню файлів у вказаній директорії. Першим аргументом командного рядка буде передано ім’я директорії (‘path/to/dir/’), другим аргументом буде розширення файлу для фільтрації. Виведіть список файлів (один файл на одному рядку) у консоль. Вам <strong>потрібно</strong> використати асинхронний I/O.</p>
+<p>Вам потрібно написати <em>модуль (module)</em> - файл, котрий буде виконувати майже всю роботу. Модуль має <em>експортувати</em> одну функцію, котра приймає <strong>три</strong> аргументи: ім’я директорії, рядок з розширенням файлу та функцію зворотнього виклику. Розширення файлу має бути таким же, яким воно було отримано Вашою програмою. Не перетворюйте його в RegExp, не додавайте “.” на початок, просто передайте його у Ваш модуль, де і будуть здійснюватись всі необхідні операції з фільтрації.</p>
+<p>Функція зворотнього виклику (callback) має бути викликаною в характерному для Node.js погодженні: node(err, data). Згідно цього оголошення, якщо помилки немає, то перший аргумент функції буде рівний null, а другий буде містити данні. В цьому завданні в якості данних буде виступати відфільтрований список файлів у вигляді масиву. Якщо ви отримали помилку, наприклад, з виклику <code>fs.readdir()</code>, то функція зворотнього виклику (callback) буде викликана тільки з помилкою в якості першого аргументу.</p>
+<p>Ви <strong>не повинні</strong> виводити список в консоль напряму з вашого модуля, це має відбуватись лише з вашої оригінальної програми.</p>
+<p>Якщо ви отримали помилку з модуля, то просто перевірте її наявність у Вашій програмі, та виведіть зрозуміле повідомлення в консоль.</p>
+<p>Ваш модуль має відповідати наступним чотирьом погодженням:</p>
+<ol type="1">
+<li>Експортувати функцію, яка приймає аргументи точно так, як описано вище.</li>
+<li>Викликати функцію зворотнього виклику (callback) один раз з помилкою або даними, як і було описано вище.</li>
+<li>Не повинен змінювати нічого іншого, наприклад, глобальні змінні або stdout.</li>
+<li>Відловлювати всі помилки, котрі можуть виникнути, і передавати їх в функцію зворотнього виклику.</li>
+</ol>
+<p>Перевага використання погодження полягає у тому, що Ваш модуль зможе використовувати будь-хто, хто очікує такої поведінки від модуля. Тож Ваш модуль міг би використовувати будь-який інший учень learnyounode, або той, хто перевіряє завдання, і це просто буде працювати.</p>
+<hr />
+<h2 id="інформація">ІНФОРМАЦІЯ</h2>
+<p>Створіть модуль з допомогою створення нового файлу, в котрому міститься тільки функція читання та фільтрації переданої директорії. Для <em>експортування</em> даної функції, присвойте її об’єкту <code>module.exports</code>, перезаписавши тим самим те, що там було до цього:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="kw">function</span> (args) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p>Або Ви можете використовувати іменовану функцію і присвоїти тільки її ім’я.</p>
+<p>Для використання Вашого модуля у програмі, скористайтесь <code>require()</code> точно так, як Ви робили це для отримання <code>fs</code> модуля <code>require('fs')</code>. З тією лише різницею, що для локальних модулів Вам слід додавати префікс ‘./’. Наприклад, якщо файл носить назву mymodule.js, то:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> mymodule <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./mymodule.js&#39;</span>)</a></code></pre></div>
+<p>Розширення ‘.js’ тут не обов’язкове і Ви будете часто помічати, як його упускають.</p>
+<p>Зараз ви отримали об’єкт <code>module.exports</code> з вашого модуля, що був присвоєний змінній <code>mymodule</code>. Якщо Ви експортували функцію, то <code>mymodule</code> буде функцією, котру можна викликати!</p>
+<p>Також зауважте, що характерним є перевірка помилки і переривання сценарію, шляхом повернення функції зворотнього виклику з помилкою:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">bar</span> (callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">foo</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">if</span> (err) <span class="op">{</span> <span class="cf">return</span> <span class="at">callback</span>(err) <span class="op">}</span> <span class="co">// перериваємо сценарій, повертаємо помилку</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="co">// ... тут помилок немає, продовжуємо роботу з `data`</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="co">// все йде гаразд, викликаємо функцію з переданим `null` в якості аргументу-помилки</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> data)</a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">}</span></a></code></pre></div>
+</body>
+</html>

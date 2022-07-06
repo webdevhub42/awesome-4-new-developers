@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.es</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Este problema es similar al anterior e introduce la idea de <strong>módulos</strong>. Deberás crear dos archivos para resolver el ejercicio.</p>
+<p>El programa debe imprimir el listado de archivos de un directorio filtrando por extensión. Nuevamente el primer argumento será la ruta al directorio (ej: ‘/path/dir/’) y el segundo la extensión a filtrar, por ejemplo si recibes ‘txt’ deberás filtrar todos los archivos que <strong>terminen en .txt</strong>. <strong>Debes</strong> usar Async I/O.</p>
+<p>Deberás escribir un archivo <em>modular</em> para hacer la tarea. Dicho módulo debe <em>exportar</em> una función que reciba <strong>tres</strong> parámetros en orden: la ruta del directorio, la extensión para filtrar y una función de callback. La idea es encapsular toda la lógica dentro del módulo.</p>
+<p>En Node, los callbacks suelen tener una firma convencional de tener (error, data). Esto implica que si hay un error el primer parámetro devuelve el error sino viene <code>null</code> y el segundo parámetro son los datos. Para este ejercicio los datos a devolver es la lista de archivos en forma de Array. Si ocurre un error, por ejemplo en la llamada a <code>fs.readdir()</code>, el callback debe llamarse con dicho error.</p>
+<p>Para completar el ejercicio <strong>no debes</strong> imprimir desde el módulo, sólo desde el programa principal. En caso de que el módulo devuelva un error a tu programa principal, simplemente compruébalo y escribe un mensaje informativo en consola.</p>
+<p>El módulo debe cumplir el siguiente contrato: 1. Exportar una función que reciba los parámetros mencionados. 2. Llamar al callback una única vez cuando ocurre un error o con la lista correspondiente. 3. No debe modificar variables globales o stdout. 4. Capturar los posibles errores y devolverlos en el callback.</p>
+<p>La ventaja de usar contratos es que el módulo puede ser usado por cualquiera que asuma este contrato.</p>
+<hr />
+<h2 id="pistas">PISTAS</h2>
+<p>Para crear un módulo basta con crear un nuevo archivo en el directorio de trabajo. Para definir una <em>función de export</em>, debes asignar la función al objeto global <code>module.exports</code>, por ejemplo:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="kw">function</span> (args) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p>También puedes usar una función con nombre y asignar el nombre a exports.</p>
+<p>Para llamar a esta función desde el programa debes usar <code>require</code> de la misma forma que para cargar el módulo de <code>fs</code> salvo que debes agregar el prefijo ‘./’ para indicar que es un archivo del directorio actual. Por ejemplo si tu módulo se llama ‘mymodule.js’ deberás usar:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> mymodule <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./mymodule.js&#39;</span>)</a></code></pre></div>
+<p>El ‘.js’ es opcional y en la mayoría de los casos se omite.</p>
+<p>Ahora ya tienes cargada la función del módulo en la variable <code>mymodule</code> y la puedes invocar.</p>
+<p>Ten en cuenta que es buena práctica en Node controlar errores y devolverlos bien al principio del código:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">bar</span> (callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">foo</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">if</span> (err) <span class="op">{</span> <span class="cf">return</span> <span class="at">callback</span>(err) <span class="op">}</span> <span class="co">// devolver el error</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="co">// ... no hay error, continuar con los cálculos.</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="co">// si todo termina bien, llamar el callback con `null` como parámetro de error</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> data)</a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">}</span></a></code></pre></div>
+</body>
+</html>

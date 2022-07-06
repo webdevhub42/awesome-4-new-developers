@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>foundational_skills.deck</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>&lt;!SLIDE subsection&gt;</p>
+<h1 id="foundational-programming-skills">Foundational Programming Skills</h1>
+<p>This presentation covers the basic skills required to be a programmer…</p>
+<p>…that <strong>don’t</strong> involve actually writing code.</p>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="files-and-directories">Files and Directories</h1>
+<ul>
+<li>The House/Rooms/Drawers Metaphor
+<ul>
+<li>directories store files and keep everything in your ‘house’ organized</li>
+</ul></li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="the-command-line">The Command Line</h1>
+<pre><code>ls
+cd
+pwd
+echo
+touch
+cat
+mv
+cp
+rm</code></pre>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="special-directories">Special Directories</h1>
+<ul>
+<li>Current directory
+<ul>
+<li><code>.</code> (“dot”)</li>
+</ul></li>
+<li>Parent directory
+<ul>
+<li><code>..</code> (“dot dot”)</li>
+</ul></li>
+<li>Home directory
+<ul>
+<li><code>~</code> (“tilde”)</li>
+</ul></li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="more-about-directories">More about directories</h1>
+<ul>
+<li>Explain where home and root are located in relation to all directories.</li>
+<li>Explain difference between absolute paths (starting with a /) and relative paths.</li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="text-editing">Text Editing</h1>
+<ul>
+<li>text editor vs. word processor
+<ul>
+<li>similarities and differences</li>
+</ul></li>
+<li>Have group open editor, create and save file with explanation of how and where files are stored.
+<ul>
+<li>after change, go to command line and <code>cat</code> the file to see</li>
+</ul></li>
+<li>Explain file extensions and file types.
+<ul>
+<li>File types tell the editor how to color the special words in each language.</li>
+</ul></li>
+<li>Explain difference between the buffer (in the editor’s memory) and the file (stored on disk).
+<ul>
+<li>Emphasize the importance of saving the buffer to a file before trying to run it with ruby.</li>
+<li>“Save” makes things unsafe</li>
+</ul></li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="compilers-interpreters-and-programming-languages">Compilers, Interpreters and Programming Languages</h1>
+<ul>
+<li>Programming language as an agreed set of rules about syntax for writing source code that is sent to the interpreter and translated into byte code.</li>
+<li>Explain that byte code is the binary that machines understand and use for executing instructions.</li>
+<li>Use metaphor that CPU is like a guy in a factory executing commands that it is handled, and the source code are those instructions.</li>
+<li>Explain differences between compiled vs. dynamic languages.</li>
+<li>Tie everything together by explaining that source code are instructions that are translated into language that machines understand and can execute.</li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="memory-cpu-hard-disk">Memory, CPU, Hard Disk</h1>
+<ul>
+<li>Very briefly explain how a computer works and all the moving parts (literally) starting with hard drive, memory, and CPU.</li>
+<li>Give the group basic understanding of where the source code is stored and how and where it is executed.</li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="operating-system">Operating System</h1>
+<table>
+<tr>
+<td>
+<img src='img/os_x_logo.jpg'>
+<td>
+<img src='img/windows_logo.gif'>
+<td>
+<img src='img/linux_logo.gif'>
+</tr>
+</table>
+<ul>
+<li>The OS is a program that runs other programs
+<ul>
+<li>the term “multitasking” actually started with computers and migrated to common usage</li>
+</ul></li>
+<li>It also helps programs communicate with hardware (video, memory, disk, network…)</li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="package-managers">Package Managers</h1>
+<ul>
+<li>For installing and updating low-level programs</li>
+<li>Like Apple’s “Software Update” for the command line
+<ul>
+<li>or iTunes App Store</li>
+</ul></li>
+<li>Examples
+<ul>
+<li><em>Mac OS</em>: MacPorts, Homebrew</li>
+<li><em>Linux</em>: apt-get, rpm</li>
+<li><em>Ruby</em>: gem, bundler</li>
+<li><em>Perl</em>: CPAN</li>
+<li><em>JavaScript</em>: npm</li>
+</ul></li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="version-control">Version Control</h1>
+<ul>
+<li>Definition</li>
+<li>Terminology
+<ul>
+<li>“check out”</li>
+<li>“check in”/“commit”</li>
+<li>“diff”</li>
+<li>“merge”</li>
+</ul></li>
+</ul>
+<p>&lt;!SLIDE bullets&gt;</p>
+<h1 id="version-control-with-git">Version Control with git</h1>
+<ul>
+<li>More Terminology
+<ul>
+<li>“add”</li>
+<li>“push”</li>
+<li>“pull”</li>
+</ul></li>
+<li>Diagram
+<ul>
+<li><img src="img/git.png" alt="git" /></li>
+</ul></li>
+<li><a href="http://help.github.com/git-cheat-sheets/" class="uri">http://help.github.com/git-cheat-sheets/</a></li>
+</ul>
+</body>
+</html>

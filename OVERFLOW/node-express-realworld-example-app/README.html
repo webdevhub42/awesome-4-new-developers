@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="nodeexpressmongoose-example-app"><img src="project-logo.png" alt="Node/Express/Mongoose Example App" /></h1>
+<p><a href="https://travis-ci.org/anishkny/node-express-realworld-example-app"><img src="https://travis-ci.org/anishkny/node-express-realworld-example-app.svg?branch=master" alt="Build Status" /></a></p>
+<blockquote>
+<h3 id="example-node-express-mongoose-codebase-containing-real-world-examples-crud-auth-advanced-patterns-etc-that-adheres-to-the-realworld-api-spec.">Example Node (Express + Mongoose) codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the <a href="https://github.com/gothinkster/realworld-example-apps">RealWorld</a> API spec.</h3>
+</blockquote>
+<p><a href="https://thinkster.io/tutorials/node-json-api" target="_blank"><img width="454" src="https://raw.githubusercontent.com/gothinkster/realworld/master/media/learn-btn-hr.png" /></a></p>
+<p>This repo is functionality complete — PRs and issues welcome!</p>
+<h1 id="getting-started">Getting started</h1>
+<p>To get the Node server running locally:</p>
+<ul>
+<li>Clone this repo</li>
+<li><code>npm install</code> to install all required dependencies</li>
+<li>Install MongoDB Community Edition (<a href="https://docs.mongodb.com/manual/installation/#tutorials">instructions</a>) and run it by executing <code>mongod</code></li>
+<li><code>npm run dev</code> to start the local server</li>
+</ul>
+<p>Alternately, to quickly try out this repo in the cloud, you can <a href="https://glitch.com/edit/#!/remix/realworld"><img src="https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg" alt="Remix on Glitch" /></a></p>
+<h1 id="code-overview">Code Overview</h1>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="https://github.com/expressjs/express">expressjs</a> - The server for handling and routing HTTP requests</li>
+<li><a href="https://github.com/auth0/express-jwt">express-jwt</a> - Middleware for validating JWTs for authentication</li>
+<li><a href="https://github.com/auth0/node-jsonwebtoken">jsonwebtoken</a> - For generating JWTs used by authentication</li>
+<li><a href="https://github.com/Automattic/mongoose">mongoose</a> - For modeling and mapping MongoDB data to javascript</li>
+<li><a href="https://github.com/blakehaswell/mongoose-unique-validator">mongoose-unique-validator</a> - For handling unique validation errors in Mongoose. Mongoose only handles validation at the document level, so a unique index across a collection will throw an exception at the driver level. The <code>mongoose-unique-validator</code> plugin helps us by formatting the error like a normal mongoose <code>ValidationError</code>.</li>
+<li><a href="https://github.com/jaredhanson/passport">passport</a> - For handling user authentication</li>
+<li><a href="https://github.com/dodo/node-slug">slug</a> - For encoding titles into a URL-friendly format</li>
+</ul>
+<h2 id="application-structure">Application Structure</h2>
+<ul>
+<li><code>app.js</code> - The entry point to our application. This file defines our express server and connects it to MongoDB using mongoose. It also requires the routes and models we’ll be using in the application.</li>
+<li><code>config/</code> - This folder contains configuration for passport as well as a central location for configuration/environment variables.</li>
+<li><code>routes/</code> - This folder contains the route definitions for our API.</li>
+<li><code>models/</code> - This folder contains the schema definitions for our Mongoose models.</li>
+</ul>
+<h2 id="error-handling">Error Handling</h2>
+<p>In <code>routes/api/index.js</code>, we define a error-handling middleware for handling Mongoose’s <code>ValidationError</code>. This middleware will respond with a 422 status code and format the response to have <a href="https://github.com/gothinkster/realworld/blob/master/API.md#errors-and-status-codes">error messages the clients can understand</a></p>
+<h2 id="authentication">Authentication</h2>
+<p>Requests are authenticated using the <code>Authorization</code> header with a valid JWT. We define two express middlewares in <code>routes/auth.js</code> that can be used to authenticate requests. The <code>required</code> middleware configures the <code>express-jwt</code> middleware using our application’s secret and will return a 401 status code if the request cannot be authenticated. The payload of the JWT can then be accessed from <code>req.payload</code> in the endpoint. The <code>optional</code> middleware configures the <code>express-jwt</code> in the same way as <code>required</code>, but will <em>not</em> return a 401 status code if the request cannot be authenticated.</p>
+<p><br /></p>
+<p><a href="https://thinkster.io"><img src="https://raw.githubusercontent.com/gothinkster/realworld/master/media/end.png" alt="Brought to you by Thinkster" /></a></p>
+</body>
+</html>

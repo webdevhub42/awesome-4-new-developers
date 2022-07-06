@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>logic</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "loops" -->
+<h1 id="truthiness">Truthiness</h1>
+<p>Computers have a very strict idea of when things are <em>true</em> and <em>false</em>.</p>
+<figure>
+<img src="img/truthiness.png" alt="Truthiness" /><figcaption>Truthiness</figcaption>
+</figure>
+<p>(Unlike Stephen Colbert…)</p>
+<h1 id="true-or-false">True or False?</h1>
+<p>Try the following in irb:</p>
+<ul>
+<li><code>1 &lt; 2</code></li>
+<li><code>2 + 2 &lt; 4</code></li>
+<li><code>2 + 2 &lt;= 4</code></li>
+<li><code>2.even?</code></li>
+<li><code>4.odd?</code></li>
+<li><code>"apple".empty?</code></li>
+<li><code>"".empty?</code></li>
+</ul>
+<h1 id="conditions">Conditions</h1>
+<p>The magic word <code>if</code> is called a CONDITIONAL.</p>
+<pre><code>if age &lt; 18 then
+  puts &quot;Sorry, adults only.&quot;
+end</code></pre>
+<h1 id="one-line-condition">One-Line Condition</h1>
+<p>Ruby has a compact way of putting an entire <code>if</code> expression on one line:</p>
+<pre><code>puts &quot;Sorry, adults only.&quot; if age &lt; 18</code></pre>
+<p>Note that:</p>
+<ul>
+<li>the action comes <em>first</em> in a one-line condition</li>
+<li>this sounds kind of natural
+<ul>
+<li>“Go to bed if you’re sleepy.”</li>
+</ul></li>
+</ul>
+<h1 id="if-then-else-end">if… then… else… end</h1>
+<p>The magic word <code>else</code> allows BRANCHING.</p>
+<pre><code>if age &gt;= 18 then
+  puts &quot;allowed&quot;
+else
+  puts &quot;denied&quot;
+end</code></pre>
+<p>Like a fork in the road, the program chooses one path or the other.</p>
+<p>(In Ruby, <code>then</code> is optional, so we usually leave it off, but if it makes your code clearer, go ahead and use it.)</p>
+<h1 id="section">2 + 2 = 4</h1>
+<p>Sadly, this expression:</p>
+<pre><code>2 + 2 = 4</code></pre>
+<p>causes a <code>SyntaxError</code>. You need to do</p>
+<pre><code>2 + 2 == 4</code></pre>
+<p>instead. Why?</p>
+<h1 id="the-tragedy-of-the-equal-sign">The Tragedy of the Equal Sign</h1>
+<ul>
+<li>a single equal sign means ASSIGNMENT
+<ul>
+<li><code>name = "Alice"</code> – “assign the variable ‘name’ to the value ‘Alice’”</li>
+</ul></li>
+<li>two equal signs means COMPARISON
+<ul>
+<li><code>name == "Alice"</code> – “does the variable ‘name’ contain the string ‘Alice’?”</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>This is confusing, and you should feel confused.</p>
+</blockquote>
+<ul>
+<li>(it’s all FORTRAN’s fault)</li>
+</ul>
+<h1 id="lab-good-friend-bad-friend">LAB: Good Friend, Bad Friend</h1>
+<ul>
+<li><p>Your <code>hello.rb</code> program should currently look something like this:</p>
+<pre><code>  puts &quot;What is your name?&quot;
+  name = gets.strip
+  puts &quot;Hello, &quot; + name + &quot;!&quot;</code></pre></li>
+<li>Now change <code>hello.rb</code> so that it doesn’t always say hello!
+<ul>
+<li>If the user’s name is “Darth” then say “Go away!”</li>
+</ul></li>
+</ul>
+<h1 id="conjunction-junction">Conjunction Junction</h1>
+<ul>
+<li><p>You can make more complicated logical expressions using conjunctions like <code>and</code>, <code>or</code>, <code>not</code>:</p>
+<ul>
+<li><code>X and Y</code> means “are both X and Y true?”</li>
+<li><code>X or Y</code> means “is either X or Y (or both) true?”</li>
+<li><code>not X</code> means “is X false?” (think about it)</li>
+</ul></li>
+<li><p>For example:</p>
+<pre><code>  if age &gt;= 18 or parent.gave_permission? then
+    puts &quot;allowed&quot;
+  else
+    puts &quot;denied&quot;
+  end</code></pre></li>
+</ul>
+<h1 id="lab-enemies-list">LAB: Enemies List</h1>
+<ul>
+<li>Change <code>hello.rb</code> so that it says “Go away!” if the user’s name is any one of a number of evil names</li>
+<li>For instance, Voldemort, Satan, Lex Luthor…</li>
+</ul>
+</body>
+</html>

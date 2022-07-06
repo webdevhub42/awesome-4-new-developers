@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ru</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Эта задача очень похожа на предыдущую, с той лишь разницей, что она знакомит нас с концепцией <strong>модулей</strong>. Вы должны создать два файла, чтобы решить данную задачу.</p>
+<p>Реализуйте программу, которая выводит список отфильтрованных по расширению файлов в заданной директории. Имя директории (‘/path/to/dir/’) будет передано в качестве первого аргумента к вашей программе, а расширение файла для фильтрации в качестве второго.</p>
+<p>Вы должны создать <em>модуль</em>, который будет делать практически всю работу. Модуль должен <em>экспортировать</em> функцию, которая принимает три параметра: имя директории, расширение файла и функцию обратного вызова, в заданном порядке. Расширение файла должно быть передано точно таким же, каким оно было получено Вашей программой. Не преобразовывайте его в RegExp, не добавляйте ‘.’ в начало, просто передайте его в Ваш модуль, где и осуществляйте все необходимые операции для того, чтобы фильтр заработал.</p>
+<p>Функция обратного вызова должна быть вызвана в свойственном для Node.js соглашении: node(err, data). Это соглашение гласит, что если ошибки нет, то первый аргумент функции будет равен null, а второй будет содержать данные. В данном упражнении в качестве данных будет выступать список файлов в виде массива. Если Вы получили ошибку, предположим из вызова <code>fs.readdir()</code>, то функция обратного вызова должна быть вызвана только с ошибкой в качестве первого аргумента.</p>
+<p>Вы <strong>не должны</strong> выводить список в консоль напрямую из вашего модуля, это должна делать ваша вызываемая программа.</p>
+<p>Если Вы получили ошибку из модуля, то просто проверьте ее наличие в вашей программе и выведите понятное сообщение об ошибке в консоль.</p>
+<p>Ваш модуль должен следовать следующим соглашениям:</p>
+<ol type="1">
+<li>Экспортировать функцию, принимающую аргументы в точности, как описано выше.</li>
+<li>Вызывать функцию обратного вызова один раз с ошибкой или данными, как оговаривалось.</li>
+<li>Не должен изменять глобальные переменные или stdout.</li>
+<li>Отлавливать все ошибки, которые могут возникнуть, и передавать их в функцию обратного вызова.</li>
+</ol>
+<p>Преимущество использования соглашений состоит в том, что Ваш модуль сможет использовать кто угодно, кто ожидает такое поведение от модуля. В нашем случае его сможет использовать другой ученик learnyounode или тот, кто проверяет это задание, и это просто будет работать.</p>
+<hr />
+<h2 id="информация">ИНФОРМАЦИЯ</h2>
+<p>Создайте модуль с помощью создания нового файла, в котором содержится только функция чтения и фильтрации переданной директории. Для <em>экспортирования</em> данной функции присвойте ее к объекту <code>module.exports</code>, перезаписав тем самым то, что там было ранее.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="kw">function</span> (args) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p>Или Вы можете использовать именованную функцию и присвоить только ее имя.</p>
+<p>Для использования Вашего модуля в вызываемой программе, воспользуйтесь <code>require()</code> точно так же, как Вы делали это для получения <code>fs</code> модуля: <code>require('fs')</code>. С той лишь разницей, что для локальных модулей Вы должны добавить префикс ‘./’ в начале. Например, если файл называется mymodule.js, то:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> mymodule <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./mymodule.js&#39;</span>)</a></code></pre></div>
+<p>‘.js’ расширение здесь необязательное, и Вы будете часто наблюдать, что оно опускается.</p>
+<p>Сейчас Вы получили <code>module.exports</code> из Вашего модуля присвоенный к <code>mymodule</code> переменной. И если Вы экспортировали функцию, то mymodule является этой функцией, которую Вы можете вызвать.</p>
+<p>Также примите во внимание, что характерным является проверка ошибки и прерывание сценария путем возвращения функции обратного вызова с ошибкой:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">bar</span> (callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">foo</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">if</span> (err) <span class="op">{</span> <span class="cf">return</span> <span class="at">callback</span>(err) <span class="op">}</span> <span class="co">// прерываем сценарий, возвращаем ошибку</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="co">// ... тут ошибок нет, продолжаем работу с `data`</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="co">// ... вызываем callback с переданым `null` в качестве аргумента-ошибки</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> data)</a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">}</span></a></code></pre></div>
+</body>
+</html>

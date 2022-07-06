@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ja</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p><strong>TCPのタイムサーバ</strong>を書いてください！</p>
+<p>最初のコマンドライン引数は、サーバ起動するためのポートです。それぞれのコネクションに今の日付と時間(24時間表記）を返すようにして下さい。</p>
+<pre><code>&quot;YYYY-MM-DD hh:mm&quot;</code></pre>
+<p>その後は改行です。 月、日、時間や分は２桁にゼロパディング(※)してください。</p>
+<p>例：</p>
+<pre><code>&quot;2013-07-06 17:42&quot;</code></pre>
+<p>※ ゼロパディング：足りない桁を0で埋めること。例えば <code>1</code> を2桁にする場合は <code>01</code> となります。</p>
+<hr />
+<h2 id="ヒント">ヒント</h2>
+<p>この例題のために生の TCP サーバを書いてください。 HTTP 専用の TCP は使っていないので Node.js の <code>net</code> モジュールが必要になります。 <code>net</code> モジュールには、基本的なネットワークの機能が全て含まれています。</p>
+<p><code>net</code> には、イベントハンドラのような関数を引数に取る <code>net.createServer()</code> という関数があります。 引数が関数のみでイベント名が無いのでコールバックのようですが、コールバック関数と違って何度も呼ばれます。</p>
+<p>それぞれの接続が確立するごとに引数に定義した関数が呼ばれます。</p>
+<p>一般的なイベントハンドラ用関数の例：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">handler</span> (eventData) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p><code>net.createServer()</code> もサーバのオブジェクトを返します。特定のポートでリッスンするためは <code>server.listen(portNumber)</code> を呼んでください。</p>
+<p>一般的な Node の TCP サーバは次のように記述されています：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> net <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;net&#39;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">const</span> server <span class="op">=</span> <span class="va">net</span>.<span class="at">createServer</span>(<span class="kw">function</span> (socket) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">// socket handling logic</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="va">server</span>.<span class="at">listen</span>(<span class="dv">8000</span>)</a></code></pre></div>
+<p>ポート番号には1つ目のコマンドライン引数を使いましょう。忘れないでください！</p>
+<p><code>socket</code> と言うオブジェクトには、色々な meta のデータが含まれます。 ただし、その <code>socket</code> は読み書きもできます。 読み書き可能なStream は<code>duplex Stream</code> といわれています。</p>
+<p>今回の問題は、データを送信して接続を閉じるだけです。 <code>socket.write(data)</code> を使ってデータが送り出せます。</p>
+<p><code>socket.end()</code> は、その Socket (接続)を閉じます。<code>.end()</code> は任意の引数を1つ取ることができます。 その引数は <code>.write</code> と同じく data ですので、<code>socket.end(data)</code> などとするとコードが簡単になると思います。</p>
+<p><code>net</code> モジュールのドキュメントは、このリンクをブラウザで見てください:</p>
+<p>{rootdir:/docs-nodejs/net.html}</p>
+<p>問題に書いてある通り <code>new Date()</code> の日付を整形する必要があります。<code>date</code> には色々な役に立つ関数があります：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">date</span>.<span class="at">getFullYear</span>()</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">date</span>.<span class="at">getMonth</span>() <span class="co">// 0からスタートしています</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">date</span>.<span class="at">getDate</span>() <span class="co">// 月の日</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">date</span>.<span class="at">getHours</span>()</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="va">date</span>.<span class="at">getMinutes</span>()</a></code></pre></div>
+<p>また、 <code>strftime</code> というnpmパッケージには、 Unix の <code>date</code> 関数と同じフォーマットで日付を整形可能な機能 <code>strftime(fmt, date)</code> があります。</p>
+<p>`strftime’ のドキュメントは次のURLを参照してください。：https://github.com/samsonjs/strftime</p>
+</body>
+</html>

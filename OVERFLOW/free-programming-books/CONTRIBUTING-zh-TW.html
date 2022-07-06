@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CONTRIBUTING-zh-TW</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p><em>閱讀其他語言版本的文件：<a href="CONTRIBUTING.md">English</a>, <a href="CONTRIBUTING-es.md">Español</a>, <a href="CONTRIBUTING-zh.md">简体中文</a>, <a href="CONTRIBUTING-fa_IR.md">فارسی</a>, <a href="CONTRIBUTING-vn.md">Tiếng Việt</a>.</em></p>
+<h2 id="貢獻者許可協議">貢獻者許可協議</h2>
+<p>請遵循此<a href="https://github.com/EbookFoundation/free-programming-books/blob/master/LICENSE">許可協議</a>參與貢獻。</p>
+<h2 id="貢獻者行為準則">貢獻者行為準則</h2>
+<p>請同意並遵循此<a href="https://github.com/EbookFoundation/free-programming-books/blob/master/CODE_OF_CONDUCT.md">行為準則</a>參與貢獻。</p>
+<h2 id="概要">概要</h2>
+<ol type="1">
+<li><p>“一個可以輕易下載一本書的連結” 並不代表它導向的就是 <em>免費</em> 書籍。 請只提供免費內容。 確信你所提供的書籍是免費的。我們不接受導向<em>需要</em>工作電子郵件地址才能獲取書籍頁面的連結，但我們歡迎有需求這些連結的列表。</p></li>
+<li>你不需要會 Git：如果你發現了一些有趣的東西 <em>尚未出現在此 repo</em> 中，請開一個<a href="https://github.com/EbookFoundation/free-programming-books/issues">Issue</a>進行主題討論。
+<ul>
+<li>如果你已經知道 Git，請 Fork 此 repo 並提交 PR。</li>
+</ul></li>
+<li><p>這裡有五種列表，請選擇正確的一項：</p>
+<ul>
+<li><em>Books</em> ：PDF、HTML、ePub、基於 gitbook.io 的網站、Ｇit 的 repo 等。</li>
+<li><em>Courses</em> ：課程是一種學習素材，而不是一本書 <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">This is a course</a>。</li>
+<li><em>Interactive Tutorials</em> ：一個互動式網站，允許用戶輸入程式碼或指令並執行結果。例如：<a href="http://tryhaskell.org">Try Haskell</a>，<a href="http://try.github.io">Try Github</a>。</li>
+<li><em>Podcasts and Screencasts</em> ：Podcast 和影音。</li>
+<li><em>Problem Sets &amp; Competitive Programming</em> ：一個網站或軟體，讓你透過解決簡單或複雜的問題來評估你的程式技能，可能有程式碼檢查，或與其他用戶比對结果。</li>
+</ul></li>
+<li><p>確保遵循下方的<a href="#基本準則">基本準則</a>，並遵循此 repo 文件的<a href="#規定格式">Markdown規定格式</a>。</p></li>
+<li><p>Travis CI 將運行測試，以確保你的列表是 <strong>按字母顺序排列</strong> 的，並 <strong>遵循格式化規則</strong>。請 <strong>確保</strong> 你的更改通過該測試。</p></li>
+</ol>
+<h3 id="基本準則">基本準則</h3>
+<ul>
+<li>確保你提交的每一本書都是免費的。如有需要請 Double-check。如果你在 PR 中註明為什麼你認為這本書是免費的，這對管理員是很有幫助的。</li>
+<li>我們不接受儲存在 google drive、dropbox、mega、scribd、issuu 和其他類似文件上傳平台上的文件。</li>
+<li>請按照字母順序插入連結。如果你看到一個錯位的連結，請重新對他進行排序並提交一個 PR。</li>
+<li>使用最權威來源的連結(意思是原作者的網站比編輯的網站好，比第三方網站好)。
+<ul>
+<li>沒有文件託管服務(包括(但不限於)Dropbox和 Google Drive 連結)。</li>
+</ul></li>
+<li>優先選擇使用 <code>https</code> 連結，而不是 <code>http</code> 連結 – 只要它們位於相同的網域並提供相同的内容。</li>
+<li>在網域根目錄上，去掉尾末的斜槓：使用 <code>http://example.com</code> 代替 <code>http://example.com/</code>。</li>
+<li>優先選擇最短的連結：使用 <code>http://example.com/dir/</code> 比使用 <code>http://example.com/dir/index.html</code> 更好。
+<ul>
+<li>不要提供短連結</li>
+</ul></li>
+<li>優先選擇使用 “current” 連結代替有 “version” 連結：使用 <code>http://example.com/dir/book/current/</code> 比使用 <code>http://example.com/dir/book/v1.0.0/index.html</code> 更好。</li>
+<li>如果一個連結存在過期的證書/自簽名證書/SSL問題的任何其他類型：
+<ol type="1">
+<li><em>replace it</em> ：如果可能的話，將其 <em>替換</em> 為對應的<code>http</code>(因為在移動設備上接受異常可能比較複雜)。</li>
+<li><em>leave it</em> ：如果沒有http版本，但仍然可以通過https造訪連結，則在瀏覽器中添加異常或忽略警告。</li>
+<li><em>remove it</em> ：上述狀況以外則刪除掉它。</li>
+</ol></li>
+<li>如果一個連結以多種格式存在，請添加一個單獨的連結，並註明每種格式。</li>
+<li>如果一個資源存在於Internet上的不同位置
+<ul>
+<li>使用最權威來源的連結(意思是原始作者的網站比編輯的網站好，比第三方網站好)。</li>
+<li>如果它們連結到不同的版本，你認為這些版本差異很大，值得保留，那麼添加一個單獨的連結，並對每個版本做說明(參考<a href="https://github.com/EbookFoundation/free-programming-books/issues/2353">Issue #2353</a>有助於格式化問題的討論)。</li>
+</ul></li>
+<li>相較一個比較大的提交，我們更傾向於原子提交(通過添加/删除/修改進行一次提交)。在提交PR之前没有必要壓縮你的提交。(為了維護人員的方便，我們永遠不會執行這個規則)。</li>
+<li>如果一本書比較舊，請在書名中註明出版日期。</li>
+<li>包含作者的名字或適當的名字。中文版本可以用 “等” 縮短作者列表。</li>
+<li>如果一本書還没有完成，並且仍在編寫中，則需添加 “編寫中” 符號，參考<a href="#in_process">下文</a>所述。</li>
+<li>如果在開始下載之前需要電子郵件地址或帳户設置，請在括號中添加合適的語言描述，例如：<code>(*需要*電子郵件，但不是必需的)</code>。</li>
+</ul>
+<h3 id="規定格式">規定格式</h3>
+<ul>
+<li>所有列表都是<code>.md</code>文件。試着學習<a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>語法。它很容易上手！</li>
+<li>所有的列表都以索引開始。它的作用是列出並連結所有的sections(章節/段落)或subsections(子段落/子章節)。務必遵循字母順序排列。</li>
+<li>Sections(章節/段落)使用3級標題(<code>###</code>)，subsections(子段落/子章節)使用4級標題 (<code>####</code>)。</li>
+</ul>
+<h4 id="整體思維為">整體思維為：</h4>
+<ul>
+<li><code>2</code> ：新添加的Section與末尾連結間必需留有<code>2</code>個空行</li>
+<li><code>1</code> ：標題和第一個連結之間必需留有<code>1</code>個空行的空行</li>
+<li><code>0</code> ：任何兩個連結之間不能留有任何空行</li>
+<li><code>1</code> ：每個<code>.md</code>文件末尾必需留有<code>1</code>個空行</li>
+</ul>
+<h4 id="舉例">舉例：</h4>
+<pre><code>[...]
+* [一本很有用的書](http://example.com/example.html)
+                                (空行)
+                                (空行)
+### 電子書種類標題
+                                (空行)
+* [Another 很有用的書](http://example.com/book.html)
+* [Other 有用的書](http://example.com/other.html)</code></pre>
+<ul>
+<li>在 <code>]</code> 和 <code>(</code> 之間不要留有空格：</li>
+</ul>
+<pre><code>錯誤：* [一本很有用的書] (http://example.com/book.html)
+正確：* [一本很有用的書](http://example.com/book.html)</code></pre>
+<ul>
+<li>如果包括作者，請使用’ - ’(由單個空格(英文半型)包圍的破折號)：</li>
+</ul>
+<pre><code>錯誤：* [一本很有用的書](http://example.com/book.html)- 張顯宗
+正確：* [一本很有用的書](http://example.com/book.html) - 張顯宗</code></pre>
+<ul>
+<li>在連結和電子書格式之間放一個空格：</li>
+</ul>
+<pre><code>錯誤：* [一本很有用的書](https://example.org/book.pdf)(PDF)
+正確：* [一本很有用的書](https://example.org/book.pdf) (PDF)</code></pre>
+<ul>
+<li>如需備注或注解，請使用英文半型括號<code>( )</code>：</li>
+</ul>
+<pre><code>錯誤：* [一本很有用的書](https://example.org/book.pdf) （繁體中文）
+正確：* [一本很有用的書](https://example.org/book.pdf) (繁體中文)</code></pre>
+<ul>
+<li>作者在電子書格式之前：</li>
+</ul>
+<pre><code>錯誤：* [一本很有用的書](https://example.org/book.pdf)- (PDF) 張顯宗
+正確：* [一本很有用的書](https://example.org/book.pdf) - 張顯宗 (PDF)</code></pre>
+<ul>
+<li>多重格式：</li>
+</ul>
+<pre><code>錯誤：* [一本很有用的書](http://example.com/)- 張顯宗 (HTML)
+錯誤：* [一本很有用的書](https://downloads.example.org/book.html)- 張顯宗 (download site)
+正確：* [一本很有用的書](http://example.com/) - 張顯宗 (HTML) [(PDF, EPUB)](https://downloads.example.org/book.html)</code></pre>
+<ul>
+<li>多作者，多譯者時，請使用中文 <code>、</code> 進行分隔，在譯者名字後請使用英文半型括號包圍的 <code>(翻譯)</code>，可以用 “等” 縮短作者列表：</li>
+</ul>
+<pre><code>錯誤：* [一本很有用的書](https://example.org/book.pdf) - 張顯宗，岳綺羅
+正確：* [一本很有用的書](https://example.org/book.pdf) - 張顯宗、岳綺羅(翻譯)
+正確：* [一本很有用的書](https://example.org/book.pdf) - 張顯宗、岳綺羅、顧玄武、出塵子 等</code></pre>
+<ul>
+<li>在舊書的標題中包括出版年份：</li>
+</ul>
+<pre><code>錯誤：* [一本很有用的書](https://example.org/book.html) - 張顯宗 - 1970
+正確：* [一本很有用的書 (1970)](https://example.org/book.html) - 張顯宗</code></pre>
+<p><a name="in_process"></a> * 編寫(翻譯)中的書籍：</p>
+<pre><code>正確：* [即將出版的一本書](http://example.com/book2.html) - 張顯宗 (HTML) (:construction: *編寫中*)
+正確：* [即將出版的一本書](http://example.com/book2.html) - 張顯宗 (HTML) (:construction: *翻譯中*)</code></pre>
+<h3 id="自動化測試">自動化測試</h3>
+<ul>
+<li>規定格式驗證是由<a href="https://travis-ci.com">Travis CI</a>自動化進行，使用<a href="https://github.com/vhf/free-programming-books-lint">fpb-lint</a>套件 (參閱 <a href=".travis.yml">.travis.yml</a>)。</li>
+<li>使用<a href="https://github.com/dkhamsing/awesome_bot">awesome_bot</a>進行連結驗證。</li>
+<li>可以藉由提交一個內容包含<code>check_urls=file_to_check</code>來觸發連結驗證:</li>
+</ul>
+<pre><code>check_urls=free-programming-books.md free-programming-books-en.md</code></pre>
+<ul>
+<li>您可以以一個空白區隔出想要進行驗證的檔案名稱來一次驗證多個檔案。</li>
+<li>如果您一次驗證多個檔案，自動化測試的結果會是基於最後一個驗證的檔案。您的測試可能會因此通過，因此請詳加確認測試日誌。可以在pull request結果中點選“Show all checks” -&gt; “Details”來查看。</li>
+</ul>
+</body>
+</html>

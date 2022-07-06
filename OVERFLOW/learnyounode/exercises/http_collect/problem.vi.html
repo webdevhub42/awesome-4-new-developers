@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.vi</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Viết một chương trình nhận một URL qua tham số đầu tiên và thực hiện một HTTP GET request. Tập kết <strong>tất cả</strong> dữ liệu từ máy chủ (không chỉ có sự kiện “data” đầu tiên) và sau đó hãy in ra 2 dòng như sau trên giao diện dòng lệnh (stdout).</p>
+<ol type="1">
+<li>Dòng thứ 1: In ra số kí tự nhận được từ máy chủ.</li>
+<li>Dòng thứ 2: In ra đầy đủ chuỗi nội dung nhận được từ máy chủ.</li>
+</ol>
+<hr />
+<h2 id="gợi-ý">GỢI Ý</h2>
+<p>Trong bài tập này bạn có thể phải đối mặt với 2 vấn đều lớn sau:</p>
+<p><strong>1)</strong> Tập kết dữ liệu thông suốt nhiều sự kiện “data” và nối kết quả lại với nhau trước khi có thể in ra màn hình. Ở đây, bạn sẽ dùng sự kiện “end” để biết được khi nào dòng dữ liệu nạp về đã được kết thúc, sau đó bạn có thể in chúng ra màn hình.</p>
+<p><strong>2)</strong> Sử dụng một gói thư viện thứ 3 để có thể bỏ qua được sự phức tạp khi tập kết các dòng dữ liệu lại với nhau. Ở đây, ta có thể sử dụng 2 gói khác nhau cung cấp các API rất tiện dụng để giải quyết vấn đề này (có thể có nhiều thư viện như vậy!) là: <code>bl</code> (Buffer List) và <code>concat-stream</code>.</p>
+<p><a href="https://npmjs.com/bl" class="uri">https://npmjs.com/bl</a> <a href="https://npmjs.com/concat-stream" class="uri">https://npmjs.com/concat-stream</a></p>
+<p>Để cài đặt một gói thư viện Node, hãy sử dụng Trình Quản Lý Gói của Node (Node Package Manager) <code>npm</code>. Ví dụ lệnh sau sẽ cài đặt gói <code>bl</code> vào thư mục cục bộ hiện tại của bạn:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="ex">npm</span> install bl</a></code></pre></div>
+<p>Với lệnh này, nó sẽ nó tải về và cài đặt phiên bản mới nhất của một gói thư viện trong thư mục con (con của thư mục hiện tại) tên là <code>node_modules</code>. Tất cả các gói trong thư mục con này đều có thể nạp được vào file chương trình chính của bạn với lệnh <code>require</code> mà không cần phải thêm tiền tố ‘./’. Ví dụ:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> bl <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;bl&#39;</span>)</a></code></pre></div>
+<p>Khi thực hiện lệnh <code>require</code>, Node sẽ tìm kiếm trong các mô-đun lõi của Node trước, sau đó mới tìm kiếm tới các mô-đun trong thư mục con <code>node_modules</code>.</p>
+<p>Nếu bạn không có kết nối Internet, bạn có thể tự tạo một thư mục con <code>node_modules</code> trong thư mục ứng dụng {appname} và copy từng gói thư viện mà bạn muốn sử dụng trong đó:</p>
+<p>{rootdir:/node_modules/bl} {rootdir:/node_modules/concat-stream}</p>
+<p>Cả 2 mô-đun <code>bl</code> và <code>concat-stream</code> đều chứa có một dòng dữ liệu dạng <em>ống</em> (piped) và chúng sẽ thu thập dữ liệu cho bạn. Khi một dòng dữ liệu kết thúc (được nạp hết), thì một hàm phản hồi sẽ được gọi thực thi với dữ liệu thu được:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">response</span>.<span class="at">pipe</span>(<span class="at">bl</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span>))</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">// or</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">response</span>.<span class="at">pipe</span>(<span class="at">concatStream</span>(<span class="kw">function</span> (data) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span>))</a></code></pre></div>
+<p>Lưu ý rằng bạn có thể sẽ cần chuyển đổi Buffer qua String bằng <code>data.toString()</code>.</p>
+<p>Tài liệu cho cả 2 mô-đun này đều đã được cài đặt cùng với {appname} trên hệ thống của bạn và bạn có thể đọc chúng ở đây:</p>
+<p>{rootdir:/docs/bl.html} {rootdir:/docs/concat-stream.html}</p>
+</body>
+</html>

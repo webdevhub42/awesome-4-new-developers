@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ja</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>今回の問題は前回のもの（HTTP Collect) とよく似た問題です。<code>http.get()</code> を使って GET リクエスト の結果をコンソールに出力するアプリです。</p>
+<p>前回のコマンドライン引数は、1つの URL でしたが今回は<strong>3つの URL</strong> にしてください。</p>
+<p>3つの GET リクエストのデータを集め、全てコンソールに書き出してください。</p>
+<p>今回の出力には文字カウントは不要です。文字列だけで良いです。</p>
+<p>コマンドライン引数 (URL) 1つにつき1つの文字列を出力してください。出力する文字列は、コマンドライン引数の順番と一致させることを厳守してください。</p>
+<hr />
+<h2 id="ヒント">ヒント</h2>
+<p>対象の3つの HTTP サーバは思った通り動かないかもしれません。 さらにどの順番でデータが提供されるのか決まっていないため、そのまま出力すると順番がぐちゃぐちゃになります。</p>
+<p>レスポンスの順番はリクエストの順番と異なる為、なんらかの変数に各リクエストの状態を保存する必要があると思います。 全てを受け取ってからコンソールに出力してください。</p>
+<p>コールバックを数えるのは Node.js の <strong>async</strong> マネジメントにおいて重要なことです。 サードパーティのライブラリとして<a href="https://npmjs.com/async">async</a> や <a href="https://npmjs.com/after">after</a> などがありますが、今回は使わず頑張ってください。</p>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>input_and_output</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "logic" -->
+<h1 id="input-and-output">Input and Output</h1>
+<ul>
+<li><p>Computers have many senses – keyboard, mouse, network card, digital camera, etc. Collectively, these are called INPUT.</p></li>
+<li><p>Computers can also express themselves in many ways – text, graphics, sound, network, printers, etc. Collectively, these are called OUTPUT.</p></li>
+<li><p>Input and Output together are called <strong>I/O</strong>.</p></li>
+</ul>
+<h1 id="terminal-io">Terminal I/O</h1>
+<ul>
+<li><p>In Ruby,</p>
+<ul>
+<li><code>puts</code> means “print a line to the terminal”</li>
+<li><code>gets</code> means “read a line from the terminal”</li>
+</ul></li>
+<li><p><code>gets</code> reads all the characters from the keyboard and puts them into a new string, until you press RETURN</p></li>
+</ul>
+<h1 id="lab-hello-friend">LAB: Hello, friend!</h1>
+<ol type="1">
+<li>Open <code>hello.rb</code> in your text editor</li>
+<li><p>Change it to contain the following code:</p>
+<pre><code>puts &quot;What is your name?&quot;
+name = gets
+puts &quot;Hello, &quot; + name + &quot;!&quot;</code></pre></li>
+<li>Save the file and switch back to the terminal</li>
+<li>Run the program using <code>ruby hello.rb</code></li>
+<li><p>Type in your name and press the RETURN (or ENTER) key</p></li>
+</ol>
+<p>What happens? Is this what you expected?</p>
+<h1 id="yikes">Yikes!</h1>
+<ul>
+<li><p>Uh-oh! We’ve got trouble… what is that exclamation point doing way down there?</p></li>
+<li>The first thing to do is DON’T PANIC!</li>
+<li>You are <em>totally</em> going to figure this out.</li>
+<li>And even if you don’t, you haven’t actually broken anything.</li>
+<li><p>In fact, it’s really hard to break a computer, so just stay calm.</p></li>
+</ul>
+<h1 id="breathe">Breathe</h1>
+<ul>
+<li>In through the nose…</li>
+<li>Out through the mouth…</li>
+<li>In through the nose…</li>
+<li>Ahhhhhhhh.</li>
+</ul>
+<h1 id="lets-fix-this">Let’s fix this</h1>
+<ul>
+<li>Have you figured out what the problem is?</li>
+<li>If not, I’ll tell you on the next slide.</li>
+<li>Take a second and try to figure it out first. I’ll wait.</li>
+</ul>
+<h1 id="the-newline-character">The newline character</h1>
+<ul>
+<li>Here’s a fun fact:</li>
+<li>In addition to letters, numbers, and punctuation, computers also store other keys inside strings</li>
+<li>Among these CONTROL CHARACTERS is the one that represents the RETURN KEY</li>
+<li>This character’s name is NEWLINE</li>
+<li>Every time you use <code>gets</code>, Ruby reads <em>all</em> the characters, <em>including the newline</em>!</li>
+</ul>
+<h1 id="strip-it">Strip it</h1>
+<ul>
+<li>Fortunately, there’s an easy fix</li>
+<li>If you send the message <code>strip</code> to a string, it will remove all SPACES and NEWLINES from both ends</li>
+</ul>
+<h1 id="lab-fixing-hello-friend">LAB: fixing Hello, Friend</h1>
+<ul>
+<li><p>Change the program to look like this:</p>
+<pre><code>  puts &quot;What is your name?&quot;
+  name = gets.strip
+  puts &quot;Hello, &quot; + name + &quot;!&quot;</code></pre></li>
+<li><p>Run it and make sure it works OK</p></li>
+</ul>
+<h1 id="lab-capitalization">LAB: Capitalization</h1>
+<ul>
+<li>What happens if you type your name in all lowercase?</li>
+<li>Make the program capitalize your name for you even if you forget.</li>
+</ul>
+<h1 id="lab-crazy-name">LAB: Crazy Name</h1>
+<ul>
+<li>Now go crazy and make it do all sorts of silly things to your name!</li>
+</ul>
+<h1 id="lab-full-name">LAB: Full Name</h1>
+<ul>
+<li>Write a program named <code>name.rb</code> that asks two things:
+<ol type="1">
+<li>Your first name</li>
+<li>Your last name</li>
+</ol></li>
+<li>Then it says hello to the user by her <em>full name</em>.</li>
+<li>Run the program by typing <code>ruby name.rb</code> on the command line.</li>
+</ul>
+<h1 id="congratulations">CONGRATULATIONS!</h1>
+<blockquote>
+<p>You just wrote a program!</p>
+</blockquote>
+<p>You are now officially a coder. HIGH FIVE!</p>
+<h1 id="lab-name-length">Lab: Name Length</h1>
+<ul>
+<li>Change <code>name.rb</code> so it also prints the number of characters in the user’s name.</li>
+<li><p>For instance:</p>
+<pre><code>  What is your first name?
+  Alex
+  What is your last name?
+  Chaffee
+  Hello, Alex Chaffee!
+  Your name is 11 characters long.</code></pre></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CONTRIBUTING-es</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p><em>Lea esto en otros idiomas: <a href="CONTRIBUTING.md">English</a>, <a href="CONTRIBUTING-zh.md">简体中文</a>, <a href="CONTRIBUTING-zh-TW.md">繁體中文</a>, <a href="CONTRIBUTING-fa_IR.md">فارسی</a>, <a href="CONTRIBUTING-vn.md">Tiếng Việt</a>.</em></p>
+<p><a name="contributor-license-agreement"></a> ## Acuerdo de Licencia</p>
+<p>Al contribuir, acepta la <a href="https://github.com/EbookFoundation/free-programming-books/blob/master/LICENSE">LICENCIA</a> de este repositorio.</p>
+<p><a name="contributor-code-of-conduct"></a> ## Código de Conducta como Colaborador</p>
+<p>Al contribuir, acepta respetar el <a href="https://github.com/EbookFoundation/free-programming-books/blob/master/CODE_OF_CONDUCT-es.md">Código de Conducta</a> presente en el repositorio.</p>
+<p><a name="in-a-nutshell"></a> ## Breve resumen</p>
+<ol type="1">
+<li>“Un enlace para descargar fácilmente un libro” no siempre es un enlace a un libro <em>gratuito</em>. Por favor, contribuya solo con contenido gratuito. Asegúrese de que se ofrezca gratis. No se aceptan enlaces a páginas que <em>requieran</em> de direcciones de correo electrónico para la obtención de libros, pero sí damos la bienvenida a aquellos listados que así se soliciten.</li>
+<li>No es necesario conocer Git: si encontró algo de interés que <em>no esté ya en este repositorio</em>, tenga el gusto de abrir una <a href="https://github.com/EbookFoundation/free-programming-books/issues">Issue</a> con su propuesta de enlaces.
+<ul>
+<li>Si ya maneja Git, haga un Fork del repositorio y envíe su contribución mediante Pull Request (PR).</li>
+</ul></li>
+<li><p>Dispone de 5 categorías. Seleccione aquel listado que crea conveniente según:</p>
+<ul>
+<li><em>Libros</em> : PDF, HTML, ePub, un recurso alojado en gitbook.io, un repositorio Git, etc.</li>
+<li><em>Cursos</em> : Un curso es aquel material de aprendizaje que no es un libro. <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">Esto es un curso</a>.</li>
+<li><em>Tutoriales interactivos</em> : Un sitio web se considera interactivo si permite al usuario escribir código o comandos y evaluar su resultado (“evaluar” no significa “obtener una calificación”). Por ejemplo: <a href="http://tryhaskell.org">Pruebe Haskell</a>, <a href="http://try.github.io">Pruebe Github</a>.</li>
+<li><em>Podcasts y Screencasts</em> : Son aquellas retransmisiones grabadas ya sea en audio y/o en vídeo, respectivamente.</li>
+<li><em>Conjuntos de problemas &amp; Programación competitiva</em> : Se trata de un sitio web o software que le permita evaluar sus habilidades de programación resolviendo problemas simples o complejos, con o sin revisión de código, con o sin comparar los resultados con otros usuarios.</li>
+</ul></li>
+<li><p>Asegúrese de seguir la <a href="#pautas">guía de pautas que mostramos a continuación</a> así como de respetar el <a href="#formato-normalizado">formato Markdown</a> de los ficheros.</p></li>
+<li><p>Travis CI ejecutará pruebas para asegurarse de que las listas esten ordenadas alfabéticamente y de que se siga dicha normalización de formateo. Asegúrese de verificar que sus cambios pasen todas estas comprobaciones de calidad.</p></li>
+</ol>
+<p><a name="guidelines"></a> ### Pautas</p>
+<ul>
+<li>Revise si el libro es gratuito. Hágalo las veces que sean necesarias. Ayude a los administradores comentando en las Pull Request por qué cree que el libro se ofrece gratis o es valioso.</li>
+<li>No se aceptan ficheros alojados en Google Drive, Dropbox, Mega, Scribd, Issuu u otras plataformas de almacenamiento y/o descarga similares.</li>
+<li>Inserte los enlaces ordenados alfabéticamente. Si se encuentra por casualidad con un enlace fuera de sitio, por favor ordénelo y envíe la correspondiente PR para poder arreglarlo.</li>
+<li>Use el enlace que apunte a la fuente más fidedigna. Esto es, el sitio web del autor es mejor que el del editor y éste a su vez mejor que uno de terceros.
+<ul>
+<li>No use servicios de almacenamiento en la nube. Esto incluye, aunque sin limitar, enlaces a Dropbox y Google Drive.</li>
+</ul></li>
+<li>Es siempre preferible el uso de enlaces con protocolo <code>https</code> en vez de <code>http</code> si ambos se refieren al mismo dominio y sirven el mismo contenido.</li>
+<li>En los dominios raíz, elimine la barra inclinada del final: <code>http://example.com</code> en lugar de <code>http://example.com/</code>.</li>
+<li>Utilice preferentemente la forma corta de los hipervínculos: <code>http://example.com/dir/</code> es mejor que <code>http://example.com/dir/index.html</code>.
+<ul>
+<li>No se admiten acortadores de enlaces URL.</li>
+</ul></li>
+<li>Por lo general, se prefiere el enlace “actual” sobre el de “versión”: <code>http://example.com/dir/book/current/</code> es más asequible que <code>http://example.com/dir/book/v1.0.0/index.html</code>.</li>
+<li>Si en un enlace se encuentra con algún problema de certificados, ya sea caducado, autofirmado o de cualquier otro tipo:
+<ol type="1">
+<li><em>Reemplácelo</em> con su análogo <code>http</code> si fuera posible (porque aceptar excepciones puede ser complicado en dispositivos móviles).</li>
+<li><em>Manténgalo</em> si no existe versión <code>http</code> pero el enlace aún es accesible a través de <code>https</code> agregando una excepción al navegador o ignorando la advertencia.</li>
+<li><em>Elimínelo</em> en cualquier otro caso.</li>
+</ol></li>
+<li>Si existe un mismo enlace con varios formatos, anexe enlaces aparte con una nota sobre cada formato.</li>
+<li>Si un recurso existe en diferentes lugares de Internet:
+<ul>
+<li>Use aquella fuente más fidedigna (lo que significa que el sitio web del propio autor es más asequible que el sitio web del editor y a su vez éste es mejor que una fuente de terceros).</li>
+<li>Si apuntan a diferentes ediciones y considera que estas ediciones son lo suficientemente dispares como para que valga la pena conservarlas, agregue por separado un nuevo enlace haciendo alusión a cada edición. Diríjase al <a href="https://github.com/EbookFoundation/free-programming-books/issues/2353">Issue #2353</a> si desea contribuir en la discusión acerca del formateo que deben seguir dichos registros.</li>
+</ul></li>
+<li>Es preferible realizar commits atómicos (un commit por cada adición/eliminación/modificación) frente a unos con mayor calado. No es necesario realizar un squash de todos ellos antes de enviar una PR. (Nunca aplicaremos esta regla, ya que solamente es una cuestión de conveniencia para quien mantiene el proyecto).</li>
+<li>Si se trata de un libro más antiguo, incluya su fecha de publicación dentro del título.</li>
+<li>Incluya el nombre o nombres de autor/es cuando corresponda. Puede valerse de “<code>et al.</code>” para acortar esa enumeración de autores.</li>
+<li>Si el libro no está terminado y aún se está trabajando en él, agregue la anotación de “<code>en proceso</code>”, tal y como se describe <a href="#in_process">a continuación</a>.</li>
+<li>Si se solicita una dirección de correo electrónico o configuración de cuenta antes de habilitar la descarga, agregue entre paréntesis dichas notas y en consonancia con el idioma. Por ejemplo: <code>(*se solicita* email, no requerido...)</code>.</li>
+</ul>
+<p><a name="formatting"></a> ### Formato normalizado</p>
+<ul>
+<li>Como podrá observar, los listados tienen <code>.md</code> como extensión de fichero. Intente aprender la sintaxis <a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>. ¡Es bastante simple!</li>
+<li>Dichos listados comienzan con una Tabla de Contenidos (TOC). Este índice permite enumerar y vincular todas las secciones y subsecciones en las que se clasifica cada recurso. Manténgalo también en orden alfabético.</li>
+<li>Las secciones utilizan encabezados de nivel 3 (<code>###</code>) y las subsecciones de nivel 4 (<code>####</code>).</li>
+</ul>
+<p>La idea es tener: - <code>2</code> líneas vacías entre el último enlace de una sección y el título de la siguiente sección. - <code>1</code> línea vacía entre la cabecera y el primer enlace de una determinada sección. - <code>0</code> líneas en blanco entre los distintos enlaces. - <code>1</code> línea en blanco al final de cada fichero <code>.md</code>.</p>
+<p>Ejemplo:</p>
+<pre><code>[...]
+* [Un libro increíble](http://example.com/example.html)
+                                (línea en blanco)
+                                (línea en blanco)
+### Sección de ejemplo
+                                (línea en blanco)
+* [Otro libro fascinante](http://example.com/book.html)
+* [Otro libro más](http://example.com/other.html)</code></pre>
+<ul>
+<li><p>Omita los espacios entre <code>]</code> y <code>(</code>:</p>
+<pre><code>INCORRECTO : * [Otro libro fascinante] (http://example.com/book.html)
+CORRECTO   : * [Otro libro fascinante](http://example.com/book.html)</code></pre></li>
+<li><p>Si en el registro decide incluir al autor, emplee <code>-</code> (un guión rodeado de espacios simples) como separador:</p>
+<pre><code>INCORRECTO : * [Un libro sencillamente fabuloso](http://example.com/book.html)- John Doe
+CORRECTO   : * [Un libro sencillamente fabuloso](http://example.com/book.html) - John Doe</code></pre></li>
+<li><p>Ponga un solo espacio entre el enlace al contenido y su formato:</p>
+<pre><code>INCORRECTO : * [Un libro muy interesante](https://example.org/book.pdf)(PDF)
+CORRECTO   : * [Un libro muy interesante](https://example.org/book.pdf) (PDF)</code></pre></li>
+<li><p>El autor se antepone al formato:</p>
+<pre><code>INCORRECTO : * [Un libro muy interesante](https://example.org/book.pdf)- (PDF) Jane Roe
+CORRECTO   : * [Un libro muy interesante](https://example.org/book.pdf) - Jane Roe (PDF)</code></pre></li>
+<li><p>Múltiples formatos:</p>
+<pre><code>INCORRECTO : * [Otro libro interesante](http://example.com/) - John Doe (HTML)
+INCORRECTO : * [Otro libro interesante](https://downloads.example.org/book.html) - John Doe (sitio de descarga)
+CORRECTO   : * [Otro libro interesante](http://example.com/) - John Doe (HTML) [(PDF, EPUB)](https://downloads.example.org/book.html)</code></pre></li>
+<li><p>Incluya el año de publicación como parte del título de los libros más antiguos:</p>
+<pre><code>INCORRECTO : * [Un libro bastante especial](https://example.org/book.html) - Jane Roe - 1970
+CORRECTO   : * [Un libro bastante especial (1970)](https://example.org/book.html) - Jane Roe</code></pre></li>
+</ul>
+<p><a name="in_process"></a> - Libros en proceso / no acabados aún:</p>
+<pre><code>CORRECTO: * [A punto de ser un libro fascinante](http://example.com/book2.html) - John Doe (HTML) (:construction: *en proceso*)</code></pre>
+<p><a name="notes"></a> ### Anotaciones</p>
+<p>Si bien los conceptos básicos son relativamente simples, existe una gran diversidad entre los recursos que enumeramos. Aquí hay algunas notas sobre cómo nos ocupamos de esta diversidad.</p>
+<p><a name="metadata"></a> #### Metadatos</p>
+<p>Nuestros listados proporcionan un conjunto mínimo de metadatos: títulos, URL, autores, formato, plataformas y notas de acceso.</p>
+<p><a name="titles"></a> ##### Títulos</p>
+<ul>
+<li>Sin títulos inventados: Intentamos tomar el texto de los propios recursos; se advierte a los colaboradores que, si puede evitarse, no inventen títulos ni los utilicen editorialmente. Una excepción es para obras más antiguas: si son principalmente de interés histórico, un año entre paréntesis adjunto al título ayuda a los usuarios a saber si estos son de interés.</li>
+<li>Sin títulos todo en mayúsculas: Por lo general, es apropiado tener cada primera letra de palabra en mayúsculas, pero en caso de duda, use siempre el estilo tal y como viene en la fuente original.</li>
+</ul>
+<p><a name="urls"></a> ##### Direcciones URL</p>
+<ul>
+<li>No se permiten acortadores de URLs para los enlaces.</li>
+<li>Los parámetros de consulta o códigos referentes al seguimiento o campañas de marketing deben eliminarse de la URL.</li>
+<li>Las URL internacionales deben escaparse. Las barras del navegador suelen representar los caracteres en Unicode, pero utilice copiar y pegar, por favor; es la forma más rápida de construir un hipervínculo válido.</li>
+<li>Las URL seguras (https) siempre son mejor opción frente a las no seguras (http) donde se ha implementado el protocolo de comunicación encriptado HTTPS.</li>
+<li>No nos gustan las URL que apuntan a páginas web que no alojen el recurso mencionado, enlazando por el contrario a otra parte.</li>
+</ul>
+<p><a name="creators"></a> ##### Atribuciones</p>
+<ul>
+<li>Queremos dar crédito a los creadores de recursos gratuitos cuando sea apropiado, ¡incluso traductores!</li>
+<li>En el caso de obras traducidas, se debe acreditar también al autor original.</li>
+<li>No permitimos enlaces directos al creador.</li>
+<li>En el caso de recopilaciones u obras remezcladas, el “creador” puede necesitar una descripción. Por ejemplo, los libros de “GoalKicker” se acreditan como “Creado a partir de la documentación de StackOverflow”.</li>
+</ul>
+<p><a name="platforms-and-access-notes"></a> ##### Plataformas y Notas de Acceso</p>
+<ul>
+<li>Cursos. Especialmente para nuestras listas de cursos, la plataforma es una parte importante de la descripción del recurso. Esto se debe a que las plataformas de cursos tienen diferentes prestaciones y modelos de acceso. Si bien generalmente no incluimos un libro que requiere de registro previo, muchas plataformas de cursos tienen la casualidad de no funcionar sin algún tipo de cuenta. Un ejemplo de plataformas de cursos podrían ser: Coursera, EdX, Udacity y Udemy. Cuando un curso depende de una plataforma, el nombre de dicha plataforma debe aparecer entre paréntesis.</li>
+<li>YouTube. Tenemos muchos cursos que consisten en listas de reproducción de YouTube. No incluimos Youtube como plataforma, sino que tratamos de incluir al creador de Youtube, el cuál es a menudo una sub-plataforma en sí.</li>
+<li>Vídeos de YouTube. Por lo general, no vinculamos a vídeos individuales de YouTube a menos que tengan más de una hora de duración y estén estructurados como un curso o un tutorial.</li>
+<li>LeanPub. LeanPub aloja libros con una amplia variedad de modelos de acceso. A veces, un libro se puede leer sin registrarse; en otras, un libro requiere una cuenta LeanPub para tener acceso gratuito. Dada la calidad de los libros y la mezcla y fluidez de los modelos de acceso Leanpub, damos validez a estos últimos anexando la nota de acceso: <code>*(cuenta Leanpub o email válido requerido)*</code>.</li>
+</ul>
+<p><a name="genres"></a> #### Géneros</p>
+<p>La primera regla para decidir en qué listado encaja un determinado recurso es ver cómo se describe a sí mismo. Si por ejemplo se retrata a sí mismo como un libro, entonces tal vez es que lo sea.</p>
+<p><a name="genres-we-dont-list"></a> ##### Géneros no aceptados</p>
+<p>Ya que en Internet podemos encontrar una variedad infinita de recursos, no incluimos en nuestro registro:</p>
+<ul>
+<li>blogs</li>
+<li>publicaciones de blogs</li>
+<li>artículos</li>
+<li>Sitios web (excepto aquellos que alberguen MUCHOS elementos que podamos incluir en los listados).</li>
+<li>vídeos que no sean cursos o screencasts (retrasmisiones)</li>
+<li>capítulos sueltos a libros</li>
+<li>muestras o introducciones de books</li>
+<li>Canales/grupos de IRC, Telegram…</li>
+<li>Canales/salas de Slack… o listas de correo</li>
+</ul>
+<p>El <a href="" title="https://github.com/EbookFoundation/free-programming-books/blob/master/more/free-programming-playgrounds.md">listado donde incluimos sitios o software de programación competitiva</a> no es tan restrictivo. El alcance de este repositorio es determinado por la comunidad; si desea sugerir un cambio o extender el alcance, utilice los <a href="https://github.com/EbookFoundation/free-programming-books/issues">issues</a> para registrar dicha sugerencia.</p>
+<p><a name="books-vs-other-stuff"></a> ##### Libros vs. Otro Material</p>
+<p>No somos tan quisquillosos con lo que consideramos como libro. A continuación, se muestran algunas propiedades que un recurso pueda encajar como libro:</p>
+<ul>
+<li>tiene un ISBN</li>
+<li>tiene una Tabla de Contenidos (TOC)</li>
+<li>se ofrece una versión para su descarga electrónica, especialmente ePub.</li>
+<li>tiene diversas ediciones</li>
+<li>no depende de un contenido interactivo extra o vídeos</li>
+<li>trata de abordar un tema de manera integral</li>
+<li>es autosuficiente</li>
+</ul>
+<p>Hay muchos libros que enumeramos los cuáles no poseen estos atributos; esto puede depender del contexto.</p>
+<p><a name="books-vs-courses"></a> ##### Libros vs. Cursos</p>
+<p>¡A veces distinguir puede ser dificultoso!</p>
+<p>Los cursos suelen tener libros de texto asociados, que incluiríamos en nuestras listas de libros. Además, los cursos tienen conferencias, ejercicios, pruebas, apuntes u otras ayudas didácticas. Una sola conferencia o vídeo por sí solo no es un curso. Un presentación de PowerPoint tampoco puede ser catalogado como curso.</p>
+<p><a name="interactive-tutorials-vs-other-stuff"></a> ##### Tutoriales interactivos vs. Otro Material</p>
+<p>Si es posible imprimirlo y conservar su esencia, no es un Tutorial Interactivo.</p>
+<p><a name="automation"></a> ### Automatización</p>
+<ul>
+<li>El cumplimiento de las reglas de formateado se automatiza vía <a href="https://travis-ci.com">Travis CI</a> usando <a href="https://github.com/vhf/free-programming-books-lint">fpb-lint</a> (ver <a href=".travis.yml">.travis.yml</a>)</li>
+<li>La validación de URLs se realiza mediante <a href="https://github.com/dkhamsing/awesome_bot">awesome_bot</a></li>
+<li><p>Para activar esta validación de URL, envíe un commit que incluya como mensaje de confirmación <code>check_urls=fichero_a_comprobar</code>:</p>
+<pre><code>check_urls=free-programming-books.md free-programming-books-en.md</code></pre></li>
+<li>Es posible especificar más de un fichero a comprobar. Simplemente use un espacio para separar cada entrada.</li>
+<li><p>Si especifica más de un archivo, los resultados obtenidos se basan en el estado del último archivo verificado. Debe tenerlo en cuenta ya que, debido a esto, puede obtener falsos positivos al finalizar el proceso. Así que tras el envío de la pull request asegúrese de inspeccionar el registro de compilación haciendo clic en “Show all checks” -&gt; “Details”.</p></li>
+</ul>
+</body>
+</html>

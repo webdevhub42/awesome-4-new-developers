@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ja</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>今回の問題は前回のものとよく似ていますが、今回は <strong>modules</strong> の概念を使いましょう。 問題の解決には2つのファイルが必要になります。</p>
+<p>指定したディレクトリから、拡張子でフィルタしたファイルのリストを出力するプログラムを書いてください。 コマンドライン引数の1つ目はディレクトリ名、2つ目は拡張子です。 フィルタリングしたファイル名を1行ずつコンソールに出力してください。非同期 I/O を使ってください。</p>
+<p><strong>module</strong> ファイルに処理の大部分を書いてください。<strong>module</strong> には、3つの引数を取る関数を一つだけ定義してください。 その関数の引数は ディレクトリ名・ファイル拡張子・コールバック関数、という順序です。</p>
+<p>コマンドライン引数から与えられるファイル拡張子は、そのままプログラム本体に渡してください。 正規表現に変換したり <code>"."</code> を付けたりしてはいけません。</p>
+<p>コールバック関数は Node の習慣的なイディオムを使って呼び出してください： <code>(err, data)</code> 。 このイディオムでいうとエラーが発生しない場合、1つ目の引数 <code>err</code> は <code>null</code> で2つ目の引数にはファイルの Array が入っています。 もしエラーが発生した場合（<code>fs.readdir()</code> で問題があった場合）、そのエラーだけを1つ目の引数としてコールバック関数に渡してください。</p>
+<p>コンソールへの出力は 本体のプログラムで行って下さい。 エラーの場合は、分かりやすいエラーメッセージを出力してください。</p>
+<p>まとめ：作成する <strong>module</strong> には、以下の4つの制約があります。</p>
+<ol type="1">
+<li>正しい引数を取る関数を定義してください。</li>
+<li>エラー、もしくはデータを引数に取るコールバック関数を一度だけ呼び出してください。</li>
+<li>2つ目の制約以外には何も変えないでください（グローバル変数や標準出力など）。</li>
+<li>発生する可能性のあるエラーは全てコールバック関数に渡してください。</li>
+</ol>
+<p>この制約の良いところは、あなたの作った <strong>module</strong> をこの制約を知っている全ての人が扱えるようになることです。</p>
+<hr />
+<h2 id="ヒント">ヒント</h2>
+<p>フォルダの内容を読み取り、フィルタする Module を新しいファイルに書いてください。</p>
+<p><strong>関数を1つだけ</strong> 定義するためには、以下の例のように <code>module.exports</code> を利用します：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="kw">function</span> (args) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p>あるいは、関数名を使って定義してもいいです。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">hoge</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="co">/* ... */</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> hoge</a></code></pre></div>
+<p><code>require('fs')</code> で <code>fs</code> をロードするのと同じように、<code>require()</code> を使ってあなたの Module を読み込んでください。 1つだけ大きな違いがあるとすれば、ローカルの Module を読み込むためには <code>'./'</code> を使ってください。 あなたの Module の名前が <code>mymodule.js</code> の場合、以下のように使ってください:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> hogemodule <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./mymodule.js&#39;</span>)</a></code></pre></div>
+<p>（メモ： <code>'.js'</code> の拡張子は必ずしも必要ではありません。他のコードでは、それをよく省略しています。） 上記コードによって Module に書いてある <code>module.exports</code> の Object にアクセスできます。その Object は、 <code>hogemodule</code> 変数に格納されます。</p>
+<p><code>mymodule.js</code> には1つの関数だけ定義されているので、 <code>hogemodule</code> 変数が実行可能な関数となります！</p>
+<p><strong>例</strong>： <code>hogemodule();</code></p>
+<p>イディオムのエラーチェックと <code>return</code> を忘れないでください：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">bar</span> (callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="at">foo</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="cf">if</span> (err) <span class="op">{</span> <span class="cf">return</span> <span class="at">callback</span>(err) <span class="op">}</span> <span class="co">// 早期 `return` が大事。</span></a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="co">// ... エラーのない場合、そのまま `data`を使って楽しんでください。</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="co">// 十分楽しんだら、エラー引数に `null` を入れてください。</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> data)</a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="op">}</span></a></code></pre></div>
+</body>
+</html>

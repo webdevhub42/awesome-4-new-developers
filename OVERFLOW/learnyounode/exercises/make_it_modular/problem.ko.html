@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ko</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>이 문제는 이전 문제와 같지만 <strong>모듈</strong>의 개념을 소개하고 있습니다. 이 문제를 풀려면 두 파일을 만들어야 합니다.</p>
+<p>주어진 디렉터리의 파일 목록을 만든 후 확장자로 걸러 출력하는 프로그램을 만드세요. 프로그램의 첫 번째 인자로 디렉터리 이름(예: ‘/path/to/dir/’)을 받고 거를 확장자는 두 번째 인자로 받습니다. <strong>반드시</strong> 비동기 I/O를 사용하세요.</p>
+<p>대부분의 작업에서 반드시 <em>모듈</em> 파일을 작성해야 합니다. 모듈은 순서대로 디렉터리 이름, 파일 확장자 문자열, 콜백 함수 <strong>세 개</strong>의 인자를 받는 함수 하나만 <em>export</em>해야 합니다. 파일 확장자 인자는 프로그램에 넘겨진 인자와 같아야 합니다. 거르기 위해 정규식으로 바꾸거나, 앞에 .을 붙이거나, 그냥 넘기는 것 이외에 다른 어떤 일도 하시면 안 됩니다.</p>
+<p>콜백 함수는 관용적인 노드(err, data) 관례대로 호출해야 합니다. 이 관례는 에러가 없는 경우 첫 번째 인자는 null이 되어야 하고, 두 번째 인자는 데이터여야 합니다. 이 연습 문제에서 데이터는 걸러진 파일 목록의 배열입니다. 에러를 받았다면(<code>fs.readdir()</code>를 호출하거나 하다가), 콜백은 에러만 첫 번째 인자로 넘겨서 호출해야 합니다.</p>
+<p>모듈 파일 안에서 직접 콘솔에 출력하시면 <strong>안</strong> 됩니다. 원래 프로그램에서만 하세요.</p>
+<p>원래 프로그램에서 에러가 일어난 경우, 간단히 확인만 해서 콘솔에 정보 메세지를 출력하세요.</p>
+<p>이 네 가지는 모듈이 반드시 지켜야할 규칙입니다.</p>
+<ol type="1">
+<li>설명한 인자만 받는 함수를 하나만 export해야 합니다.</li>
+<li>설명된 에러나 데이터로 콜백은 한 번만 호출해야 합니다.</li>
+<li>전역 변수나 표준출력(stdout) 같은 다른 건 아무것도 바꾸시면 안 됩니다.</li>
+<li>가능한 모든 에러를 처리해 콜백으로 넘겨야 합니다.</li>
+</ol>
+<p>이 규칙을 지키면, 이 규칙을 지키는 어떤 곳에서도 모듈을 사용할 수 있게 됩니다. 그래서 이 모듈은 learnyounode를 한 어떤 사람이나, 검증 코드나 아니면 업무에서 사용 할 수 있습니다.</p>
+<hr />
+<h2 id="힌트">힌트</h2>
+<p>디렉터리를 읽고 거르는 함수를 가지는 새 파일을 만들어 새 모듈을 만드세요. <em>단일 함수</em>의 <em>export</em>를 정의하려면, 함수를 이미 있는 <code>module.exports</code> 객체에 할당해야합니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="kw">function</span> (args) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p>아니면 named 함수를 사용해 이름을 할당할 수도 있습니다.</p>
+<p>원래 프로그램에서 새로운 모듈을 사용하려면, <code>require('fs')</code>로 <code>fs</code>를 불러왔을 때랑 마찬가지로 <code>require()</code> 호출을 사용하면 됩니다. 차이점이라면 지역 모듈은 앞에 ’./’를 붙여야만 하는 것뿐입니다. 즉, 파일 이름이 mymodule.js라면 이렇게 하시면 됩니다.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> mymodule <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./mymodule.js&#39;</span>)</a></code></pre></div>
+<p>’.js’는 생략 가능하고 생략하는 것을 자주 보게 될 것입니다.</p>
+<p>이제 모듈의 <code>module.exports</code> 객체를 <code>mymodule</code> 값에 할당했습니다. 단일 함수를 export했기 때문에, <code>mymodule</code>은 호출할 수 있는 함수가 되었습니다.</p>
+<p>에러를 먼저 확인해 콜백 함수에서 빠르게 반환하는 관용적인 표현도 기억해두세요.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">bar</span> (callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">foo</span>(<span class="kw">function</span> (err<span class="op">,</span> data) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">if</span> (err) <span class="op">{</span> <span class="cf">return</span> <span class="at">callback</span>(err) <span class="op">}</span> <span class="co">// early return</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="co">// ... no error, continue doing cool things with `data`</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="co">// all went well, call callback with `null` for the error argument</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> data)</a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">}</span></a></code></pre></div>
+</body>
+</html>

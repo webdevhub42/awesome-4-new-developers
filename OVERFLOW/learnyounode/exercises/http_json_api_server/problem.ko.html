@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ko</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>‘/api/parsetime’ 경로로 받은 GET 요청에 대해 JSON 데이터를 제공하는 HTTP <strong>서버</strong>를 작성하세요. 요청에 포함된 쿼리 문자열은 ‘iso’ 키에 ISO 시간 형식의 값이어야 합니다.</p>
+<p>예를 들어,</p>
+<p>/api/parsetime?iso=2013-08-10T12:10:15.474Z</p>
+<p>이 JSON 응답은 ‘hour’, ‘minute’, ‘second’ 속성만 가지고 있어야 합니다. 예를 들어,</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">&quot;hour&quot;</span><span class="fu">:</span> <span class="dv">14</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">&quot;minute&quot;</span><span class="fu">:</span> <span class="dv">23</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">&quot;second&quot;</span><span class="fu">:</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="fu">}</span></a></code></pre></div>
+<p>두 번째 엔드 포인트인 ‘/api/unixtime’ 경로를 추가해 같은 쿼리 문자열을 받아 ‘unixtime’ 속성에 UNIX 시간을 밀리 초 단위(1 Jan 1970 00:00:00 UTC부터의 경과 시간의 밀리 초 값)로 반환해야합니다. 예를 들어,</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">{</span> <span class="dt">&quot;unixtime&quot;</span><span class="fu">:</span> <span class="dv">1376136615474</span> <span class="fu">}</span></a></code></pre></div>
+<p>서버는 프로그램에 첫 번째 인자에서 주어진 포트로 수신해야 합니다.</p>
+<hr />
+<h2 id="힌트">힌트</h2>
+<p>HTTP 서버의 <code>request</code> 객체는 요청을 두 엔드 포인트로 <em>“route”</em>하는데 필요한 <code>url</code> 속성을 가지고 있습니다.</p>
+<p>Node 핵심 ‘url’ 모듈을 이용해 URL과 쿼리 문자열을 파스할 수 있습니다. <code>new URL(request.url)</code>는 request.url의 내용을 구문 해석하고 도움이 되는 속성을 가진 객체를 줄 것입니다.</p>
+<p>예를 들어, 커맨드 프롬프트에 다음을 입력하세요.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">$ <span class="ex">node</span> -pe <span class="st">&quot;new URL(&#39;/test?q=1&#39;, &#39;http://example.com&#39;)&quot;</span></a></code></pre></div>
+<p><code>url</code> 모듈의 문서는 브라우저에 이 주소를 넣으면 볼 수 있습니다. {rootdir:/docs-nodejs/url.html}</p>
+<p>응답은 JSON 문자열 형식이어야 합니다. 더 자세한 정보는 <code>JSON.stringify()</code>를 보세요.</p>
+<p>또, 좋은 웹 개발자라면 Content-Type 속성을 설정해야 합니다.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">res</span>.<span class="at">writeHead</span>(<span class="dv">200</span><span class="op">,</span> <span class="op">{</span> <span class="st">&#39;Content-Type&#39;</span><span class="op">:</span> <span class="st">&#39;application/json&#39;</span> <span class="op">}</span>)</a></code></pre></div>
+<p>JavaScript <code>Date</code> 객체는 ISO 형식으로 날짜를 출력할 수 있습니다.(예를 들면 <code>new Date().toISOString()</code>) <code>Date</code> 생성자에 문자열을 넘겨준다면 이 형식으로 변환해 줄 수도 있습니다. <code>Date#getTime()</code>도 유용할 수 있습니다.</p>
+</body>
+</html>

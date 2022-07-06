@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ruby_for_programmers.deck</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>!SLIDE subsection</p>
+<h1 id="introduction-to-ruby-for-programmers">Introduction to Ruby for Programmers</h1>
+<p><img src="img/ruby-logo.jpg" width="250"></p>
+<p>This section is intended as a brief, lightweight overview of the Ruby language; following sections will cover all these topics in much more detail. Students are encouraged to ask questions, but instructors are encouraged to answer, “We’ll cover that later.”</p>
+<p>(Originally based upon <a href="https://gist.github.com/190567">Ruby Quickstart for Refugees</a> but improved by many.)</p>
+<p>!SLIDE</p>
+<h1 id="ruby-vs.-rails">Ruby vs. Rails</h1>
+<h3 id="ruby-is-a-language">Ruby is a Language</h3>
+<p><img src="img/ruby-logo.jpg" height="125" width="125"></p>
+<h3 id="rails-is-a-framework">Rails is a Framework</h3>
+<p><img src="img/rails_logo.jpg" height="125" width="125"></p>
+<h3 id="rails-is-written-in-ruby">Rails is written in Ruby</h3>
+<p>&lt;!SLIDE subsection incremental&gt;</p>
+<h1 id="ruby-philosophy">Ruby Philosophy</h1>
+<p>Q: Did you have a guiding philosophy when designing Ruby?</p>
+<p>A: Yes, it’s called the “principle of least surprise.”</p>
+<p>I believe people want to express themselves when they program.</p>
+<p>They don’t want to fight with the language.</p>
+<p>Programming languages must feel natural to programmers.</p>
+<p>I tried to make people enjoy programming and concentrate on the fun and creative part of programming when they use Ruby.</p>
+<p>  - <a href="http://linuxdevcenter.com/pub/a/linux/2001/11/29/ruby.html">Matz</a> (Yukihiro Matsumoto), Ruby creator</p>
+<p>!SLIDE incremental</p>
+<h1 id="ruby-philosophy-applied">Ruby Philosophy, Applied</h1>
+<ul>
+<li>Ruby has a <em>humane interface</em>
+<ul>
+<li>many ways to do things</li>
+</ul></li>
+<li>Ruby favors readability and variety over concision and perfection</li>
+<li>sometimes makes code hard to understand (but usually makes it easier)</li>
+<li>contrast to <em>minimal interface</em>
+<ul>
+<li>one (or a few) “right” ways to do things</li>
+<li>Python has a minimal philosophy</li>
+</ul></li>
+</ul>
+<h1 id="many-rubies">Many Rubies</h1>
+<ul>
+<li>Ruby 1.0 released in 1996
+<ul>
+<li>Fully Open Source</li>
+</ul></li>
+<li>Many implementations
+<ul>
+<li>MRI
+<ul>
+<li>REE</li>
+<li>Kiji</li>
+</ul></li>
+<li>JRuby</li>
+<li>Rubinius</li>
+<li>MagLev</li>
+<li>MacRuby</li>
+<li>IronRuby</li>
+</ul></li>
+</ul>
+<h1 id="versions-common-today">Versions common today</h1>
+<ul>
+<li>MRI 1.8.7</li>
+<li>MRI 1.9.2</li>
+<li>JRuby</li>
+</ul>
+<h1 id="ruby-language-overview">Ruby Language Overview</h1>
+<ul>
+<li>Dynamically typed</li>
+<li>Interpreted</li>
+<li>Can be modified at runtime</li>
+<li>Object oriented</li>
+<li>Blocks / lambdas / closures</li>
+<li>Perl-like regular expressions</li>
+<li>Closely tied to shell &amp; OS</li>
+</ul>
+<h1 id="irb-interactive-ruby">IRB: Interactive RuBy</h1>
+<p>Type <code>irb</code> in the terminal to launch IRB</p>
+<pre><code>@@@ ruby
+&gt;&gt; 4
+=&gt; 4
+&gt;&gt; 4+4
+=&gt; 8</code></pre>
+<p>Please fire up <code>irb</code> on your computer and try this out!</p>
+<h1 id="everything-evaluates-to-something">Everything evaluates to something</h1>
+<pre><code>@@@ ruby
+&gt;&gt; 2 + 2
+=&gt; 4
+
+&gt;&gt; (2+2).zero?
+=&gt; false
+
+&gt;&gt; &quot;foo&quot; if false
+=&gt; nil
+
+&gt;&gt; puts &quot;foo&quot;
+foo
+=&gt; nil</code></pre>
+<h1 id="hash-mark-comments-like-perl">Hash mark comments, like perl</h1>
+<pre><code>@@@ ruby
+# is a comment
+2 + 2 # is a comment</code></pre>
+<h1 id="optional-semicolons-parens-and-return">Optional semicolons, parens, and <code>return</code></h1>
+<p>These are equivalent:</p>
+<pre><code>@@@ ruby
+def inc x
+  x + 1
+end
+
+def inc(x)
+  return x + 1;
+end
+
+def inc(x); x + 1; end</code></pre>
+<h1 id="line-break-gotcha">Line Break Gotcha</h1>
+<pre><code>@@@ ruby
+x = 1 + 2
+x #=&gt; 3
+
+x = 1
+  + 2
+x #=&gt; 1</code></pre>
+<p>Solution: always put operators on top line</p>
+<pre><code>x = 1 +
+    2
+x #=&gt; 3</code></pre>
+<h1 id="use-parens-when-you-need-them">Use parens when you need them</h1>
+<pre><code>@@@ ruby
+&gt;&gt; &quot;Hello&quot;.gsub &#39;H&#39;, &#39;h&#39;
+=&gt; &quot;hello&quot;
+
+&gt;&gt; &quot;Hello&quot;.gsub(&quot;H&quot;, &quot;h&quot;).reverse
+=&gt; &quot;olleh&quot;</code></pre>
+<p>!SLIDE</p>
+<h1 id="variables-are-declared-implicitly">Variables are declared implicitly</h1>
+<pre><code>@@@ ruby
+first_name = &quot;Santa&quot;
+last_name = &quot;Claus&quot;
+full_name = first_name + last_name
+#=&gt; &quot;SantaClaus&quot;</code></pre>
+<h1 id="string-interpolation">String interpolation</h1>
+<pre><code>@@@ ruby
+&quot;boyz #{1 + 1} men&quot;
+=&gt; &quot;boyz 2 men&quot;</code></pre>
+<ul>
+<li>Any Ruby code can go inside the braces</li>
+<li>It gets evaluated and stuck inside the string</li>
+</ul>
+<p>!SLIDE custom</p>
+<h1 id="built-in-types">Built-in Types</h1>
+<ul>
+<li>Numbers
+<ul>
+<li><code>42</code></li>
+</ul></li>
+<li>Booleans
+<ul>
+<li><code>true</code></li>
+<li><code>false</code></li>
+</ul></li>
+<li>Strings
+<ul>
+<li><code>"apple"</code></li>
+<li><code>'banana'</code></li>
+</ul></li>
+<li>Symbols
+<ul>
+<li><code>:apple</code></li>
+</ul></li>
+<li>Arrays
+<ul>
+<li><code>["apple", "banana"]</code></li>
+</ul></li>
+<li>Hashes
+<ul>
+<li><code>{:apple =&gt; 'red', :banana =&gt; 'yellow'}</code></li>
+</ul></li>
+<li>Ranges
+<ul>
+<li><code>(1..10)</code></li>
+</ul></li>
+</ul>
+<h1 id="functions">Functions</h1>
+<pre><code>@@@ ruby
+def add(a,b)
+  a + b
+end
+
+add(2, 2)
+#=&gt; 4</code></pre>
+<ul>
+<li>Note: no ‘return’ required</li>
+</ul>
+<h1 id="classes-and-methods">Classes and methods</h1>
+<pre><code>@@@ ruby
+class Calculator
+  def add(a,b)
+    a + b
+  end
+end</code></pre>
+<ul>
+<li>a <em>function</em> inside a <em>class</em> is called a <em>method</em></li>
+</ul>
+<h1 id="bang-and-question-methods">bang and question methods</h1>
+<ul>
+<li>method names can end with <code>!</code> or <code>?</code>
+<ul>
+<li><code>!</code> means “watch out!”</li>
+<li><code>?</code> means “boolean”</li>
+</ul></li>
+</ul>
+<h1 id="equal-double-equal-and-threequal">equal, double-equal, and threequal</h1>
+<ul>
+<li><code>x = 1</code> means “put the value <code>1</code> in the variable <code>x</code>”</li>
+<li><code>x == 2</code> means “<code>true</code> if <code>x</code> is <code>2</code>, otherwise <code>false</code>”</li>
+<li><code>x === 3</code> means the same as <code>==</code> but sometimes more</li>
+</ul>
+<h1 id="ruby-syntax-cheatsheet">Ruby syntax cheatsheet</h1>
+<figure>
+<img src="img/cheatsheet.png" alt="cheatsheet" /><figcaption>cheatsheet</figcaption>
+</figure>
+<p>(<em>The Well-Grounded Rubyist</em>, p. 5, section 1.1.2)</p>
+<h1 id="ruby-identifiers">Ruby identifiers</h1>
+<ul>
+<li><code>local_variable</code> - start with letter or underscore, contain letters, numbers, underscored</li>
+<li><code>@instance_variable</code> - start with <code>@</code></li>
+<li><code>@@class_variable</code> - start with <code>@@</code></li>
+<li><code>$global_variable</code> - start with <code>$</code></li>
+<li><code>Constant</code> - start with uppercase letter</li>
+<li><code>method_name?</code> - same as local, but can end with <code>?</code> or <code>!</code> or <code>=</code></li>
+<li>keywords - about 40 reserved words (<code>def</code>) and weirdos (<code>__FILE__</code>)</li>
+<li>literals - <code>"hi"</code> for strings, <code>[1,2]</code> for arrays, <code>{:a=&gt;1, :b=2}</code> for hashes</li>
+</ul>
+<h1 id="ruby-naming-conventions">Ruby Naming Conventions</h1>
+<p>methods and variables are in <code>snake_case</code></p>
+<p>classes and modules are in <code>CamelCase</code></p>
+<p>constants are in <code>ALL_CAPS</code></p>
+<blockquote>
+<p>Standard is better than better.</p>
+<p>– Anon.</p>
+</blockquote>
+<h1 id="variable-scopes">Variable Scopes</h1>
+<pre><code>@@@ ruby
+var   # local variable (or method call)
+@var  # instance variable
+@@var # class variable
+$var  # global variable
+VAR   # constant</code></pre>
+<h1 id="messages-and-methods">Messages and Methods</h1>
+<ul>
+<li>an object is referenced by a variable or a literal</li>
+<li>the dot operator (<code>.</code>) sends a message to an object</li>
+<li>an object receives a <em>message</em> and invokes a <em>method</em></li>
+<li>with no dot, the default object (<code>self</code>) is the receiver</li>
+</ul>
+<h1 id="classes">Classes</h1>
+<ul>
+<li>A class defines a group of behaviors (methods)</li>
+<li>Every object has a class, <code>Object</code> if nothing else</li>
+</ul>
+<h1 id="load-and-require"><code>load</code> and <code>require</code></h1>
+<ul>
+<li><code>load</code> inserts a file’s contents into the current file</li>
+<li><code>require</code> makes a <em>feature</em> available to the current file
+<ul>
+<li>skips already-loaded files</li>
+<li>omits the trailing <code>.rb</code></li>
+<li>can also be used for extensions written in C (<code>.so</code>, <code>.dll</code>, etc.)</li>
+</ul></li>
+</ul>
+<h1 id="credits">Credits</h1>
+<ul>
+<li>“Ruby Intro” slides based on <a href="https://gist.github.com/190567">Ruby Quickstart for Refugees</a> by <a href="http://about.me/jbr">Jacob Rothstein</a></li>
+<li>Improved by Alex Chaffee, Sarah Allen, Wolfram Arnold</li>
+</ul>
+</body>
+</html>

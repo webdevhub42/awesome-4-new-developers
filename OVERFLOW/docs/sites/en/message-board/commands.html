@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>commands</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="ruby">Ruby</h2>
+<p>Open an interactive Ruby terminal (type ‘exit’ to quit)</p>
+<pre><code>irb</code></pre>
+<p>Run a ruby program named FILENAME.rb</p>
+<pre><code>ruby FILENAME.rb</code></pre>
+<p>Installs a gem called GEMNAME</p>
+<pre><code>gem install GEMNAME</code></pre>
+<p>Installs gems listed in the <code>Gemfile</code></p>
+<pre><code>bundle install</code></pre>
+<h2 id="rails">Rails</h2>
+<p>Create a new rails project called <code>NAME</code></p>
+<pre><code>rails new NAME</code></pre>
+<p>Auto-generate routes (this can also be done manually)</p>
+<pre><code>rails generate scaffold</code></pre>
+<p>Create a new [Rails model]</p>
+<pre><code>rails generate model MODELNAME</code></pre>
+<p>Update the database to match what you have described in your code</p>
+<pre><code>rails db:migrate</code></pre>
+<p>Run the application locally (Ctrl-C to quit)</p>
+<pre><code>rails server</code></pre>
+<p>Start an interactive Ruby session that knows about your Rails models (type ‘exit’ to quit)</p>
+<pre><code>rails console</code></pre>
+<p>Print the routes for your application</p>
+<pre><code>rails routes</code></pre>
+<h2 id="browser">Browser</h2>
+<p>Go to the root page of your rails application</p>
+<pre><code>http://localhost:3000</code></pre>
+<h2 id="git">Git</h2>
+<p>Creates a new git repository in your current directory.</p>
+<pre><code>git init</code></pre>
+<p>Add the current directory, and all sub directories, to your git repository.</p>
+<pre><code>git add .</code></pre>
+<p>Tells you what you’ve added, deleted, and changed between your current directory and you local git repository.</p>
+<pre><code>git status</code></pre>
+<p>Prints the difference between FILENAME and what is in your local git repository.</p>
+<pre><code>git diff FILENAME</code></pre>
+<p>Commit the files you’ve added to the local repository.</p>
+<pre><code>git commit -m &quot;Describe what has changed, and why&quot; .</code></pre>
+<p>Push <em>committed</em> changes to the remote server.</p>
+<pre><code>git push</code></pre>
+</body>
+</html>

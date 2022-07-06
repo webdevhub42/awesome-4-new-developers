@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="vendoring-third-party-dependencies">Vendoring third party dependencies</h1>
+<p>Because we are working towards an agnostic Puppeteer that can run in any environment (see <a href="https://github.com/puppeteer/puppeteer/issues/6125">#6125</a>) we cannot import common dependencies in a way that relies on Node’s resolution to find them. For example, <code>import mitt from 'mitt'</code> works fine in Node, but in an ESM build running in the browser, the browser has no idea where to find <code>'mitt'</code>.</p>
+<p>Therefore we put all common dependencies into this directory, <code>vendor</code>. This means there are extra criteria for these dependencies; ideally they will not depend on any other modules. If they do, we should consider an alternative way of managing our dependencies.</p>
+<p>The process for updating a vendored dependency is:</p>
+<ol type="1">
+<li><code>npm install {DEP NAME HERE}</code></li>
+<li><code>cp -r node_modules/DEP vendor</code></li>
+<li>Update <code>eslintrc.js</code> to forbid importing DEP directly (see the <code>Mitt</code> rule already defined in there).</li>
+<li>Use the new DEP, and run <code>npm run tsc</code> to check everything compiles successfully.</li>
+<li>If the dep ships as compiled JS, you may need to disable TypeScript checking the file. Add an entry to the <code>excludes</code> property of the TSConfig files in <code>vendor</code>. (again, see the entry that’s already there for Mitt as an example). Don’t forget to update both the ESM and CJS config files.</li>
+</ol>
+</body>
+</html>

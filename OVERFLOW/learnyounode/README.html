@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="learn-you-the-node.js-for-much-win">Learn You The Node.js For Much Win!</h1>
+<p><a href="https://travis-ci.org/workshopper/learnyounode"><img src="https://travis-ci.org/workshopper/learnyounode.svg?branch=master" alt="Build Status" /></a> <a href="https://gitter.im/nodeschool/discussions?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter" /></a> <a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat" alt="js-standard-style" /></a> <a href="https://www.codetriage.com/workshopper/learnyounode"><img src="https://www.codetriage.com/workshopper/learnyounode/badges/users.svg" alt="Help Contribute to Open Source" /></a></p>
+<p><strong>An intro to Node.js via a set of self-guided workshops.</strong></p>
+<p><a href="https://github.com/nodeschool/what-is-node/blob/master/simple.en.md">What is Node.js</a></p>
+<p><a href="https://nodei.co/npm/learnyounode/"><img src="https://nodei.co/npm/learnyounode.png?downloads=true&amp;&amp;downloadRank=true&amp;stars=true" alt="NPM" /></a> <a href="https://nodei.co/npm/learnyounode/"><img src="https://nodei.co/npm-dl/learnyounode.png?months=3&amp;height=3" alt="NPM" /></a></p>
+<h2 id="what-is-learnyounode">What is learnyounode?</h2>
+<figure>
+<img src="https://raw.github.com/rvagg/learnyounode/master/learnyounode.png" alt="Learn You The Node.js For Much Win!" /><figcaption>Learn You The Node.js For Much Win!</figcaption>
+</figure>
+<p><b><code>learnyounode</code></b> is a Node.js package that contains a series of workshop lessons which will teach you the basics of writing Node.js applications. The lessons start with a basic <em>“HELLO WORLD”</em> lesson, and then move on to more advanced exercises about dealing with synchronous &amp; asynchronous I/O, filesystem operations, TCP and HTTP networking, events and streams.</p>
+<h2 id="installing-learnyounode">Installing learnyounode</h2>
+<ol type="1">
+<li>Install <a href="http://nodejs.org/">Node.js</a></li>
+<li>Run <code>npm install -g learnyounode</code> (this installs the learnyounode Node.js package globally). If this step fails, try one of the following fixes:
+<ul>
+<li><p>Prefix the install command with sudo: <code>sudo npm install -g learnyounode</code></p>
+or</li>
+<li><a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions">fix your npm permissions</a>.</li>
+</ul></li>
+<li>Test that learnyounode has been installed successfully by running the command <code>learnyounode</code> in your terminal. This will start the learnyounode application, and you should see a blue screen similar to the one in the screenshot above.
+<ul>
+<li>(Ubuntu users) In case step 3 fails, run <code>sudo apt-get install nodejs-legacy</code></li>
+</ul></li>
+<li><strong>profit!</strong></li>
+</ol>
+<h2 id="completing-your-first-exercise">Completing your first exercise</h2>
+<ol type="1">
+<li><strong>Start up learnyounode</strong> in your terminal by running the command <code>learnyounode</code> (you should see a blue screen similar to the one in the screenshot above).</li>
+<li><strong>Start a learnyounode exercise</strong> by using the arrow keys to navigate, and the enter key to select a lesson. For this example, scroll to the “HELLO WORLD” lesson and press enter. This will result in three things happening:
+<ol type="1">
+<li>The instructions for the “HELLO WORLD” lesson will now be printed out to your terminal (note: You may need to scroll up in your terminal to see the beginning of the lesson instructions if it has been cut off by your terminal window).</li>
+<li>The <code>learnyounode verify</code> command will now be set to verify any script that you pass into it with the expected output of the lesson that you selected (in the case of the “HELLO WORLD” lesson, the command <code>learnyounode verify</code> will now check that the script file you pass in satisfies the expected outcomes of the “HELLO WORLD” lesson by making sure the script prints the text “HELLO WORLD” to stdout).</li>
+<li>The learnyounode application will exit, allowing you to use your terminal again.</li>
+</ol></li>
+<li><strong>Create your solution for the exercise</strong> by creating a new script file named “program.js” and following the instructions and hints that were printed out above for the lesson. For the “HELLO WORLD” lesson, your script “program.js” should have code in it that prints the text “HELLO WORLD” to stdout when run with Node.js (you can test your script file with Node.js by using the command: <code>node program.js</code>).</li>
+<li><strong>Verify that your solution to the lesson is correct</strong> by running the command <code>learnyounode verify program.js</code> (note: if you named your script file something other than “program.js”, replace “program.js” with the correct filename). If your solution is not correct, you will see a FAIL message along with some information about why your solution didn’t pass the tests. In the case of a FAIL message, rework your solution until running the verify command passes. If your solution passes the tests, you should see a “PASS” message. Congratulations! :)</li>
+<li><strong>Move on to the next lesson</strong> if you have verified that your solution is correct. Repeat these instructions from step 1 and select the next lesson that you would like to do (it is suggested to do the lessons in order from top to bottom).</li>
+</ol>
+<p>Once you have finished <b><code>learnyounode</code></b>, graduate to <b><code><a href="https://github.com/substack/stream-adventure">stream-adventure</a></code></b> for a set of exercises that dig in to Node’s streams.</p>
+<h3 id="contributors">Contributors</h3>
+<p><b><code>learnyounode</code></b> is proudly brought to you by the following hackers:</p>
+<table>
+<tbody>
+<tr>
+<th align="left">
+Rod Vagg
+</th>
+<td>
+<a href="https://github.com/rvagg">GitHub/rvagg</a>
+</td>
+<td>
+<a href="http://twitter.com/rvagg">Twitter/<span class="citation" data-cites="rvagg">@rvagg</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Andrey Sidorov
+</th>
+<td>
+<a href="https://github.com/sidorares">GitHub/sidorares</a>
+</td>
+<td>
+<a href="http://twitter.com/sidorares">Twitter/<span class="citation" data-cites="sidorares">@sidorares</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Julián Duque
+</th>
+<td>
+<a href="https://github.com/julianduque">GitHub/julianduque</a>
+</td>
+<td>
+<a href="http://twitter.com/julian_duque">Twitter/<span class="citation" data-cites="julian_duque">@julian_duque</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Lars-Magnus Skog
+</th>
+<td>
+<a href="https://github.com/ralphtheninja">GitHub/ralphtheninja</a>
+</td>
+<td>
+<a href="http://twitter.com/ralphtheninja">Twitter/<span class="citation" data-cites="ralphtheninja">@ralphtheninja</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Tim Inman
+</th>
+<td>
+<a href="https://github.com/thehack">GitHub/thehack</a>
+</td>
+<td>
+<a href="http://twitter.com/timinman">Twitter/<span class="citation" data-cites="timinman">@timinman</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Dan Flettre
+</th>
+<td>
+<a href="https://github.com/Flet">GitHub/Flet</a>
+</td>
+<td>
+<a href="http://twitter.com/flettre">Twitter/<span class="citation" data-cites="flettre">@flettre</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Leigh Zhu
+</th>
+<td>
+<a href="https://github.com/lisposter">GitHub/lisposter</a>
+</td>
+<td>
+<a href="http://twitter.com/lisposter">Twitter/<span class="citation" data-cites="lisposter">@lisposter</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Lucas F. da Costa
+</th>
+<td>
+<a href="https://github.com/lucasfcosta">GitHub/lucasfcosta</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th align="left">
+Martin Heidegger
+</th>
+<td>
+<a href="https://github.com/martinheidegger">GitHub/martinheidegger</a>
+</td>
+<td>
+<a href="http://twitter.com/leichtgewicht">Twitter/<span class="citation" data-cites="leichtgewicht">@leichtgewicht</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Toshiharu Harada
+</th>
+<td>
+<a href="https://github.com/haradats">GitHub/haradats</a>
+</td>
+<td>
+<a href="http://twitter.com/haradats">Twitter/<span class="citation" data-cites="haradats">@haradats</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Eric Douglas
+</th>
+<td>
+<a href="https://github.com/ericdouglas">GitHub/ericdouglas</a>
+</td>
+<td>
+<a href="http://twitter.com/ericdouglas_">Twitter/<span class="citation" data-cites="ericdouglas_">@ericdouglas_</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Alejandro Oviedo
+</th>
+<td>
+<a href="https://github.com/a0viedo">GitHub/a0viedo</a>
+</td>
+<td>
+<a href="http://twitter.com/a0viedo">Twitter/<span class="citation" data-cites="a0viedo">@a0viedo</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Leonardo Nascimento
+</th>
+<td>
+<a href="https://github.com/leonascimento">GitHub/leonascimento</a>
+</td>
+<td>
+<a href="http://twitter.com/leonardo386">Twitter/leonardo386</a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Christophe Porteneuve
+</th>
+<td>
+<a href="https://github.com/tdd">GitHub/tdd</a>
+</td>
+<td>
+<a href="http://twitter.com/porteneuve">Twitter/<span class="citation" data-cites="porteneuve">@porteneuve</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Do Minh Hai
+</th>
+<td>
+<a href="https://github.com/dominhhai">GitHub/dominhhai</a>
+</td>
+<td>
+<a href="http://twitter.com/minhhai3b">Twitter/<span class="citation" data-cites="minhhai3b">@minhhai3b</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Phung Van Tu
+</th>
+<td>
+<a href="https://github.com/minatu2d">GitHub/minatu2d</a>
+</td>
+<td>
+<a href="http://twitter.com/minatu2d">Twitter/<span class="citation" data-cites="minatu2d">@minatu2d</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Shim
+</th>
+<td>
+<a href="https://github.com/marocchino">GitHub/marocchino</a>
+</td>
+<td>
+<a href="http://twitter.com/marocchino">Twitter/<span class="citation" data-cites="marocchino">@marocchino</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Chayoung You
+</th>
+<td>
+<a href="https://github.com/yous">GitHub/yous</a>
+</td>
+<td>
+<a href="http://twitter.com/_Yous">Twitter/<span class="citation" data-cites="_Yous">@_Yous</span></a>
+</td>
+</tr>
+<tr>
+<th align="left">
+Espen Dalløkken
+</th>
+<td>
+<a href="https://github.com/leftieFriele">GitHub/leftieFriele</a>
+</td>
+<td>
+<a href="http://twitter.com/leftieFriele">Twitter/leftieFriele</a>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="license">License</h2>
+<p><strong>learnyounode</strong> is Copyright (c) 2013-2015 learnyounode contributors (listed above) and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.md file for more details.</p>
+<p><strong>learnyounode</strong> builds on the excellent work by <span class="citation" data-cites="substack">[@substack]</span>(https://github.com/substack) and <span class="citation" data-cites="maxogden">[@maxogden]</span>(https://github.com/maxogden) who created <strong><a href="https://github.com/substack/stream-adventure">stream-adventure</a></strong> which serves as the original foundation for <strong>learnyounode</strong>.</p>
+</body>
+</html>

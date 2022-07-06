@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.ko</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p><strong>TCP 시간 서버</strong>를 작성하세요!</p>
+<p>서버는 프로그램이 첫 번째 인자로 받은 포트로 TCP 연결을 감시해야 합니다. 각 연결에는 <strong>개행</strong> 문자 다음에 현재 시간을 24 시간 형식으로 적어야 합니다.</p>
+<pre><code>&quot;YYYY-MM-DD hh:mm&quot;</code></pre>
+<p>월, 일, 시간, 분은 앞이 <em>0으로 채워진</em> 2자리 정수여야 합니다. 예를 들면,</p>
+<pre><code>&quot;2013-07-06 17:42&quot;</code></pre>
+<hr />
+<h2 id="힌트">힌트</h2>
+<p>이 연습 문제를 위해 생 TCP 서버를 만들겠습니다. HTTP와는 관계없기 때문에 노드 핵심 라이브러리의 <code>net</code> 모듈을 사용해야 합니다. 여기에는 네트워킹에 관련된 모든 기본 함수들이 들어 있습니다.</p>
+<p><code>net</code> 모듈에는 콜백 함수를 받는 <code>net.createServer()</code>라는 메소드가 들어있습니다. 노드 대부분의 콜백과는 다르게, <code>createServer()</code>에서 사용되는 콜백은 한 번 이상 호출됩니다. 서버가 받는 모든 연결은 매번 콜백을 호출하게 됩니다. 콜백 함수는 이런 모양입니다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">callback</span> (socket) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p><code>net.createServer()</code>는 <code>server</code>의 인스턴스도 반환합니다. 특정 포트의 감시를 시작하려면 <code>server.listen(portNumber)</code>를 호출하셔야 합니다.</p>
+<p>일반적인 Node TCP 서버는 이렇게 생겼습니다.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> net <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;net&#39;</span>)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">const</span> server <span class="op">=</span> <span class="va">net</span>.<span class="at">createServer</span>(<span class="kw">function</span> (socket) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">// socket handling logic</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="va">server</span>.<span class="at">listen</span>(<span class="dv">8000</span>)</a></code></pre></div>
+<p>첫 번째 커맨드 라인 인자로 넘긴 포트 번호를 사용하려면 번호를 기억해둘 필요가 있습니다.</p>
+<p><code>socket</code> 객체는 연결에 관한 많은 메타 데이터를 가지고 있습니다만, 노드의 2중(duplex) 스트림이기도 해서, 읽어오거나 쓰거나 할 수 있습니다. 이 연습 문제에서는 그냥 데이터를 쓰고 소켓을 닫으시면 됩니다.</p>
+<p>데이터를 쓰려면 <code>socket.write(data)</code>를 사용하고 소켓을 닫으려면 <code>socket.end()</code>를 사용하세요. 아니면 <code>.end()</code> 메소드도 데이터 객체를 받을 수 있으니 그냥 <code>socket.end(data)</code>를 사용하셔도 됩니다.</p>
+<p><code>net</code> 모듈의 문서는 브라우저에 이 주소를 넣으면 볼 수 있습니다.</p>
+<p>{rootdir:/docs-nodejs/net.html}</p>
+<p>날짜를 만드려면, <code>new Date()</code> 객체에서 사용자 정의 형식을 만들 필요가 있습니다. 이 메소드가 유용할 것입니다.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">date</span>.<span class="at">getFullYear</span>()</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">date</span>.<span class="at">getMonth</span>() <span class="co">// starts at 0</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">date</span>.<span class="at">getDate</span>() <span class="co">// returns the day of month</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">date</span>.<span class="at">getHours</span>()</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="va">date</span>.<span class="at">getMinutes</span>()</a></code></pre></div>
+<p>조금 더 잘하고 싶다면, npm에서 <code>strftime</code> 패키지를 사용할 수도 있습니다. <code>strftime(fmt, date)</code> 함수는 unix <code>date</code> 형식 같은 데이터 형식을 받습니다. strftime에 관한 더 자세한 정보는 https://github.com/samsonjs/strftime 에서 읽을 수 있습니다.</p>
+</body>
+</html>

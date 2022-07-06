@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>nil</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "the_command_line" -->
+<h1 id="nil">Nil</h1>
+<p><em>nil</em> is a magic object</p>
+<h1 id="there-is-no-spoon">There Is No Spoon</h1>
+<p><img src="img/spoon.jpg" /></p>
+<p><em>nil</em> is the object that means “there is no object”</p>
+<h1 id="experiment">Experiment</h1>
+<pre><code>fruit = &quot;apple&quot;
+fruit = nil
+fruit.reverse</code></pre>
+<p><em>Read the error!</em></p>
+<h1 id="errors-are-good">Errors are good</h1>
+<p>They tell you</p>
+<ul>
+<li>you made a mistake</li>
+<li>what that mistake was</li>
+<li>(sometimes) how to fix it</li>
+</ul>
+<p>Interpret this error:</p>
+<pre><code>fruit.reverse
+NoMethodError: undefined method `reverse&#39; for nil:NilClass</code></pre>
+<h1 id="fail-fast-fail-often">Fail Fast, Fail Often</h1>
+<ul>
+<li>Ruby has a “fail fast” philosophy</li>
+<li>Is this a good idea?</li>
+<li>Why or why not?</li>
+</ul>
+</body>
+</html>

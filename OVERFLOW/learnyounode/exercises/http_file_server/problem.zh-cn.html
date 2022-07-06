@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.zh-cn</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>编写一个 HTTP 文件 <strong>服务器</strong>，它用于将每次所请求的文件返回给客户端。</p>
+<p>你的服务器需要监听所提供给你的第一个命令行参数所制定的端口。</p>
+<p>同时，第二个会提供给你的程序的参数则是所需要响应的文本文件的位置。在这一题中，你<strong>必须</strong>使用 <code>fs.createReadStream()</code> 方法以 stream 的形式作出请求响应。</p>
+<hr />
+<h2 id="提示">提示</h2>
+<p>由于我们需要创建的是一个 HTTP 服务而不是普通的 TCP 服务，因此，你应该使用 <code>http</code> 这个 Node 核心模块。它和 <code>net</code> 模块类似，<code>http</code> 模块拥有一个叫做 <code>http.createServer()</code> 的方法，所不同的是它所创建的服务器是用 HTTP 协议进行通信的。</p>
+<p><code>http.createServer()</code> 接收一个回调函数作为参数，回调函数会在你的服务器每一次进行连接的时候执行，这个回调函数有以下的特征：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">callback</span> (request<span class="op">,</span> response) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a></code></pre></div>
+<p>在这里，这两个参数是代表一个 HTTP 请求以及相应的响应的两个对象。<code>request</code> 用来从请求中获取一些的属性，例如请求头和查询字符（query-string)，而 <code>response</code> 会发送数据给客户端，包括响应头部和响应主体。</p>
+<p><code>request</code> 和 <code>response</code> 也都是 Node stream！这意味着，如果需要的话，你可以使用流式处理（streaming）所抽象的那些方法来实现发送和接收数据。</p>
+<p><code>http.createServer()</code> 会返回一个 HTTP 服务器的实例。你需要调用 <code>server.listen(portNumber)</code> 方法去监听一个特定的端口。</p>
+<p>一个典型的 Node HTTP 服务器将会是这个样子：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> http <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;http&#39;</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">const</span> server <span class="op">=</span> <span class="va">http</span>.<span class="at">createServer</span>(<span class="kw">function</span> (req<span class="op">,</span> res) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="co">// 处理请求的逻辑...</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="va">server</span>.<span class="at">listen</span>(<span class="dv">8000</span>)</a></code></pre></div>
+<p><code>http</code> 模块的文档你可以使用浏览器访问如下路径来查看： {rootdir:/docs-nodejs/http.html}</p>
+<p><code>fs</code> 这个核心模块也含有一些用来处理文件的流式（stream） API。你可以使用 <code>fs.createReadStream()</code> 方法来为命令行参数指定的文件创建一个 stream。这个方法会返回一个 stream 对象，该对象可以使用类似 <code>src.pipe(dst)</code> 的语法把数据从 <code>src</code>流传输(pipe) 到 <code>dst</code>流中。通过这种形式，你可以轻松地把一个文件系统的 stream 和一个 HTTP 响应的 stream 连接起来。</p>
+</body>
+</html>

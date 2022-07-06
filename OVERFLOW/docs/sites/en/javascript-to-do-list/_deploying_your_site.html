@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>_deploying_your_site</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h3 id="goal">Goal</h3>
+<p>Hosting your project requires you to make the HTML, JavaScript and CSS files available over the Internet.</p>
+<p>There are three hosting options, depending on how much of a challenge you are looking for:</p>
+<ul>
+<li>Use a static site hosting service</li>
+<li>Use git and Github Pages</li>
+<li>Roll your own with a hosting provider</li>
+</ul>
+<h3 id="using-a-static-site-hosting-service">Using a Static Site Hosting Service</h3>
+<p>If you are brand new to hosting websites, you may want to use a static site hosting service. These allow you to upload a zip file of html, css and javascript and have a working website. An easy one is <a href="https://getforge.com/">Forge</a>.</p>
+<ol type="1">
+<li>Sign up for Forge</li>
+<li>Zip your project directory</li>
+<li>Drag it into the Forge website</li>
+</ol>
+<p>Now you have a fully functioning site hosted online! Share the link with your friends and family and wow them with your skills!</p>
+<h3 id="using-git-and-github-pages">Using Git and Github Pages</h3>
+<p>If you like with git and github, take a stab at setting up your site with <a href="http://pages.github.com/">Github Pages</a>. The easiest thing to do is: cd .</p>
+<ol type="1">
+<li>From the terminal, <code>cd</code> into your project directory</li>
+<li>Turn it into a git repository by running <code>git init</code></li>
+<li>Checkout a branch called <code>gh-pages</code></li>
+<li>Commit all the files</li>
+<li>Create a remote repository on github for the project.</li>
+<li>Follow their instructions for adding the github remote to your existing repo</li>
+<li>Follow the instructions on <a href="http://pages.github.com">Github Pages</a> for setting up a project site from scratch.</li>
+<li>Make the <code>gh-pages</code> the default branch</li>
+<li>Push it on up!</li>
+</ol>
+<h3 id="rolling-your-own-hosting-with-a-cloud-provider">Rolling Your Own Hosting With a Cloud Provider</h3>
+<p>If you secretly are an unix admin who floats in the cloud; consider using Amazon <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">S3</a> or <a href="http://www.rackspace.com/knowledge_center/article/use-cloud-files-to-serve-static-content-for-websites">Rackspace Cloud Files</a></p>
+<p>Both of these services are designed to serve up static files without needing to pay for a virtual server. This makes your monthly hosting bill for even large, high traffic sites incredibly cheap.</p>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>the_command_line</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "input_and_output" -->
+<h1 id="the-command-line">The Command Line</h1>
+<ul>
+<li>the TERMINAL is a window into which you can talk directly to your computer
+<ul>
+<li>aka <em>console</em> or <em>command line</em> or <em>command prompt</em></li>
+</ul></li>
+<li>very low level, based entirely on text and typing, not graphics and mousing</li>
+<li>when you type into the terminal, you are always issuing COMMANDS
+<ul>
+<li>which is why it’s called the Command Line</li>
+</ul></li>
+</ul>
+<h1 id="opening-the-terminal">Opening the Terminal</h1>
+<ul>
+<li>to open your terminal:
+<ul>
+<li>Mac OS: launch the “Terminal” application</li>
+<li>Windows with Railsinstaller: launch “Command Prompt with Ruby and Rails”</li>
+</ul></li>
+<li><strong>Important:</strong> make your terminal <em>as tall as possible</em></li>
+</ul>
+<h1 id="directories">Directories</h1>
+<ul>
+<li>a DIRECTORY is a location on your hard disk
+<ul>
+<li>also called a FOLDER</li>
+</ul></li>
+<li>directories can contain FILES</li>
+<li>directories can also contain other directories (called SUBDIRECTORIES)</li>
+</ul>
+<h1 id="the-current-directory">The Current Directory</h1>
+<ul>
+<li>inside the Terminal, you are <em>always</em> inside a directory</li>
+<li>it is very important not to get lost! You must try to remember which directory you are in.</li>
+<li>If you forget, you can use a special command called <code>pwd</code></li>
+</ul>
+<h1 id="home-directory">Home Directory</h1>
+<ul>
+<li>when you open the Terminal you are in your HOME DIRECTORY</li>
+<li>usually you don’t want to store files directly in here</li>
+</ul>
+<h1 id="listing-directory-contents">Listing Directory Contents</h1>
+<ul>
+<li>when you type <code>ls</code> (“list”) it shows the contents of the current directory</li>
+</ul>
+<h1 id="making-a-directory">Making a directory</h1>
+<ul>
+<li>when you type <code>mkdir</code> (“make dir”) it creates a new SUBDIRECTORY inside the current directory mkdir code</li>
+</ul>
+<h1 id="changing-directories">Changing directories</h1>
+<ul>
+<li><code>cd</code> (“change dir”) moves you into a different directory</li>
+<li>For example, <code>cd code</code> would move you into a directory named <code>code</code></li>
+<li>If you ever get lost, type <code>cd</code> all on its own and press the return key. This will send you back to your home directory.</li>
+</ul>
+<h1 id="basic-command-line-glossary">Basic Command Line Glossary</h1>
+<ul>
+<li><code>pwd</code> (“print working dir”) – shows the name of the current directory</li>
+<li><code>ls</code> (“list”) – shows the contents of the current directory</li>
+<li><code>mkdir</code> (“make dir”) – creates a new SUBDIRECTORY inside the current directory</li>
+<li><code>cd</code> (“change dir”) – move into a different directory</li>
+<li><code>touch whatever.txt</code> – creates an empty file named <code>whatever.txt</code> inside the current directory</li>
+</ul>
+<h1 id="lab-make-a-subdirectory-and-then-enter-it">LAB: make a subdirectory and then enter it</h1>
+<ol type="1">
+<li>open Terminal</li>
+<li>make a new subdirectory using <code>mkdir code</code></li>
+<li>change into that directory using <code>cd code</code></li>
+<li>list its contents using <code>ls</code> (and note that it’s empty)</li>
+</ol>
+<h1 id="files">Files</h1>
+<ul>
+<li>a file is a place on disk for storing stuff</li>
+<li>“stuff” here could be anything at all
+<ul>
+<li>documents, pictures, sounds, applications…</li>
+</ul></li>
+<li>every file lives inside a directory</li>
+</ul>
+<h1 id="text-editor">Text Editor</h1>
+<ul>
+<li>a text editor is a program that edits a text file</li>
+<li>a text editor is <em>like</em> a word processor</li>
+<li>but a text editor is <strong>not</strong> a word processor</li>
+<li>You probably have <em>Atom</em>
+<ul>
+<li>or <a href="/installfest/editors">another text editor</a></li>
+<li>but <strong>NOT</strong> <em>TextEdit</em> or <em>Notepad</em> or <em>Microsoft Word</em></li>
+</ul></li>
+</ul>
+<h1 id="source-file">Source File</h1>
+<ul>
+<li>source code is the essence of a program</li>
+<li>source files are text files that contain source code</li>
+<li><p>to RUN a program you type <code>ruby</code> and then the name of the source file</p></li>
+<li>The Recipe Metaphor
+<ul>
+<li>source file = recipe</li>
+<li>running = cooking</li>
+</ul></li>
+</ul>
+<h1 id="lab-hello-world">LAB: Hello, World</h1>
+<ol type="1">
+<li>Make sure you are in your <code>code</code> subdirectory using <code>pwd</code></li>
+<li>Create a file named <code>hello.rb</code> using <code>touch hello.rb</code></li>
+<li>Open <code>hello.rb</code> in your favorite text editor</li>
+<li><p>Inside this file, put the following source code:</p>
+<pre><code>puts &quot;Hello, World!&quot;</code></pre></li>
+<li>Save the file</li>
+<li>Go back to the terminal</li>
+<li><p>Run this file using <code>ruby hello.rb</code></p></li>
+</ol>
+<p>What happens? Is this what you expected?</p>
+</body>
+</html>

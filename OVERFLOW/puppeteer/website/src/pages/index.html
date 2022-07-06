@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="puppeteer">Puppeteer</h1>
+<!--[START badges] -->
+<p><a href="https://github.com/puppeteer/puppeteer/actions?query=workflow%3Arun-checks"><img src="https://github.com/puppeteer/puppeteer/workflows/run-checks/badge.svg" alt="Build status" /></a> <a href="https://npmjs.org/package/puppeteer"><img src="https://img.shields.io/npm/v/puppeteer.svg" alt="npm puppeteer package" /></a></p>
+<!-- [END badges] -->
+<p><img src="https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png" height="200" align="right"/></p>
+<h6 id="api-faq-contributing-troubleshooting"><a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md">API</a> | <a href="#faq">FAQ</a> | <a href="https://github.com/puppeteer/puppeteer/blob/main/CONTRIBUTING.md">Contributing</a> | <a href="https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md">Troubleshooting</a></h6>
+<blockquote>
+<p>Puppeteer is a Node library which provides a high-level API to control Chrome or Chromium over the <a href="https://chromedevtools.github.io/devtools-protocol/">DevTools Protocol</a>. Puppeteer runs <a href="https://developers.google.com/web/updates/2017/04/headless-chrome">headless</a> by default, but can be configured to run full (non-headless) Chrome or Chromium.</p>
+</blockquote>
+<!-- [START usecases] -->
+<h6 id="what-can-i-do">What can I do?</h6>
+<p>Most things that you can do manually in the browser can be done using Puppeteer! Here are a few examples to get you started:</p>
+<ul>
+<li>Generate screenshots and PDFs of pages.</li>
+<li>Crawl a SPA (Single-Page Application) and generate pre-rendered content (i.e. “SSR” (Server-Side Rendering)).</li>
+<li>Automate form submission, UI testing, keyboard input, etc.</li>
+<li>Create an up-to-date, automated testing environment. Run your tests directly in the latest version of Chrome using the latest JavaScript and browser features.</li>
+<li>Capture a <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference">timeline trace</a> of your site to help diagnose performance issues.</li>
+<li>Test Chrome Extensions. <!-- [END usecases] --></li>
+</ul>
+<p>Give it a spin: https://try-puppeteer.appspot.com/</p>
+<!-- [START getstarted] -->
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="installation">Installation</h3>
+<p>To use Puppeteer in your project, run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">npm</span> i puppeteer</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co"># or &quot;yarn add puppeteer&quot;</span></a></code></pre></div>
+<p>Note: When you install Puppeteer, it downloads a recent version of Chromium (~170MB Mac, ~282MB Linux, ~280MB Win) that is guaranteed to work with the API. To skip the download, or to download a different browser, see <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#environment-variables">Environment variables</a>.</p>
+<h3 id="puppeteer-core">puppeteer-core</h3>
+<p>Since version 1.7.0 we publish the <a href="https://www.npmjs.com/package/puppeteer-core"><code>puppeteer-core</code></a> package, a version of Puppeteer that doesn’t download any browser by default.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">npm</span> i puppeteer-core</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co"># or &quot;yarn add puppeteer-core&quot;</span></a></code></pre></div>
+<p><code>puppeteer-core</code> is intended to be a lightweight version of Puppeteer for launching an existing browser installation or for connecting to a remote one. Be sure that the version of puppeteer-core you install is compatible with the browser you intend to connect to.</p>
+<p>See <a href="https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#puppeteer-vs-puppeteer-core">puppeteer vs puppeteer-core</a>.</p>
+<h3 id="usage">Usage</h3>
+<p>Puppeteer follows the latest <a href="https://github.com/nodejs/Release#release-schedule">maintenance LTS</a> version of Node.</p>
+<p>Note: Prior to v1.18.1, Puppeteer required at least Node v6.4.0. Versions from v1.18.1 to v2.1.0 rely on Node 8.9.0+. Starting from v3.0.0 Puppeteer starts to rely on Node 10.18.1+. All examples below use async/await which is only supported in Node v7.6.0 or greater.</p>
+<p>Puppeteer will be familiar to people using other browser testing frameworks. You create an instance of <code>Browser</code>, open pages, and then manipulate them with <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#">Puppeteer’s API</a>.</p>
+<p><strong>Example</strong> - navigating to https://example.com and saving a screenshot as <em>example.png</em>:</p>
+<p>Save file as <strong>example.js</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> puppeteer <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;puppeteer&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">(<span class="kw">async</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="kw">const</span> page <span class="op">=</span> <span class="cf">await</span> <span class="va">browser</span>.<span class="at">newPage</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="cf">await</span> <span class="va">page</span>.<span class="at">goto</span>(<span class="st">&#39;https://example.com&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="cf">await</span> <span class="va">page</span>.<span class="at">screenshot</span>(<span class="op">{</span> <span class="dt">path</span><span class="op">:</span> <span class="st">&#39;example.png&#39;</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9">  <span class="cf">await</span> <span class="va">browser</span>.<span class="at">close</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="op">}</span>)()<span class="op">;</span></a></code></pre></div>
+<p>Execute script on the command line</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">node</span> example.js</a></code></pre></div>
+<p>Puppeteer sets an initial page size to 800×600px, which defines the screenshot size. The page size can be customized with <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#pagesetviewportviewport"><code>Page.setViewport()</code></a>.</p>
+<p><strong>Example</strong> - create a PDF.</p>
+<p>Save file as <strong>hn.js</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">const</span> puppeteer <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;puppeteer&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3">(<span class="kw">async</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  <span class="kw">const</span> page <span class="op">=</span> <span class="cf">await</span> <span class="va">browser</span>.<span class="at">newPage</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="cf">await</span> <span class="va">page</span>.<span class="at">goto</span>(<span class="st">&#39;https://news.ycombinator.com&#39;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-7" title="7">    <span class="dt">waitUntil</span><span class="op">:</span> <span class="st">&#39;networkidle2&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="cf">await</span> <span class="va">page</span>.<span class="at">pdf</span>(<span class="op">{</span> <span class="dt">path</span><span class="op">:</span> <span class="st">&#39;hn.pdf&#39;</span><span class="op">,</span> <span class="dt">format</span><span class="op">:</span> <span class="st">&#39;a4&#39;</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-10" title="10"></a>
+<a class="sourceLine" id="cb5-11" title="11">  <span class="cf">await</span> <span class="va">browser</span>.<span class="at">close</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="op">}</span>)()<span class="op">;</span></a></code></pre></div>
+<p>Execute script on the command line</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="ex">node</span> hn.js</a></code></pre></div>
+<p>See <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#pagepdfoptions"><code>Page.pdf()</code></a> for more information about creating pdfs.</p>
+<p><strong>Example</strong> - evaluate script in the context of the page</p>
+<p>Save file as <strong>get-dimensions.js</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">const</span> puppeteer <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;puppeteer&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3">(<span class="kw">async</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="kw">const</span> page <span class="op">=</span> <span class="cf">await</span> <span class="va">browser</span>.<span class="at">newPage</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="cf">await</span> <span class="va">page</span>.<span class="at">goto</span>(<span class="st">&#39;https://example.com&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8">  <span class="co">// Get the &quot;viewport&quot; of the page, as reported by the page.</span></a>
+<a class="sourceLine" id="cb7-9" title="9">  <span class="kw">const</span> dimensions <span class="op">=</span> <span class="cf">await</span> <span class="va">page</span>.<span class="at">evaluate</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-10" title="10">    <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-11" title="11">      <span class="dt">width</span><span class="op">:</span> <span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">clientWidth</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-12" title="12">      <span class="dt">height</span><span class="op">:</span> <span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">clientHeight</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-13" title="13">      <span class="dt">deviceScaleFactor</span><span class="op">:</span> <span class="va">window</span>.<span class="at">devicePixelRatio</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-14" title="14">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-15" title="15">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-16" title="16"></a>
+<a class="sourceLine" id="cb7-17" title="17">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Dimensions:&#39;</span><span class="op">,</span> dimensions)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-18" title="18"></a>
+<a class="sourceLine" id="cb7-19" title="19">  <span class="cf">await</span> <span class="va">browser</span>.<span class="at">close</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="op">}</span>)()<span class="op">;</span></a></code></pre></div>
+<p>Execute script on the command line</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">node</span> get-dimensions.js</a></code></pre></div>
+<p>See <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#pageevaluatepagefunction-args"><code>Page.evaluate()</code></a> for more information on <code>evaluate</code> and related methods like <code>evaluateOnNewDocument</code> and <code>exposeFunction</code>.</p>
+<!-- [END getstarted] -->
+<!-- [START runtimesettings] -->
+<h2 id="default-runtime-settings">Default runtime settings</h2>
+<p><strong>1. Uses Headless mode</strong></p>
+<p>Puppeteer launches Chromium in <a href="https://developers.google.com/web/updates/2017/04/headless-chrome">headless mode</a>. To launch a full version of Chromium, set the <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#puppeteerlaunchoptions"><code>headless</code> option</a> when launching a browser:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>(<span class="op">{</span> <span class="dt">headless</span><span class="op">:</span> <span class="kw">false</span> <span class="op">}</span>)<span class="op">;</span> <span class="co">// default is true</span></a></code></pre></div>
+<p><strong>2. Runs a bundled version of Chromium</strong></p>
+<p>By default, Puppeteer downloads and uses a specific version of Chromium so its API is guaranteed to work out of the box. To use Puppeteer with a different version of Chrome or Chromium, pass in the executable’s path when creating a <code>Browser</code> instance:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>(<span class="op">{</span> <span class="dt">executablePath</span><span class="op">:</span> <span class="st">&#39;/path/to/Chrome&#39;</span> <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>You can also use Puppeteer with Firefox Nightly (experimental support). See <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#puppeteerlaunchoptions"><code>Puppeteer.launch()</code></a> for more information.</p>
+<p>See <a href="https://www.howtogeek.com/202825/what%E2%80%99s-the-difference-between-chromium-and-chrome/"><code>this article</code></a> for a description of the differences between Chromium and Chrome. <a href="https://chromium.googlesource.com/chromium/src/+/master/docs/chromium_browser_vs_google_chrome.md"><code>This article</code></a> describes some differences for Linux users.</p>
+<p><strong>3. Creates a fresh user profile</strong></p>
+<p>Puppeteer creates its own browser user profile which it <strong>cleans up on every run</strong>.</p>
+<!-- [END runtimesettings] -->
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md">API Documentation</a></li>
+<li><a href="https://github.com/puppeteer/puppeteer/tree/main/examples/">Examples</a></li>
+<li><a href="https://github.com/transitive-bullshit/awesome-puppeteer">Community list of Puppeteer resources</a></li>
+</ul>
+<!-- [START debugging] -->
+<h2 id="debugging-tips">Debugging tips</h2>
+<ol type="1">
+<li><p>Turn off headless mode - sometimes it’s useful to see what the browser is displaying. Instead of launching in headless mode, launch a full version of the browser using <code>headless: false</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>(<span class="op">{</span> <span class="dt">headless</span><span class="op">:</span> <span class="kw">false</span> <span class="op">}</span>)<span class="op">;</span></a></code></pre></div></li>
+<li><p>Slow it down - the <code>slowMo</code> option slows down Puppeteer operations by the specified amount of milliseconds. It’s another way to help see what’s going on.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="dt">headless</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb12-3" title="3">  <span class="dt">slowMo</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span> <span class="co">// slow down by 250ms</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div></li>
+<li><p>Capture console output - You can listen for the <code>console</code> event. This is also handy when debugging code in <code>page.evaluate()</code>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="va">page</span>.<span class="at">on</span>(<span class="st">&#39;console&#39;</span><span class="op">,</span> (msg) <span class="kw">=&gt;</span> <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;PAGE LOG:&#39;</span><span class="op">,</span> <span class="va">msg</span>.<span class="at">text</span>()))<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-2" title="2"></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="cf">await</span> <span class="va">page</span>.<span class="at">evaluate</span>(() <span class="kw">=&gt;</span> <span class="va">console</span>.<span class="at">log</span>(<span class="vs">`url is </span><span class="sc">${</span><span class="va">location</span>.<span class="at">href</span><span class="sc">}</span><span class="vs">`</span>))<span class="op">;</span></a></code></pre></div></li>
+<li><p>Use debugger in application code browser</p>
+<p>There are two execution context: node.js that is running test code, and the browser running application code being tested. This lets you debug code in the application code browser; ie code inside <code>evaluate()</code>.</p>
+<ul>
+<li><p>Use <code>{devtools: true}</code> when launching Puppeteer:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">const</span> browser <span class="op">=</span> <span class="cf">await</span> <span class="va">puppeteer</span>.<span class="at">launch</span>(<span class="op">{</span> <span class="dt">devtools</span><span class="op">:</span> <span class="kw">true</span> <span class="op">}</span>)<span class="op">;</span></a></code></pre></div></li>
+<li><p>Change default test timeout:</p>
+<p>jest: <code>jest.setTimeout(100000);</code></p>
+<p>jasmine: <code>jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;</code></p>
+<p>mocha: <code>this.timeout(100000);</code> (don’t forget to change test to use <a href="https://stackoverflow.com/a/23492442">function and not ‘=&gt;’</a>)</p></li>
+<li><p>Add an evaluate statement with <code>debugger</code> inside / add <code>debugger</code> to an existing evaluate statement:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="cf">await</span> <span class="va">page</span>.<span class="at">evaluate</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="cf">debugger</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>The test will now stop executing in the above evaluate statement, and chromium will stop in debug mode.</p></li>
+</ul></li>
+<li><p>Use debugger in node.js</p>
+<p>This will let you debug test code. For example, you can step over <code>await page.click()</code> in the node.js script and see the click happen in the application code browser.</p>
+<p>Note that you won’t be able to run <code>await page.click()</code> in DevTools console due to this <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=833928">Chromium bug</a>. So if you want to try something out, you have to add it to your test file.</p>
+<ul>
+<li><p>Add <code>debugger;</code> to your test, eg:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="cf">debugger</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="cf">await</span> <span class="va">page</span>.<span class="at">click</span>(<span class="st">&#39;a[target=_blank]&#39;</span>)<span class="op">;</span></a></code></pre></div></li>
+<li>Set <code>headless</code> to <code>false</code></li>
+<li>Run <code>node --inspect-brk</code>, eg <code>node --inspect-brk node_modules/.bin/jest tests</code></li>
+<li>In Chrome open <code>chrome://inspect/#devices</code> and click <code>inspect</code></li>
+<li>In the newly opened test browser, type <code>F8</code> to resume test execution</li>
+<li><p>Now your <code>debugger</code> will be hit and you can debug in the test browser</p></li>
+</ul></li>
+<li><p>Enable verbose logging - internal DevTools protocol traffic will be logged via the <a href="https://github.com/visionmedia/debug"><code>debug</code></a> module under the <code>puppeteer</code> namespace.</p>
+<pre><code> # Basic verbose logging
+ env DEBUG=&quot;puppeteer:*&quot; node script.js
+
+ # Protocol traffic can be rather noisy. This example filters out all Network domain messages
+ env DEBUG=&quot;puppeteer:*&quot; env DEBUG_COLORS=true node script.js 2&gt;&amp;1 | grep -v &#39;&quot;Network&#39;</code></pre></li>
+<li><p>Debug your Puppeteer (node) code easily, using <a href="https://github.com/GoogleChromeLabs/ndb">ndb</a></p></li>
+</ol>
+<ul>
+<li><p><code>npm install -g ndb</code> (or even better, use <a href="https://github.com/zkat/npx">npx</a>!)</p></li>
+<li><p>add a <code>debugger</code> to your Puppeteer (node) code</p></li>
+<li><p>add <code>ndb</code> (or <code>npx ndb</code>) before your test command. For example:</p>
+<p><code>ndb jest</code> or <code>ndb mocha</code> (or <code>npx ndb jest</code> / <code>npx ndb mocha</code>)</p></li>
+<li><p>debug your test inside chromium like a boss!</p></li>
+</ul>
+<!-- [END debugging] -->
+<!-- [START typescript] -->
+<h2 id="usage-with-typescript">Usage with TypeScript</h2>
+<p>We have recently completed a migration to move the Puppeteer source code from JavaScript to TypeScript and as of version 7.0.1 we ship our own built-in type definitions.</p>
+<p>If you are on a version older than 7, we recommend installing the Puppeteer type definitions from the <a href="https://definitelytyped.org/">DefinitelyTyped</a> repository:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" title="1"><span class="ex">npm</span> install --save-dev @types/puppeteer</a></code></pre></div>
+<p>The types that you’ll see appearing in the Puppeteer source code are based off the great work of those who have contributed to the <code>@types/puppeteer</code> package. We really appreciate the hard work those people put in to providing high quality TypeScript definitions for Puppeteer’s users.</p>
+<!-- [END typescript] -->
+<h2 id="contributing-to-puppeteer">Contributing to Puppeteer</h2>
+<p>Check out <a href="https://github.com/puppeteer/puppeteer/blob/main/CONTRIBUTING.md">contributing guide</a> to get an overview of Puppeteer development.</p>
+<!-- [START faq] -->
+<h1 id="faq">FAQ</h1>
+<h4 id="q-who-maintains-puppeteer">Q: Who maintains Puppeteer?</h4>
+<p>The Chrome DevTools team maintains the library, but we’d love your help and expertise on the project! See <a href="https://github.com/puppeteer/puppeteer/blob/main/CONTRIBUTING.md">Contributing</a>.</p>
+<h4 id="q-what-is-the-status-of-cross-browser-support">Q: What is the status of cross-browser support?</h4>
+<p>Official Firefox support is currently experimental. The ongoing collaboration with Mozilla aims to support common end-to-end testing use cases, for which developers expect cross-browser coverage. The Puppeteer team needs input from users to stabilize Firefox support and to bring missing APIs to our attention.</p>
+<p>From Puppeteer v2.1.0 onwards you can specify <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#puppeteerlaunchoptions"><code>puppeteer.launch({product: 'firefox'})</code></a> to run your Puppeteer scripts in Firefox Nightly, without any additional custom patches. While <a href="https://www.npmjs.com/package/puppeteer-firefox">an older experiment</a> required a patched version of Firefox, <a href="https://wiki.mozilla.org/Remote">the current approach</a> works with “stock” Firefox.</p>
+<p>We will continue to collaborate with other browser vendors to bring Puppeteer support to browsers such as Safari. This effort includes exploration of a standard for executing cross-browser commands (instead of relying on the non-standard DevTools Protocol used by Chrome).</p>
+<h4 id="q-what-are-puppeteers-goals-and-principles">Q: What are Puppeteer’s goals and principles?</h4>
+<p>The goals of the project are:</p>
+<ul>
+<li>Provide a slim, canonical library that highlights the capabilities of the <a href="https://chromedevtools.github.io/devtools-protocol/">DevTools Protocol</a>.</li>
+<li>Provide a reference implementation for similar testing libraries. Eventually, these other frameworks could adopt Puppeteer as their foundational layer.</li>
+<li>Grow the adoption of headless/automated browser testing.</li>
+<li>Help dogfood new DevTools Protocol features…and catch bugs!</li>
+<li>Learn more about the pain points of automated browser testing and help fill those gaps.</li>
+</ul>
+<p>We adapt <a href="https://www.chromium.org/developers/core-principles">Chromium principles</a> to help us drive product decisions:</p>
+<ul>
+<li><strong>Speed</strong>: Puppeteer has almost zero performance overhead over an automated page.</li>
+<li><strong>Security</strong>: Puppeteer operates off-process with respect to Chromium, making it safe to automate potentially malicious pages.</li>
+<li><strong>Stability</strong>: Puppeteer should not be flaky and should not leak memory.</li>
+<li><strong>Simplicity</strong>: Puppeteer provides a high-level API that’s easy to use, understand, and debug.</li>
+</ul>
+<h4 id="q-is-puppeteer-replacing-seleniumwebdriver">Q: Is Puppeteer replacing Selenium/WebDriver?</h4>
+<p><strong>No</strong>. Both projects are valuable for very different reasons:</p>
+<ul>
+<li>Selenium/WebDriver focuses on cross-browser automation; its value proposition is a single standard API that works across all major browsers.</li>
+<li>Puppeteer focuses on Chromium; its value proposition is richer functionality and higher reliability.</li>
+</ul>
+<p>That said, you <strong>can</strong> use Puppeteer to run tests against Chromium, e.g. using the community-driven <a href="https://github.com/smooth-code/jest-puppeteer">jest-puppeteer</a>. While this probably shouldn’t be your only testing solution, it does have a few good points compared to WebDriver:</p>
+<ul>
+<li>Puppeteer requires zero setup and comes bundled with the Chromium version it works best with, making it <a href="https://github.com/puppeteer/puppeteer/#getting-started">very easy to start with</a>. At the end of the day, it’s better to have a few tests running chromium-only, than no tests at all.</li>
+<li>Puppeteer has event-driven architecture, which removes a lot of potential flakiness. There’s no need for evil “sleep(1000)” calls in puppeteer scripts.</li>
+<li>Puppeteer runs headless by default, which makes it fast to run. Puppeteer v1.5.0 also exposes browser contexts, making it possible to efficiently parallelize test execution.</li>
+<li>Puppeteer shines when it comes to debugging: flip the “headless” bit to false, add “slowMo”, and you’ll see what the browser is doing. You can even open Chrome DevTools to inspect the test environment.</li>
+</ul>
+<h4 id="q-why-doesnt-puppeteer-v.xxx-work-with-chromium-v.yyy">Q: Why doesn’t Puppeteer v.XXX work with Chromium v.YYY?</h4>
+<p>We see Puppeteer as an <strong>indivisible entity</strong> with Chromium. Each version of Puppeteer bundles a specific version of Chromium – <strong>the only</strong> version it is guaranteed to work with.</p>
+<p>This is not an artificial constraint: A lot of work on Puppeteer is actually taking place in the Chromium repository. Here’s a typical story:</p>
+<ul>
+<li>A Puppeteer bug is reported: https://github.com/puppeteer/puppeteer/issues/2709</li>
+<li>It turned out this is an issue with the DevTools protocol, so we’re fixing it in Chromium: https://chromium-review.googlesource.com/c/chromium/src/+/1102154</li>
+<li>Once the upstream fix is landed, we roll updated Chromium into Puppeteer: https://github.com/puppeteer/puppeteer/pull/2769</li>
+</ul>
+<p>However, oftentimes it is desirable to use Puppeteer with the official Google Chrome rather than Chromium. For this to work, you should install a <code>puppeteer-core</code> version that corresponds to the Chrome version.</p>
+<p>For example, in order to drive Chrome 71 with puppeteer-core, use <code>chrome-71</code> npm tag:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb19-1" title="1"><span class="ex">npm</span> install puppeteer-core@chrome-71</a></code></pre></div>
+<h4 id="q-which-chromium-version-does-puppeteer-use">Q: Which Chromium version does Puppeteer use?</h4>
+<p>Look for the <code>chromium</code> entry in <a href="https://github.com/puppeteer/puppeteer/blob/main/src/revisions.ts">revisions.ts</a>. To find the corresponding Chromium commit and version number, search for the revision prefixed by an <code>r</code> in <a href="https://omahaproxy.appspot.com/">OmahaProxy</a>’s “Find Releases” section.</p>
+<h4 id="q-which-firefox-version-does-puppeteer-use">Q: Which Firefox version does Puppeteer use?</h4>
+<p>Since Firefox support is experimental, Puppeteer downloads the latest <a href="https://wiki.mozilla.org/Nightly">Firefox Nightly</a> when the <code>PUPPETEER_PRODUCT</code> environment variable is set to <code>firefox</code>. That’s also why the value of <code>firefox</code> in <a href="https://github.com/puppeteer/puppeteer/blob/main/src/revisions.ts">revisions.ts</a> is <code>latest</code> – Puppeteer isn’t tied to a particular Firefox version.</p>
+<p>To fetch Firefox Nightly as part of Puppeteer installation:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb20-1" title="1"><span class="va">PUPPETEER_PRODUCT=</span>firefox <span class="ex">npm</span> i puppeteer</a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="co"># or &quot;yarn add puppeteer&quot;</span></a></code></pre></div>
+<h4 id="q-whats-considered-a-navigation">Q: What’s considered a “Navigation”?</h4>
+<p>From Puppeteer’s standpoint, <strong>“navigation” is anything that changes a page’s URL</strong>. Aside from regular navigation where the browser hits the network to fetch a new document from the web server, this includes <a href="https://www.w3.org/TR/html5/single-page.html#scroll-to-fragid">anchor navigations</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API">History API</a> usage.</p>
+<p>With this definition of “navigation,” <strong>Puppeteer works seamlessly with single-page applications.</strong></p>
+<h4 id="q-whats-the-difference-between-a-trusted-and-untrusted-input-event">Q: What’s the difference between a “trusted” and “untrusted” input event?</h4>
+<p>In browsers, input events could be divided into two big groups: trusted vs. untrusted.</p>
+<ul>
+<li><strong>Trusted events</strong>: events generated by users interacting with the page, e.g. using a mouse or keyboard.</li>
+<li><strong>Untrusted event</strong>: events generated by Web APIs, e.g. <code>document.createEvent</code> or <code>element.click()</code> methods.</li>
+</ul>
+<p>Websites can distinguish between these two groups:</p>
+<ul>
+<li>using an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/isTrusted"><code>Event.isTrusted</code></a> event flag</li>
+<li>sniffing for accompanying events. For example, every trusted <code>'click'</code> event is preceded by <code>'mousedown'</code> and <code>'mouseup'</code> events.</li>
+</ul>
+<p>For automation purposes it’s important to generate trusted events. <strong>All input events generated with Puppeteer are trusted and fire proper accompanying events.</strong> If, for some reason, one needs an untrusted event, it’s always possible to hop into a page context with <code>page.evaluate</code> and generate a fake event:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" title="1"><span class="cf">await</span> <span class="va">page</span>.<span class="at">evaluate</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb21-2" title="2">  <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;button[type=submit]&#39;</span>).<span class="at">click</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h4 id="q-what-features-does-puppeteer-not-support">Q: What features does Puppeteer not support?</h4>
+<p>You may find that Puppeteer does not behave as expected when controlling pages that incorporate audio and video. (For example, <a href="https://github.com/puppeteer/puppeteer/issues/291">video playback/screenshots is likely to fail</a>.) There are two reasons for this:</p>
+<ul>
+<li>Puppeteer is bundled with Chromium — not Chrome — and so by default, it inherits all of <a href="https://www.chromium.org/audio-video">Chromium’s media-related limitations</a>. This means that Puppeteer does not support licensed formats such as AAC or H.264. (However, it is possible to force Puppeteer to use a separately-installed version Chrome instead of Chromium via the <a href="https://github.com/puppeteer/puppeteer/blob/v10.0.0/docs/api.md#puppeteerlaunchoptions"><code>executablePath</code> option to <code>puppeteer.launch</code></a>. You should only use this configuration if you need an official release of Chrome that supports these media formats.)</li>
+<li>Since Puppeteer (in all configurations) controls a desktop version of Chromium/Chrome, features that are only supported by the mobile version of Chrome are not supported. This means that Puppeteer <a href="https://caniuse.com/#feat=http-live-streaming">does not support HTTP Live Streaming (HLS)</a>.</li>
+</ul>
+<h4 id="q-i-am-having-trouble-installing-running-puppeteer-in-my-test-environment.-where-should-i-look-for-help">Q: I am having trouble installing / running Puppeteer in my test environment. Where should I look for help?</h4>
+<p>We have a <a href="https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md">troubleshooting</a> guide for various operating systems that lists the required dependencies.</p>
+<h4 id="q-how-do-i-trytest-a-prerelease-version-of-puppeteer">Q: How do I try/test a prerelease version of Puppeteer?</h4>
+<p>You can check out this repo or install the latest prerelease from npm:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb22-1" title="1"><span class="ex">npm</span> i --save puppeteer@next</a></code></pre></div>
+<p>Please note that prerelease may be unstable and contain bugs.</p>
+<h4 id="q-i-have-more-questions-where-do-i-ask">Q: I have more questions! Where do I ask?</h4>
+<p>There are many ways to get help on Puppeteer:</p>
+<ul>
+<li><a href="https://github.com/puppeteer/puppeteer/issues">bugtracker</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/puppeteer">Stack Overflow</a></li>
+</ul>
+<p>Make sure to search these channels before posting your question.</p>
+<!-- [END faq] -->
+</body>
+</html>

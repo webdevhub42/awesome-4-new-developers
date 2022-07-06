@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>loops</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "arrays" -->
+<h1 id="loops">Loops</h1>
+<p>Computers are like robots. They are good at doing things over and over and over and over again.</p>
+<p>A LOOP is when we ask a program to do something many times.</p>
+<h1 id="loop">loop</h1>
+<p>If you want something to keep going forever, use a special loop called <code>loop</code>.</p>
+<pre><code>loop do
+  puts &quot;Hello&quot;
+end</code></pre>
+<p>To stop it, hold down the CONTROL key and press the C key.</p>
+<p><strong>Note well!</strong> The lines between <code>do</code> and <code>end</code> are INDENTED. Indentation is very important to you and other humans. It lets our eyes follow the patterns and helps us quickly see what parts of the program go with each other.</p>
+<h1 id="one-infinite-loop">One Infinite Loop</h1>
+<figure>
+<img src="img/one-infinite-loop.jpg" alt="One Infinite Loop" /><figcaption>One Infinite Loop</figcaption>
+</figure>
+<p><em>Fun Fact:</em> The address of Apple HQ is</p>
+<pre><code>1 Infinite Loop
+Cupertino, CA 95014</code></pre>
+<p><em>Image from the Wikimedia Commons, licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license. Attribution: Joe Ravi</em></p>
+<h1 id="lab-infinite-hello">LAB: Infinite Hello</h1>
+<p>Let’s change <code>hello.rb</code> so that it keeps saying hello over and over again.</p>
+<pre><code>loop do
+  puts &quot;What is your name?&quot;
+  name = gets.strip
+  puts &quot;Hello, &quot; + name + &quot;!&quot;
+end</code></pre>
+<h1 id="lab-infinite-food">LAB: Infinite Food</h1>
+<p>Write a program called <code>food.rb</code> that</p>
+<ol type="1">
+<li>asks the user for a food – say, “pizza”</li>
+<li>prints “Yum, I love pizza!”</li>
+<li>asks again, and prints again, forever and ever</li>
+</ol>
+<p>Remember, CONTROL-C means “Stop everything!!!”</p>
+<h1 id="who-wants-to-loop-forever">Who wants to loop forever?</h1>
+<p>Next, we will change your <code>food.rb</code> program so that if the user types “return” – meaning the string is empty – then the program exits.</p>
+<p>Please try this yourself! But it’s kind of tricky, so on the next slide I’ll show you one solution.</p>
+<h1 id="exiting-a-loop-with-break">Exiting a Loop with break</h1>
+<p>The magic word <code>break</code> stops a loop immediately.</p>
+<pre><code>loop do
+  puts &quot;What is your name?&quot;
+  name = gets.strip
+  break if name.empty?
+  puts &quot;Hello, &quot; + name + &quot;!&quot;
+end</code></pre>
+<p>The magic word <code>break</code> means “stop the current loop”. It’s less dangerous – but still kind of weird, since it’s not always clear which loop you mean.</p>
+<h1 id="lab-exiting-a-loop">LAB: Exiting a Loop</h1>
+<p>Change your <code>food.rb</code> program so that if the user types “return” – meaning the string is empty – then the program exits.</p>
+<h1 id="lab-good-food-bad-food">LAB: Good Food, Bad Food</h1>
+<ul>
+<li>Change <code>food.rb</code> so that it doesn’t love every food.</li>
+<li>If it’s a food you like (let’s say, pizza), make it print “Yum! I love pizza.”</li>
+<li>If it’s a food you like (let’s say, cabbage), make it print “Yuck! I hate cabbage.”</li>
+</ul>
+<h1 id="times">times</h1>
+<p>Another loop in Ruby is called <code>times</code>, and it’s a message you can send to a number.</p>
+<p>Try this in IRB:</p>
+<pre><code>3.times do
+  puts &quot;Hip! Hip! Hooray!&quot;
+end</code></pre>
+<p>Let’s unpack this:</p>
+<ul>
+<li><code>3.times do</code> means what it sounds like: “do this three times”</li>
+<li><code>end</code> means this is the end of what I want you to do</li>
+<li>and of course, <code>puts</code> means “show this on the terminal”</li>
+</ul>
+<h1 id="counting-in-a-loop">Counting in a loop</h1>
+<p>Remember this poem?</p>
+<pre><code>1 potato
+2 potato
+3 potato
+4
+5 potato
+6 potato
+7 potato
+More</code></pre>
+<p>We’re going to examine a few different ways to code this.</p>
+<h1 id="times-with-a-counter"><code>times</code> with a counter</h1>
+<p>Try this:</p>
+<pre><code>4.times do |count|
+  puts count.to_s + &quot; potato&quot;
+end</code></pre>
+<p><code>|count|</code> means</p>
+<blockquote>
+<p>“the <code>count</code> variable points to the current value of the counter”</p>
+</blockquote>
+<h1 id="times-output"><code>times</code> output</h1>
+<pre><code>0 potato
+1 potato
+2 potato
+3 potato
+4</code></pre>
+<p>Whoops! What’s wrong?</p>
+<h1 id="times-with-a-counter-fixed"><code>times</code> with a counter – fixed</h1>
+<pre><code>4.times do |count|
+  puts (count+1).to_s + &quot; potato&quot;
+end</code></pre>
+<h1 id="loop-with-a-counter"><code>loop</code> with a counter</h1>
+<pre><code>count = 1
+loop do
+  puts count.to_s + &quot; potato&quot;
+  count = count + 1
+end</code></pre>
+<p>Whoops! Hit Control-C and join me on the next slide…</p>
+<h1 id="loop-with-a-counter-fixed"><code>loop</code> with a counter – fixed</h1>
+<pre><code>count = 1
+loop do
+  puts count.to_s + &quot; potato&quot;
+  count = count + 1
+  break if count &gt; 4
+end</code></pre>
+<h1 id="while"><code>while</code></h1>
+<p>The magic word <code>while</code> combines <code>loop</code> and <code>break</code>.</p>
+<pre><code>count = 1
+while count &lt;= 4
+  puts count.to_s + &quot; potato&quot;
+  count = count + 1
+end</code></pre>
+<ul>
+<li><p>The <code>while</code> statement keeps checking the expression</p>
+<ul>
+<li>if it’s <code>true</code> then it loops back</li>
+<li>if it’s <code>false</code> then it stops looping and goes on to the rest of the program</li>
+</ul></li>
+</ul>
+<p>This is fairly complicated, so let’s stop here and make sure to understand everything that’s happening in this little program.</p>
+<h1 id="while-breakdown-pt.1"><code>while</code> breakdown (pt.1)</h1>
+<pre><code>count = 1</code></pre>
+<p>creates a <em>variable</em> named <code>count</code> and sets its value to <code>1</code>.</p>
+<pre><code>while count &lt;= 4</code></pre>
+<p>starts a loop and immediately compares <code>count</code> to <code>4</code>.</p>
+<p><code>1</code> is less than <code>4</code>, so the expression is <code>true</code>, so we continue with the loop.</p>
+<h1 id="while-breakdown-pt.2"><code>while</code> breakdown (pt.2)</h1>
+<pre><code>  puts count.to_s + &quot; potato&quot;</code></pre>
+<p>prints the current value of count (and the word “potato”).</p>
+<pre><code>  count = count + 1</code></pre>
+<p><em>increments</em> the <code>count</code> variable… it was <code>1</code>, so now it’s <code>2</code></p>
+<pre><code>end</code></pre>
+<p>goes <em>back to the <code>while</code> line</em> and checks again</p>
+<h1 id="while-breakdown-pt.2-1"><code>while</code> breakdown (pt.2)</h1>
+<pre><code>while count &lt;= 4</code></pre>
+<p>compares <code>count</code> to <code>4</code>.</p>
+<p><code>2</code> is less than <code>4</code>, so the expression is <code>true</code>, so we continue with the loop.</p>
+<p>Eventually, <code>count</code> becomes <code>5</code>, and the <code>while</code> expression is <code>false</code>, and so we stop looping and go on.</p>
+<h1 id="lab-one-potato">LAB: One Potato</h1>
+<p>Write a program called <code>potato.rb</code> that prints the entire potato poem, accurately.</p>
+<h1 id="lab-adder">Lab: Adder</h1>
+<p>Write a program named <code>adder.rb</code> that keeps a <em>running total</em>.</p>
+<p>For example:</p>
+<pre><code>ruby adder.rb
+1
+Total: 1
+2
+Total: 3
+4
+Total: 7
+-5
+Total: 2</code></pre>
+</body>
+</html>

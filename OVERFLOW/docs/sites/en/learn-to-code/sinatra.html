@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>sinatra</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<!-- next_step "extra" -->
+<h1 id="sinatra">Sinatra</h1>
+<p>Sinatra is a Web Application Framework. It includes a Web Server and lets you write code to show when people request web pages.</p>
+<h1 id="hi-sinatra">Hi, Sinatra</h1>
+<ol type="1">
+<li><p>install Sinatra by running <code>gem install sinatra</code> on the command line</p></li>
+<li><p>create a file called <code>hi.rb</code> containing this:</p>
+<pre><code>require &#39;sinatra&#39;
+
+get &#39;/hi&#39; do
+  &quot;Hi!&quot;
+end</code></pre></li>
+<li><p>run <code>ruby hi.rb</code></p></li>
+</ol>
+<p>Now open a Web Browser (like Firefox or Chrome or Safari or Internet Explorer) and enter the following URL into the address bar:</p>
+<pre><code>http://localhost:4567/hi</code></pre>
+<h1 id="congratulations">Congratulations</h1>
+<p>You just wrote a web server.</p>
+<p>No, really.</p>
+<h1 id="hello-whoever">Hello, Whoever</h1>
+<p>Change <code>hi.rb</code> to look like this:</p>
+<pre><code>require &#39;sinatra&#39;
+
+get &#39;/hi/:who&#39; do
+  &quot;Hi &quot; + params[:who] + &quot;!&quot;
+end</code></pre>
+<p>Now visit the following URL:</p>
+<pre><code>http://localhost:4567/hi/alice</code></pre>
+<h1 id="lab-yeller">LAB: Yeller</h1>
+<p>Make a route in your Sinatra application so that when someone requests this:</p>
+<pre><code>/yell/ahoy</code></pre>
+<p>they see this:</p>
+<pre><code>AHOY!!!</code></pre>
+<p>and when someone requests this:</p>
+<pre><code>/yell/dinnertime</code></pre>
+<p>they see this:</p>
+<pre><code>DINNERTIME!!!</code></pre>
+<h1 id="detour-deploying-to-heroku">Detour: Deploying to Heroku</h1>
+<ul>
+<li>Railsbridge pages describing account setup &amp; <a href="/installfest/deploy_a_rails_app">deploy</a> steps</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problem.nb-no</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<p>Skriv et program som tar imot en eller flere tall som kommandolinje argumenter og sskriver ut summer av disse til skjermen (stdout).</p>
+<hr />
+<h2 id="hint">HINT</h2>
+<p>Du har tilgang til kommandolinje argumenter vi det globale objektet <code>process</code>. <code>process</code> objektet har en <code>argv</code> egenskap, en array, som inneholder hele kommandolinjen mao <code>process.argv</code>.</p>
+<p>For å begynne, skrive et program som gjør dette:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">console</span>.<span class="at">log</span>(<span class="va">process</span>.<span class="at">argv</span>)</a></code></pre></div>
+<p>Kjør programmet med <code>node program.js</code> og noen tall som argumenter f.eks:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="ex">node</span> program.js 1 2 3</a></code></pre></div>
+<p>Programmet vil skrive ut en array med tall som ser slik ut:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">[<span class="st">&#39;node&#39;</span><span class="op">,</span> <span class="st">&#39;/filsti/til/ditt/program.js&#39;</span><span class="op">,</span> <span class="st">&#39;1&#39;</span><span class="op">,</span> <span class="st">&#39;2&#39;</span><span class="op">,</span> <span class="st">&#39;3&#39;</span>]</a></code></pre></div>
+<p>Du er nødt til å tenke gjennom hvordan gå gjennom argumentene slik at du kan skrive ut summen av dem. Det første elementet av process.argv array’et er alltid ‘node’, og det andre er alltid filstien til program.js filen. Derfor må du starte med det tredje elementet (index 2) også summere hvert element helt til du når enden av array’et.</p>
+<p>Vær oppmerksom på at alle elementer i <code>process.argv</code> er strenger og du må derfor <em>konvertere</em> dem til tall. Du kan gjøre dette med å brke <code>+</code> eller <code>Number()</code> som f.eks <code>+process.argv[2]</code> eller <code>Number(process.argv[2])</code>.</p>
+<p>{appname} sender inn argumentene til programmet ditt når du kjører <code>{appname} verify program.js</code> så du slipper å sende dem inn. For å teste programmet uten å verifisere kan du kjøre <code>{appname} run program.js</code>. Når du bruker <code>run</code>, kjører du test miljøet som {appname} setter opp for hver oppgave.</p>
+</body>
+</html>
