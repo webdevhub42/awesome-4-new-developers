@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>dtw</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="dtw-api">DTW API</h1>
+<h2 id="dtwoptions">DTW([options])</h2>
+<p>Initializes a new instance of the <code>DTW</code>. If no options are provided the squared euclidean distance function is used.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>[options]</strong>: <em>DTWOptions</em>, The options to initialize the dynamic time warping instance with.</p>
+<h2 id="class-dtwoptions">class DTWOptions</h2>
+<p><strong>Members</strong></p>
+<p><strong>distanceMetric</strong>: <em>string</em>, The distance metric to use: <code>'manhattan' | 'euclidean' | 'squaredEuclidean'</code>.</p>
+<p><strong>distanceFunction</strong>: <em>function</em>, The distance function to use. The function should accept two numeric arguments and return the numeric distance. e.g. function (a, b) { return a + b; }</p>
+<h2 id="class-dtw">class DTW</h2>
+<p><strong>Methods</strong></p>
+<h2 id="dtw.computefirstsequence-secondsequence-window">DTW.compute(firstSequence, secondSequence, [window])</h2>
+<p>Computes the optimal match between two provided sequences.</p>
+<p><strong>Parameters</strong></p>
+<p><strong>firstSequence</strong>: <em>number[]</em>, The first sequence.</p>
+<p><strong>secondSequence</strong>: <em>number[]</em>, The second sequence.</p>
+<p><strong>[window]</strong>: <em>number</em>, The window parameter (for the locality constraint) to use.</p>
+<p><strong>Returns</strong></p>
+<p><em>number</em>, The similarity between the provided temporal sequences.</p>
+<h2 id="dtw.path">DTW.path()</h2>
+<p>Retrieves the optimal match between two provided sequences.</p>
+<p><strong>Returns</strong></p>
+<p><em>number[]</em>, The array containing the optimal path points.</p>
+</body>
+</html>
