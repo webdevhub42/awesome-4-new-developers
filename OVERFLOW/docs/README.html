@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="the-railsbridge-documentation-project">The RailsBridge Documentation Project</h1>
+<p><a href="https://travis-ci.org/railsbridge/docs"><img src="https://travis-ci.org/railsbridge/docs.png" alt="Build Status" /></a></p>
+<h2 id="overview">Overview</h2>
+<p>This is a Sinatra app, deployed at <a href="http://docs.railsbridge.org" class="uri">http://docs.railsbridge.org</a>. The RailsBridge documentation project is home to a few subprojects, including the RailsBridge installfest instructions, which leads students through the various complicated setup instructions for getting Ruby, Rails, Git, etc. installed on their computer (whatever combination of computer, OS, and version they happened to bring to the workshop!), as well as the RailsBridge workshop “Suggestotron” curriculum.</p>
+<p>Each subproject (a “site”) comprises files stored under the “sites” directory; for instance, the installfest instructions are located at ROOT/sites/en/installfest, while the intro rails curriculum can be found under ROOT/sites/en/intro-to-rails. (The “en” means “English” – see “Locales” below.)</p>
+<p>These files can be in any of these formats:</p>
+<ul>
+<li><code>.step</code> for <a href="step_file_reference.md">StepFile</a></li>
+<li><code>.md</code> for <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a></li>
+<li><code>.mw</code> for MediaWiki (temporary)</li>
+<li><code>.deck.md</code> for <a href="https://github.com/alexch/deck.rb">deck.rb</a></li>
+</ul>
+<p>(If multiple files exist with the same base name, <code>.step</code> is preferred over <code>.md</code>, and <code>.md</code> over <code>.mw</code>.)</p>
+<h2 id="usage">Usage</h2>
+<pre><code>bundle install
+bundle exec rake run</code></pre>
+<p>If the above fails (say, because <code>rerun</code> doesn’t work on your system), try</p>
+<pre><code>rackup</code></pre>
+<p>Then open <a href="http://localhost:9292" class="uri">http://localhost:9292</a> in a web browser, and verify that you can navigate the installfest slides.</p>
+<h2 id="locales">Locales</h2>
+<p>To serve sites from “sites/en”, use <code>bundle exec rake run</code> or a vanilla deploy.</p>
+<p>To server sites from another locale (say, “es” or Spanish)…</p>
+<h3 id="run-localized-site-locally">Run Localized Site Locally</h3>
+<pre><code>$ SITE_LOCALE=es bundle exec rake run</code></pre>
+<p>The server listens on <code>0.0.0.0:9292</code>.</p>
+<p>Now you have to set up subdomain mappings for the site. If you have Pow, run:</p>
+<pre><code>$ echo 9292 &gt; ~/.pow/railsbridge # works for any subdomain</code></pre>
+<p>If you don’t have Pow, add the following line to <code>/etc/hosts</code>:</p>
+<pre><code>127.0.0.1 es.railsbridge.dev # works for single subdomain</code></pre>
+<p>Now you can access <code>http://es.railsbridge.dev:9292</code> for debugging.</p>
+<h3 id="running-on-a-server">Running on a Server</h3>
+<p>Just make sure the server responds to a locale subdomain: <code>http://es.railsbridge.org</code></p>
+<h3 id="temporary-testing">Temporary Testing</h3>
+<p>Use a <code>locale</code> or <code>l</code> parameter: <code>http://docs.railsbridge.org/?l=es</code>.</p>
+<p>Note that in this mode, links are not rewritten, so if they fail you will have to manually add the parameter again.</p>
+<h2 id="contributing">Contributing</h2>
+<p>Check out <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> to see how to join our <a href="https://github.com/railsbridge/docs/contributors">list of contributors</a>!</p>
+<h2 id="license">License</h2>
+<p>The documentation (including anything under the <code>sites</code> subdir as well as some hardcoded text elsewhere) is licensed under a Creative Commons license (<a href="http://creativecommons.org/licenses/by/3.0/">CC-BY, specifically</a>), which means you’re welcome to share, remix, or use our content commercially. We just ask for attribution.</p>
+<p>The code is licensed under an <a href="http://opensource.org/licenses/MIT">MIT license</a>, like Ruby itself. Copyright (c) 2010-2014 by RailsBridge.</p>
+<h2 id="other-resources">Other Resources</h2>
+<ul>
+<li><a href="step_file_reference.md">StepFile Reference</a></li>
+<li>Workshop organizers: See http://docs.railsbridge.org/workshop for example slide decks you can use in your opening/closing presentations.</li>
+</ul>
+</body>
+</html>
